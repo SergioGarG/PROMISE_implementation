@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/co4robots/turtlebot/src/communication_manager/devel/setup.sh

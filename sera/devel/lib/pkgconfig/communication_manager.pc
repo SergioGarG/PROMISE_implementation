@@ -1,0 +1,8 @@
+prefix=/home/sergio/repos/ICRA_implementation/sera/devel
+
+Name: communication_manager
+Description: Description of communication_manager
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/sergio/repos/ICRA_implementation/sera/devel/lib 
+Requires: 

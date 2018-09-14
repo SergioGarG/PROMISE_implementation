@@ -1,0 +1,2 @@
+communication_manager:local_mission_manager
+-DCATKIN_DEVEL_PREFIX=/home/sergio/repos/ICRA_implementation/sera/devel -DCMAKE_INSTALL_PREFIX=/home/sergio/repos/ICRA_implementation/sera/install -G Unix Makefiles

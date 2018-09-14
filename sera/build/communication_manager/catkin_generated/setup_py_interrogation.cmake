@@ -1,0 +1,6 @@
+set(communication_manager_SETUP_PY_VERSION "0.0.0")
+set(communication_manager_SETUP_PY_SCRIPTS "")
+set(communication_manager_SETUP_PY_PACKAGES "communication_manager")
+set(communication_manager_SETUP_PY_PACKAGE_DIRS "src/communication_manager")
+set(communication_manager_SETUP_PY_MODULES "")
+set(communication_manager_SETUP_PY_MODULE_DIRS "")

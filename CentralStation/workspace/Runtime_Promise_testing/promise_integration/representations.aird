@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co4robots.promise="http://gu.se/co4robots.promise" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_XoIu8LXdEeiMVa2-FegRZg" selectedViews="_hXqvULXdEeiMVa2-FegRZg" version="12.1.0.201708031200">
+    <semanticResources>mission2.promise</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_hXqvULXdEeiMVa2-FegRZg">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_iBgWgLXdEeiMVa2-FegRZg" name="new Missions diagram" repPath="#_h6K_cLXdEeiMVa2-FegRZg">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']"/>
+        <target xmi:type="co4robots.promise:Mission" href="mission2.promise#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_iBWlgLXdEeiMVa2-FegRZg" name="new Missions diagram" uid="_h6K_cLXdEeiMVa2-FegRZg">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_iBWlgbXdEeiMVa2-FegRZg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_iBWlgrXdEeiMVa2-FegRZg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_iB8bYLXdEeiMVa2-FegRZg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_iB8bYbXdEeiMVa2-FegRZg" type="Sirius" element="_iBWlgLXdEeiMVa2-FegRZg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_iCKd0LXdEeiMVa2-FegRZg" type="2001" element="_iBWlhLXdEeiMVa2-FegRZg">
+          <children xmi:type="notation:Node" xmi:id="_iCRykLXdEeiMVa2-FegRZg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_iCRykbXdEeiMVa2-FegRZg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iD1RwLXdEeiMVa2-FegRZg" type="3017" element="_iBWlhbXdEeiMVa2-FegRZg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_iD1RwbXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iD1RwrXdEeiMVa2-FegRZg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_iCKd0bXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iCKd0rXdEeiMVa2-FegRZg" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_iCxh0LXdEeiMVa2-FegRZg" type="2001" element="_iBWlqLXdEeiMVa2-FegRZg">
+          <children xmi:type="notation:Node" xmi:id="_iCxh07XdEeiMVa2-FegRZg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_iCxh1LXdEeiMVa2-FegRZg" y="-21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iD6KQLXdEeiMVa2-FegRZg" type="3005" element="_iBWlqbXdEeiMVa2-FegRZg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_iD6KQbXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iD6KQrXdEeiMVa2-FegRZg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_iCxh0bXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iCxh0rXdEeiMVa2-FegRZg" x="100" width="60" height="60"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_iDD1sLXdEeiMVa2-FegRZg" type="2001" element="_iBWlqrXdEeiMVa2-FegRZg">
+          <children xmi:type="notation:Node" xmi:id="_iDD1s7XdEeiMVa2-FegRZg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_iDD1tLXdEeiMVa2-FegRZg" y="-21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iD6xULXdEeiMVa2-FegRZg" type="3005" element="_iBWlq7XdEeiMVa2-FegRZg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_iD6xUbXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iD6xUrXdEeiMVa2-FegRZg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_iDD1sbXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iDD1srXdEeiMVa2-FegRZg" x="220" width="60" height="60"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_iDKjYrXdEeiMVa2-FegRZg" type="2001" element="_iBWluLXdEeiMVa2-FegRZg">
+          <children xmi:type="notation:Node" xmi:id="_iDKjZbXdEeiMVa2-FegRZg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_iDKjZrXdEeiMVa2-FegRZg" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iD7_drXdEeiMVa2-FegRZg" type="3005" element="_iBWlubXdEeiMVa2-FegRZg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_iD7_d7XdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iD7_eLXdEeiMVa2-FegRZg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_iDKjY7XdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iDKjZLXdEeiMVa2-FegRZg" x="1088" y="296" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_iDMYkLXdEeiMVa2-FegRZg" type="2001" element="_iBWlurXdEeiMVa2-FegRZg">
+          <children xmi:type="notation:Node" xmi:id="_iDM_oLXdEeiMVa2-FegRZg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_iDM_obXdEeiMVa2-FegRZg" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iD8mgLXdEeiMVa2-FegRZg" type="3005" element="_iBWlu7XdEeiMVa2-FegRZg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_iD8mgbXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iD8mgrXdEeiMVa2-FegRZg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_iDMYkbXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iDMYkrXdEeiMVa2-FegRZg" x="1040" y="196" width="40" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_iDy1gLXdEeiMVa2-FegRZg" type="2001" element="_iBXNb7XdEeiMVa2-FegRZg">
+          <children xmi:type="notation:Node" xmi:id="_iDy1g7XdEeiMVa2-FegRZg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_iDy1hLXdEeiMVa2-FegRZg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iErmU7XdEeiMVa2-FegRZg" type="3017" element="_iBXNcLXdEeiMVa2-FegRZg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_iErmVLXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iErmVbXdEeiMVa2-FegRZg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_iDy1gbXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iDy1grXdEeiMVa2-FegRZg" x="340" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_iDzckLXdEeiMVa2-FegRZg" type="2001" element="_iBXNcbXdEeiMVa2-FegRZg">
+          <children xmi:type="notation:Node" xmi:id="_iDzck7XdEeiMVa2-FegRZg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_iDzclLXdEeiMVa2-FegRZg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iErmVrXdEeiMVa2-FegRZg" type="3017" element="_iBXNcrXdEeiMVa2-FegRZg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_iErmV7XdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iErmWLXdEeiMVa2-FegRZg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_iDzckbXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iDzckrXdEeiMVa2-FegRZg" x="440" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_iDzclbXdEeiMVa2-FegRZg" type="2001" element="_iBXNc7XdEeiMVa2-FegRZg">
+          <children xmi:type="notation:Node" xmi:id="_iD0DoLXdEeiMVa2-FegRZg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_iD0DobXdEeiMVa2-FegRZg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iErmWbXdEeiMVa2-FegRZg" type="3017" element="_iBXNdLXdEeiMVa2-FegRZg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_iErmWrXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iErmW7XdEeiMVa2-FegRZg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_iDzclrXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iDzcl7XdEeiMVa2-FegRZg" x="540" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_iD0DorXdEeiMVa2-FegRZg" type="2001" element="_iBXNdbXdEeiMVa2-FegRZg">
+          <children xmi:type="notation:Node" xmi:id="_iD0DpbXdEeiMVa2-FegRZg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_iD0DprXdEeiMVa2-FegRZg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iEsNYLXdEeiMVa2-FegRZg" type="3017" element="_iBXNdrXdEeiMVa2-FegRZg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_iEsNYbXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iEsNYrXdEeiMVa2-FegRZg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_iD0Do7XdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iD0DpLXdEeiMVa2-FegRZg" x="640" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_gjjNgLZbEeiCkbDgB_pYFQ" type="2001" element="_gidBULZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gjotELZbEeiCkbDgB_pYFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_gjotEbZbEeiCkbDgB_pYFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gjwB0LZbEeiCkbDgB_pYFQ" type="3017" element="_gidoYLZbEeiCkbDgB_pYFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gjwB0bZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjwB0rZbEeiCkbDgB_pYFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_gjjNgbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjj0kLZbEeiCkbDgB_pYFQ" x="740" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_gjpUILZbEeiCkbDgB_pYFQ" type="2001" element="_gihSwLZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gjp7MLZbEeiCkbDgB_pYFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_gjp7MbZbEeiCkbDgB_pYFQ" x="-5" y="-21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gjwo4LZbEeiCkbDgB_pYFQ" type="3005" element="_gih50LZbEeiCkbDgB_pYFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gjwo4bZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjwo4rZbEeiCkbDgB_pYFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_gjpUIbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjpUIrZbEeiCkbDgB_pYFQ" x="940" y="96" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_gjs-gLZbEeiCkbDgB_pYFQ" type="2001" element="_giig4LZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gjs-g7ZbEeiCkbDgB_pYFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_gjs-hLZbEeiCkbDgB_pYFQ" x="-1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gjxP8LZbEeiCkbDgB_pYFQ" type="3005" element="_gijH8LZbEeiCkbDgB_pYFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gjxP8bZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjxP8rZbEeiCkbDgB_pYFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_gjs-gbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjs-grZbEeiCkbDgB_pYFQ" x="1140" y="196" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_gjtlkLZbEeiCkbDgB_pYFQ" type="2001" element="_gitgALZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gjtlk7ZbEeiCkbDgB_pYFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_gjtllLZbEeiCkbDgB_pYFQ" x="-5" y="-21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gjxP87ZbEeiCkbDgB_pYFQ" type="3001" element="_gixKYLZbEeiCkbDgB_pYFQ">
+            <children xmi:type="notation:Node" xmi:id="_gjx3ALZbEeiCkbDgB_pYFQ" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_gjx3AbZbEeiCkbDgB_pYFQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_gjyeELZbEeiCkbDgB_pYFQ" type="3002" element="_gixxcLZbEeiCkbDgB_pYFQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_gjyeEbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjyeErZbEeiCkbDgB_pYFQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gjxP9LZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjxP9bZbEeiCkbDgB_pYFQ" x="32" width="40" height="40"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gjx3ArZbEeiCkbDgB_pYFQ" type="3005" element="_giuHELZbEeiCkbDgB_pYFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gjx3A7ZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjx3BLZbEeiCkbDgB_pYFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_gjtlkbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjtlkrZbEeiCkbDgB_pYFQ" x="1040" y="96" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_gjtllbZbEeiCkbDgB_pYFQ" type="2001" element="_giuHEbZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gjuMoLZbEeiCkbDgB_pYFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_gjuMobZbEeiCkbDgB_pYFQ" x="-5" y="-21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gjzsMLZbEeiCkbDgB_pYFQ" type="3001" element="_giyYgLZbEeiCkbDgB_pYFQ">
+            <children xmi:type="notation:Node" xmi:id="_gjzsM7ZbEeiCkbDgB_pYFQ" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_gjzsNLZbEeiCkbDgB_pYFQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_gj0TQ7ZbEeiCkbDgB_pYFQ" type="3002" element="_giyYgbZbEeiCkbDgB_pYFQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_gj0TRLZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj0TRbZbEeiCkbDgB_pYFQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gjzsMbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjzsMrZbEeiCkbDgB_pYFQ" x="32" width="40" height="40"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj0TQLZbEeiCkbDgB_pYFQ" type="3005" element="_giuuILZbEeiCkbDgB_pYFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gj0TQbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj0TQrZbEeiCkbDgB_pYFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_gjtllrZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjtll7ZbEeiCkbDgB_pYFQ" x="940" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_gjuMorZbEeiCkbDgB_pYFQ" type="2001" element="_giuuIbZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gjuMpbZbEeiCkbDgB_pYFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_gjuMprZbEeiCkbDgB_pYFQ" x="-5" y="-21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj06VbZbEeiCkbDgB_pYFQ" type="3005" element="_givVMLZbEeiCkbDgB_pYFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gj06VrZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj06V7ZbEeiCkbDgB_pYFQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_k_M5cLZbEeiCkbDgB_pYFQ" type="3001" element="_k_HZ4LZbEeiCkbDgB_pYFQ">
+            <children xmi:type="notation:Node" xmi:id="_k_OHkLZbEeiCkbDgB_pYFQ" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_k_OHkbZbEeiCkbDgB_pYFQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_k_OHkrZbEeiCkbDgB_pYFQ" type="3002" element="_k_HZ4bZbEeiCkbDgB_pYFQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_k_OHk7ZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k_OHlLZbEeiCkbDgB_pYFQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_k_M5cbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k_NggLZbEeiCkbDgB_pYFQ" x="32" width="40" height="40"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_gjuMo7ZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjuMpLZbEeiCkbDgB_pYFQ" x="1040" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_gjuzsLZbEeiCkbDgB_pYFQ" type="2001" element="_givVMbZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gjuzs7ZbEeiCkbDgB_pYFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_gjuztLZbEeiCkbDgB_pYFQ" x="-5" y="-21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj1hY7ZbEeiCkbDgB_pYFQ" type="3001" element="_gi0NsLZbEeiCkbDgB_pYFQ">
+            <children xmi:type="notation:Node" xmi:id="_gj1hZrZbEeiCkbDgB_pYFQ" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_gj1hZ7ZbEeiCkbDgB_pYFQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_gj2Ic7ZbEeiCkbDgB_pYFQ" type="3002" element="_gi0NsbZbEeiCkbDgB_pYFQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_gj2IdLZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj2IdbZbEeiCkbDgB_pYFQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gj1hZLZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj1hZbZbEeiCkbDgB_pYFQ" x="32" width="40" height="40"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj2IcLZbEeiCkbDgB_pYFQ" type="3005" element="_giv8QLZbEeiCkbDgB_pYFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gj2IcbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj2IcrZbEeiCkbDgB_pYFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_gjuzsbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjuzsrZbEeiCkbDgB_pYFQ" x="808" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_gjuztbZbEeiCkbDgB_pYFQ" type="2001" element="_giv8QbZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gjvawLZbEeiCkbDgB_pYFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_gjvawbZbEeiCkbDgB_pYFQ" x="-5" y="-21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj2IdrZbEeiCkbDgB_pYFQ" type="3001" element="_gi1b0LZbEeiCkbDgB_pYFQ">
+            <children xmi:type="notation:Node" xmi:id="_gj2vgLZbEeiCkbDgB_pYFQ" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_gj2vgbZbEeiCkbDgB_pYFQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_gj2vhbZbEeiCkbDgB_pYFQ" type="3002" element="_gi1b0bZbEeiCkbDgB_pYFQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_gj2vhrZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj2vh7ZbEeiCkbDgB_pYFQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gj2Id7ZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj2IeLZbEeiCkbDgB_pYFQ" x="32" width="40" height="40"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj2vgrZbEeiCkbDgB_pYFQ" type="3005" element="_giv8QrZbEeiCkbDgB_pYFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gj2vg7ZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj2vhLZbEeiCkbDgB_pYFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_gjuztrZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjuzt7ZbEeiCkbDgB_pYFQ" x="1140" y="96" width="40" height="40"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_gjvawrZbEeiCkbDgB_pYFQ" type="2001" element="_giwjULZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gjvaxbZbEeiCkbDgB_pYFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_gjvaxrZbEeiCkbDgB_pYFQ" x="-5" y="-21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj3WkLZbEeiCkbDgB_pYFQ" type="3001" element="_gi2p8LZbEeiCkbDgB_pYFQ">
+            <children xmi:type="notation:Node" xmi:id="_gj3Wk7ZbEeiCkbDgB_pYFQ" type="5001">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_gj3WlLZbEeiCkbDgB_pYFQ" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_gj39oLZbEeiCkbDgB_pYFQ" type="3002" element="_gi3RALZbEeiCkbDgB_pYFQ">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_gj39obZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj39orZbEeiCkbDgB_pYFQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gj3WkbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj3WkrZbEeiCkbDgB_pYFQ" x="32" width="40" height="40"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj3WlbZbEeiCkbDgB_pYFQ" type="3005" element="_giwjUbZbEeiCkbDgB_pYFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_gj3WlrZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj3Wl7ZbEeiCkbDgB_pYFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_gjvaw7ZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gjvaxLZbEeiCkbDgB_pYFQ" x="1240" y="96" width="40" height="40"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_iB8bYrXdEeiMVa2-FegRZg"/>
+        <edges xmi:type="notation:Edge" xmi:id="_iFW7wrXdEeiMVa2-FegRZg" type="4001" element="_iBXzoLXdEeiMVa2-FegRZg" source="_iDKjYrXdEeiMVa2-FegRZg" target="_iDMYkLXdEeiMVa2-FegRZg">
+          <children xmi:type="notation:Node" xmi:id="_iFW7xrXdEeiMVa2-FegRZg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iFW7x7XdEeiMVa2-FegRZg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iFW7yLXdEeiMVa2-FegRZg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iFW7ybXdEeiMVa2-FegRZg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_iFW7yrXdEeiMVa2-FegRZg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iFW7y7XdEeiMVa2-FegRZg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_iFW7w7XdEeiMVa2-FegRZg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_iFW7xLXdEeiMVa2-FegRZg" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_iFW7xbXdEeiMVa2-FegRZg" points="[0, 0, 50, 60]$[-50, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iFW7zLXdEeiMVa2-FegRZg" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iFW7zbXdEeiMVa2-FegRZg" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_gj5LwLZbEeiCkbDgB_pYFQ" type="4001" element="_gi_z4LZbEeiCkbDgB_pYFQ" source="_iDMYkLXdEeiMVa2-FegRZg" target="_gjtlkLZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gj6Z4LZbEeiCkbDgB_pYFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj6Z4bZbEeiCkbDgB_pYFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj7A8LZbEeiCkbDgB_pYFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj7A8bZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj7A8rZbEeiCkbDgB_pYFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj7A87ZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_gj5LwbZbEeiCkbDgB_pYFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_gj5LwrZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gj5Lw7ZbEeiCkbDgB_pYFQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gj-EQLZbEeiCkbDgB_pYFQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gj-EQbZbEeiCkbDgB_pYFQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_gj-rULZbEeiCkbDgB_pYFQ" type="4001" element="_gi_z47ZbEeiCkbDgB_pYFQ" source="_iDMYkLXdEeiMVa2-FegRZg" target="_gjpUILZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gj-rVLZbEeiCkbDgB_pYFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj-rVbZbEeiCkbDgB_pYFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj-rVrZbEeiCkbDgB_pYFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj-rV7ZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj-rWLZbEeiCkbDgB_pYFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj-rWbZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_gj-rUbZbEeiCkbDgB_pYFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_gj-rUrZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gj-rU7ZbEeiCkbDgB_pYFQ" points="[0, 0, 100, 60]$[-100, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gj-rWrZbEeiCkbDgB_pYFQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gj-rW7ZbEeiCkbDgB_pYFQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_gj-rXLZbEeiCkbDgB_pYFQ" type="4001" element="_gjAa8LZbEeiCkbDgB_pYFQ" source="_iDKjYrXdEeiMVa2-FegRZg" target="_gjs-gLZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gj_SY7ZbEeiCkbDgB_pYFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj_SZLZbEeiCkbDgB_pYFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj_SZbZbEeiCkbDgB_pYFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj_SZrZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj_SZ7ZbEeiCkbDgB_pYFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj_SaLZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_gj_SYLZbEeiCkbDgB_pYFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_gj_SYbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gj_SYrZbEeiCkbDgB_pYFQ" points="[0, 0, -50, 60]$[50, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gj_SabZbEeiCkbDgB_pYFQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gj_SarZbEeiCkbDgB_pYFQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_gj_Sa7ZbEeiCkbDgB_pYFQ" type="4001" element="_gjAa87ZbEeiCkbDgB_pYFQ" source="_gjpUILZbEeiCkbDgB_pYFQ" target="_gjtllbZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gj_5cLZbEeiCkbDgB_pYFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj_5cbZbEeiCkbDgB_pYFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj_5crZbEeiCkbDgB_pYFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj_5c7ZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj_5dLZbEeiCkbDgB_pYFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj_5dbZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_gj_SbLZbEeiCkbDgB_pYFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_gj_SbbZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gj_SbrZbEeiCkbDgB_pYFQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gj_5drZbEeiCkbDgB_pYFQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gj_5d7ZbEeiCkbDgB_pYFQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_gj_5eLZbEeiCkbDgB_pYFQ" type="4001" element="_gjBCALZbEeiCkbDgB_pYFQ" source="_gjpUILZbEeiCkbDgB_pYFQ" target="_gjuMorZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gj_5fLZbEeiCkbDgB_pYFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj_5fbZbEeiCkbDgB_pYFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gj_5frZbEeiCkbDgB_pYFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gj_5f7ZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gkAggLZbEeiCkbDgB_pYFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gkAggbZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_gj_5ebZbEeiCkbDgB_pYFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_gj_5erZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gj_5e7ZbEeiCkbDgB_pYFQ" points="[0, 0, -100, 60]$[100, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gkAggrZbEeiCkbDgB_pYFQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gkAgg7ZbEeiCkbDgB_pYFQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_gkAghLZbEeiCkbDgB_pYFQ" type="4001" element="_gjBCA7ZbEeiCkbDgB_pYFQ" source="_gjpUILZbEeiCkbDgB_pYFQ" target="_gjuzsLZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gkAgiLZbEeiCkbDgB_pYFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gkAgibZbEeiCkbDgB_pYFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gkAgirZbEeiCkbDgB_pYFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gkAgi7ZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gkAgjLZbEeiCkbDgB_pYFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gkAgjbZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_gkAghbZbEeiCkbDgB_pYFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_gkAghrZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gkAgh7ZbEeiCkbDgB_pYFQ" points="[0, 0, 100, 60]$[-100, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gkAgjrZbEeiCkbDgB_pYFQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gkAgj7ZbEeiCkbDgB_pYFQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_gkBHkLZbEeiCkbDgB_pYFQ" type="4001" element="_gjBCBrZbEeiCkbDgB_pYFQ" source="_gjs-gLZbEeiCkbDgB_pYFQ" target="_gjuztbZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gkBHlLZbEeiCkbDgB_pYFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gkBHlbZbEeiCkbDgB_pYFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gkBHlrZbEeiCkbDgB_pYFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gkBHl7ZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gkBHmLZbEeiCkbDgB_pYFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gkBHmbZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_gkBHkbZbEeiCkbDgB_pYFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_gkBHkrZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gkBHk7ZbEeiCkbDgB_pYFQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gkBHmrZbEeiCkbDgB_pYFQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gkBHm7ZbEeiCkbDgB_pYFQ" id="(0.5,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_gkBHnLZbEeiCkbDgB_pYFQ" type="4001" element="_gjBpELZbEeiCkbDgB_pYFQ" source="_gjs-gLZbEeiCkbDgB_pYFQ" target="_gjvawrZbEeiCkbDgB_pYFQ">
+          <children xmi:type="notation:Node" xmi:id="_gkBHoLZbEeiCkbDgB_pYFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gkBHobZbEeiCkbDgB_pYFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gkBHorZbEeiCkbDgB_pYFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gkBHo7ZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_gkBHpLZbEeiCkbDgB_pYFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gkBHpbZbEeiCkbDgB_pYFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_gkBHnbZbEeiCkbDgB_pYFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_gkBHnrZbEeiCkbDgB_pYFQ" fontName=".AppleSystemUIFont" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gkBHn7ZbEeiCkbDgB_pYFQ" points="[0, 0, -100, 60]$[100, -60, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gkBuoLZbEeiCkbDgB_pYFQ" id="(0.5,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gkBuobZbEeiCkbDgB_pYFQ" id="(0.5,1.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlhLXdEeiMVa2-FegRZg" name="help" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:Event" href="mission2.promise#//@conditions.0"/>
+      <semanticElements xmi:type="co4robots.promise:Event" href="mission2.promise#//@conditions.0"/>
+      <ownedStyle xmi:type="diagram:Lozenge" xmi:id="_iBWlhbXdEeiMVa2-FegRZg" showIcon="false" labelPosition="node" color="138,226,52">
+        <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlqLXdEeiMVa2-FegRZg" name="robot1" width="6" height="6" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:Robot" href="mission2.promise#//@robots.0"/>
+      <semanticElements xmi:type="co4robots.promise:Robot" href="mission2.promise#//@robots.0"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_iBWlqbXdEeiMVa2-FegRZg" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/robot-design_318-64470.jpg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='RobotNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='RobotNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlqrXdEeiMVa2-FegRZg" name="robot2" width="6" height="6" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:Robot" href="mission2.promise#//@robots.1"/>
+      <semanticElements xmi:type="co4robots.promise:Robot" href="mission2.promise#//@robots.1"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_iBWlq7XdEeiMVa2-FegRZg" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/robot-design_318-64470.jpg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='RobotNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='RobotNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWluLXdEeiMVa2-FegRZg" outgoingEdges="_iBXzoLXdEeiMVa2-FegRZg _gjAa8LZbEeiCkbDgB_pYFQ" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:ParallelOp" href="mission2.promise#//@operator.0"/>
+      <semanticElements xmi:type="co4robots.promise:ParallelOp" href="mission2.promise#//@operator.0"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_iBWlubXdEeiMVa2-FegRZg" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/parallel.png">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ParallelOpNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ParallelOpNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlurXdEeiMVa2-FegRZg" outgoingEdges="_gi_z4LZbEeiCkbDgB_pYFQ _gi_z47ZbEeiCkbDgB_pYFQ" incomingEdges="_iBXzoLXdEeiMVa2-FegRZg" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:EventHandlerOp" href="mission2.promise#//@operator.0/@inputOperators.0"/>
+      <semanticElements xmi:type="co4robots.promise:EventHandlerOp" href="mission2.promise#//@operator.0/@inputOperators.0"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_iBWlu7XdEeiMVa2-FegRZg" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/eventhandler.png">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventHandlerOpNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventHandlerOpNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBXNb7XdEeiMVa2-FegRZg" name="l0" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:NotOrderedLocation" href="mission2.promise#//@location.0"/>
+      <semanticElements xmi:type="co4robots.promise:NotOrderedLocation" href="mission2.promise#//@location.0"/>
+      <ownedStyle xmi:type="diagram:Lozenge" xmi:id="_iBXNcLXdEeiMVa2-FegRZg" showIcon="false" labelPosition="node" color="173,127,168">
+        <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBXNcbXdEeiMVa2-FegRZg" name="l1" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:NotOrderedLocation" href="mission2.promise#//@location.1"/>
+      <semanticElements xmi:type="co4robots.promise:NotOrderedLocation" href="mission2.promise#//@location.1"/>
+      <ownedStyle xmi:type="diagram:Lozenge" xmi:id="_iBXNcrXdEeiMVa2-FegRZg" showIcon="false" labelPosition="node" color="173,127,168">
+        <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBXNc7XdEeiMVa2-FegRZg" name="l2" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:NotOrderedLocation" href="mission2.promise#//@location.2"/>
+      <semanticElements xmi:type="co4robots.promise:NotOrderedLocation" href="mission2.promise#//@location.2"/>
+      <ownedStyle xmi:type="diagram:Lozenge" xmi:id="_iBXNdLXdEeiMVa2-FegRZg" showIcon="false" labelPosition="node" color="173,127,168">
+        <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBXNdbXdEeiMVa2-FegRZg" name="l3" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:NotOrderedLocation" href="mission2.promise#//@location.3"/>
+      <semanticElements xmi:type="co4robots.promise:NotOrderedLocation" href="mission2.promise#//@location.3"/>
+      <ownedStyle xmi:type="diagram:Lozenge" xmi:id="_iBXNdrXdEeiMVa2-FegRZg" showIcon="false" labelPosition="node" color="173,127,168">
+        <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_iBXzoLXdEeiMVa2-FegRZg" sourceNode="_iBWluLXdEeiMVa2-FegRZg" targetNode="_iBWlurXdEeiMVa2-FegRZg">
+      <target xmi:type="co4robots.promise:ParallelOp" href="mission2.promise#//@operator.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_iBXzobXdEeiMVa2-FegRZg" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_iBXzorXdEeiMVa2-FegRZg"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_gidBULZbEeiCkbDgB_pYFQ" name="a1" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:Action" href="mission2.promise#//@conditions.1"/>
+      <semanticElements xmi:type="co4robots.promise:Action" href="mission2.promise#//@conditions.1"/>
+      <ownedStyle xmi:type="diagram:Lozenge" xmi:id="_gidoYLZbEeiCkbDgB_pYFQ" showIcon="false" labelPosition="node" color="239,41,41">
+        <description xmi:type="style:LozengeNodeDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ActionNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ActionNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_gihSwLZbEeiCkbDgB_pYFQ" name="Trig. by: help" outgoingEdges="_gjAa87ZbEeiCkbDgB_pYFQ _gjBCALZbEeiCkbDgB_pYFQ _gjBCA7ZbEeiCkbDgB_pYFQ" incomingEdges="_gi_z47ZbEeiCkbDgB_pYFQ" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1"/>
+      <semanticElements xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_gih50LZbEeiCkbDgB_pYFQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/sequence.jpg">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_giig4LZbEeiCkbDgB_pYFQ" outgoingEdges="_gjBCBrZbEeiCkbDgB_pYFQ _gjBpELZbEeiCkbDgB_pYFQ" incomingEdges="_gjAa8LZbEeiCkbDgB_pYFQ" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.1"/>
+      <semanticElements xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.1"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_gijH8LZbEeiCkbDgB_pYFQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/sequence.jpg">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_gitgALZbEeiCkbDgB_pYFQ" name="l0l1" incomingEdges="_gi_z4LZbEeiCkbDgB_pYFQ" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0"/>
+      <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_gixKYLZbEeiCkbDgB_pYFQ" name="Patrolling" width="4" height="4" resizeKind="NSEW">
+        <target xmi:type="co4robots.promise:Patrolling" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0/@pattern"/>
+        <semanticElements xmi:type="co4robots.promise:Patrolling" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0/@pattern"/>
+        <ownedStyle xmi:type="diagram:Dot" xmi:id="_gixxcLZbEeiCkbDgB_pYFQ" showIcon="false" labelPosition="node" backgroundColor="114,159,207">
+          <description xmi:type="style:DotDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='PatrollingNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='PatrollingNode']"/>
+      </ownedBorderedNodes>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_giuHELZbEeiCkbDgB_pYFQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/delegate.png">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_giuHEbZbEeiCkbDgB_pYFQ" name="l2" incomingEdges="_gjAa87ZbEeiCkbDgB_pYFQ" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.0"/>
+      <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.0"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_giyYgLZbEeiCkbDgB_pYFQ" name="Visit" width="4" height="4" resizeKind="NSEW">
+        <target xmi:type="co4robots.promise:Visit" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.0/@pattern"/>
+        <semanticElements xmi:type="co4robots.promise:Visit" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.0/@pattern"/>
+        <ownedStyle xmi:type="diagram:Dot" xmi:id="_giyYgbZbEeiCkbDgB_pYFQ" showIcon="false" labelPosition="node" backgroundColor="114,159,207">
+          <description xmi:type="style:DotDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='VisitNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='VisitNode']"/>
+      </ownedBorderedNodes>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_giuuILZbEeiCkbDgB_pYFQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/delegate.png">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_giuuIbZbEeiCkbDgB_pYFQ" name="a1&#xA;Stop if: help" incomingEdges="_gjBCALZbEeiCkbDgB_pYFQ" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.1"/>
+      <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.1"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_k_HZ4LZbEeiCkbDgB_pYFQ" name="SimpleAction" width="4" height="4" resizeKind="NSEW">
+        <target xmi:type="co4robots.promise:SimpleAction" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.1/@pattern"/>
+        <semanticElements xmi:type="co4robots.promise:SimpleAction" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.1/@pattern"/>
+        <ownedStyle xmi:type="diagram:Dot" xmi:id="_k_HZ4bZbEeiCkbDgB_pYFQ" showIcon="false" labelPosition="node" backgroundColor="239,41,41">
+          <description xmi:type="style:DotDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='SimpleActionNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='SimpleActionNode']"/>
+      </ownedBorderedNodes>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_givVMLZbEeiCkbDgB_pYFQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/delegate.png">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_givVMbZbEeiCkbDgB_pYFQ" name="l3" incomingEdges="_gjBCA7ZbEeiCkbDgB_pYFQ" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.2"/>
+      <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.2"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_gi0NsLZbEeiCkbDgB_pYFQ" name="Visit" width="4" height="4" resizeKind="NSEW">
+        <target xmi:type="co4robots.promise:Visit" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.2/@pattern"/>
+        <semanticElements xmi:type="co4robots.promise:Visit" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.2/@pattern"/>
+        <ownedStyle xmi:type="diagram:Dot" xmi:id="_gi0NsbZbEeiCkbDgB_pYFQ" showIcon="false" labelPosition="node" backgroundColor="114,159,207">
+          <description xmi:type="style:DotDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='VisitNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='VisitNode']"/>
+      </ownedBorderedNodes>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_giv8QLZbEeiCkbDgB_pYFQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/delegate.png">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_giv8QbZbEeiCkbDgB_pYFQ" name="l0" incomingEdges="_gjBCBrZbEeiCkbDgB_pYFQ" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0"/>
+      <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_gi1b0LZbEeiCkbDgB_pYFQ" name="Visit" width="4" height="4" resizeKind="NSEW">
+        <target xmi:type="co4robots.promise:Visit" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@pattern"/>
+        <semanticElements xmi:type="co4robots.promise:Visit" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@pattern"/>
+        <ownedStyle xmi:type="diagram:Dot" xmi:id="_gi1b0bZbEeiCkbDgB_pYFQ" showIcon="false" labelPosition="node" backgroundColor="114,159,207">
+          <description xmi:type="style:DotDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='VisitNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='VisitNode']"/>
+      </ownedBorderedNodes>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_giv8QrZbEeiCkbDgB_pYFQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/delegate.png">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_giwjULZbEeiCkbDgB_pYFQ" name="l2" incomingEdges="_gjBpELZbEeiCkbDgB_pYFQ" width="4" height="4" resizeKind="NSEW">
+      <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.1"/>
+      <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.1"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_gi2p8LZbEeiCkbDgB_pYFQ" name="Visit" width="4" height="4" resizeKind="NSEW">
+        <target xmi:type="co4robots.promise:Visit" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.1/@pattern"/>
+        <semanticElements xmi:type="co4robots.promise:Visit" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.1/@pattern"/>
+        <ownedStyle xmi:type="diagram:Dot" xmi:id="_gi3RALZbEeiCkbDgB_pYFQ" showIcon="false" labelPosition="node" backgroundColor="114,159,207">
+          <description xmi:type="style:DotDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='VisitNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='VisitNode']"/>
+      </ownedBorderedNodes>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_giwjUbZbEeiCkbDgB_pYFQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/se.gu.co4robots.promise/icons/delegate.png">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_gi_z4LZbEeiCkbDgB_pYFQ" sourceNode="_iBWlurXdEeiMVa2-FegRZg" targetNode="_gitgALZbEeiCkbDgB_pYFQ">
+      <target xmi:type="co4robots.promise:EventHandlerOp" href="mission2.promise#//@operator.0/@inputOperators.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gi_z4bZbEeiCkbDgB_pYFQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gi_z4rZbEeiCkbDgB_pYFQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_gi_z47ZbEeiCkbDgB_pYFQ" sourceNode="_iBWlurXdEeiMVa2-FegRZg" targetNode="_gihSwLZbEeiCkbDgB_pYFQ">
+      <target xmi:type="co4robots.promise:EventHandlerOp" href="mission2.promise#//@operator.0/@inputOperators.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gi_z5LZbEeiCkbDgB_pYFQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gi_z5bZbEeiCkbDgB_pYFQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_gjAa8LZbEeiCkbDgB_pYFQ" sourceNode="_iBWluLXdEeiMVa2-FegRZg" targetNode="_giig4LZbEeiCkbDgB_pYFQ">
+      <target xmi:type="co4robots.promise:ParallelOp" href="mission2.promise#//@operator.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gjAa8bZbEeiCkbDgB_pYFQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gjAa8rZbEeiCkbDgB_pYFQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_gjAa87ZbEeiCkbDgB_pYFQ" sourceNode="_gihSwLZbEeiCkbDgB_pYFQ" targetNode="_giuHEbZbEeiCkbDgB_pYFQ">
+      <target xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gjAa9LZbEeiCkbDgB_pYFQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gjAa9bZbEeiCkbDgB_pYFQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_gjBCALZbEeiCkbDgB_pYFQ" sourceNode="_gihSwLZbEeiCkbDgB_pYFQ" targetNode="_giuuIbZbEeiCkbDgB_pYFQ">
+      <target xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gjBCAbZbEeiCkbDgB_pYFQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gjBCArZbEeiCkbDgB_pYFQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_gjBCA7ZbEeiCkbDgB_pYFQ" sourceNode="_gihSwLZbEeiCkbDgB_pYFQ" targetNode="_givVMbZbEeiCkbDgB_pYFQ">
+      <target xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gjBCBLZbEeiCkbDgB_pYFQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gjBCBbZbEeiCkbDgB_pYFQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_gjBCBrZbEeiCkbDgB_pYFQ" sourceNode="_giig4LZbEeiCkbDgB_pYFQ" targetNode="_giv8QbZbEeiCkbDgB_pYFQ">
+      <target xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gjBCB7ZbEeiCkbDgB_pYFQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gjBCCLZbEeiCkbDgB_pYFQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_gjBpELZbEeiCkbDgB_pYFQ" sourceNode="_giig4LZbEeiCkbDgB_pYFQ" targetNode="_giwjULZbEeiCkbDgB_pYFQ">
+      <target xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_gjBpEbZbEeiCkbDgB_pYFQ" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_gjBpErZbEeiCkbDgB_pYFQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_iBX0QrXdEeiMVa2-FegRZg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer"/>
+    <target xmi:type="co4robots.promise:Mission" href="mission2.promise#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

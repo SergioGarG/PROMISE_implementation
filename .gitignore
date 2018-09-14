@@ -1,0 +1,14 @@
+*.aux
+*.bbl
+*.blg
+*.soc
+*.toc
+*.log
+*.out
+*.pyc
+*.synctex.gz
+deliverableD4.1.pdf
+*.*~
+/target
+/devel
+/build

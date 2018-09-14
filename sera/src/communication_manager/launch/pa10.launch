@@ -1,0 +1,14 @@
+<launch>
+	<node pkg="communication_manager" type="communication_manager_node" name="communication_manager_pa10" output="screen">
+	
+		# The port in which the server is running
+        	<param name="port" value="11000" />
+        	# The port where the subscriber is running
+		<param name="pubsubport" value="11001" />
+	
+		# The list of the topics forwarded by the subscriber
+		<param name="forwardedtopics" value="/pa10/mission_locations,/pa10/mission_actions" />
+		# The ROS topic where the messages reveived by the server are forwarded
+		<param name="topicName" value="/pa10/local_mission" />
+	</node>
+</launch>

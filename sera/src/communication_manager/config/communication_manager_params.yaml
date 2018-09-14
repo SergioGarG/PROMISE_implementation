@@ -1,0 +1,7 @@
+#parameters for the communication_manager node
+communication_manager:
+    # The port that is used to receive the local missions
+    port: 8080
+    pubsubport: 
+    mission_locations: 'mission_locations'
+    mission_actions:  'mission_actions'

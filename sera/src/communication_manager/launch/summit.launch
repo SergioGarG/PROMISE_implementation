@@ -1,0 +1,14 @@
+<launch>
+	<node pkg="communication_manager" type="communication_manager_node" name="communication_manager_summit" output="screen">
+	
+		# The port in which the server is running
+        	<param name="port" value="12000" />
+        	# The port where the subscriber is running
+		<param name="pubsubport" value="12001" />
+	
+		# The list of the topics forwarded by the subscriber
+		<param name="forwardedtopics" value="/summit/mission_locations,/summit/mission_actions" />
+		# The ROS topic where the messages reveived by the server are forwarded
+		<param name="topicName" value="/summit_xl/local_mission/ext" />
+	</node>
+</launch>

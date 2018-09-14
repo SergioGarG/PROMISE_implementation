@@ -1,0 +1,8 @@
+prefix=/home/sergio/repos/ICRA_implementation/sera/install
+
+Name: local_mission_manager
+Description: Description of local_mission_manager
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/sergio/repos/ICRA_implementation/sera/install/lib 
+Requires: 

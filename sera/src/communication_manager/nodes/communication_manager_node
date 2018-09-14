@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+from communication_manager import main
+
+
+print "Starting the communication manager component"
+if __name__ == '__main__':
+	main()
