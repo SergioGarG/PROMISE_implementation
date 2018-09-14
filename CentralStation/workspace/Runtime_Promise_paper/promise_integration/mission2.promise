@@ -4,7 +4,7 @@
 
 
 
-mission{  
+mission{   
 	conditions{
 		events:
 			e1: "guest_lt1", 
@@ -27,7 +27,7 @@ mission{
 			a5: "grab_tray", 
 			a6: "release_tray"}               
 	robots robot1,robot2
-	locations {not ordered: lstart, lt1, lt2, lkitchen}
+	locations {not ordered: lstart, l1, l2, lkitchen}
 	operators {
 		parallel( 
 			//robot1 
@@ -41,14 +41,14 @@ mission{
 						if ea1 then(delegate( robot robot1 does Visit locations lstart affecting event ea1 ) )
 						if ef1 then(sequence( 
 							delegate ( robot robot1 does SimpleAction actions al1),
-							delegate ( robot robot1 does Visit locations lt1  ),
+							delegate ( robot robot1 does Visit locations l1  ),
 							delegate ( robot robot1 does SimpleAction actions a1),
 							delegate ( robot robot1 does SimpleAction actions a2),
 							delegate ( robot robot1 does Visit locations lkitchen stoppingEvents : estop ) ,
 							delegate ( robot robot1 does SimpleAction actions a3), 
 							delegate ( robot robot1 does SimpleAction actions a4 ) , 
 							delegate ( robot robot1 does SimpleAction actions a5 ) , 
-							delegate ( robot robot1 does Visit locations lt1 ), 
+							delegate ( robot robot1 does Visit locations l1 ), 
 							delegate ( robot robot1 does SimpleAction actions a6 ) , 
 							delegate ( robot robot1 does Visit locations lkitchen),
 							delegate ( robot robot1 does SimpleAction actions ar1) affecting event ef1)) 
@@ -60,14 +60,14 @@ mission{
 						if ea2 then(delegate( robot robot1 does Visit locations lstart affecting event ea2 ) )
 						if ef2 then(sequence( 
 							delegate ( robot robot1 does SimpleAction actions al2),
-							delegate ( robot robot1 does Visit locations lt2 ),
+							delegate ( robot robot1 does Visit locations l2 ),
 							delegate ( robot robot1 does SimpleAction actions a1),
 							delegate ( robot robot1 does SimpleAction actions a2),
 							delegate ( robot robot1 does Visit locations lkitchen stoppingEvents : estop ) ,
 							delegate ( robot robot1 does SimpleAction actions a3), 
 							delegate ( robot robot1 does SimpleAction actions a4 ) , 
 							delegate ( robot robot1 does SimpleAction actions a5 ) , 
-							delegate ( robot robot1 does Visit locations lt2), 
+							delegate ( robot robot1 does Visit locations l2), 
 							delegate ( robot robot1 does SimpleAction actions a6 ) , 
 							delegate ( robot robot1 does Visit locations lkitchen),
 							delegate ( robot robot1 does SimpleAction actions ar2) affecting event ef2))
@@ -89,14 +89,14 @@ mission{
 						if ea1 then(delegate( robot robot2 does Visit locations lstart affecting event ea1 ) )
 						if ef1 then(sequence( 
 							delegate ( robot robot2 does SimpleAction actions al1),
-							delegate ( robot robot2 does Visit locations lt1  ),
+							delegate ( robot robot2 does Visit locations l1  ),
 							delegate ( robot robot2 does SimpleAction actions a1),
 							delegate ( robot robot2 does SimpleAction actions a2),
 							delegate ( robot robot2 does Visit locations lkitchen stoppingEvents : estop ) ,
 							delegate ( robot robot2 does SimpleAction actions a3), 
 							delegate ( robot robot2 does SimpleAction actions a4 ) , 
 							delegate ( robot robot2 does SimpleAction actions a5 ) , 
-							delegate ( robot robot2 does Visit locations lt1 ), 
+							delegate ( robot robot2 does Visit locations l1 ), 
 							delegate ( robot robot2 does SimpleAction actions a6 ) , 
 							delegate ( robot robot2 does Visit locations lkitchen),
 							delegate ( robot robot2 does SimpleAction actions ar1) affecting event ef1)) affecting event e1 ) )
@@ -105,14 +105,14 @@ mission{
 						if ea2 then(delegate( robot robot2 does Visit locations lstart affecting event ea2 ) )
 						if ef2 then(sequence( 
 							delegate ( robot robot2 does SimpleAction actions al2),
-							delegate ( robot robot2 does Visit locations lt2 ),
+							delegate ( robot robot2 does Visit locations l2 ),
 							delegate ( robot robot2 does SimpleAction actions a1),
 							delegate ( robot robot2 does SimpleAction actions a2),
 							delegate ( robot robot2 does Visit locations lkitchen),
 							delegate ( robot robot2 does SimpleAction actions a3), 
 							delegate ( robot robot2 does SimpleAction actions a4 ) , 
 							delegate ( robot robot2 does SimpleAction actions a5 ) , 
-							delegate ( robot robot2 does Visit locations lt2), 
+							delegate ( robot robot2 does Visit locations l2), 
 							delegate ( robot robot2 does SimpleAction actions a6 ) ,  
 							delegate ( robot robot2 does Visit locations lkitchen stoppingEvents : estop ) ,
 							delegate ( robot robot2 does SimpleAction actions ar2) affecting event ef2))affecting event e2 ) )
