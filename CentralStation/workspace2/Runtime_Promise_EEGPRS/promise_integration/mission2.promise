@@ -1,0 +1,31 @@
+mission{ 
+	conditions{
+		events:
+			e0: "low_battery"
+	   	actions:
+			a1: "generate_command",   
+			a2: "receive_task",
+			a3: "execute_task",
+			a4:	"charge"}                
+	robots robot1
+	locations {not ordered: l0, chargingStation}
+	operators {
+		parallel( eventHandler ( 
+			default ( 
+				sequence ( 
+					delegate ( robot robot1 does Visit locations l0 ) , 
+					delegate ( robot robot1 does SimpleAction actions a1 ) , 
+					delegate ( robot robot1 does SimpleAction actions a2 ) , 
+					delegate ( robot robot1 does SimpleAction actions a3 )
+				)) 
+			except e0 ( sequence (
+				delegate ( robot robot1 does Visit locations l0 ) , 
+				delegate ( robot robot1 does SimpleAction actions a4 ) affecting event e0
+			) )
+		)  )
+
+					
+ 
+	}
+}
+   

@@ -25,14 +25,14 @@
           </style>
         </nodeMappings>
         <nodeMappings name="FallbackOpNode" domainClass="promise::FallBackOp">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="[if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/fallback.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="['Op '+self.parent.inputOperators->indexOf(self)+'\n'+if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/fallback.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="SequenceOpNode" domainClass="promise::SequenceOp">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="[if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/sequence.jpg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="['Op '+self.parent.inputOperators->indexOf(self)+'\n'+if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/sequence.jpg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -46,14 +46,14 @@
           </style>
         </nodeMappings>
         <nodeMappings name="EventHandlerOpNode" domainClass="promise::EventHandlerOp">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="[if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/eventhandler.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="['Op '+self.parent.inputOperators->indexOf(self)+'\n'+if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/eventhandler.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="ConditionOpNode" domainClass="promise::ConditionOp">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="[if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/condition.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="['Op '+self.parent.inputOperators->indexOf(self)+'\n'+if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/condition.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -207,7 +207,7 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="[if(self.affectingEvent->isEmpty()) then if(self.inputLocations->isEmpty()) then self.inputAction.name else if(self.inputAction->isEmpty()) then self.inputLocations.name else self.inputLocations.name +  '\n' +self.inputAction.name endif endif else if(self.inputLocations->isEmpty()) then self.inputAction.name +  '\n' +'Trig. by: '+self.affectingEvent.name else if(self.inputAction->isEmpty()) then self.inputLocations.name +  '\n' +'Trig. by: '+self.affectingEvent.name else self.inputLocations.name  +  '\n' +self.inputAction.name +  '\n' +'Trig. by: '+self.affectingEvent.name endif endif endif + if(self.stoppingEvent->isEmpty()) then '' else '\n'+'Stop if: '+self.stoppingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/delegate.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="['Op '+self.parent.inputOperators->indexOf(self)+'\n'+if(self.affectingEvent->isEmpty()) then if(self.inputLocations->isEmpty()) then self.inputAction.name else if(self.inputAction->isEmpty()) then self.inputLocations.name else self.inputLocations.name +  '\n' +self.inputAction.name endif endif else if(self.inputLocations->isEmpty()) then self.inputAction.name +  '\n' +'Trig. by: '+self.affectingEvent.name else if(self.inputAction->isEmpty()) then self.inputLocations.name +  '\n' +'Trig. by: '+self.affectingEvent.name else self.inputLocations.name  +  '\n' +self.inputAction.name +  '\n' +'Trig. by: '+self.affectingEvent.name endif endif endif + if(self.stoppingEvent->isEmpty()) then '' else '\n'+'Stop if: '+self.stoppingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/delegate.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

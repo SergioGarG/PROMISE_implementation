@@ -1,30 +1,28 @@
 mission{
 	conditions{
 		events:
-			help: "user requests help"
+			e1: "intruder_detected",
+			e2: "out_battery"
 		actions:
-			a1: "grab_beverage"
+			a1: "raise_alarm",
+			a2: "charge" }
+		robots robot1, robot2 , robot3
+		, robot4 locations { not ordered : l1, l2, lcharge , l4  
+			
+		} 
+		operators { parallel ( 
+			//Robot1
+			eventHandler ( 
+				default ( delegate ( robot robot1 does Patrolling locations l1 , l2 ) ) 
+				except e1 ( delegate ( robot robot1 does SimpleAction actions a1 affecting event e1 ) ) 
+				except e2 ( sequence ( 
+					delegate ( robot robot1 does Visit locations lcharge ) , 
+					delegate ( robot robot1 does SimpleAction actions a2 ) affecting event e2) )) , 
+	
+			//Robot2
+			delegate ( robot robot2 does StrictOrderedVisit locations l1 , l2 ) , 
+			
+			delegate ( robot robot3 does FairVisit locations l1 , l2 , lcharge , l4 ) ) 
+		 
 	}
-	robots robot1, robot2  
-	locations {not ordered: l0, l1, l2, l3}
-	operators{ parallel ( 
-		//Robot1
-		eventHandler ( 
-			default ( 
-				delegate ( robot robot1 does Patrolling locations l0 , l1 )) 
-			except help ( 
-				sequence ( 
-					delegate ( robot robot1 does Visit locations l2 ) , 
-					delegate ( robot robot1 does SimpleAction actions a1 stoppingEvents : help ) , 
-					delegate ( robot robot1 does Visit locations l3 ) affecting event help
-				)
-			)) , 
-			//Robot2    
-			sequence ( 
-				delegate ( robot robot2 does Visit locations l0 ) , 
-				delegate ( robot robot2 does Visit locations l2 )
-			)
-	)
-		
-	}
-}
+}  

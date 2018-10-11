@@ -1080,7 +1080,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ParallelOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlurXdEeiMVa2-FegRZg" outgoingEdges="_I3X2orZcEeimEJGy4gQMuw _I3YdsLZcEeimEJGy4gQMuw" incomingEdges="_iBXzoLXdEeiMVa2-FegRZg" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlurXdEeiMVa2-FegRZg" name="Op 1&#xA;" outgoingEdges="_I3X2orZcEeimEJGy4gQMuw _I3YdsLZcEeimEJGy4gQMuw" incomingEdges="_iBXzoLXdEeiMVa2-FegRZg" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:EventHandlerOp" href="mission2.promise#//@operator.0/@inputOperators.0"/>
       <semanticElements xmi:type="co4robots.promise:EventHandlerOp" href="mission2.promise#//@operator.0/@inputOperators.0"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1092,7 +1092,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventHandlerOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2cCgLZcEeimEJGy4gQMuw" outgoingEdges="_I3XPkLZcEeimEJGy4gQMuw _I3XPk7ZcEeimEJGy4gQMuw _I3XPlrZcEeimEJGy4gQMuw" incomingEdges="_I3X2orZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2cCgLZcEeimEJGy4gQMuw" name="Op 1&#xA;" outgoingEdges="_I3XPkLZcEeimEJGy4gQMuw _I3XPk7ZcEeimEJGy4gQMuw _I3XPlrZcEeimEJGy4gQMuw" incomingEdges="_I3X2orZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:EventHandlerOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0"/>
       <semanticElements xmi:type="co4robots.promise:EventHandlerOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1104,7 +1104,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventHandlerOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlvLXdEeiMVa2-FegRZg" outgoingEdges="_I3Yds7ZcEeimEJGy4gQMuw _I3ZEwLZcEeimEJGy4gQMuw" incomingEdges="_iBXzo7XdEeiMVa2-FegRZg" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlvLXdEeiMVa2-FegRZg" name="Op 2&#xA;" outgoingEdges="_I3Yds7ZcEeimEJGy4gQMuw _I3ZEwLZcEeimEJGy4gQMuw" incomingEdges="_iBXzo7XdEeiMVa2-FegRZg" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:EventHandlerOp" href="mission2.promise#//@operator.0/@inputOperators.1"/>
       <semanticElements xmi:type="co4robots.promise:EventHandlerOp" href="mission2.promise#//@operator.0/@inputOperators.1"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1116,7 +1116,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventHandlerOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlyrXdEeiMVa2-FegRZg" name="l1l2l3l4&#xA;Stop if: e7" incomingEdges="_I3XPkLZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlyrXdEeiMVa2-FegRZg" name="Op 1&#xA;l1l2l3l4&#xA;Stop if: e7" incomingEdges="_I3XPkLZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0/@inputOperators.0"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0/@inputOperators.0"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_I3E7sLZcEeimEJGy4gQMuw" name="Patrolling" width="4" height="4" resizeKind="NSEW">
@@ -1136,7 +1136,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlzrXdEeiMVa2-FegRZg" name="a1&#xA;Trig. by: e3" incomingEdges="_I3XPk7ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBWlzrXdEeiMVa2-FegRZg" name="Op 2&#xA;a1&#xA;Trig. by: e3" incomingEdges="_I3XPk7ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0/@inputOperators.1"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0/@inputOperators.1"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_MHN2wLZcEeimEJGy4gQMuw" name="SimpleAction" width="4" height="4" resizeKind="NSEW">
@@ -1156,7 +1156,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2tIQLZcEeimEJGy4gQMuw" name="a2&#xA;Trig. by: e4" incomingEdges="_I3XPlrZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2tIQLZcEeimEJGy4gQMuw" name="Op 3&#xA;a2&#xA;Trig. by: e4" incomingEdges="_I3XPlrZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0/@inputOperators.2"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.0/@inputOperators.2"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_MHPE4LZcEeimEJGy4gQMuw" name="SimpleAction" width="4" height="4" resizeKind="NSEW">
@@ -1176,7 +1176,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2tvUbZcEeimEJGy4gQMuw" name="chargingStation" incomingEdges="_I3ZEw7ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2tvUbZcEeimEJGy4gQMuw" name="Op 1&#xA;chargingStation" incomingEdges="_I3ZEw7ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.0"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.0"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_I23gULZcEeimEJGy4gQMuw" name="Visit" width="4" height="4" resizeKind="NSEW">
@@ -1196,7 +1196,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2uWYbZcEeimEJGy4gQMuw" name="a3" incomingEdges="_I3Zr0LZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2uWYbZcEeimEJGy4gQMuw" name="Op 2&#xA;a3" incomingEdges="_I3Zr0LZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.1"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1/@inputOperators.1"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_MHRhILZcEeimEJGy4gQMuw" name="SimpleAction" width="4" height="4" resizeKind="NSEW">
@@ -1216,7 +1216,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2vkgLZcEeimEJGy4gQMuw" name="l2" incomingEdges="_I3Zr07ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2vkgLZcEeimEJGy4gQMuw" name="Op 1&#xA;l2" incomingEdges="_I3Zr07ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.0/@inputOperators.0"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.0/@inputOperators.0"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_I258kLZcEeimEJGy4gQMuw" name="Visit" width="4" height="4" resizeKind="NSEW">
@@ -1236,7 +1236,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2wLkbZcEeimEJGy4gQMuw" name="a4" incomingEdges="_I3aS4LZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2wLkbZcEeimEJGy4gQMuw" name="Op 2&#xA;a4" incomingEdges="_I3aS4LZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.0/@inputOperators.1"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.0/@inputOperators.1"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_MHT9YLZcEeimEJGy4gQMuw" name="SimpleAction" width="4" height="4" resizeKind="NSEW">
@@ -1256,7 +1256,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2wyobZcEeimEJGy4gQMuw" name="l5" incomingEdges="_I3aS47ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2wyobZcEeimEJGy4gQMuw" name="Op 3&#xA;l5" incomingEdges="_I3aS47ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.0/@inputOperators.2"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.0/@inputOperators.2"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_I29m8LZcEeimEJGy4gQMuw" name="Visit" width="4" height="4" resizeKind="NSEW">
@@ -1276,7 +1276,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2xZsbZcEeimEJGy4gQMuw" name="a5" incomingEdges="_I3a58LZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2xZsbZcEeimEJGy4gQMuw" name="Op 4&#xA;a5" incomingEdges="_I3a58LZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.0/@inputOperators.3"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.0/@inputOperators.3"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_MHVykLZcEeimEJGy4gQMuw" name="SimpleAction" width="4" height="4" resizeKind="NSEW">
@@ -1296,7 +1296,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBXM_7XdEeiMVa2-FegRZg" name="a6&#xA;Trig. by: e6" incomingEdges="_I3WogbZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_iBXM_7XdEeiMVa2-FegRZg" name="Op 2&#xA;a6&#xA;Trig. by: e6" incomingEdges="_I3WogbZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.1"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.1"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_MHXAsLZcEeimEJGy4gQMuw" name="SimpleAction" width="4" height="4" resizeKind="NSEW">
@@ -1316,7 +1316,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2yn0LZcEeimEJGy4gQMuw" name="chargingStation" incomingEdges="_I3a587ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2yn0LZcEeimEJGy4gQMuw" name="Op 1&#xA;chargingStation" incomingEdges="_I3a587ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.1/@inputOperators.0"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.1/@inputOperators.0"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_I3AqQLZcEeimEJGy4gQMuw" name="Visit" width="4" height="4" resizeKind="NSEW">
@@ -1336,7 +1336,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2zO4bZcEeimEJGy4gQMuw" name="a3" incomingEdges="_I3bhALZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2zO4bZcEeimEJGy4gQMuw" name="Op 2&#xA;a3" incomingEdges="_I3bhALZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.1/@inputOperators.1"/>
       <semanticElements xmi:type="co4robots.promise:DelegateOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.1/@inputOperators.1"/>
       <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_MHZc8LZcEeimEJGy4gQMuw" name="SimpleAction" width="4" height="4" resizeKind="NSEW">
@@ -1438,7 +1438,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@edgeMappings[name='inputOperator']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2XxELZcEeimEJGy4gQMuw" name="Trig. by: e1" outgoingEdges="_I3ZEw7ZcEeimEJGy4gQMuw _I3Zr0LZcEeimEJGy4gQMuw" incomingEdges="_I3YdsLZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2XxELZcEeimEJGy4gQMuw" name="Op 2&#xA;Trig. by: e1" outgoingEdges="_I3ZEw7ZcEeimEJGy4gQMuw _I3Zr0LZcEeimEJGy4gQMuw" incomingEdges="_I3YdsLZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1"/>
       <semanticElements xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.0/@inputOperators.1"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1450,7 +1450,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2Y_MbZcEeimEJGy4gQMuw" name="Trig. by: e5" outgoingEdges="_I3Zr07ZcEeimEJGy4gQMuw _I3aS4LZcEeimEJGy4gQMuw _I3aS47ZcEeimEJGy4gQMuw _I3a58LZcEeimEJGy4gQMuw" incomingEdges="_I3WBcLZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2Y_MbZcEeimEJGy4gQMuw" name="Op 1&#xA;Trig. by: e5" outgoingEdges="_I3Zr07ZcEeimEJGy4gQMuw _I3aS4LZcEeimEJGy4gQMuw _I3aS47ZcEeimEJGy4gQMuw _I3a58LZcEeimEJGy4gQMuw" incomingEdges="_I3WBcLZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.0"/>
       <semanticElements xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0/@inputOperators.0"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1462,7 +1462,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2ZmQbZcEeimEJGy4gQMuw" name="Trig. by: e2" outgoingEdges="_I3a587ZcEeimEJGy4gQMuw _I3bhALZcEeimEJGy4gQMuw" incomingEdges="_I3ZEwLZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2ZmQbZcEeimEJGy4gQMuw" name="Op 2&#xA;Trig. by: e2" outgoingEdges="_I3a587ZcEeimEJGy4gQMuw _I3bhALZcEeimEJGy4gQMuw" incomingEdges="_I3ZEwLZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.1"/>
       <semanticElements xmi:type="co4robots.promise:SequenceOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.1"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1474,7 +1474,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2eewLZcEeimEJGy4gQMuw" outgoingEdges="_I3WBcLZcEeimEJGy4gQMuw _I3WogbZcEeimEJGy4gQMuw" incomingEdges="_I3Yds7ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_I2eewLZcEeimEJGy4gQMuw" name="Op 1&#xA;" outgoingEdges="_I3WBcLZcEeimEJGy4gQMuw _I3WogbZcEeimEJGy4gQMuw" incomingEdges="_I3Yds7ZcEeimEJGy4gQMuw" width="4" height="4" resizeKind="NSEW">
       <target xmi:type="co4robots.promise:ConditionOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0"/>
       <semanticElements xmi:type="co4robots.promise:ConditionOp" href="mission2.promise#//@operator.0/@inputOperators.1/@inputOperators.0"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
