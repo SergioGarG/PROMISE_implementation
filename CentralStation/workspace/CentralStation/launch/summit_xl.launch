@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="sera" type="dummylocalmission.py" name="localmission_summit_xl" output="screen">
+		<param name="robotName" value="summit_xl" />
+	</node>
+</launch>

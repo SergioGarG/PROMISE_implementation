@@ -35,6 +35,8 @@ public class PromiseGenerator extends AbstractGenerator {
   
   private ArrayList<String> availableRobots = new ArrayList<String>();
   
+  private ArrayList<String> stoppingEvents = new ArrayList<String>();
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     int _length = ((Object[])Conversions.unwrapArray(IteratorExtensions.<Robot>toIterable(Iterators.<Robot>filter(resource.getAllContents(), Robot.class)), Object.class)).length;
@@ -106,56 +108,69 @@ public class PromiseGenerator extends AbstractGenerator {
     }
     _builder.append(" ]");
     _builder.newLineIfNotEmpty();
+    _builder.append("StoppingEvents [ ");
+    {
+      int _length_1 = ((Object[])Conversions.unwrapArray(this.stoppingEvents, Object.class)).length;
+      ExclusiveRange _doubleDotLessThan_1 = new ExclusiveRange(0, _length_1, true);
+      for(final Integer j : _doubleDotLessThan_1) {
+        _builder.append("{");
+        String _get_1 = this.stoppingEvents.get((j).intValue());
+        _builder.append(_get_1);
+        _builder.append("}");
+      }
+    }
+    _builder.append(" ]");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     fsa.generateFile("mission_data.ms", _builder);
     for (int i_1 = 0; (i_1 < ((Object[])Conversions.unwrapArray(this.availableRobots, Object.class)).length); i_1++) {
-      String _get_1 = this.availableRobots.get(i_1);
-      String _plus = ("mission_" + _get_1);
+      String _get_2 = this.availableRobots.get(i_1);
+      String _plus = ("mission_" + _get_2);
       String _plus_1 = (_plus + ".ms");
       StringConcatenation _builder_1 = new StringConcatenation();
       {
-        int _length_1 = ((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length;
-        ExclusiveRange _doubleDotLessThan_1 = new ExclusiveRange(0, _length_1, true);
-        for(final Integer j : _doubleDotLessThan_1) {
+        int _length_2 = ((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length;
+        ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_2, true);
+        for(final Integer j_1 : _doubleDotLessThan_2) {
           {
-            if ((this.robotsList.get(i_1).get((j).intValue()).indentation == 0)) {
-              _builder_1.append(this.robotsList.get(i_1).get((j).intValue()).name);
-              _builder_1.append(missions = this.robotsList.get(i_1).get((j).intValue()).missionList);
+            if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 0)) {
+              _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name);
+              _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList);
               _builder_1.newLineIfNotEmpty();
             } else {
-              if ((this.robotsList.get(i_1).get((j).intValue()).indentation == 1)) {
+              if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 1)) {
                 _builder_1.newLine();
                 _builder_1.append("\t");
-                _builder_1.append(this.robotsList.get(i_1).get((j).intValue()).name, "\t");
-                _builder_1.append(missions = this.robotsList.get(i_1).get((j).intValue()).missionList, "\t");
+                _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t");
+                _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t");
                 _builder_1.newLineIfNotEmpty();
               } else {
-                if ((this.robotsList.get(i_1).get((j).intValue()).indentation == 2)) {
+                if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 2)) {
                   _builder_1.newLine();
                   _builder_1.append("\t\t");
-                  _builder_1.append(this.robotsList.get(i_1).get((j).intValue()).name, "\t\t");
-                  _builder_1.append(missions = this.robotsList.get(i_1).get((j).intValue()).missionList, "\t\t");
+                  _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t");
+                  _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t");
                   _builder_1.newLineIfNotEmpty();
                 } else {
-                  if ((this.robotsList.get(i_1).get((j).intValue()).indentation == 3)) {
+                  if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 3)) {
                     _builder_1.newLine();
                     _builder_1.append("\t\t\t");
-                    _builder_1.append(this.robotsList.get(i_1).get((j).intValue()).name, "\t\t\t");
-                    _builder_1.append(missions = this.robotsList.get(i_1).get((j).intValue()).missionList, "\t\t\t");
+                    _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t");
+                    _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t");
                     _builder_1.newLineIfNotEmpty();
                   } else {
-                    if ((this.robotsList.get(i_1).get((j).intValue()).indentation == 4)) {
+                    if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 4)) {
                       _builder_1.newLine();
                       _builder_1.append("\t\t\t\t");
-                      _builder_1.append(this.robotsList.get(i_1).get((j).intValue()).name, "\t\t\t\t");
-                      _builder_1.append(missions = this.robotsList.get(i_1).get((j).intValue()).missionList, "\t\t\t\t");
+                      _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t\t");
+                      _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t\t");
                       _builder_1.newLineIfNotEmpty();
                     } else {
-                      if ((this.robotsList.get(i_1).get((j).intValue()).indentation == 5)) {
+                      if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 5)) {
                         _builder_1.newLine();
                         _builder_1.append("\t\t\t\t\t");
-                        _builder_1.append(this.robotsList.get(i_1).get((j).intValue()).name, "\t\t\t\t\t");
-                        _builder_1.append(missions = this.robotsList.get(i_1).get((j).intValue()).missionList, "\t\t\t\t\t");
+                        _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t\t\t");
+                        _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t\t\t");
                         _builder_1.newLineIfNotEmpty();
                       }
                     }
@@ -171,12 +186,15 @@ public class PromiseGenerator extends AbstractGenerator {
       fsa.generateFile(_plus_1, _builder_1);
     }
     for (int i_1 = (((Object[])Conversions.unwrapArray(this.robotsList, Object.class)).length - 1); (i_1 >= 0); i_1--) {
-      for (int j = (((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length - 1); (j >= 0); j--) {
-        this.robotsList.get(i_1).remove(j);
+      for (int j_1 = (((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length - 1); (j_1 >= 0); j_1--) {
+        this.robotsList.get(i_1).remove(j_1);
       }
     }
     for (int i_1 = (((Object[])Conversions.unwrapArray(this.availableRobots, Object.class)).length - 1); (i_1 >= 0); i_1--) {
       this.availableRobots.remove(i_1);
+    }
+    for (int i_1 = (((Object[])Conversions.unwrapArray(this.stoppingEvents, Object.class)).length - 1); (i_1 >= 0); i_1--) {
+      this.stoppingEvents.remove(i_1);
     }
   }
   
@@ -806,6 +824,19 @@ public class PromiseGenerator extends AbstractGenerator {
               }
             }
           }
+        }
+      }
+      int _size = in.getStoppingEvent().size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getStoppingEvent(), Object.class)).length); i++) {
+          String _get = this.availableRobots.get(robot);
+          String _plus_64 = (_get + ",");
+          String _plus_65 = (_plus_64 + template);
+          String _plus_66 = (_plus_65 + ",");
+          String _name_41 = in.getStoppingEvent().get(i).getName();
+          String _plus_67 = (_plus_66 + _name_41);
+          this.stoppingEvents.add(_plus_67);
         }
       }
       _xblockexpression = this.robotsList.get(robot).get(index).missionList.add(template);

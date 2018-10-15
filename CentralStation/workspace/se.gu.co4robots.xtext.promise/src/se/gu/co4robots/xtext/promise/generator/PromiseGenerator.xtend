@@ -57,6 +57,8 @@ class PromiseGenerator extends AbstractGenerator {
 	var robotsList = new ArrayList<ArrayList<robotClass>> //list of named lists of actions 
 	var availableRobots= new ArrayList<String> //list with the available robots in a mission
 	
+	var stoppingEvents= new ArrayList<String> //list with the stopping events in the mission
+	
 	public override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		
 		
@@ -76,6 +78,7 @@ class PromiseGenerator extends AbstractGenerator {
 			Robots [ «FOR robot : resource.allContents.filter(Robot).toIterable»«robot.name»,«ENDFOR» ]
 			Events [ «FOR condition : resource.allContents.filter(Condition).toIterable»«IF condition.class == promise.impl.EventImpl»«condition.name» «condition.description»,«ENDIF»«ENDFOR» ]
 			Actions [ «FOR condition : resource.allContents.filter(Condition).toIterable»«IF condition.class == promise.impl.ActionImpl»«condition.name» «condition.description»,«ENDIF»«ENDFOR» ]
+			StoppingEvents [ «FOR j:0..<stoppingEvents.length»{«stoppingEvents.get(j)»}«ENDFOR» ]
 
 		''')
 		
@@ -110,6 +113,7 @@ class PromiseGenerator extends AbstractGenerator {
 
 		for (var i = robotsList.length-1 ; i >= 0; i--) for (var j = robotsList.get(i).length-1 ; j >= 0; j--) robotsList.get(i).remove(j) //Remove all the items of the list to avoid overwritting
  		for (var i = availableRobots.length-1 ; i >= 0; i--) availableRobots.remove(i)
+ 		for (var i = stoppingEvents.length-1 ; i >= 0; i--) stoppingEvents.remove(i)
 		}
 		
 		//////////////////////////Methods
@@ -353,6 +357,12 @@ class PromiseGenerator extends AbstractGenerator {
 		
 			else template="Pattern not recognized"
 			//println(template)
+			
+			if(in.stoppingEvent.size() > 0){
+				for(var i=0; i<in.stoppingEvent.length; i++){
+					stoppingEvents.add(availableRobots.get(robot)+','+template+','+in.stoppingEvent.get(i).name)
+				}
+			}
 			robotsList.get(robot).get(index).missionList.add(template)
 			
 		}

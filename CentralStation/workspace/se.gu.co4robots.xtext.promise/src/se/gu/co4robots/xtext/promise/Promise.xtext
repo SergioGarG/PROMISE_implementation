@@ -78,7 +78,7 @@ DelegateOp:
 		('locations' inputLocations+=[Location|EString] ( "," inputLocations+=[Location|EString])*  )?
 		('actions' inputAction+=[Action|EString] ( "," inputAction+=[Action|EString])* )? 
 		('affecting event' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* )? 
-		('stoppingEvents' ':' stoppingEvent+=[Event|EString] ( "," stoppingEvent+=[Event|EString])* )? ')';
+		('stoppingEvents' stoppingEvent+=[Event|EString] ( "," stoppingEvent+=[Event|EString])* )? ')';
 
 		
 /////////////////////////////////////// Patterns

@@ -47,6 +47,7 @@ class Status(object):
 		self.state = 0
 		self.resend_task = rospy.Time()
 		self.sent=False
+		self.stoppingEvents = []
 
 		#Events and event handler
 		self.events = []
@@ -79,6 +80,12 @@ class Status(object):
 
 		self.prog_action = re.compile('X .+') #Actions formula
 
+class StoppingEvent(object):
+	def __init__(self):
+		self.task = String()
+		self.event = String()
+		
+
 class MissionClass(object):
 	def __init__(self):
 		self.id = String()
@@ -86,7 +93,7 @@ class MissionClass(object):
 		self.counter = 0
 		self.first = True
 		self.childs = []
-		self.event_operators = String
+		
 
 class EventHandlerClass(object):
 	def __init__(self):
@@ -268,8 +275,7 @@ class LocalMission(object):
 		# string containing the local mission
 		if localmission.data == "starts":
 			self.missions=[]
-			self.status.event_operators=[]
-			self.status.robotname="tiago"
+			#self.status.robotname="tiago"
 			self.status.events=[]
 			self.status.actions=[]
 			self.status.state=1
@@ -279,22 +285,15 @@ class LocalMission(object):
 			self.missions = [ MissionClass() for i in range(len(helper1))] #Multiple instantiations of the class, one per line (one per mission)
 
 			###First line of the mission, the per-default mission
-			self.status.event_operators.append('default')
 			self.missions[0].id='default'
 			###The following lines, which contains exceptions based on events
 			prev_indentation = 0
 			parenting=[]
 			for i in range(0, len(self.missions)):				
 				helper2 = helper1[i].split("[", 1) # just the default mission of the robot
-				helper3=helper2[0].replace("\t", "") #remove empty tabs
-				helper4 = helper3.split("_") # divides the triggering event and the event-driven operator
-				self.missions[i].id=helper3
-				if len(helper4) > 1:
-					self.status.event_operators.append(helper4[0])
-				else:
-					self.status.event_operators.append('')
-				helper5 = helper2[1][0:len(helper2[1])-1]
-				self.missions[i].mission.mission = helper5.split(",") # array containing all the tasks of the default mission
+				self.missions[i].id=helper2[0].replace("\t", "") #remove empty tabs
+				helper4 = helper2[1][0:len(helper2[1])-1]
+				self.missions[i].mission.mission = helper4.split(",") # array containing all the tasks of the default mission
 				for j in range(0, len(self.missions[i].mission.mission)):
 					if self.missions[i].mission.mission[j] == None or self.missions[i].mission.mission[j] == "": 
 						self.missions[i].mission.mission[j] = "true"
@@ -317,25 +316,30 @@ class LocalMission(object):
 					self.missions[parenting[indentation]].childs.append(i)
 
 		elif localmission.data == "events_start":
-			self.events_start=True
 			self.status.events.append('default') #The first event is always blank since is the per-default mission
 			self.status.state=2
 		elif localmission.data != "events_end" and self.status.state==2:
 			self.status.events.append(localmission.data)
 		elif localmission.data == "events_end":
-			self.events_start=False
 			#Matches each event to its corresponding mission object
 			for j in range(1, len(self.missions)):
 				helper = self.missions[j].id.split("_")
 				for i in range(0, len(self.status.events)):
 					if helper[1] in self.status.events[i]:
 						helper2=self.status.events[i].split(" ")
-						#self.missions[j].mission.events = self.status.events[i] 
 						self.missions[j].mission.events = helper2[0]
 			self.status.state=3
-		elif localmission.data != "ends" and self.status.state==3:
+		elif localmission.data != "stoppingEvents" and self.status.state==3:
 			self.status.actions.append(localmission.data)
-		elif localmission.data == "ends":
+		elif localmission.data == "stoppingEvents":
+			self.status.state=4
+		elif localmission.data != "stoppingEvents_ends" and self.status.state==4:
+			helper1 = localmission.data.split(",")
+			self.status.stoppingEvents.append(StoppingEvent())
+			self.status.stoppingEvents[len(self.status.stoppingEvents)-1].task=helper1[1]
+			self.status.stoppingEvents[len(self.status.stoppingEvents)-1].event=helper1[2]
+
+		elif localmission.data == "stoppingEvents_ends":
 			print "Mission for robot", self.robotName, "completely received (",len(self.missions),"objects)"
 			self.status.state=0
 			# for i in range(0, len(self.missions)):
@@ -344,7 +348,6 @@ class LocalMission(object):
 			# 	print "id", self.missions[i].id
 			# 	print "child(s)", self.missions[i].childs
 			# 	print "events", self.missions[i].mission.events
-			# 	print "operators", self.status.event_operators[i]
 			# 	print "-------------"
 			self.update_manager()
 
@@ -363,27 +366,47 @@ class LocalMission(object):
 
 	def TriggeringEventsCallback(self, event):
 		### Just a debug version some policies need to be applied to check when the events are affecting the environment or not
-		if "remove" in event.data:
-			print "event removing requested"
-			helper = event.data.split("_", 1)
-			for i in range(0, len(self.status.ongoing_events)):
-				if helper[1] == self.status.ongoing_events[i]:
-					print "removing event from the list (",self.status.ongoing_events[i],")"
-					self.status.ongoing_events.remove(self.status.ongoing_events[i])
-					break
-		else:
-			print "event detected by the planner (",event.data,")"
-			self.status.detected_event=event.data
-			self.status.event_flag = True
-			same = False
-			for i in range(0, len(self.status.ongoing_events)):
-				if event.data == self.status.ongoing_events[i]:
-					same = True
-					break
-			if same == False:
-				self.status.ongoing_events.append(event.data)
+		stoppedMission=False
+		for i in range(0, len(self.status.stoppingEvents)):
+			if(self.status.stoppingEvents[i].event == event.data and \
+			self.status.stoppingEvents[i].task == self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]):
+				print "stop mission!"
+				stoppedMission=True
+				if self.status.counter_mission == 0:
+					self.SendLocalMission("[] l0", False, self.status.events)
+# 				elif self.status.prog_fb.match(self.missions[self.status.counter_mission].id):
+# 					self.status.counter_mission = self.checkParent(self.status.counter_mission, "fallback")
+# 				elif self.status.prog_cond.match(self.missions[self.status.counter_mission].id):
+# 					self.status.counter_mission = self.checkParent(self.status.counter_mission, "condition")
+# 				elif self.status.prog_eh.match(self.missions[self.status.counter_mission].id):
+# 					self.status.counter_mission = self.checkParent(self.status.counter_mission, "event_handler")
+				else:
+					self.status.task_status = "accomplished"
+				break
+					
+		if stoppedMission == False:
+			if "$remove" in event.data:
+				print "event removing requested"
+				helper = event.data.split("_", 1)
+				for i in range(0, len(self.status.ongoing_events)):
+					if helper[1] == self.status.ongoing_events[i]:
+						print "removing event from the list (",self.status.ongoing_events[i],")"
+						self.status.ongoing_events.remove(self.status.ongoing_events[i])
+						break
+			else:
+				print "event detected by the planner (",event.data,")"
+				self.status.detected_event=event.data
+				self.status.event_flag = True
+				same = False
+				for i in range(0, len(self.status.ongoing_events)):
+					if event.data == self.status.ongoing_events[i]:
+						same = True
+						break
+				if same == False:
+					self.status.ongoing_events.append(event.data)
 			
 		print "list of current ongoing events (",self.status.ongoing_events,")"		
+
 		self.update_manager()
 
 	########Publishers

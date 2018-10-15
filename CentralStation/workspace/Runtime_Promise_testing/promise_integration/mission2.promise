@@ -11,18 +11,18 @@ mission{
 			
 		} 
 		operators { parallel ( 
-			//Robot1
+			//Robot1      
 			eventHandler ( 
-				default ( delegate ( robot robot1 does Patrolling locations l1 , l2 ) ) 
-				except e1 ( delegate ( robot robot1 does SimpleAction actions a1 affecting event e1 ) ) 
-				except e2 ( sequence ( 
-					delegate ( robot robot1 does Visit locations lcharge ) , 
-					delegate ( robot robot1 does SimpleAction actions a2 ) affecting event e2) )) , 
+				default ( delegate ( robot robot1 does Patrolling locations l1 , l2 stoppingEvents e1 ) ) 
+				except e1 ( delegate ( robot robot1 does SimpleAction actions a1 affecting event e1 stoppingEvents e2 ) ) 
+				except e2 ( sequence (  
+					delegate ( robot robot1 does Patrolling locations lcharge , l1 stoppingEvents e1 ) , 
+					delegate ( robot robot1 does Visit locations lcharge , l4 ) affecting event e2) )) , 
 	
 			//Robot2
 			delegate ( robot robot2 does StrictOrderedVisit locations l1 , l2 ) , 
 			
 			delegate ( robot robot3 does FairVisit locations l1 , l2 , lcharge , l4 ) ) 
 		 
-	}
-}  
+	}   
+}     

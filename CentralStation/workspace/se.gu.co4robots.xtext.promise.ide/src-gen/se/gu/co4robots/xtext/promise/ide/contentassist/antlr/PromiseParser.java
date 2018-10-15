@@ -79,7 +79,7 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDelegateOpAccess().getGroup_9(), "rule__DelegateOp__Group_9__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup_9_2(), "rule__DelegateOp__Group_9_2__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup_10(), "rule__DelegateOp__Group_10__0");
-					put(grammarAccess.getDelegateOpAccess().getGroup_10_3(), "rule__DelegateOp__Group_10_3__0");
+					put(grammarAccess.getDelegateOpAccess().getGroup_10_2(), "rule__DelegateOp__Group_10_2__0");
 					put(grammarAccess.getSimpleActionAccess().getGroup(), "rule__SimpleAction__Group__0");
 					put(grammarAccess.getVisitAccess().getGroup(), "rule__Visit__Group__0");
 					put(grammarAccess.getSequencedVisitAccess().getGroup(), "rule__SequencedVisit__Group__0");
@@ -149,8 +149,8 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDelegateOpAccess().getInputActionAssignment_8_2_1(), "rule__DelegateOp__InputActionAssignment_8_2_1");
 					put(grammarAccess.getDelegateOpAccess().getAffectingEventAssignment_9_1(), "rule__DelegateOp__AffectingEventAssignment_9_1");
 					put(grammarAccess.getDelegateOpAccess().getAffectingEventAssignment_9_2_1(), "rule__DelegateOp__AffectingEventAssignment_9_2_1");
-					put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_10_2(), "rule__DelegateOp__StoppingEventAssignment_10_2");
-					put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_10_3_1(), "rule__DelegateOp__StoppingEventAssignment_10_3_1");
+					put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_10_1(), "rule__DelegateOp__StoppingEventAssignment_10_1");
+					put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_10_2_1(), "rule__DelegateOp__StoppingEventAssignment_10_2_1");
 				}
 			};
 		}

@@ -3907,7 +3907,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDelegateOp"
-    // InternalPromise.g:1588:1: ruleDelegateOp returns [EObject current=null] : (otherlv_0= 'delegate' otherlv_1= '(' otherlv_2= 'robot' ( ( ruleEString ) ) (otherlv_4= ',' ( ( ruleEString ) ) )* otherlv_6= 'does' ( (lv_pattern_7_0= rulePattern ) ) (otherlv_8= 'locations' ( ( ruleEString ) ) (otherlv_10= ',' ( ( ruleEString ) ) )* )? (otherlv_12= 'actions' ( ( ruleEString ) ) (otherlv_14= ',' ( ( ruleEString ) ) )* )? (otherlv_16= 'affecting event' ( ( ruleEString ) ) (otherlv_18= ',' ( ( ruleEString ) ) )* )? (otherlv_20= 'stoppingEvents' otherlv_21= ':' ( ( ruleEString ) ) (otherlv_23= ',' ( ( ruleEString ) ) )* )? otherlv_25= ')' ) ;
+    // InternalPromise.g:1588:1: ruleDelegateOp returns [EObject current=null] : (otherlv_0= 'delegate' otherlv_1= '(' otherlv_2= 'robot' ( ( ruleEString ) ) (otherlv_4= ',' ( ( ruleEString ) ) )* otherlv_6= 'does' ( (lv_pattern_7_0= rulePattern ) ) (otherlv_8= 'locations' ( ( ruleEString ) ) (otherlv_10= ',' ( ( ruleEString ) ) )* )? (otherlv_12= 'actions' ( ( ruleEString ) ) (otherlv_14= ',' ( ( ruleEString ) ) )* )? (otherlv_16= 'affecting event' ( ( ruleEString ) ) (otherlv_18= ',' ( ( ruleEString ) ) )* )? (otherlv_20= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_22= ',' ( ( ruleEString ) ) )* )? otherlv_24= ')' ) ;
     public final EObject ruleDelegateOp() throws RecognitionException {
         EObject current = null;
 
@@ -3923,9 +3923,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         Token otherlv_16=null;
         Token otherlv_18=null;
         Token otherlv_20=null;
-        Token otherlv_21=null;
-        Token otherlv_23=null;
-        Token otherlv_25=null;
+        Token otherlv_22=null;
+        Token otherlv_24=null;
         EObject lv_pattern_7_0 = null;
 
 
@@ -3933,11 +3932,11 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:1594:2: ( (otherlv_0= 'delegate' otherlv_1= '(' otherlv_2= 'robot' ( ( ruleEString ) ) (otherlv_4= ',' ( ( ruleEString ) ) )* otherlv_6= 'does' ( (lv_pattern_7_0= rulePattern ) ) (otherlv_8= 'locations' ( ( ruleEString ) ) (otherlv_10= ',' ( ( ruleEString ) ) )* )? (otherlv_12= 'actions' ( ( ruleEString ) ) (otherlv_14= ',' ( ( ruleEString ) ) )* )? (otherlv_16= 'affecting event' ( ( ruleEString ) ) (otherlv_18= ',' ( ( ruleEString ) ) )* )? (otherlv_20= 'stoppingEvents' otherlv_21= ':' ( ( ruleEString ) ) (otherlv_23= ',' ( ( ruleEString ) ) )* )? otherlv_25= ')' ) )
-            // InternalPromise.g:1595:2: (otherlv_0= 'delegate' otherlv_1= '(' otherlv_2= 'robot' ( ( ruleEString ) ) (otherlv_4= ',' ( ( ruleEString ) ) )* otherlv_6= 'does' ( (lv_pattern_7_0= rulePattern ) ) (otherlv_8= 'locations' ( ( ruleEString ) ) (otherlv_10= ',' ( ( ruleEString ) ) )* )? (otherlv_12= 'actions' ( ( ruleEString ) ) (otherlv_14= ',' ( ( ruleEString ) ) )* )? (otherlv_16= 'affecting event' ( ( ruleEString ) ) (otherlv_18= ',' ( ( ruleEString ) ) )* )? (otherlv_20= 'stoppingEvents' otherlv_21= ':' ( ( ruleEString ) ) (otherlv_23= ',' ( ( ruleEString ) ) )* )? otherlv_25= ')' )
+            // InternalPromise.g:1594:2: ( (otherlv_0= 'delegate' otherlv_1= '(' otherlv_2= 'robot' ( ( ruleEString ) ) (otherlv_4= ',' ( ( ruleEString ) ) )* otherlv_6= 'does' ( (lv_pattern_7_0= rulePattern ) ) (otherlv_8= 'locations' ( ( ruleEString ) ) (otherlv_10= ',' ( ( ruleEString ) ) )* )? (otherlv_12= 'actions' ( ( ruleEString ) ) (otherlv_14= ',' ( ( ruleEString ) ) )* )? (otherlv_16= 'affecting event' ( ( ruleEString ) ) (otherlv_18= ',' ( ( ruleEString ) ) )* )? (otherlv_20= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_22= ',' ( ( ruleEString ) ) )* )? otherlv_24= ')' ) )
+            // InternalPromise.g:1595:2: (otherlv_0= 'delegate' otherlv_1= '(' otherlv_2= 'robot' ( ( ruleEString ) ) (otherlv_4= ',' ( ( ruleEString ) ) )* otherlv_6= 'does' ( (lv_pattern_7_0= rulePattern ) ) (otherlv_8= 'locations' ( ( ruleEString ) ) (otherlv_10= ',' ( ( ruleEString ) ) )* )? (otherlv_12= 'actions' ( ( ruleEString ) ) (otherlv_14= ',' ( ( ruleEString ) ) )* )? (otherlv_16= 'affecting event' ( ( ruleEString ) ) (otherlv_18= ',' ( ( ruleEString ) ) )* )? (otherlv_20= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_22= ',' ( ( ruleEString ) ) )* )? otherlv_24= ')' )
             {
-            // InternalPromise.g:1595:2: (otherlv_0= 'delegate' otherlv_1= '(' otherlv_2= 'robot' ( ( ruleEString ) ) (otherlv_4= ',' ( ( ruleEString ) ) )* otherlv_6= 'does' ( (lv_pattern_7_0= rulePattern ) ) (otherlv_8= 'locations' ( ( ruleEString ) ) (otherlv_10= ',' ( ( ruleEString ) ) )* )? (otherlv_12= 'actions' ( ( ruleEString ) ) (otherlv_14= ',' ( ( ruleEString ) ) )* )? (otherlv_16= 'affecting event' ( ( ruleEString ) ) (otherlv_18= ',' ( ( ruleEString ) ) )* )? (otherlv_20= 'stoppingEvents' otherlv_21= ':' ( ( ruleEString ) ) (otherlv_23= ',' ( ( ruleEString ) ) )* )? otherlv_25= ')' )
-            // InternalPromise.g:1596:3: otherlv_0= 'delegate' otherlv_1= '(' otherlv_2= 'robot' ( ( ruleEString ) ) (otherlv_4= ',' ( ( ruleEString ) ) )* otherlv_6= 'does' ( (lv_pattern_7_0= rulePattern ) ) (otherlv_8= 'locations' ( ( ruleEString ) ) (otherlv_10= ',' ( ( ruleEString ) ) )* )? (otherlv_12= 'actions' ( ( ruleEString ) ) (otherlv_14= ',' ( ( ruleEString ) ) )* )? (otherlv_16= 'affecting event' ( ( ruleEString ) ) (otherlv_18= ',' ( ( ruleEString ) ) )* )? (otherlv_20= 'stoppingEvents' otherlv_21= ':' ( ( ruleEString ) ) (otherlv_23= ',' ( ( ruleEString ) ) )* )? otherlv_25= ')'
+            // InternalPromise.g:1595:2: (otherlv_0= 'delegate' otherlv_1= '(' otherlv_2= 'robot' ( ( ruleEString ) ) (otherlv_4= ',' ( ( ruleEString ) ) )* otherlv_6= 'does' ( (lv_pattern_7_0= rulePattern ) ) (otherlv_8= 'locations' ( ( ruleEString ) ) (otherlv_10= ',' ( ( ruleEString ) ) )* )? (otherlv_12= 'actions' ( ( ruleEString ) ) (otherlv_14= ',' ( ( ruleEString ) ) )* )? (otherlv_16= 'affecting event' ( ( ruleEString ) ) (otherlv_18= ',' ( ( ruleEString ) ) )* )? (otherlv_20= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_22= ',' ( ( ruleEString ) ) )* )? otherlv_24= ')' )
+            // InternalPromise.g:1596:3: otherlv_0= 'delegate' otherlv_1= '(' otherlv_2= 'robot' ( ( ruleEString ) ) (otherlv_4= ',' ( ( ruleEString ) ) )* otherlv_6= 'does' ( (lv_pattern_7_0= rulePattern ) ) (otherlv_8= 'locations' ( ( ruleEString ) ) (otherlv_10= ',' ( ( ruleEString ) ) )* )? (otherlv_12= 'actions' ( ( ruleEString ) ) (otherlv_14= ',' ( ( ruleEString ) ) )* )? (otherlv_16= 'affecting event' ( ( ruleEString ) ) (otherlv_18= ',' ( ( ruleEString ) ) )* )? (otherlv_20= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_22= ',' ( ( ruleEString ) ) )* )? otherlv_24= ')'
             {
             otherlv_0=(Token)match(input,36,FOLLOW_19); 
 
@@ -4385,7 +4384,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPromise.g:1801:3: (otherlv_20= 'stoppingEvents' otherlv_21= ':' ( ( ruleEString ) ) (otherlv_23= ',' ( ( ruleEString ) ) )* )?
+            // InternalPromise.g:1801:3: (otherlv_20= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_22= ',' ( ( ruleEString ) ) )* )?
             int alt37=2;
             int LA37_0 = input.LA(1);
 
@@ -4394,21 +4393,17 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
             }
             switch (alt37) {
                 case 1 :
-                    // InternalPromise.g:1802:4: otherlv_20= 'stoppingEvents' otherlv_21= ':' ( ( ruleEString ) ) (otherlv_23= ',' ( ( ruleEString ) ) )*
+                    // InternalPromise.g:1802:4: otherlv_20= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_22= ',' ( ( ruleEString ) ) )*
                     {
-                    otherlv_20=(Token)match(input,39,FOLLOW_6); 
+                    otherlv_20=(Token)match(input,39,FOLLOW_11); 
 
                     				newLeafNode(otherlv_20, grammarAccess.getDelegateOpAccess().getStoppingEventsKeyword_10_0());
                     			
-                    otherlv_21=(Token)match(input,15,FOLLOW_11); 
-
-                    				newLeafNode(otherlv_21, grammarAccess.getDelegateOpAccess().getColonKeyword_10_1());
-                    			
-                    // InternalPromise.g:1810:4: ( ( ruleEString ) )
-                    // InternalPromise.g:1811:5: ( ruleEString )
+                    // InternalPromise.g:1806:4: ( ( ruleEString ) )
+                    // InternalPromise.g:1807:5: ( ruleEString )
                     {
-                    // InternalPromise.g:1811:5: ( ruleEString )
-                    // InternalPromise.g:1812:6: ruleEString
+                    // InternalPromise.g:1807:5: ( ruleEString )
+                    // InternalPromise.g:1808:6: ruleEString
                     {
 
                     						if (current==null) {
@@ -4416,7 +4411,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
                     						}
                     					
 
-                    						newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_10_2_0());
+                    						newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_10_1_0());
                     					
                     pushFollow(FOLLOW_21);
                     ruleEString();
@@ -4432,7 +4427,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPromise.g:1826:4: (otherlv_23= ',' ( ( ruleEString ) ) )*
+                    // InternalPromise.g:1822:4: (otherlv_22= ',' ( ( ruleEString ) ) )*
                     loop36:
                     do {
                         int alt36=2;
@@ -4445,17 +4440,17 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
                         switch (alt36) {
                     	case 1 :
-                    	    // InternalPromise.g:1827:5: otherlv_23= ',' ( ( ruleEString ) )
+                    	    // InternalPromise.g:1823:5: otherlv_22= ',' ( ( ruleEString ) )
                     	    {
-                    	    otherlv_23=(Token)match(input,16,FOLLOW_11); 
+                    	    otherlv_22=(Token)match(input,16,FOLLOW_11); 
 
-                    	    					newLeafNode(otherlv_23, grammarAccess.getDelegateOpAccess().getCommaKeyword_10_3_0());
+                    	    					newLeafNode(otherlv_22, grammarAccess.getDelegateOpAccess().getCommaKeyword_10_2_0());
                     	    				
-                    	    // InternalPromise.g:1831:5: ( ( ruleEString ) )
-                    	    // InternalPromise.g:1832:6: ( ruleEString )
+                    	    // InternalPromise.g:1827:5: ( ( ruleEString ) )
+                    	    // InternalPromise.g:1828:6: ( ruleEString )
                     	    {
-                    	    // InternalPromise.g:1832:6: ( ruleEString )
-                    	    // InternalPromise.g:1833:7: ruleEString
+                    	    // InternalPromise.g:1828:6: ( ruleEString )
+                    	    // InternalPromise.g:1829:7: ruleEString
                     	    {
 
                     	    							if (current==null) {
@@ -4463,7 +4458,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
                     	    							}
                     	    						
 
-                    	    							newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_10_3_1_0());
+                    	    							newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_10_2_1_0());
                     	    						
                     	    pushFollow(FOLLOW_21);
                     	    ruleEString();
@@ -4494,9 +4489,9 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_25=(Token)match(input,27,FOLLOW_2); 
+            otherlv_24=(Token)match(input,27,FOLLOW_2); 
 
-            			newLeafNode(otherlv_25, grammarAccess.getDelegateOpAccess().getRightParenthesisKeyword_11());
+            			newLeafNode(otherlv_24, grammarAccess.getDelegateOpAccess().getRightParenthesisKeyword_11());
             		
 
             }
@@ -4521,7 +4516,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSimpleAction"
-    // InternalPromise.g:1857:1: entryRuleSimpleAction returns [EObject current=null] : iv_ruleSimpleAction= ruleSimpleAction EOF ;
+    // InternalPromise.g:1853:1: entryRuleSimpleAction returns [EObject current=null] : iv_ruleSimpleAction= ruleSimpleAction EOF ;
     public final EObject entryRuleSimpleAction() throws RecognitionException {
         EObject current = null;
 
@@ -4529,8 +4524,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:1857:53: (iv_ruleSimpleAction= ruleSimpleAction EOF )
-            // InternalPromise.g:1858:2: iv_ruleSimpleAction= ruleSimpleAction EOF
+            // InternalPromise.g:1853:53: (iv_ruleSimpleAction= ruleSimpleAction EOF )
+            // InternalPromise.g:1854:2: iv_ruleSimpleAction= ruleSimpleAction EOF
             {
              newCompositeNode(grammarAccess.getSimpleActionRule()); 
             pushFollow(FOLLOW_1);
@@ -4557,7 +4552,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSimpleAction"
-    // InternalPromise.g:1864:1: ruleSimpleAction returns [EObject current=null] : ( () otherlv_1= 'SimpleAction' ) ;
+    // InternalPromise.g:1860:1: ruleSimpleAction returns [EObject current=null] : ( () otherlv_1= 'SimpleAction' ) ;
     public final EObject ruleSimpleAction() throws RecognitionException {
         EObject current = null;
 
@@ -4567,14 +4562,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:1870:2: ( ( () otherlv_1= 'SimpleAction' ) )
-            // InternalPromise.g:1871:2: ( () otherlv_1= 'SimpleAction' )
+            // InternalPromise.g:1866:2: ( ( () otherlv_1= 'SimpleAction' ) )
+            // InternalPromise.g:1867:2: ( () otherlv_1= 'SimpleAction' )
             {
-            // InternalPromise.g:1871:2: ( () otherlv_1= 'SimpleAction' )
-            // InternalPromise.g:1872:3: () otherlv_1= 'SimpleAction'
+            // InternalPromise.g:1867:2: ( () otherlv_1= 'SimpleAction' )
+            // InternalPromise.g:1868:3: () otherlv_1= 'SimpleAction'
             {
-            // InternalPromise.g:1872:3: ()
-            // InternalPromise.g:1873:4: 
+            // InternalPromise.g:1868:3: ()
+            // InternalPromise.g:1869:4: 
             {
 
             				current = forceCreateModelElement(
@@ -4611,7 +4606,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVisit"
-    // InternalPromise.g:1887:1: entryRuleVisit returns [EObject current=null] : iv_ruleVisit= ruleVisit EOF ;
+    // InternalPromise.g:1883:1: entryRuleVisit returns [EObject current=null] : iv_ruleVisit= ruleVisit EOF ;
     public final EObject entryRuleVisit() throws RecognitionException {
         EObject current = null;
 
@@ -4619,8 +4614,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:1887:46: (iv_ruleVisit= ruleVisit EOF )
-            // InternalPromise.g:1888:2: iv_ruleVisit= ruleVisit EOF
+            // InternalPromise.g:1883:46: (iv_ruleVisit= ruleVisit EOF )
+            // InternalPromise.g:1884:2: iv_ruleVisit= ruleVisit EOF
             {
              newCompositeNode(grammarAccess.getVisitRule()); 
             pushFollow(FOLLOW_1);
@@ -4647,7 +4642,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVisit"
-    // InternalPromise.g:1894:1: ruleVisit returns [EObject current=null] : ( () otherlv_1= 'Visit' ) ;
+    // InternalPromise.g:1890:1: ruleVisit returns [EObject current=null] : ( () otherlv_1= 'Visit' ) ;
     public final EObject ruleVisit() throws RecognitionException {
         EObject current = null;
 
@@ -4657,14 +4652,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:1900:2: ( ( () otherlv_1= 'Visit' ) )
-            // InternalPromise.g:1901:2: ( () otherlv_1= 'Visit' )
+            // InternalPromise.g:1896:2: ( ( () otherlv_1= 'Visit' ) )
+            // InternalPromise.g:1897:2: ( () otherlv_1= 'Visit' )
             {
-            // InternalPromise.g:1901:2: ( () otherlv_1= 'Visit' )
-            // InternalPromise.g:1902:3: () otherlv_1= 'Visit'
+            // InternalPromise.g:1897:2: ( () otherlv_1= 'Visit' )
+            // InternalPromise.g:1898:3: () otherlv_1= 'Visit'
             {
-            // InternalPromise.g:1902:3: ()
-            // InternalPromise.g:1903:4: 
+            // InternalPromise.g:1898:3: ()
+            // InternalPromise.g:1899:4: 
             {
 
             				current = forceCreateModelElement(
@@ -4701,7 +4696,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSequencedVisit"
-    // InternalPromise.g:1917:1: entryRuleSequencedVisit returns [EObject current=null] : iv_ruleSequencedVisit= ruleSequencedVisit EOF ;
+    // InternalPromise.g:1913:1: entryRuleSequencedVisit returns [EObject current=null] : iv_ruleSequencedVisit= ruleSequencedVisit EOF ;
     public final EObject entryRuleSequencedVisit() throws RecognitionException {
         EObject current = null;
 
@@ -4709,8 +4704,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:1917:55: (iv_ruleSequencedVisit= ruleSequencedVisit EOF )
-            // InternalPromise.g:1918:2: iv_ruleSequencedVisit= ruleSequencedVisit EOF
+            // InternalPromise.g:1913:55: (iv_ruleSequencedVisit= ruleSequencedVisit EOF )
+            // InternalPromise.g:1914:2: iv_ruleSequencedVisit= ruleSequencedVisit EOF
             {
              newCompositeNode(grammarAccess.getSequencedVisitRule()); 
             pushFollow(FOLLOW_1);
@@ -4737,7 +4732,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSequencedVisit"
-    // InternalPromise.g:1924:1: ruleSequencedVisit returns [EObject current=null] : ( () otherlv_1= 'SequencedVisit' ) ;
+    // InternalPromise.g:1920:1: ruleSequencedVisit returns [EObject current=null] : ( () otherlv_1= 'SequencedVisit' ) ;
     public final EObject ruleSequencedVisit() throws RecognitionException {
         EObject current = null;
 
@@ -4747,14 +4742,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:1930:2: ( ( () otherlv_1= 'SequencedVisit' ) )
-            // InternalPromise.g:1931:2: ( () otherlv_1= 'SequencedVisit' )
+            // InternalPromise.g:1926:2: ( ( () otherlv_1= 'SequencedVisit' ) )
+            // InternalPromise.g:1927:2: ( () otherlv_1= 'SequencedVisit' )
             {
-            // InternalPromise.g:1931:2: ( () otherlv_1= 'SequencedVisit' )
-            // InternalPromise.g:1932:3: () otherlv_1= 'SequencedVisit'
+            // InternalPromise.g:1927:2: ( () otherlv_1= 'SequencedVisit' )
+            // InternalPromise.g:1928:3: () otherlv_1= 'SequencedVisit'
             {
-            // InternalPromise.g:1932:3: ()
-            // InternalPromise.g:1933:4: 
+            // InternalPromise.g:1928:3: ()
+            // InternalPromise.g:1929:4: 
             {
 
             				current = forceCreateModelElement(
@@ -4791,7 +4786,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOrderderVisit"
-    // InternalPromise.g:1947:1: entryRuleOrderderVisit returns [EObject current=null] : iv_ruleOrderderVisit= ruleOrderderVisit EOF ;
+    // InternalPromise.g:1943:1: entryRuleOrderderVisit returns [EObject current=null] : iv_ruleOrderderVisit= ruleOrderderVisit EOF ;
     public final EObject entryRuleOrderderVisit() throws RecognitionException {
         EObject current = null;
 
@@ -4799,8 +4794,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:1947:54: (iv_ruleOrderderVisit= ruleOrderderVisit EOF )
-            // InternalPromise.g:1948:2: iv_ruleOrderderVisit= ruleOrderderVisit EOF
+            // InternalPromise.g:1943:54: (iv_ruleOrderderVisit= ruleOrderderVisit EOF )
+            // InternalPromise.g:1944:2: iv_ruleOrderderVisit= ruleOrderderVisit EOF
             {
              newCompositeNode(grammarAccess.getOrderderVisitRule()); 
             pushFollow(FOLLOW_1);
@@ -4827,7 +4822,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOrderderVisit"
-    // InternalPromise.g:1954:1: ruleOrderderVisit returns [EObject current=null] : ( () otherlv_1= 'OrderedVisit' ) ;
+    // InternalPromise.g:1950:1: ruleOrderderVisit returns [EObject current=null] : ( () otherlv_1= 'OrderedVisit' ) ;
     public final EObject ruleOrderderVisit() throws RecognitionException {
         EObject current = null;
 
@@ -4837,14 +4832,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:1960:2: ( ( () otherlv_1= 'OrderedVisit' ) )
-            // InternalPromise.g:1961:2: ( () otherlv_1= 'OrderedVisit' )
+            // InternalPromise.g:1956:2: ( ( () otherlv_1= 'OrderedVisit' ) )
+            // InternalPromise.g:1957:2: ( () otherlv_1= 'OrderedVisit' )
             {
-            // InternalPromise.g:1961:2: ( () otherlv_1= 'OrderedVisit' )
-            // InternalPromise.g:1962:3: () otherlv_1= 'OrderedVisit'
+            // InternalPromise.g:1957:2: ( () otherlv_1= 'OrderedVisit' )
+            // InternalPromise.g:1958:3: () otherlv_1= 'OrderedVisit'
             {
-            // InternalPromise.g:1962:3: ()
-            // InternalPromise.g:1963:4: 
+            // InternalPromise.g:1958:3: ()
+            // InternalPromise.g:1959:4: 
             {
 
             				current = forceCreateModelElement(
@@ -4881,7 +4876,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStrictOrderedVisit"
-    // InternalPromise.g:1977:1: entryRuleStrictOrderedVisit returns [EObject current=null] : iv_ruleStrictOrderedVisit= ruleStrictOrderedVisit EOF ;
+    // InternalPromise.g:1973:1: entryRuleStrictOrderedVisit returns [EObject current=null] : iv_ruleStrictOrderedVisit= ruleStrictOrderedVisit EOF ;
     public final EObject entryRuleStrictOrderedVisit() throws RecognitionException {
         EObject current = null;
 
@@ -4889,8 +4884,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:1977:59: (iv_ruleStrictOrderedVisit= ruleStrictOrderedVisit EOF )
-            // InternalPromise.g:1978:2: iv_ruleStrictOrderedVisit= ruleStrictOrderedVisit EOF
+            // InternalPromise.g:1973:59: (iv_ruleStrictOrderedVisit= ruleStrictOrderedVisit EOF )
+            // InternalPromise.g:1974:2: iv_ruleStrictOrderedVisit= ruleStrictOrderedVisit EOF
             {
              newCompositeNode(grammarAccess.getStrictOrderedVisitRule()); 
             pushFollow(FOLLOW_1);
@@ -4917,7 +4912,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStrictOrderedVisit"
-    // InternalPromise.g:1984:1: ruleStrictOrderedVisit returns [EObject current=null] : ( () otherlv_1= 'StrictOrderedVisit' ) ;
+    // InternalPromise.g:1980:1: ruleStrictOrderedVisit returns [EObject current=null] : ( () otherlv_1= 'StrictOrderedVisit' ) ;
     public final EObject ruleStrictOrderedVisit() throws RecognitionException {
         EObject current = null;
 
@@ -4927,14 +4922,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:1990:2: ( ( () otherlv_1= 'StrictOrderedVisit' ) )
-            // InternalPromise.g:1991:2: ( () otherlv_1= 'StrictOrderedVisit' )
+            // InternalPromise.g:1986:2: ( ( () otherlv_1= 'StrictOrderedVisit' ) )
+            // InternalPromise.g:1987:2: ( () otherlv_1= 'StrictOrderedVisit' )
             {
-            // InternalPromise.g:1991:2: ( () otherlv_1= 'StrictOrderedVisit' )
-            // InternalPromise.g:1992:3: () otherlv_1= 'StrictOrderedVisit'
+            // InternalPromise.g:1987:2: ( () otherlv_1= 'StrictOrderedVisit' )
+            // InternalPromise.g:1988:3: () otherlv_1= 'StrictOrderedVisit'
             {
-            // InternalPromise.g:1992:3: ()
-            // InternalPromise.g:1993:4: 
+            // InternalPromise.g:1988:3: ()
+            // InternalPromise.g:1989:4: 
             {
 
             				current = forceCreateModelElement(
@@ -4971,7 +4966,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFairVisit"
-    // InternalPromise.g:2007:1: entryRuleFairVisit returns [EObject current=null] : iv_ruleFairVisit= ruleFairVisit EOF ;
+    // InternalPromise.g:2003:1: entryRuleFairVisit returns [EObject current=null] : iv_ruleFairVisit= ruleFairVisit EOF ;
     public final EObject entryRuleFairVisit() throws RecognitionException {
         EObject current = null;
 
@@ -4979,8 +4974,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2007:50: (iv_ruleFairVisit= ruleFairVisit EOF )
-            // InternalPromise.g:2008:2: iv_ruleFairVisit= ruleFairVisit EOF
+            // InternalPromise.g:2003:50: (iv_ruleFairVisit= ruleFairVisit EOF )
+            // InternalPromise.g:2004:2: iv_ruleFairVisit= ruleFairVisit EOF
             {
              newCompositeNode(grammarAccess.getFairVisitRule()); 
             pushFollow(FOLLOW_1);
@@ -5007,7 +5002,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFairVisit"
-    // InternalPromise.g:2014:1: ruleFairVisit returns [EObject current=null] : ( () otherlv_1= 'FairVisit' ) ;
+    // InternalPromise.g:2010:1: ruleFairVisit returns [EObject current=null] : ( () otherlv_1= 'FairVisit' ) ;
     public final EObject ruleFairVisit() throws RecognitionException {
         EObject current = null;
 
@@ -5017,14 +5012,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2020:2: ( ( () otherlv_1= 'FairVisit' ) )
-            // InternalPromise.g:2021:2: ( () otherlv_1= 'FairVisit' )
+            // InternalPromise.g:2016:2: ( ( () otherlv_1= 'FairVisit' ) )
+            // InternalPromise.g:2017:2: ( () otherlv_1= 'FairVisit' )
             {
-            // InternalPromise.g:2021:2: ( () otherlv_1= 'FairVisit' )
-            // InternalPromise.g:2022:3: () otherlv_1= 'FairVisit'
+            // InternalPromise.g:2017:2: ( () otherlv_1= 'FairVisit' )
+            // InternalPromise.g:2018:3: () otherlv_1= 'FairVisit'
             {
-            // InternalPromise.g:2022:3: ()
-            // InternalPromise.g:2023:4: 
+            // InternalPromise.g:2018:3: ()
+            // InternalPromise.g:2019:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5061,7 +5056,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePatrolling"
-    // InternalPromise.g:2037:1: entryRulePatrolling returns [EObject current=null] : iv_rulePatrolling= rulePatrolling EOF ;
+    // InternalPromise.g:2033:1: entryRulePatrolling returns [EObject current=null] : iv_rulePatrolling= rulePatrolling EOF ;
     public final EObject entryRulePatrolling() throws RecognitionException {
         EObject current = null;
 
@@ -5069,8 +5064,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2037:51: (iv_rulePatrolling= rulePatrolling EOF )
-            // InternalPromise.g:2038:2: iv_rulePatrolling= rulePatrolling EOF
+            // InternalPromise.g:2033:51: (iv_rulePatrolling= rulePatrolling EOF )
+            // InternalPromise.g:2034:2: iv_rulePatrolling= rulePatrolling EOF
             {
              newCompositeNode(grammarAccess.getPatrollingRule()); 
             pushFollow(FOLLOW_1);
@@ -5097,7 +5092,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePatrolling"
-    // InternalPromise.g:2044:1: rulePatrolling returns [EObject current=null] : ( () otherlv_1= 'Patrolling' ) ;
+    // InternalPromise.g:2040:1: rulePatrolling returns [EObject current=null] : ( () otherlv_1= 'Patrolling' ) ;
     public final EObject rulePatrolling() throws RecognitionException {
         EObject current = null;
 
@@ -5107,14 +5102,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2050:2: ( ( () otherlv_1= 'Patrolling' ) )
-            // InternalPromise.g:2051:2: ( () otherlv_1= 'Patrolling' )
+            // InternalPromise.g:2046:2: ( ( () otherlv_1= 'Patrolling' ) )
+            // InternalPromise.g:2047:2: ( () otherlv_1= 'Patrolling' )
             {
-            // InternalPromise.g:2051:2: ( () otherlv_1= 'Patrolling' )
-            // InternalPromise.g:2052:3: () otherlv_1= 'Patrolling'
+            // InternalPromise.g:2047:2: ( () otherlv_1= 'Patrolling' )
+            // InternalPromise.g:2048:3: () otherlv_1= 'Patrolling'
             {
-            // InternalPromise.g:2052:3: ()
-            // InternalPromise.g:2053:4: 
+            // InternalPromise.g:2048:3: ()
+            // InternalPromise.g:2049:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5151,7 +5146,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSequencedPatrolling"
-    // InternalPromise.g:2067:1: entryRuleSequencedPatrolling returns [EObject current=null] : iv_ruleSequencedPatrolling= ruleSequencedPatrolling EOF ;
+    // InternalPromise.g:2063:1: entryRuleSequencedPatrolling returns [EObject current=null] : iv_ruleSequencedPatrolling= ruleSequencedPatrolling EOF ;
     public final EObject entryRuleSequencedPatrolling() throws RecognitionException {
         EObject current = null;
 
@@ -5159,8 +5154,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2067:60: (iv_ruleSequencedPatrolling= ruleSequencedPatrolling EOF )
-            // InternalPromise.g:2068:2: iv_ruleSequencedPatrolling= ruleSequencedPatrolling EOF
+            // InternalPromise.g:2063:60: (iv_ruleSequencedPatrolling= ruleSequencedPatrolling EOF )
+            // InternalPromise.g:2064:2: iv_ruleSequencedPatrolling= ruleSequencedPatrolling EOF
             {
              newCompositeNode(grammarAccess.getSequencedPatrollingRule()); 
             pushFollow(FOLLOW_1);
@@ -5187,7 +5182,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSequencedPatrolling"
-    // InternalPromise.g:2074:1: ruleSequencedPatrolling returns [EObject current=null] : ( () otherlv_1= 'SequencedPatrolling' ) ;
+    // InternalPromise.g:2070:1: ruleSequencedPatrolling returns [EObject current=null] : ( () otherlv_1= 'SequencedPatrolling' ) ;
     public final EObject ruleSequencedPatrolling() throws RecognitionException {
         EObject current = null;
 
@@ -5197,14 +5192,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2080:2: ( ( () otherlv_1= 'SequencedPatrolling' ) )
-            // InternalPromise.g:2081:2: ( () otherlv_1= 'SequencedPatrolling' )
+            // InternalPromise.g:2076:2: ( ( () otherlv_1= 'SequencedPatrolling' ) )
+            // InternalPromise.g:2077:2: ( () otherlv_1= 'SequencedPatrolling' )
             {
-            // InternalPromise.g:2081:2: ( () otherlv_1= 'SequencedPatrolling' )
-            // InternalPromise.g:2082:3: () otherlv_1= 'SequencedPatrolling'
+            // InternalPromise.g:2077:2: ( () otherlv_1= 'SequencedPatrolling' )
+            // InternalPromise.g:2078:3: () otherlv_1= 'SequencedPatrolling'
             {
-            // InternalPromise.g:2082:3: ()
-            // InternalPromise.g:2083:4: 
+            // InternalPromise.g:2078:3: ()
+            // InternalPromise.g:2079:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5241,7 +5236,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOrderedPatrolling"
-    // InternalPromise.g:2097:1: entryRuleOrderedPatrolling returns [EObject current=null] : iv_ruleOrderedPatrolling= ruleOrderedPatrolling EOF ;
+    // InternalPromise.g:2093:1: entryRuleOrderedPatrolling returns [EObject current=null] : iv_ruleOrderedPatrolling= ruleOrderedPatrolling EOF ;
     public final EObject entryRuleOrderedPatrolling() throws RecognitionException {
         EObject current = null;
 
@@ -5249,8 +5244,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2097:58: (iv_ruleOrderedPatrolling= ruleOrderedPatrolling EOF )
-            // InternalPromise.g:2098:2: iv_ruleOrderedPatrolling= ruleOrderedPatrolling EOF
+            // InternalPromise.g:2093:58: (iv_ruleOrderedPatrolling= ruleOrderedPatrolling EOF )
+            // InternalPromise.g:2094:2: iv_ruleOrderedPatrolling= ruleOrderedPatrolling EOF
             {
              newCompositeNode(grammarAccess.getOrderedPatrollingRule()); 
             pushFollow(FOLLOW_1);
@@ -5277,7 +5272,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOrderedPatrolling"
-    // InternalPromise.g:2104:1: ruleOrderedPatrolling returns [EObject current=null] : ( () otherlv_1= 'OrderedPatrolling' ) ;
+    // InternalPromise.g:2100:1: ruleOrderedPatrolling returns [EObject current=null] : ( () otherlv_1= 'OrderedPatrolling' ) ;
     public final EObject ruleOrderedPatrolling() throws RecognitionException {
         EObject current = null;
 
@@ -5287,14 +5282,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2110:2: ( ( () otherlv_1= 'OrderedPatrolling' ) )
-            // InternalPromise.g:2111:2: ( () otherlv_1= 'OrderedPatrolling' )
+            // InternalPromise.g:2106:2: ( ( () otherlv_1= 'OrderedPatrolling' ) )
+            // InternalPromise.g:2107:2: ( () otherlv_1= 'OrderedPatrolling' )
             {
-            // InternalPromise.g:2111:2: ( () otherlv_1= 'OrderedPatrolling' )
-            // InternalPromise.g:2112:3: () otherlv_1= 'OrderedPatrolling'
+            // InternalPromise.g:2107:2: ( () otherlv_1= 'OrderedPatrolling' )
+            // InternalPromise.g:2108:3: () otherlv_1= 'OrderedPatrolling'
             {
-            // InternalPromise.g:2112:3: ()
-            // InternalPromise.g:2113:4: 
+            // InternalPromise.g:2108:3: ()
+            // InternalPromise.g:2109:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5331,7 +5326,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStrictOreredPatrolling"
-    // InternalPromise.g:2127:1: entryRuleStrictOreredPatrolling returns [EObject current=null] : iv_ruleStrictOreredPatrolling= ruleStrictOreredPatrolling EOF ;
+    // InternalPromise.g:2123:1: entryRuleStrictOreredPatrolling returns [EObject current=null] : iv_ruleStrictOreredPatrolling= ruleStrictOreredPatrolling EOF ;
     public final EObject entryRuleStrictOreredPatrolling() throws RecognitionException {
         EObject current = null;
 
@@ -5339,8 +5334,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2127:63: (iv_ruleStrictOreredPatrolling= ruleStrictOreredPatrolling EOF )
-            // InternalPromise.g:2128:2: iv_ruleStrictOreredPatrolling= ruleStrictOreredPatrolling EOF
+            // InternalPromise.g:2123:63: (iv_ruleStrictOreredPatrolling= ruleStrictOreredPatrolling EOF )
+            // InternalPromise.g:2124:2: iv_ruleStrictOreredPatrolling= ruleStrictOreredPatrolling EOF
             {
              newCompositeNode(grammarAccess.getStrictOreredPatrollingRule()); 
             pushFollow(FOLLOW_1);
@@ -5367,7 +5362,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStrictOreredPatrolling"
-    // InternalPromise.g:2134:1: ruleStrictOreredPatrolling returns [EObject current=null] : ( () otherlv_1= 'StrictOrderedPatrolling' ) ;
+    // InternalPromise.g:2130:1: ruleStrictOreredPatrolling returns [EObject current=null] : ( () otherlv_1= 'StrictOrderedPatrolling' ) ;
     public final EObject ruleStrictOreredPatrolling() throws RecognitionException {
         EObject current = null;
 
@@ -5377,14 +5372,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2140:2: ( ( () otherlv_1= 'StrictOrderedPatrolling' ) )
-            // InternalPromise.g:2141:2: ( () otherlv_1= 'StrictOrderedPatrolling' )
+            // InternalPromise.g:2136:2: ( ( () otherlv_1= 'StrictOrderedPatrolling' ) )
+            // InternalPromise.g:2137:2: ( () otherlv_1= 'StrictOrderedPatrolling' )
             {
-            // InternalPromise.g:2141:2: ( () otherlv_1= 'StrictOrderedPatrolling' )
-            // InternalPromise.g:2142:3: () otherlv_1= 'StrictOrderedPatrolling'
+            // InternalPromise.g:2137:2: ( () otherlv_1= 'StrictOrderedPatrolling' )
+            // InternalPromise.g:2138:3: () otherlv_1= 'StrictOrderedPatrolling'
             {
-            // InternalPromise.g:2142:3: ()
-            // InternalPromise.g:2143:4: 
+            // InternalPromise.g:2138:3: ()
+            // InternalPromise.g:2139:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5421,7 +5416,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFairPatrolling"
-    // InternalPromise.g:2157:1: entryRuleFairPatrolling returns [EObject current=null] : iv_ruleFairPatrolling= ruleFairPatrolling EOF ;
+    // InternalPromise.g:2153:1: entryRuleFairPatrolling returns [EObject current=null] : iv_ruleFairPatrolling= ruleFairPatrolling EOF ;
     public final EObject entryRuleFairPatrolling() throws RecognitionException {
         EObject current = null;
 
@@ -5429,8 +5424,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2157:55: (iv_ruleFairPatrolling= ruleFairPatrolling EOF )
-            // InternalPromise.g:2158:2: iv_ruleFairPatrolling= ruleFairPatrolling EOF
+            // InternalPromise.g:2153:55: (iv_ruleFairPatrolling= ruleFairPatrolling EOF )
+            // InternalPromise.g:2154:2: iv_ruleFairPatrolling= ruleFairPatrolling EOF
             {
              newCompositeNode(grammarAccess.getFairPatrollingRule()); 
             pushFollow(FOLLOW_1);
@@ -5457,7 +5452,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFairPatrolling"
-    // InternalPromise.g:2164:1: ruleFairPatrolling returns [EObject current=null] : ( () otherlv_1= 'FairPatrolling' ) ;
+    // InternalPromise.g:2160:1: ruleFairPatrolling returns [EObject current=null] : ( () otherlv_1= 'FairPatrolling' ) ;
     public final EObject ruleFairPatrolling() throws RecognitionException {
         EObject current = null;
 
@@ -5467,14 +5462,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2170:2: ( ( () otherlv_1= 'FairPatrolling' ) )
-            // InternalPromise.g:2171:2: ( () otherlv_1= 'FairPatrolling' )
+            // InternalPromise.g:2166:2: ( ( () otherlv_1= 'FairPatrolling' ) )
+            // InternalPromise.g:2167:2: ( () otherlv_1= 'FairPatrolling' )
             {
-            // InternalPromise.g:2171:2: ( () otherlv_1= 'FairPatrolling' )
-            // InternalPromise.g:2172:3: () otherlv_1= 'FairPatrolling'
+            // InternalPromise.g:2167:2: ( () otherlv_1= 'FairPatrolling' )
+            // InternalPromise.g:2168:3: () otherlv_1= 'FairPatrolling'
             {
-            // InternalPromise.g:2172:3: ()
-            // InternalPromise.g:2173:4: 
+            // InternalPromise.g:2168:3: ()
+            // InternalPromise.g:2169:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5511,7 +5506,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUpperRestrictedAvoidance"
-    // InternalPromise.g:2187:1: entryRuleUpperRestrictedAvoidance returns [EObject current=null] : iv_ruleUpperRestrictedAvoidance= ruleUpperRestrictedAvoidance EOF ;
+    // InternalPromise.g:2183:1: entryRuleUpperRestrictedAvoidance returns [EObject current=null] : iv_ruleUpperRestrictedAvoidance= ruleUpperRestrictedAvoidance EOF ;
     public final EObject entryRuleUpperRestrictedAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5519,8 +5514,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2187:65: (iv_ruleUpperRestrictedAvoidance= ruleUpperRestrictedAvoidance EOF )
-            // InternalPromise.g:2188:2: iv_ruleUpperRestrictedAvoidance= ruleUpperRestrictedAvoidance EOF
+            // InternalPromise.g:2183:65: (iv_ruleUpperRestrictedAvoidance= ruleUpperRestrictedAvoidance EOF )
+            // InternalPromise.g:2184:2: iv_ruleUpperRestrictedAvoidance= ruleUpperRestrictedAvoidance EOF
             {
              newCompositeNode(grammarAccess.getUpperRestrictedAvoidanceRule()); 
             pushFollow(FOLLOW_1);
@@ -5547,7 +5542,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUpperRestrictedAvoidance"
-    // InternalPromise.g:2194:1: ruleUpperRestrictedAvoidance returns [EObject current=null] : ( () otherlv_1= 'UpperRestrictedAvoidance' ) ;
+    // InternalPromise.g:2190:1: ruleUpperRestrictedAvoidance returns [EObject current=null] : ( () otherlv_1= 'UpperRestrictedAvoidance' ) ;
     public final EObject ruleUpperRestrictedAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5557,14 +5552,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2200:2: ( ( () otherlv_1= 'UpperRestrictedAvoidance' ) )
-            // InternalPromise.g:2201:2: ( () otherlv_1= 'UpperRestrictedAvoidance' )
+            // InternalPromise.g:2196:2: ( ( () otherlv_1= 'UpperRestrictedAvoidance' ) )
+            // InternalPromise.g:2197:2: ( () otherlv_1= 'UpperRestrictedAvoidance' )
             {
-            // InternalPromise.g:2201:2: ( () otherlv_1= 'UpperRestrictedAvoidance' )
-            // InternalPromise.g:2202:3: () otherlv_1= 'UpperRestrictedAvoidance'
+            // InternalPromise.g:2197:2: ( () otherlv_1= 'UpperRestrictedAvoidance' )
+            // InternalPromise.g:2198:3: () otherlv_1= 'UpperRestrictedAvoidance'
             {
-            // InternalPromise.g:2202:3: ()
-            // InternalPromise.g:2203:4: 
+            // InternalPromise.g:2198:3: ()
+            // InternalPromise.g:2199:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5601,7 +5596,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExactRestrictedAvoidance"
-    // InternalPromise.g:2217:1: entryRuleExactRestrictedAvoidance returns [EObject current=null] : iv_ruleExactRestrictedAvoidance= ruleExactRestrictedAvoidance EOF ;
+    // InternalPromise.g:2213:1: entryRuleExactRestrictedAvoidance returns [EObject current=null] : iv_ruleExactRestrictedAvoidance= ruleExactRestrictedAvoidance EOF ;
     public final EObject entryRuleExactRestrictedAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5609,8 +5604,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2217:65: (iv_ruleExactRestrictedAvoidance= ruleExactRestrictedAvoidance EOF )
-            // InternalPromise.g:2218:2: iv_ruleExactRestrictedAvoidance= ruleExactRestrictedAvoidance EOF
+            // InternalPromise.g:2213:65: (iv_ruleExactRestrictedAvoidance= ruleExactRestrictedAvoidance EOF )
+            // InternalPromise.g:2214:2: iv_ruleExactRestrictedAvoidance= ruleExactRestrictedAvoidance EOF
             {
              newCompositeNode(grammarAccess.getExactRestrictedAvoidanceRule()); 
             pushFollow(FOLLOW_1);
@@ -5637,7 +5632,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExactRestrictedAvoidance"
-    // InternalPromise.g:2224:1: ruleExactRestrictedAvoidance returns [EObject current=null] : ( () otherlv_1= 'ExactRestrictedAvoidance' ) ;
+    // InternalPromise.g:2220:1: ruleExactRestrictedAvoidance returns [EObject current=null] : ( () otherlv_1= 'ExactRestrictedAvoidance' ) ;
     public final EObject ruleExactRestrictedAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5647,14 +5642,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2230:2: ( ( () otherlv_1= 'ExactRestrictedAvoidance' ) )
-            // InternalPromise.g:2231:2: ( () otherlv_1= 'ExactRestrictedAvoidance' )
+            // InternalPromise.g:2226:2: ( ( () otherlv_1= 'ExactRestrictedAvoidance' ) )
+            // InternalPromise.g:2227:2: ( () otherlv_1= 'ExactRestrictedAvoidance' )
             {
-            // InternalPromise.g:2231:2: ( () otherlv_1= 'ExactRestrictedAvoidance' )
-            // InternalPromise.g:2232:3: () otherlv_1= 'ExactRestrictedAvoidance'
+            // InternalPromise.g:2227:2: ( () otherlv_1= 'ExactRestrictedAvoidance' )
+            // InternalPromise.g:2228:3: () otherlv_1= 'ExactRestrictedAvoidance'
             {
-            // InternalPromise.g:2232:3: ()
-            // InternalPromise.g:2233:4: 
+            // InternalPromise.g:2228:3: ()
+            // InternalPromise.g:2229:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5691,7 +5686,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLowerRestrictedAvoidance"
-    // InternalPromise.g:2247:1: entryRuleLowerRestrictedAvoidance returns [EObject current=null] : iv_ruleLowerRestrictedAvoidance= ruleLowerRestrictedAvoidance EOF ;
+    // InternalPromise.g:2243:1: entryRuleLowerRestrictedAvoidance returns [EObject current=null] : iv_ruleLowerRestrictedAvoidance= ruleLowerRestrictedAvoidance EOF ;
     public final EObject entryRuleLowerRestrictedAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5699,8 +5694,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2247:65: (iv_ruleLowerRestrictedAvoidance= ruleLowerRestrictedAvoidance EOF )
-            // InternalPromise.g:2248:2: iv_ruleLowerRestrictedAvoidance= ruleLowerRestrictedAvoidance EOF
+            // InternalPromise.g:2243:65: (iv_ruleLowerRestrictedAvoidance= ruleLowerRestrictedAvoidance EOF )
+            // InternalPromise.g:2244:2: iv_ruleLowerRestrictedAvoidance= ruleLowerRestrictedAvoidance EOF
             {
              newCompositeNode(grammarAccess.getLowerRestrictedAvoidanceRule()); 
             pushFollow(FOLLOW_1);
@@ -5727,7 +5722,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLowerRestrictedAvoidance"
-    // InternalPromise.g:2254:1: ruleLowerRestrictedAvoidance returns [EObject current=null] : ( () otherlv_1= 'LowerRestrictedAvoidance' ) ;
+    // InternalPromise.g:2250:1: ruleLowerRestrictedAvoidance returns [EObject current=null] : ( () otherlv_1= 'LowerRestrictedAvoidance' ) ;
     public final EObject ruleLowerRestrictedAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5737,14 +5732,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2260:2: ( ( () otherlv_1= 'LowerRestrictedAvoidance' ) )
-            // InternalPromise.g:2261:2: ( () otherlv_1= 'LowerRestrictedAvoidance' )
+            // InternalPromise.g:2256:2: ( ( () otherlv_1= 'LowerRestrictedAvoidance' ) )
+            // InternalPromise.g:2257:2: ( () otherlv_1= 'LowerRestrictedAvoidance' )
             {
-            // InternalPromise.g:2261:2: ( () otherlv_1= 'LowerRestrictedAvoidance' )
-            // InternalPromise.g:2262:3: () otherlv_1= 'LowerRestrictedAvoidance'
+            // InternalPromise.g:2257:2: ( () otherlv_1= 'LowerRestrictedAvoidance' )
+            // InternalPromise.g:2258:3: () otherlv_1= 'LowerRestrictedAvoidance'
             {
-            // InternalPromise.g:2262:3: ()
-            // InternalPromise.g:2263:4: 
+            // InternalPromise.g:2258:3: ()
+            // InternalPromise.g:2259:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5781,7 +5776,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFutureAvoidance"
-    // InternalPromise.g:2277:1: entryRuleFutureAvoidance returns [EObject current=null] : iv_ruleFutureAvoidance= ruleFutureAvoidance EOF ;
+    // InternalPromise.g:2273:1: entryRuleFutureAvoidance returns [EObject current=null] : iv_ruleFutureAvoidance= ruleFutureAvoidance EOF ;
     public final EObject entryRuleFutureAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5789,8 +5784,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2277:56: (iv_ruleFutureAvoidance= ruleFutureAvoidance EOF )
-            // InternalPromise.g:2278:2: iv_ruleFutureAvoidance= ruleFutureAvoidance EOF
+            // InternalPromise.g:2273:56: (iv_ruleFutureAvoidance= ruleFutureAvoidance EOF )
+            // InternalPromise.g:2274:2: iv_ruleFutureAvoidance= ruleFutureAvoidance EOF
             {
              newCompositeNode(grammarAccess.getFutureAvoidanceRule()); 
             pushFollow(FOLLOW_1);
@@ -5817,7 +5812,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFutureAvoidance"
-    // InternalPromise.g:2284:1: ruleFutureAvoidance returns [EObject current=null] : ( () otherlv_1= 'FutureAvoidance' ) ;
+    // InternalPromise.g:2280:1: ruleFutureAvoidance returns [EObject current=null] : ( () otherlv_1= 'FutureAvoidance' ) ;
     public final EObject ruleFutureAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5827,14 +5822,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2290:2: ( ( () otherlv_1= 'FutureAvoidance' ) )
-            // InternalPromise.g:2291:2: ( () otherlv_1= 'FutureAvoidance' )
+            // InternalPromise.g:2286:2: ( ( () otherlv_1= 'FutureAvoidance' ) )
+            // InternalPromise.g:2287:2: ( () otherlv_1= 'FutureAvoidance' )
             {
-            // InternalPromise.g:2291:2: ( () otherlv_1= 'FutureAvoidance' )
-            // InternalPromise.g:2292:3: () otherlv_1= 'FutureAvoidance'
+            // InternalPromise.g:2287:2: ( () otherlv_1= 'FutureAvoidance' )
+            // InternalPromise.g:2288:3: () otherlv_1= 'FutureAvoidance'
             {
-            // InternalPromise.g:2292:3: ()
-            // InternalPromise.g:2293:4: 
+            // InternalPromise.g:2288:3: ()
+            // InternalPromise.g:2289:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5871,7 +5866,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGlobalAvoidance"
-    // InternalPromise.g:2307:1: entryRuleGlobalAvoidance returns [EObject current=null] : iv_ruleGlobalAvoidance= ruleGlobalAvoidance EOF ;
+    // InternalPromise.g:2303:1: entryRuleGlobalAvoidance returns [EObject current=null] : iv_ruleGlobalAvoidance= ruleGlobalAvoidance EOF ;
     public final EObject entryRuleGlobalAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5879,8 +5874,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2307:56: (iv_ruleGlobalAvoidance= ruleGlobalAvoidance EOF )
-            // InternalPromise.g:2308:2: iv_ruleGlobalAvoidance= ruleGlobalAvoidance EOF
+            // InternalPromise.g:2303:56: (iv_ruleGlobalAvoidance= ruleGlobalAvoidance EOF )
+            // InternalPromise.g:2304:2: iv_ruleGlobalAvoidance= ruleGlobalAvoidance EOF
             {
              newCompositeNode(grammarAccess.getGlobalAvoidanceRule()); 
             pushFollow(FOLLOW_1);
@@ -5907,7 +5902,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGlobalAvoidance"
-    // InternalPromise.g:2314:1: ruleGlobalAvoidance returns [EObject current=null] : ( () otherlv_1= 'GlobalAvoidance' ) ;
+    // InternalPromise.g:2310:1: ruleGlobalAvoidance returns [EObject current=null] : ( () otherlv_1= 'GlobalAvoidance' ) ;
     public final EObject ruleGlobalAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5917,14 +5912,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2320:2: ( ( () otherlv_1= 'GlobalAvoidance' ) )
-            // InternalPromise.g:2321:2: ( () otherlv_1= 'GlobalAvoidance' )
+            // InternalPromise.g:2316:2: ( ( () otherlv_1= 'GlobalAvoidance' ) )
+            // InternalPromise.g:2317:2: ( () otherlv_1= 'GlobalAvoidance' )
             {
-            // InternalPromise.g:2321:2: ( () otherlv_1= 'GlobalAvoidance' )
-            // InternalPromise.g:2322:3: () otherlv_1= 'GlobalAvoidance'
+            // InternalPromise.g:2317:2: ( () otherlv_1= 'GlobalAvoidance' )
+            // InternalPromise.g:2318:3: () otherlv_1= 'GlobalAvoidance'
             {
-            // InternalPromise.g:2322:3: ()
-            // InternalPromise.g:2323:4: 
+            // InternalPromise.g:2318:3: ()
+            // InternalPromise.g:2319:4: 
             {
 
             				current = forceCreateModelElement(
@@ -5961,7 +5956,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePastAvoidance"
-    // InternalPromise.g:2337:1: entryRulePastAvoidance returns [EObject current=null] : iv_rulePastAvoidance= rulePastAvoidance EOF ;
+    // InternalPromise.g:2333:1: entryRulePastAvoidance returns [EObject current=null] : iv_rulePastAvoidance= rulePastAvoidance EOF ;
     public final EObject entryRulePastAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -5969,8 +5964,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2337:54: (iv_rulePastAvoidance= rulePastAvoidance EOF )
-            // InternalPromise.g:2338:2: iv_rulePastAvoidance= rulePastAvoidance EOF
+            // InternalPromise.g:2333:54: (iv_rulePastAvoidance= rulePastAvoidance EOF )
+            // InternalPromise.g:2334:2: iv_rulePastAvoidance= rulePastAvoidance EOF
             {
              newCompositeNode(grammarAccess.getPastAvoidanceRule()); 
             pushFollow(FOLLOW_1);
@@ -5997,7 +5992,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePastAvoidance"
-    // InternalPromise.g:2344:1: rulePastAvoidance returns [EObject current=null] : ( () otherlv_1= 'PastAvoidance' ) ;
+    // InternalPromise.g:2340:1: rulePastAvoidance returns [EObject current=null] : ( () otherlv_1= 'PastAvoidance' ) ;
     public final EObject rulePastAvoidance() throws RecognitionException {
         EObject current = null;
 
@@ -6007,14 +6002,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2350:2: ( ( () otherlv_1= 'PastAvoidance' ) )
-            // InternalPromise.g:2351:2: ( () otherlv_1= 'PastAvoidance' )
+            // InternalPromise.g:2346:2: ( ( () otherlv_1= 'PastAvoidance' ) )
+            // InternalPromise.g:2347:2: ( () otherlv_1= 'PastAvoidance' )
             {
-            // InternalPromise.g:2351:2: ( () otherlv_1= 'PastAvoidance' )
-            // InternalPromise.g:2352:3: () otherlv_1= 'PastAvoidance'
+            // InternalPromise.g:2347:2: ( () otherlv_1= 'PastAvoidance' )
+            // InternalPromise.g:2348:3: () otherlv_1= 'PastAvoidance'
             {
-            // InternalPromise.g:2352:3: ()
-            // InternalPromise.g:2353:4: 
+            // InternalPromise.g:2348:3: ()
+            // InternalPromise.g:2349:4: 
             {
 
             				current = forceCreateModelElement(
@@ -6051,7 +6046,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWait"
-    // InternalPromise.g:2367:1: entryRuleWait returns [EObject current=null] : iv_ruleWait= ruleWait EOF ;
+    // InternalPromise.g:2363:1: entryRuleWait returns [EObject current=null] : iv_ruleWait= ruleWait EOF ;
     public final EObject entryRuleWait() throws RecognitionException {
         EObject current = null;
 
@@ -6059,8 +6054,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2367:45: (iv_ruleWait= ruleWait EOF )
-            // InternalPromise.g:2368:2: iv_ruleWait= ruleWait EOF
+            // InternalPromise.g:2363:45: (iv_ruleWait= ruleWait EOF )
+            // InternalPromise.g:2364:2: iv_ruleWait= ruleWait EOF
             {
              newCompositeNode(grammarAccess.getWaitRule()); 
             pushFollow(FOLLOW_1);
@@ -6087,7 +6082,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWait"
-    // InternalPromise.g:2374:1: ruleWait returns [EObject current=null] : ( () otherlv_1= 'Wait' ) ;
+    // InternalPromise.g:2370:1: ruleWait returns [EObject current=null] : ( () otherlv_1= 'Wait' ) ;
     public final EObject ruleWait() throws RecognitionException {
         EObject current = null;
 
@@ -6097,14 +6092,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2380:2: ( ( () otherlv_1= 'Wait' ) )
-            // InternalPromise.g:2381:2: ( () otherlv_1= 'Wait' )
+            // InternalPromise.g:2376:2: ( ( () otherlv_1= 'Wait' ) )
+            // InternalPromise.g:2377:2: ( () otherlv_1= 'Wait' )
             {
-            // InternalPromise.g:2381:2: ( () otherlv_1= 'Wait' )
-            // InternalPromise.g:2382:3: () otherlv_1= 'Wait'
+            // InternalPromise.g:2377:2: ( () otherlv_1= 'Wait' )
+            // InternalPromise.g:2378:3: () otherlv_1= 'Wait'
             {
-            // InternalPromise.g:2382:3: ()
-            // InternalPromise.g:2383:4: 
+            // InternalPromise.g:2378:3: ()
+            // InternalPromise.g:2379:4: 
             {
 
             				current = forceCreateModelElement(
@@ -6141,7 +6136,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDelayedReaction"
-    // InternalPromise.g:2397:1: entryRuleDelayedReaction returns [EObject current=null] : iv_ruleDelayedReaction= ruleDelayedReaction EOF ;
+    // InternalPromise.g:2393:1: entryRuleDelayedReaction returns [EObject current=null] : iv_ruleDelayedReaction= ruleDelayedReaction EOF ;
     public final EObject entryRuleDelayedReaction() throws RecognitionException {
         EObject current = null;
 
@@ -6149,8 +6144,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2397:56: (iv_ruleDelayedReaction= ruleDelayedReaction EOF )
-            // InternalPromise.g:2398:2: iv_ruleDelayedReaction= ruleDelayedReaction EOF
+            // InternalPromise.g:2393:56: (iv_ruleDelayedReaction= ruleDelayedReaction EOF )
+            // InternalPromise.g:2394:2: iv_ruleDelayedReaction= ruleDelayedReaction EOF
             {
              newCompositeNode(grammarAccess.getDelayedReactionRule()); 
             pushFollow(FOLLOW_1);
@@ -6177,7 +6172,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDelayedReaction"
-    // InternalPromise.g:2404:1: ruleDelayedReaction returns [EObject current=null] : ( () otherlv_1= 'DelayedReaction' ) ;
+    // InternalPromise.g:2400:1: ruleDelayedReaction returns [EObject current=null] : ( () otherlv_1= 'DelayedReaction' ) ;
     public final EObject ruleDelayedReaction() throws RecognitionException {
         EObject current = null;
 
@@ -6187,14 +6182,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2410:2: ( ( () otherlv_1= 'DelayedReaction' ) )
-            // InternalPromise.g:2411:2: ( () otherlv_1= 'DelayedReaction' )
+            // InternalPromise.g:2406:2: ( ( () otherlv_1= 'DelayedReaction' ) )
+            // InternalPromise.g:2407:2: ( () otherlv_1= 'DelayedReaction' )
             {
-            // InternalPromise.g:2411:2: ( () otherlv_1= 'DelayedReaction' )
-            // InternalPromise.g:2412:3: () otherlv_1= 'DelayedReaction'
+            // InternalPromise.g:2407:2: ( () otherlv_1= 'DelayedReaction' )
+            // InternalPromise.g:2408:3: () otherlv_1= 'DelayedReaction'
             {
-            // InternalPromise.g:2412:3: ()
-            // InternalPromise.g:2413:4: 
+            // InternalPromise.g:2408:3: ()
+            // InternalPromise.g:2409:4: 
             {
 
             				current = forceCreateModelElement(
@@ -6231,7 +6226,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInstantReaction"
-    // InternalPromise.g:2427:1: entryRuleInstantReaction returns [EObject current=null] : iv_ruleInstantReaction= ruleInstantReaction EOF ;
+    // InternalPromise.g:2423:1: entryRuleInstantReaction returns [EObject current=null] : iv_ruleInstantReaction= ruleInstantReaction EOF ;
     public final EObject entryRuleInstantReaction() throws RecognitionException {
         EObject current = null;
 
@@ -6239,8 +6234,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2427:56: (iv_ruleInstantReaction= ruleInstantReaction EOF )
-            // InternalPromise.g:2428:2: iv_ruleInstantReaction= ruleInstantReaction EOF
+            // InternalPromise.g:2423:56: (iv_ruleInstantReaction= ruleInstantReaction EOF )
+            // InternalPromise.g:2424:2: iv_ruleInstantReaction= ruleInstantReaction EOF
             {
              newCompositeNode(grammarAccess.getInstantReactionRule()); 
             pushFollow(FOLLOW_1);
@@ -6267,7 +6262,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInstantReaction"
-    // InternalPromise.g:2434:1: ruleInstantReaction returns [EObject current=null] : ( () otherlv_1= 'InstantReaction' ) ;
+    // InternalPromise.g:2430:1: ruleInstantReaction returns [EObject current=null] : ( () otherlv_1= 'InstantReaction' ) ;
     public final EObject ruleInstantReaction() throws RecognitionException {
         EObject current = null;
 
@@ -6277,14 +6272,14 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2440:2: ( ( () otherlv_1= 'InstantReaction' ) )
-            // InternalPromise.g:2441:2: ( () otherlv_1= 'InstantReaction' )
+            // InternalPromise.g:2436:2: ( ( () otherlv_1= 'InstantReaction' ) )
+            // InternalPromise.g:2437:2: ( () otherlv_1= 'InstantReaction' )
             {
-            // InternalPromise.g:2441:2: ( () otherlv_1= 'InstantReaction' )
-            // InternalPromise.g:2442:3: () otherlv_1= 'InstantReaction'
+            // InternalPromise.g:2437:2: ( () otherlv_1= 'InstantReaction' )
+            // InternalPromise.g:2438:3: () otherlv_1= 'InstantReaction'
             {
-            // InternalPromise.g:2442:3: ()
-            // InternalPromise.g:2443:4: 
+            // InternalPromise.g:2438:3: ()
+            // InternalPromise.g:2439:4: 
             {
 
             				current = forceCreateModelElement(
@@ -6321,7 +6316,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalPromise.g:2457:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalPromise.g:2453:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -6329,8 +6324,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:2457:47: (iv_ruleEString= ruleEString EOF )
-            // InternalPromise.g:2458:2: iv_ruleEString= ruleEString EOF
+            // InternalPromise.g:2453:47: (iv_ruleEString= ruleEString EOF )
+            // InternalPromise.g:2454:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -6357,7 +6352,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalPromise.g:2464:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // InternalPromise.g:2460:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6368,10 +6363,10 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:2470:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // InternalPromise.g:2471:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalPromise.g:2466:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // InternalPromise.g:2467:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // InternalPromise.g:2471:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalPromise.g:2467:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             int alt38=2;
             int LA38_0 = input.LA(1);
 
@@ -6389,7 +6384,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
             }
             switch (alt38) {
                 case 1 :
-                    // InternalPromise.g:2472:3: this_STRING_0= RULE_STRING
+                    // InternalPromise.g:2468:3: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -6402,7 +6397,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPromise.g:2480:3: this_ID_1= RULE_ID
+                    // InternalPromise.g:2476:3: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 

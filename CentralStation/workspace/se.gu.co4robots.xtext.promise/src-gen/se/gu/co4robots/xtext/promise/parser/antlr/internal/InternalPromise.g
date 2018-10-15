@@ -1803,10 +1803,6 @@ ruleDelegateOp returns [EObject current=null]
 			{
 				newLeafNode(otherlv_20, grammarAccess.getDelegateOpAccess().getStoppingEventsKeyword_10_0());
 			}
-			otherlv_21=':'
-			{
-				newLeafNode(otherlv_21, grammarAccess.getDelegateOpAccess().getColonKeyword_10_1());
-			}
 			(
 				(
 					{
@@ -1815,7 +1811,7 @@ ruleDelegateOp returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_10_2_0());
+						newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_10_1_0());
 					}
 					ruleEString
 					{
@@ -1824,9 +1820,9 @@ ruleDelegateOp returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_23=','
+				otherlv_22=','
 				{
-					newLeafNode(otherlv_23, grammarAccess.getDelegateOpAccess().getCommaKeyword_10_3_0());
+					newLeafNode(otherlv_22, grammarAccess.getDelegateOpAccess().getCommaKeyword_10_2_0());
 				}
 				(
 					(
@@ -1836,7 +1832,7 @@ ruleDelegateOp returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_10_3_1_0());
+							newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_10_2_1_0());
 						}
 						ruleEString
 						{
@@ -1846,9 +1842,9 @@ ruleDelegateOp returns [EObject current=null]
 				)
 			)*
 		)?
-		otherlv_25=')'
+		otherlv_24=')'
 		{
-			newLeafNode(otherlv_25, grammarAccess.getDelegateOpAccess().getRightParenthesisKeyword_11());
+			newLeafNode(otherlv_24, grammarAccess.getDelegateOpAccess().getRightParenthesisKeyword_11());
 		}
 	)
 ;
