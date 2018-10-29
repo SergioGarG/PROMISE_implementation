@@ -333,6 +333,8 @@ class LocalMission(object):
 			self.status.actions.append(localmission.data)
 		elif localmission.data == "stoppingEvents":
 			self.status.state=4
+		#Stores the stoppingEvents in the corresponding instantiation of the class.
+		#It stores which task is associated to a stoppingEvent and the event itself.
 		elif localmission.data != "stoppingEvents_ends" and self.status.state==4:
 			helper1 = localmission.data.split(",")
 			self.status.stoppingEvents.append(StoppingEvent())
@@ -359,6 +361,8 @@ class LocalMission(object):
 
 	def TaskStatusCallback(self, taskstatus):
 		timer_now=rospy.Time.now()
+		#Collects the state of the current task (received from the planner).
+		#It only takes the updates with 1 sec of different in their timestamp to avoid bouncing.
 		if (timer_now.secs - self.status.timer.secs) > 1:
 			self.status.task_status=taskstatus.data
 			self.status.timer = rospy.Time.now()
