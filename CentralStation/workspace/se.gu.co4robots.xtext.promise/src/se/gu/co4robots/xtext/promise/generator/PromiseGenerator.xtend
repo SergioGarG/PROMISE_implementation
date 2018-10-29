@@ -155,80 +155,46 @@ class PromiseGenerator extends AbstractGenerator {
 		}
 		
 		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent){
-			//NEW IMPLEMENTATION
-			//  robotsList.get(robot).get(index).missionList.add("eh")
-			nestedMethod(in, index, 0, robot, indentation, parent) //always execute the first operator, the following ones are the associated with events
+			robotsList.get(robot).get(index).missionList.add("eh")
 			var int counter
 			var names = new ArrayList<String>
-			//NEW IMPLEMENTATION
-//			for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
-//			robotsList.get(robot).add(new robotClass("eh_default", new ArrayList<String>, indentation+1))
-			//nestedMethod(in, counter, 0, robot, indentation+1, "eh_default") //always execute the first operator, the following ones are the associated with events
+			for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
+			robotsList.get(robot).add(new robotClass("eh_default", new ArrayList<String>, indentation+1))
+			nestedMethod(in, counter, 0, robot, indentation+1, "eh_default") //always execute the first operator, the following ones are the associated with events
+			names.add(robotsList.get(robot).get(counter++).name)
 			for(var i=1; i<(in.inputOperators.length); i++) {
-				for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
-				//robotsList.get(robot).add(new robotClass("eh"+in.inputOperators.get(i).affectingEvent.get(0).name, new ArrayList<String>, indentation+1))
 				robotsList.get(robot).add(new robotClass("eh_"+in.inputObservedEvents.get(i-1).name, new ArrayList<String>, indentation+1))
-				//names.add(robotsList.get(robot).get(counter+1).name)
-				//nestedMethod(in, names.indexOf("eh"+in.inputObservedEvents.get(i-1).name), i, robot, indentation+1, "eh"+in.inputObservedEvents.get(i-1).name)
 				nestedMethod(in, counter, i, robot, indentation+1, "eh_"+in.inputObservedEvents.get(i-1).name)
-				for (var j = names.length-1 ; j >= 0; j--) names.remove(j)
-				for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
+				names.add(robotsList.get(robot).get(counter++).name)
 			}
 		}
 		
 		def dispatch doLogic(FallBackOp in, int index, int robot, int indentation, String parent){
 			var int counter
 			var names = new ArrayList<String>
-			//robotsList.get(robot).get(index).missionList.add("fb")
+			robotsList.get(robot).get(index).missionList.add("fb")
 			for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
 			for(var i=1; i<=(in.inputOperators.length); i++) {
 				robotsList.get(robot).add(new robotClass("fb_"+i, new ArrayList<String>, indentation+1))
-				//names.add(robotsList.get(robot).get(counter).name)
 				nestedMethod(in, counter, i-1, robot, indentation+1, "fb_"+i)
-				//nestedMethod(in, counter++, i-1, robot, indentation+1, "fb_"+i)
-				for (var j = names.length-1 ; j >= 0; j--) names.remove(j)
-				for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
+				names.add(robotsList.get(robot).get(counter++).name)
 			}	
 		}
 		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent){
 			var int counter
 			var names = new ArrayList<String>
-			//robotsList.get(robot).get(index).missionList.add("cond")
+			robotsList.get(robot).get(index).missionList.add("cond")
 			for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
 			for(var i=1; i<=(in.inputOperators.length); i++) {
-				//robotsList.add(new robotClass("c"+in.inputOperators.get(i-1).affectingEvent.get(0).name, new ArrayList<String>, indentation+1))
 				robotsList.get(robot).add(new robotClass("cond_"+in.inputEvents.get(i-1).name, new ArrayList<String>, indentation+1))
-				//names.add(robotsList.get(robot).get(counter).name)
-				//nestedMethod(in, names.indexOf("c"+in.inputOperators.get(i-1).affectingEvent.get(0).name), i-1, robot, indentation+1)
-				//nestedMethod(in, names.indexOf("c"+in.inputEvents.get(i-1).name), i-1, robot, indentation+1, "c"+in.inputEvents.get(i-1).name)
-				//nestedMethod(in, counter++, i-1, robot, indentation+1, "cond_"+in.inputEvents.get(i-1).name)
 				nestedMethod(in, counter, i-1, robot, indentation+1, "cond_"+in.inputEvents.get(i-1).name)
-				for (var j = names.length-1 ; j >= 0; j--) names.remove(j)
-				for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
+				names.add(robotsList.get(robot).get(counter++).name)
 			}
 		}
-		
-//		def dispatch doLogic(SequenceOp in, int index, int robot, int indentation, String parent){
-//			var names = new ArrayList<String>
-//			var int counter 
-//			if (!robotsList.empty) { 
-//				for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
-//			}
-//			for (i : 0..<(in.inputOperators.toArray.length)) nestedMethod(in, index, i, robot, indentation, parent) //nestedMethod(in, names.indexOf(parent), i, robot, indentation, parent) 
-//		}
-		
 		
 		/////////////////Delegate operators
 		
 		def dispatch doLogic(DelegateOp in, int index, int robot, int indentation, String parent){
-//			var String template=in.pattern.eClass.name+"_"
-//			if (!in.inputLocations.empty) { 
-//				template=template+in.inputLocations.get(0).name
-//				for (i : 1 ..< in.inputLocations.length) template=template+"-"+in.inputLocations.get(i).name
-//			}
-//			else if (!in.inputAction.empty) { template=template+in.inputAction.get(0).name }
-//			robotsList.get(index).missionList.add(template)
-////////////////Passing a meta-instruction
 
 ////////////////Passing an LTL formula
 			var template = new String 
@@ -243,12 +209,12 @@ class PromiseGenerator extends AbstractGenerator {
 				for(var j=0; j<in.inputLocations.length; j++) {
 					if (j==0) {
 						for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
-						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") W ("+in.inputLocations.get(j+1).name+")))"						//sets the first part of the second line
-						for(var i=2; i<in.inputLocations.length; i++) template=template+" && ((!"+in.inputLocations.get(j).name+") W ("+in.inputLocations.get(i).name+")))"	//Rest of the second line
+						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+") || ([] (!"+in.inputLocations.get(j).name+"))))"						//sets the first part of the second line
+						for(var i=2; i<in.inputLocations.length; i++) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+") || ([] (!"+in.inputLocations.get(j).name+")))"	//Rest of the second line
 					}
 					else{
-						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") W ("+in.inputLocations.get(0).name+")))"	//subsequent "3rd lines"
-						for(var i=1; i<in.inputLocations.length; i++) if (i != j) template=template+" && ((!"+in.inputLocations.get(j).name+") W ("+in.inputLocations.get(i).name+")))"
+						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(0).name+") || ([] (!"+in.inputLocations.get(j).name+"))))"	//subsequent "3rd lines"
+						for(var i=1; i<in.inputLocations.length; i++) if (i != j) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+") || ([] (!"+in.inputLocations.get(j).name+")))"
 					}
 				}
 			}
