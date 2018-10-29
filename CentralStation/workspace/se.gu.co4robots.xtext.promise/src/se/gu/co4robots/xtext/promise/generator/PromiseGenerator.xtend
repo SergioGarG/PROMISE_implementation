@@ -209,12 +209,12 @@ class PromiseGenerator extends AbstractGenerator {
 				for(var j=0; j<in.inputLocations.length; j++) {
 					if (j==0) {
 						for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
-						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") W ("+in.inputLocations.get(j+1).name+")))"						//sets the first part of the second line
-						for(var i=2; i<in.inputLocations.length; i++) template=template+" && ((!"+in.inputLocations.get(j).name+") W ("+in.inputLocations.get(i).name+")))"	//Rest of the second line
+						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+") || ([] (!"+in.inputLocations.get(j).name+"))))"						//sets the first part of the second line
+						for(var i=2; i<in.inputLocations.length; i++) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+") || ([] (!"+in.inputLocations.get(j).name+")))"	//Rest of the second line
 					}
 					else{
-						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") W ("+in.inputLocations.get(0).name+")))"	//subsequent "3rd lines"
-						for(var i=1; i<in.inputLocations.length; i++) if (i != j) template=template+" && ((!"+in.inputLocations.get(j).name+") W ("+in.inputLocations.get(i).name+")))"
+						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(0).name+") || ([] (!"+in.inputLocations.get(j).name+"))))"	//subsequent "3rd lines"
+						for(var i=1; i<in.inputLocations.length; i++) if (i != j) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+") || ([] (!"+in.inputLocations.get(j).name+")))"
 					}
 				}
 			}

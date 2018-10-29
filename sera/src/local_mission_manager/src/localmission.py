@@ -144,30 +144,36 @@ class LocalMission(object):
 				self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 
 		# Does all the magic and decision making for event handler operators
-		if self.status.detected_event != None and self.status.event_flag == True:
+		if self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter] == "eh":
 			for i in range(0, len(self.missions[self.status.counter_mission].childs)):
-				if (self.status.detected_event in self.missions[self.missions[self.status.counter_mission].childs[i]].mission.events) and (self.status.prog_eh.match(self.missions[self.missions[self.status.counter_mission].childs[i]].id)):
-					if not(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) in self.status.prev_eh):
-						print "Event handler operator detected"
-						if self.status.flag_eh:
-							self.status.flag_eh = False
-						else:
-							self.status.counter_eh+=1
-						self.status.prev_eh.append(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission))
-						self.status.event_handler.append(EventHandlerClass())
-						self.status.event_handler[self.status.counter_eh].length=len(self.missions[self.status.counter_mission].childs)
-						self.status.event_handler[self.status.counter_eh].index=self.missions[self.status.counter_mission].childs
-						self.status.event_handler[self.status.counter_eh].id=self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission)
-						for j in range(0, self.status.event_handler[self.status.counter_eh].length):
-							self.status.event_handler[self.status.counter_eh].success.append(False)
-						
+				#If the keyword eh is detected, the code checks where is the default mission of the event handler and jumps to it.
+				if self.missions[self.missions[self.status.counter_mission].childs[i]].id == "eh_default":
+					self.missions[self.status.counter_mission]=self.missions[self.status.counter_mission].childs[i]
 
-					print "the detected event", self.status.detected_event, "is in the list of triggering events"
-					self.status.counter_mission=self.missions[self.status.counter_mission].childs[i]
-					print "jump into the mission with id", self.status.counter_mission,",", self.missions[self.status.counter_mission].mission.mission
-					self.status.resend = True
-					break
-			self.status.event_flag = False
+			if self.status.detected_event != None and self.status.event_flag == True and self.missions[self.missions[self.status.counter_mission].childs[i]].id=="eh_default":
+				for i in range(0, len(self.missions[self.status.counter_mission].childs)):
+					if (self.status.detected_event in self.missions[self.missions[self.status.counter_mission].childs[i]].mission.events) and (self.status.prog_eh.match(self.missions[self.missions[self.status.counter_mission].childs[i]].id)):
+						if not(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) in self.status.prev_eh):
+							print "Event handler operator detected"
+							if self.status.flag_eh:
+								self.status.flag_eh = False
+							else:
+								self.status.counter_eh+=1
+							self.status.prev_eh.append(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission))
+							self.status.event_handler.append(EventHandlerClass())
+							self.status.event_handler[self.status.counter_eh].length=len(self.missions[self.status.counter_mission].childs)
+							self.status.event_handler[self.status.counter_eh].index=self.missions[self.status.counter_mission].childs
+							self.status.event_handler[self.status.counter_eh].id=self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission)
+							for j in range(0, self.status.event_handler[self.status.counter_eh].length):
+								self.status.event_handler[self.status.counter_eh].success.append(False)
+							
+
+						print "the detected event", self.status.detected_event, "is in the list of triggering events"
+						self.status.counter_mission=self.missions[self.status.counter_mission].childs[i]
+						print "jump into the mission with id", self.status.counter_mission,",", self.missions[self.status.counter_mission].mission.mission
+						self.status.resend = True
+						break
+				self.status.event_flag = False
 
 		# Add new fb objects to the list to iterate over them
 		if self.missions[self.status.counter_mission].childs and self.status.prog_fb.match(self.missions[self.missions[self.status.counter_mission].childs[0]].id) and not \
@@ -384,6 +390,7 @@ class LocalMission(object):
 					
 		if stoppedMission == False:
 			#Simulating events that are happening or not in the environment
+			self.status.event_flag=False
 			if "$remove" in event.data:
 				print "event removing requested"
 				helper = event.data.split("_", 1)
