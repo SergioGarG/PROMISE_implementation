@@ -378,17 +378,12 @@ class LocalMission(object):
 				stoppedMission=True
 				if self.status.counter_mission == 0:
 					self.SendLocalMission("[] l0", False, self.status.events)
-# 				elif self.status.prog_fb.match(self.missions[self.status.counter_mission].id):
-# 					self.status.counter_mission = self.checkParent(self.status.counter_mission, "fallback")
-# 				elif self.status.prog_cond.match(self.missions[self.status.counter_mission].id):
-# 					self.status.counter_mission = self.checkParent(self.status.counter_mission, "condition")
-# 				elif self.status.prog_eh.match(self.missions[self.status.counter_mission].id):
-# 					self.status.counter_mission = self.checkParent(self.status.counter_mission, "event_handler")
 				else:
 					self.status.task_status = "accomplished"
 				break
 					
 		if stoppedMission == False:
+			#Simulating events that are happening or not in the environment
 			if "$remove" in event.data:
 				print "event removing requested"
 				helper = event.data.split("_", 1)
@@ -447,6 +442,7 @@ class LocalMission(object):
 
 	################Executing callbacks
 	def setCurrentCounter(self, operator):
+		#Adjust the local counters for each operator
 		if operator == "condition":
 			helper=self.status.condition[self.status.counter_cond].id.split("-")
 			self.status.counter_cond=int(helper[1])
@@ -461,6 +457,7 @@ class LocalMission(object):
 		return counter		
 
 	def checkFinite(self, index, index_mission):	
+		#checks whether the target task is finite
 		helper = self.missions[index_mission].mission.mission[index].split(" ", 1)	
 		if len(helper) > 1:
 			helper3 = re.sub('[()]', '', helper[1])
@@ -492,6 +489,7 @@ class LocalMission(object):
 		return finite
 
 	def evaluateCondition(self, index, index_mission):
+		#checks whether the target condition was successful
 		for i in range(0, self.status.condition[index].length):
 			if self.status.condition[index].success[i]:
 				self.status.condition[index].result="success"
@@ -500,6 +498,7 @@ class LocalMission(object):
 				break
 
 	def checkParent(self, counter, operator):
+		#gets the parent of the specific branch 
 		parent = self.findParent(self.status.counter_mission, operator)
 		if parent != -1:
 			self.status.counter_mission=parent
@@ -643,6 +642,7 @@ class LocalMission(object):
 
 	################Process callback
 	def process(self):
+		# performs the process of execution at run time
 		self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
 		# print "------------------------------------------------"	
 		# print "Current task", self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], "(",self.missions[self.status.counter_mission].mission.finite,") of mission", self.missions[self.status.counter_mission].mission.mission
