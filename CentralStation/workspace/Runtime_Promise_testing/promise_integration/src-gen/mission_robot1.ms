@@ -1,19 +1,7 @@
-robot1[<> (l1) && <> (l2) && [] ((l1) -> X ((!l1) U (l2) || ([] (!l1)))) && [] ((l2) -> X ((!l2) U (l1) || ([] (!l2)))), eh, [] (<> (lcharge) && <> (l4)), fb, cond]
+robot1[<> (l1), eh, (<> (l1))]
 
-	eh_default[<> (l1)]
+	eh_default[<> (l1) && <> (l2)]
 
-	eh_e1[eh]
-
-		eh_default[<> (l2)]
-
-		eh_e2[(X a)]
-
-	fb_1[<> (l1)]
-
-	fb_2[<> (l2)]
-
-	cond_e1[<> (l1)]
-
-	cond_e2[<> (l2)]
+	eh_e1[<> (l2)]
 
 

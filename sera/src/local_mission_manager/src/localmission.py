@@ -46,8 +46,10 @@ class Status(object):
 		self.timer = rospy.Time()
 		self.state = 0
 		self.resend_task = rospy.Time()
+		task_status_lock = False
 		self.sent=False
 		self.stoppingEvents = []
+		self.actions = []
 
 		#Events and event handler
 		self.events = []
@@ -77,6 +79,10 @@ class Status(object):
 		self.prog_eh = re.compile('.*eh_.+') #Event handler
 		self.prog_cond = re.compile('.*cond_.+') #Condition 
 		self.prog_fb = re.compile('.*fb_.+') #Fallback
+		
+		self.prog_eh_task = re.compile('.?eh.?') #Event handler
+		self.prog_cond_task = re.compile('.?cond.?') #Condition 
+		self.prog_fb_task = re.compile('.?fb.?') #Fallback
 
 		self.prog_action = re.compile('X .+') #Actions formula
 
@@ -92,7 +98,8 @@ class MissionClass(object):
 		self.mission = Mission()
 		self.counter = 0
 		self.first = True
-		self.childs = []
+		self.children = []
+		self.parent = None
 		
 
 class EventHandlerClass(object):
@@ -103,6 +110,7 @@ class EventHandlerClass(object):
 		self.length = 0
 		self.success = []
 		self.result = None
+		self.default_index = None
 
 class FallbackClass(object):
 	def __init__(self):
@@ -135,56 +143,83 @@ class LocalMission(object):
 		self.events_start = False
 		self.mission_ready = False
 
+#################################################################################################################################
+# self.status.counter_mission: counter that points at the current branch of the mission. Moves vertically
+# self.missions[self.status.counter_mission].counter: counter that points at the current task of the branch. Moves horizontally
+# self.status.counter_(eh | cond | fb): points at the current instantiation of the target operator
+#################################################################################################################################
+
 	def update_manager(self):	
 		self.timer_now=rospy.Time.now()
-		if self.status.sent==True:
-			#print "time",self.timer_now.secs - self.status.resend_task.secs
-			if (self.timer_now.secs - self.status.resend_task.secs) > 10:
-				self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
-				self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
+# 		if self.status.sent==True:
+# 			#print "time",self.timer_now.secs - self.status.resend_task.secs
+# 			if (self.timer_now.secs - self.status.resend_task.secs) > 10:
+# 				self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
+# 				self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 
+		########### EVENT HANDLER
 		# Does all the magic and decision making for event handler operators
-		if self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter] == "eh":
-			for i in range(0, len(self.missions[self.status.counter_mission].childs)):
+		print "self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]", self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]
+		if (self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter] == "eh" or \
+		self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter] == " eh" or \
+		self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter] == "eh ") and \
+		self.status.task_status != "accomplished":
+			for i in range(0, len(self.missions[self.status.counter_mission].children)):
 				#If the keyword eh is detected, the code checks where is the default mission of the event handler and jumps to it.
-				if self.missions[self.missions[self.status.counter_mission].childs[i]].id == "eh_default":
-					self.missions[self.status.counter_mission]=self.missions[self.status.counter_mission].childs[i]
+				if self.missions[self.missions[self.status.counter_mission].children[i]].id == "eh_default":
+					# Checks if the event_handler has been already registered. If not, it instantiates it along with some data
+					if not (self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) in self.status.prev_eh): 
+						# Increments the operator's counter if it's not the first instantiation
+						if self.status.flag_eh:
+							self.status.flag_eh = False
+						else:
+							self.status.counter_eh+=1		
+						self.status.event_handler.append(EventHandlerClass())
+						self.status.event_handler[self.status.counter_eh].length=1
+						for j in range(i+1, len(self.missions[self.status.counter_mission].children)):
+							if self.status.prog_eh.match(self.missions[self.missions[self.status.counter_mission].children[j]].id):
+								self.status.event_handler[self.status.counter_eh].length+=1
+								self.status.event_handler[self.status.counter_eh].index.append(self.missions[self.status.counter_mission].children[j])
+						self.status.event_handler[self.status.counter_eh].id=self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission)
+						self.status.event_handler[self.status.counter_eh].default_index = self.missions[self.status.counter_mission].children[i]
+						for j in range(0, self.status.event_handler[self.status.counter_eh].length):
+							self.status.event_handler[self.status.counter_eh].success.append(False)
+						self.status.prev_eh.append(self.status.event_handler[self.status.counter_eh].id)
+						print "Event handler operator detected with length",self.status.event_handler[self.status.counter_eh].length,", id",self.status.event_handler[self.status.counter_eh].id,\
+						"and index of per default mission",self.status.event_handler[self.status.counter_eh].default_index,\
+						". Starting from the first item",self.missions[self.status.counter_mission].mission.mission,"with id",self.status.counter_mission
+					else:
+						for j in range(0, len(self.status.prev_eh)):
+							if self.status.prev_eh[j] == self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission):
+								self.status.counter_eh=j
+								print "Already registered event handler with id",self.status.event_handler[self.status.counter_eh].id
+								break
+					self.status.counter_mission=self.missions[self.status.counter_mission].children[i]
+					break
 
-			if self.status.detected_event != None and self.status.event_flag == True and self.missions[self.missions[self.status.counter_mission].childs[i]].id=="eh_default":
-				for i in range(0, len(self.missions[self.status.counter_mission].childs)):
-					if (self.status.detected_event in self.missions[self.missions[self.status.counter_mission].childs[i]].mission.events) and (self.status.prog_eh.match(self.missions[self.missions[self.status.counter_mission].childs[i]].id)):
-						if not(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) in self.status.prev_eh):
-							print "Event handler operator detected"
-							if self.status.flag_eh:
-								self.status.flag_eh = False
-							else:
-								self.status.counter_eh+=1
-							self.status.prev_eh.append(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission))
-							self.status.event_handler.append(EventHandlerClass())
-							self.status.event_handler[self.status.counter_eh].length=len(self.missions[self.status.counter_mission].childs)
-							self.status.event_handler[self.status.counter_eh].index=self.missions[self.status.counter_mission].childs
-							self.status.event_handler[self.status.counter_eh].id=self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission)
-							for j in range(0, self.status.event_handler[self.status.counter_eh].length):
-								self.status.event_handler[self.status.counter_eh].success.append(False)
-							
+		# When the task executing is eh_default and a triggering event is detected in the environment
+		if self.status.detected_event != None and self.status.event_flag == True and self.missions[self.status.counter_mission].id=="eh_default":
+			for i in range(0, len(self.status.event_handler[self.status.counter_eh].index)):
+				if (self.status.detected_event in self.missions[self.status.event_handler[self.status.counter_eh].index[i]].mission.events): #and (self.status.prog_eh.match(self.missions[self.missions[self.status.counter_mission].children[i]].id)):
+					print "the detected event", self.status.detected_event, "is in the list of triggering events"
+					self.status.counter_mission=self.status.event_handler[self.status.counter_eh].index[i]
+					print "jump into the mission with id", self.status.counter_mission,",", self.missions[self.status.counter_mission].mission.mission
+					self.status.resend = True
+					self.status.event_handler[self.status.counter_eh].counter=i
+					break
+			self.status.event_flag = False
 
-						print "the detected event", self.status.detected_event, "is in the list of triggering events"
-						self.status.counter_mission=self.missions[self.status.counter_mission].childs[i]
-						print "jump into the mission with id", self.status.counter_mission,",", self.missions[self.status.counter_mission].mission.mission
-						self.status.resend = True
-						break
-				self.status.event_flag = False
-
+		########### FALLBACK
 		# Add new fb objects to the list to iterate over them
-		if self.missions[self.status.counter_mission].childs and self.status.prog_fb.match(self.missions[self.missions[self.status.counter_mission].childs[0]].id) and not \
+		if self.missions[self.status.counter_mission].children and self.status.prog_fb.match(self.missions[self.missions[self.status.counter_mission].children[0]].id) and not \
 		(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) in self.status.prev_fb): 
 			self.status.fallback.append(FallbackClass())
 			if self.status.flag_fb:
 				self.status.flag_fb = False
 			else:
 				self.status.counter_fb+=1
-			self.status.fallback[self.status.counter_fb].length=len(self.missions[self.status.counter_mission].childs)
-			self.status.fallback[self.status.counter_fb].index=self.missions[self.status.counter_mission].childs
+			self.status.fallback[self.status.counter_fb].length=len(self.missions[self.status.counter_mission].children)
+			self.status.fallback[self.status.counter_fb].index=self.missions[self.status.counter_mission].children
 			self.status.fallback[self.status.counter_fb].id=self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_fb)
 			self.status.prev_fb.append(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission))
 			self.status.counter_mission+=1
@@ -192,7 +227,7 @@ class LocalMission(object):
 			". Starting from the first item",self.missions[self.status.counter_mission].mission.mission,"with id",self.status.counter_mission
 			self.update_manager()
 
-		if self.missions[self.status.counter_mission].childs and self.status.prog_fb.match(self.missions[self.missions[self.status.counter_mission].childs[0]].id) and \
+		if self.missions[self.status.counter_mission].children and self.status.prog_fb.match(self.missions[self.missions[self.status.counter_mission].children[0]].id) and \
 		self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) in self.status.prev_fb:
 			if self.status.fallback[self.status.counter_fb].success != None and self.status.check_again_fb < 1:
 				print "already registerted fallback",self.status.fallback[self.status.counter_fb].id
@@ -207,23 +242,24 @@ class LocalMission(object):
 				self.status.counter_mission=self.setCurrentCounter("fallback")
 				print "correcting mission based on operator, jumping to",self.missions[self.status.counter_mission].mission.mission,"task",self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]
 
-				if self.missions[self.status.counter_mission].childs and self.status.prog_fb.match(self.missions[self.missions[self.status.counter_mission].childs[0]].id) and \
+				if self.missions[self.status.counter_mission].children and self.status.prog_fb.match(self.missions[self.missions[self.status.counter_mission].children[0]].id) and \
 				self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) in self.status.prev_fb and \
 				self.status.counter_fb+1 < len(self.status.fallback):
 					self.status.counter_fb+=1	
 					print "detected embed operator, jumping to it", self.missions[self.status.fallback[self.status.counter_fb].index[self.status.fallback[self.status.counter_fb].counter]].mission.mission
 					self.update_manager()
 
+		########### CONDITION
 		# Condition operator
-		if self.missions[self.status.counter_mission].childs and self.status.prog_cond.match(self.missions[self.missions[self.status.counter_mission].childs[0]].id) and not \
+		if self.missions[self.status.counter_mission].children and self.status.prog_cond.match(self.missions[self.missions[self.status.counter_mission].children[0]].id) and not \
 		(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) in self.status.prev_cond): 
 			self.status.condition.append(ConditionClass())
 			if self.status.flag_cond:
 				self.status.flag_cond = False
 			else:
 				self.status.counter_cond+=1		
-			self.status.condition[self.status.counter_cond].length=len(self.missions[self.status.counter_mission].childs)
-			self.status.condition[self.status.counter_cond].index=self.missions[self.status.counter_mission].childs
+			self.status.condition[self.status.counter_cond].length=len(self.missions[self.status.counter_mission].children)
+			self.status.condition[self.status.counter_cond].index=self.missions[self.status.counter_mission].children
 			self.status.condition[self.status.counter_cond].id=self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_cond)
 			self.status.prev_cond.append(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission))
 			for i in range(0, self.status.condition[self.status.counter_cond].length):
@@ -235,8 +271,8 @@ class LocalMission(object):
 			self.missions[self.status.counter_mission].first = False
 			self.update_manager()
 		
-		if self.status.prog_cond.match(self.missions[self.status.counter_mission].id) or (self.missions[self.status.counter_mission].childs and \
-		self.status.prog_cond.match(self.missions[self.missions[self.status.counter_mission].childs[0]].id)):
+		if self.status.prog_cond.match(self.missions[self.status.counter_mission].id) or (self.missions[self.status.counter_mission].children and \
+		self.status.prog_cond.match(self.missions[self.missions[self.status.counter_mission].children[0]].id)):
 			if self.status.condition[self.status.counter_cond].result != None and self.status.check_again_cond < 1 and \
 			(self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) in self.status.prev_cond): 
 				print "already completed condition",self.status.condition[self.status.counter_cond].id
@@ -255,8 +291,8 @@ class LocalMission(object):
 						self.status.condition[self.status.counter_cond].condition_executed[self.status.condition[self.status.counter_cond].counter]=True			
 						#print "the ongoing event", self.status.ongoing_events[i],"triggers the operator with id",self.status.counter_mission
 						#break
-						if self.missions[self.status.counter_mission].childs and \
-						(self.status.prog_cond.match(self.missions[self.missions[self.status.counter_mission].childs[0]].id) and \
+						if self.missions[self.status.counter_mission].children and \
+						(self.status.prog_cond.match(self.missions[self.missions[self.status.counter_mission].children[0]].id) and \
 						self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) in self.status.prev_cond and \
 						self.status.counter_cond+1 < len(self.status.condition)):
 							self.status.counter_cond+=1	
@@ -304,7 +340,7 @@ class LocalMission(object):
 					if self.missions[i].mission.mission[j] == None or self.missions[i].mission.mission[j] == "": 
 						self.missions[i].mission.mission[j] = "true"
 
-				#Checks the parents and childs on the mission (see the generated trees from the DSL)
+				#Checks the parents and children on the mission (see the generated trees from the DSL)
 				if i != 0:
 					indentation=0
 					parenting.insert(i,0)
@@ -318,8 +354,12 @@ class LocalMission(object):
 						prev_indentation = indentation
 					elif indentation < prev_indentation:
 						prev_indentation = indentation
-					#self.missions[parenting[indentation]].childs.append(self.missions[i].id)
-					self.missions[parenting[indentation]].childs.append(i)
+					#self.missions[parenting[indentation]].children.append(self.missions[i].id)
+					self.missions[parenting[indentation]].children.append(i)
+			for i in range(0, len(self.missions)):	
+				for j in range(0, len(self.missions)):
+					if j in self.missions[i].children: 
+						self.missions[j].parent = i
 
 		elif localmission.data == "events_start":
 			self.status.events.append('default') #The first event is always blank since is the per-default mission
@@ -328,12 +368,13 @@ class LocalMission(object):
 			self.status.events.append(localmission.data)
 		elif localmission.data == "events_end":
 			#Matches each event to its corresponding mission object
-			for j in range(1, len(self.missions)):
-				helper = self.missions[j].id.split("_")
-				for i in range(0, len(self.status.events)):
-					if helper[1] in self.status.events[i]:
-						helper2=self.status.events[i].split(" ")
-						self.missions[j].mission.events = helper2[0]
+			if self.missions != None:
+				for j in range(1, len(self.missions)):
+					helper = self.missions[j].id.split("_")
+					for i in range(0, len(self.status.events)):
+						if helper[1] in self.status.events[i]:
+							helper2=self.status.events[i].split(" ")
+							self.missions[j].mission.events = helper2[0]
 			self.status.state=3
 		elif localmission.data != "stoppingEvents" and self.status.state==3:
 			self.status.actions.append(localmission.data)
@@ -348,13 +389,17 @@ class LocalMission(object):
 			self.status.stoppingEvents[len(self.status.stoppingEvents)-1].event=helper1[2]
 
 		elif localmission.data == "stoppingEvents_ends":
-			print "Mission for robot", self.robotName, "completely received (",len(self.missions),"objects)"
 			self.status.state=0
+			if self.missions != None:
+				print "Mission for robot", self.robotName, "completely received (",len(self.missions),"objects)"
+			else:
+				self.LocalMissionCallback(localmission)
 			# for i in range(0, len(self.missions)):
 			# 	print "position", i
 			# 	print self.missions[i].mission
 			# 	print "id", self.missions[i].id
-			# 	print "child(s)", self.missions[i].childs
+			# 	print "child(s)", self.missions[i].children
+			# 	print "parent", self.missions[i].parent
 			# 	print "events", self.missions[i].mission.events
 			# 	print "-------------"
 			self.update_manager()
@@ -369,10 +414,14 @@ class LocalMission(object):
 		timer_now=rospy.Time.now()
 		#Collects the state of the current task (received from the planner).
 		#It only takes the updates with 1 sec of different in their timestamp to avoid bouncing.
-		if (timer_now.secs - self.status.timer.secs) > 1:
+		if (timer_now.secs - self.status.timer.secs) > 1 and self.status.task_status_lock == False:
 			self.status.task_status=taskstatus.data
 			self.status.timer = rospy.Time.now()
-			self.update_manager()
+			self.status.task_status_lock = True
+			print "self.status.task_status callback", self.status.task_status
+		print "self.status.task_status callback", self.status.task_status
+		self.update_manager()
+		
 
 	def TriggeringEventsCallback(self, event):
 		### Just a debug version some policies need to be applied to check when the events are affecting the environment or not
@@ -417,7 +466,7 @@ class LocalMission(object):
 
 	########Publishers
 	def SendLocalMission(self, localmission, finite, event):
-	# sends the received local mission after checking its feasability
+	# sends the received local mission after checking its feasibility
 		mission=Mission()
 		mission.mission.data=localmission
 		mission.finite.data=finite
@@ -440,11 +489,14 @@ class LocalMission(object):
 			print "------------------------------------------------"	
 			print "Current task", mission.mission.data, "(",mission.finite.data,") of mission", self.missions[self.status.counter_mission].mission.mission
 			print "------------------------------------------------"
-			self.LocalMissionPublisher.publish(mission)
+			if not self.status.prog_eh_task.match(mission.mission.data) and not self.status.prog_cond_task.match(mission.mission.data) and not self.status.prog_fb_task.match(mission.mission.data):
+				self.LocalMissionPublisher.publish(mission)
 		else:
 			print "Not recognized action(",mission.mission.data,"), task will not be sent"
 		self.status.sent=True
 		self.status.resend_task=rospy.Time.now()
+		self.status.task_status_lock = False
+		self.status.task_status = ""
 
 
 	################Executing callbacks
@@ -458,6 +510,8 @@ class LocalMission(object):
 			helper=self.status.fallback[self.status.counter_fb].id.split("-")
 			self.status.counter_fb=int(helper[1])
 			counter=self.status.fallback[self.status.counter_fb].index[self.status.fallback[self.status.counter_fb].counter]
+		elif operator == "event_handler":
+			pass
 		else:
 			"error or not registered operator, returning -1"
 			counter=-1
@@ -506,13 +560,15 @@ class LocalMission(object):
 
 	def checkParent(self, counter, operator):
 		#gets the parent of the specific branch 
-		parent = self.findParent(self.status.counter_mission, operator)
-		if parent != -1:
-			self.status.counter_mission=parent
-			print "Last mission of the",operator,"operator"
-			self.status.resend = True
-		else:
-			print "oh... something went wrong :("
+		if operator == "event_handler":
+			pass
+		#parent = self.findParent(self.status.counter_mission, operator)
+		# if parent != -1:
+		# 	self.status.counter_mission=parent
+		# 	print "Last mission of the",operator,"operator"
+		# 	self.status.resend = True
+		# else:
+		# 	print "oh... something went wrong :("
 		return parent
 
 	def findParent(self, counter, operator):
@@ -520,7 +576,7 @@ class LocalMission(object):
 		self.missions[self.status.counter_mission].counter=0
 		## Parent finding algorithm
 		for i in range(0, len(self.missions)):
-			if counter in self.missions[i].childs: 
+			if counter in self.missions[i].children: 
 				parent = i
 				break
 
@@ -542,15 +598,15 @@ class LocalMission(object):
 				self.upgradeCounters("condition","event_handler")
 
 			for i in range(0, len(self.missions)):
-				if parent in self.missions[i].childs: 
+				if parent in self.missions[i].children: 
 					parent = i
 					print "Mission with index",self.status.condition[self.status.counter_cond].counter,"of condition operator completely evaluated, back to its (grand)parent", parent
 					break
-			if self.status.prog_fb.match(self.missions[self.missions[parent].childs[0]].id):
+			if self.status.prog_fb.match(self.missions[self.missions[parent].children[0]].id):
 				self.upgradeCounters("condition","fallback")
 				if self.status.prog_eh.match(self.missions[parent].id):
 					self.upgradeCounters("fallback","event_handler")
-			elif self.status.prog_cond.match(self.missions[self.missions[parent].childs[0]].id):
+			elif self.status.prog_cond.match(self.missions[self.missions[parent].children[0]].id):
 				self.upgradeCounters("condition","condition")
 				if self.status.prog_eh.match(self.missions[parent].id):
 					self.upgradeCounters("condition","event_handler")
@@ -563,15 +619,15 @@ class LocalMission(object):
 				self.upgradeCounters("fallback","event_handler")
 
 			for i in range(0, len(self.missions)):
-				if parent in self.missions[i].childs: 
+				if parent in self.missions[i].children: 
 					parent = i
 					print "Mission with index",self.status.fallback[self.status.counter_fb].counter,"of fallback operator completely evaluated, back to its (grand)parent", parent
 					break
-			if self.status.prog_fb.match(self.missions[self.missions[parent].childs[0]].id):
+			if self.status.prog_fb.match(self.missions[self.missions[parent].children[0]].id):
 				self.upgradeCounters("fallback","fallback")
 				if self.status.prog_eh.match(self.missions[parent].id):
 					self.upgradeCounters("fallback","event_handler")
-			elif self.status.prog_cond.match(self.missions[self.missions[parent].childs[0]].id):
+			elif self.status.prog_cond.match(self.missions[self.missions[parent].children[0]].id):
 				self.upgradeCounters("fallback","condition")
 				if self.status.prog_eh.match(self.missions[parent].id):
 					self.upgradeCounters("condition","event_handler")
@@ -663,18 +719,28 @@ class LocalMission(object):
 			
 		elif self.status.task_status == "accomplished":		
 			print "Task accomplished by the planner"
+			
+			self.status.task_status_lock = True
 			if((self.missions[self.status.counter_mission].counter + 1) < len(self.missions[self.status.counter_mission].mission.mission)):	
-				self.missions[self.status.counter_mission].counter+=1 #self.missions[self.status.counter_mission].counter+1
+				self.missions[self.status.counter_mission].counter+=1 
 				self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
 				self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 			elif((self.missions[self.status.counter_mission].counter + 1) >= len(self.missions[self.status.counter_mission].mission.mission) and self.missions[self.status.counter_mission].mission.finite == True):
 				print "reached end of the tasks list, mission complete!"
 				#######If reached the end of the mission, time to switch to another mission based on the operator
-
 				###Event handler
 				if self.status.counter_mission != 0 and self.status.prog_eh.match(self.missions[self.status.counter_mission].id):
 					self.status.event_handler[self.status.counter_eh].result = True
-					self.status.counter_mission = self.checkParent(self.status.counter_mission, "event_handler")
+					self.missions[self.status.counter_mission].counter=0
+					self.status.event_handler[self.status.counter_eh].counter=0
+					if self.missions[self.status.counter_mission].id == "eh_default":
+						self.status.counter_mission=self.missions[self.status.counter_mission].parent
+						self.status.task_status == "accomplished"
+					else:
+						self.status.counter_mission=self.status.event_handler[self.status.counter_eh].default_index
+						self.status.resend = True
+
+
 				###Fallback
 				elif self.status.counter_mission != 0 and self.status.prog_fb.match(self.missions[self.status.counter_mission].id):
 					self.status.fallback[self.status.counter_fb].success = True
@@ -689,7 +755,6 @@ class LocalMission(object):
 					elif self.status.condition[self.status.counter_cond].counter+1 >= self.status.condition[self.status.counter_cond].length:
 						self.status.condition[self.status.counter_cond].counter=0
 						self.status.counter_mission = self.checkParent(self.status.counter_mission, "condition")
-				self.status.task_status=""
 				self.update_manager()
 			elif((self.missions[self.status.counter_mission].counter + 1) >= len(self.missions[self.status.counter_mission].mission.mission) and self.missions[self.status.counter_mission].mission.finite == False):
 				print "reached end of the tasks list, but the last one is not finite!"
@@ -726,7 +791,6 @@ class LocalMission(object):
 
 			self.update_manager()
 
-		self.status.task_status = ""
 
 	def run_component(self):
 		rospy.init_node('localmission')
