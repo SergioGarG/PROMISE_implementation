@@ -1,7 +1,8 @@
-robot1[<> (l1), eh, (<> (l1))]
+robot1[<> (l1), fb, [] (<> (l1))]
 
-	eh_default[<> (l1) && <> (l2)]
 
-	eh_e1[<> (l2)]
+	fb_1[<> (lcharge)]
+
+	fb_2[<> (l2)]
 
 
