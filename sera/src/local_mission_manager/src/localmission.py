@@ -411,12 +411,6 @@ class LocalMission(object):
 				if self.status.prev_eh[l] == self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) and \
 				self.status.event_handler[l].result != None:
 					break
-# 					if self.status.event_handler[l].check_again <= 1:
-# 						self.status.event_handler[l].check_again+=1
-# 					else:
-# 						self.status.event_handler[l].result=None
-# 						self.status.event_handler[l].check_again=0
-# 					break
 								 
 			equal=False
 			for n in range(0, len(self.status.event_handler)):
@@ -432,7 +426,6 @@ class LocalMission(object):
 		if self.status.prog_eh_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
 		(len(self.status.event_handler)==0 or \
 		self.status.event_handler[l].result == None):
-		#self.status.task_status != "accomplished":
 			for i in range(0, len(self.missions[self.status.counter_mission].children)):
 				#If the keyword eh is detected, the code checks where is the default mission of the event handler and jumps to it.
 				if self.missions[self.missions[self.status.counter_mission].children[i]].id == "eh_default": 
@@ -440,9 +433,28 @@ class LocalMission(object):
 					break
 
 		####Fallback
-		elif self.status.prog_fb_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
-		self.status.task_status != "accomplished":
-		#self.status.fallback[self.status.counter_fb].result == None:
+		if self.status.prog_fb_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
+		len(self.status.fallback)>0:
+			for l in range(0, len(self.status.prev_fb)):
+				if self.status.prev_fb[l] == self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) and \
+				self.status.fallback[l].result != None:
+					break
+								 
+			equal=False
+			for n in range(0, len(self.status.fallback)):
+				if self.missions[self.status.counter_mission].parent != None:
+					for j in range(0, len(self.missions[self.missions[self.status.counter_mission].parent].children)):
+						if self.missions[self.status.counter_mission].id == self.missions[self.missions[self.missions[self.status.counter_mission].parent].children[j]].id:
+							self.status.counter_fb=n
+							equal=True
+							break
+				if equal:
+					equal=False
+					break
+				
+		if self.status.prog_fb_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
+		(len(self.status.fallback)==0 or \
+		self.status.fallback[l].result == None):
 			for i in range(0, len(self.missions[self.status.counter_mission].children)):
 				#If the keyword fb is detected, the code checks where is the first branch of the fallback and jumps to it.
 				if self.missions[self.missions[self.status.counter_mission].children[i]].id == "fb_1": 
@@ -494,7 +506,7 @@ class LocalMission(object):
 				for j in range(0, instantiation[counter].length):
 					instantiation[counter].success.append(True)
 			instantiation[counter].result=None
-			self.status.prev_eh.append(instantiation[counter].id)
+			previous.append(instantiation[counter].id)
 			print operator,"operator detected with length",instantiation[counter].length,", id",instantiation[counter].id,\
 			", index",instantiation[counter].index, "counter",counter, \
 			". Starting from the first item",self.missions[self.missions[self.status.counter_mission].children[i]].mission.mission,"with id",self.missions[self.status.counter_mission].children[i]

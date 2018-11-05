@@ -8,7 +8,7 @@ mission{
 	locations { not ordered : l1, l2, lcharge , l4  
 			
 		} 
-		operators { parallel ( 
+		operators { parallel ( sequence(
 			delegate ( robot robot1 does Visit locations l1 ) , 
 			fallback ( 
 			 	fallback ( 
@@ -31,7 +31,7 @@ mission{
 					except e4 ( delegate ( robot robot1 does Visit locations l1 affecting event e4 ) ) )
 			) except e2 ( delegate ( robot robot1 does Visit locations l2 affecting event e2 ) ) ) )
 		
-		 
+		 )
 	}    
 }              
   
