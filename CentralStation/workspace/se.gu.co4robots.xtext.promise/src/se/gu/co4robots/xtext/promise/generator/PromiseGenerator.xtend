@@ -156,39 +156,32 @@ class PromiseGenerator extends AbstractGenerator {
 		
 		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent){
 			robotsList.get(robot).get(index).missionList.add("eh")
-			var int counter
-			var names = new ArrayList<String>
-			for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
+			var int counter = robotsList.get(robot).length
 			robotsList.get(robot).add(new robotClass("eh_default", new ArrayList<String>, indentation+1))
 			nestedMethod(in, counter, 0, robot, indentation+1, "eh_default") //always execute the first operator, the following ones are the associated with events
-			names.add(robotsList.get(robot).get(counter++).name)
 			for(var i=1; i<(in.inputOperators.length); i++) {
+				counter = robotsList.get(robot).length
 				robotsList.get(robot).add(new robotClass("eh_"+in.inputObservedEvents.get(i-1).name, new ArrayList<String>, indentation+1))
 				nestedMethod(in, counter, i, robot, indentation+1, "eh_"+in.inputObservedEvents.get(i-1).name)
-				names.add(robotsList.get(robot).get(counter++).name)
 			}
 		}
 		
 		def dispatch doLogic(FallBackOp in, int index, int robot, int indentation, String parent){
-			var int counter
-			var names = new ArrayList<String>
 			robotsList.get(robot).get(index).missionList.add("fb")
-			for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
+			var int counter = robotsList.get(robot).length
 			for(var i=1; i<=(in.inputOperators.length); i++) {
+				counter = robotsList.get(robot).length
 				robotsList.get(robot).add(new robotClass("fb_"+i, new ArrayList<String>, indentation+1))
-				nestedMethod(in, counter, i-1, robot, indentation+1, "fb_"+i)
-				names.add(robotsList.get(robot).get(counter++).name)
+				nestedMethod(in, counter++, i-1, robot, indentation+1, "fb_"+i)
 			}	
 		}
 		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent){
-			var int counter
-			var names = new ArrayList<String>
 			robotsList.get(robot).get(index).missionList.add("cond")
-			for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
+			var int counter = robotsList.get(robot).length
 			for(var i=1; i<=(in.inputOperators.length); i++) {
+				counter = robotsList.get(robot).length
 				robotsList.get(robot).add(new robotClass("cond_"+in.inputEvents.get(i-1).name, new ArrayList<String>, indentation+1))
 				nestedMethod(in, counter, i-1, robot, indentation+1, "cond_"+in.inputEvents.get(i-1).name)
-				names.add(robotsList.get(robot).get(counter++).name)
 			}
 		}
 		

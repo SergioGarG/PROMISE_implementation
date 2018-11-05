@@ -263,69 +263,52 @@ public class PromiseGenerator extends AbstractGenerator {
   
   protected Boolean _doLogic(final EventHandlerOp in, final int index, final int robot, final int indentation, final String parent) {
     this.robotsList.get(robot).get(index).missionList.add("eh");
-    int counter = 0;
-    ArrayList<String> names = new ArrayList<String>();
-    for (counter = 0; (counter < ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length); counter++) {
-      names.add(this.robotsList.get(robot).get(counter).name);
-    }
+    int counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
     ArrayList<robotClass> _get = this.robotsList.get(robot);
     ArrayList<String> _arrayList = new ArrayList<String>();
     robotClass _robotClass = new robotClass("eh_default", _arrayList, (indentation + 1));
     _get.add(_robotClass);
     this.nestedMethod(in, counter, 0, robot, (indentation + 1), "eh_default");
-    ArrayList<robotClass> _get_1 = this.robotsList.get(robot);
-    int _plusPlus = counter++;
-    names.add(_get_1.get(_plusPlus).name);
     for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputOperators(), Object.class)).length); i++) {
       {
-        ArrayList<robotClass> _get_2 = this.robotsList.get(robot);
+        counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
+        ArrayList<robotClass> _get_1 = this.robotsList.get(robot);
         String _name = in.getInputObservedEvents().get((i - 1)).getName();
         String _plus = ("eh_" + _name);
         ArrayList<String> _arrayList_1 = new ArrayList<String>();
         robotClass _robotClass_1 = new robotClass(_plus, _arrayList_1, (indentation + 1));
-        _get_2.add(_robotClass_1);
+        _get_1.add(_robotClass_1);
         String _name_1 = in.getInputObservedEvents().get((i - 1)).getName();
         String _plus_1 = ("eh_" + _name_1);
         this.nestedMethod(in, counter, i, robot, (indentation + 1), _plus_1);
-        ArrayList<robotClass> _get_3 = this.robotsList.get(robot);
-        int _plusPlus_1 = counter++;
-        names.add(_get_3.get(_plusPlus_1).name);
       }
     }
     return null;
   }
   
   protected Boolean _doLogic(final FallBackOp in, final int index, final int robot, final int indentation, final String parent) {
-    int counter = 0;
-    ArrayList<String> names = new ArrayList<String>();
     this.robotsList.get(robot).get(index).missionList.add("fb");
-    for (counter = 0; (counter < ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length); counter++) {
-      names.add(this.robotsList.get(robot).get(counter).name);
-    }
+    int counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
     for (int i = 1; (i <= ((Object[])Conversions.unwrapArray(in.getInputOperators(), Object.class)).length); i++) {
       {
+        counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
         ArrayList<robotClass> _get = this.robotsList.get(robot);
         ArrayList<String> _arrayList = new ArrayList<String>();
         robotClass _robotClass = new robotClass(("fb_" + Integer.valueOf(i)), _arrayList, (indentation + 1));
         _get.add(_robotClass);
-        this.nestedMethod(in, counter, (i - 1), robot, (indentation + 1), ("fb_" + Integer.valueOf(i)));
-        ArrayList<robotClass> _get_1 = this.robotsList.get(robot);
         int _plusPlus = counter++;
-        names.add(_get_1.get(_plusPlus).name);
+        this.nestedMethod(in, _plusPlus, (i - 1), robot, (indentation + 1), ("fb_" + Integer.valueOf(i)));
       }
     }
     return null;
   }
   
   protected Boolean _doLogic(final ConditionOp in, final int index, final int robot, final int indentation, final String parent) {
-    int counter = 0;
-    ArrayList<String> names = new ArrayList<String>();
     this.robotsList.get(robot).get(index).missionList.add("cond");
-    for (counter = 0; (counter < ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length); counter++) {
-      names.add(this.robotsList.get(robot).get(counter).name);
-    }
+    int counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
     for (int i = 1; (i <= ((Object[])Conversions.unwrapArray(in.getInputOperators(), Object.class)).length); i++) {
       {
+        counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
         ArrayList<robotClass> _get = this.robotsList.get(robot);
         String _name = in.getInputEvents().get((i - 1)).getName();
         String _plus = ("cond_" + _name);
@@ -335,9 +318,6 @@ public class PromiseGenerator extends AbstractGenerator {
         String _name_1 = in.getInputEvents().get((i - 1)).getName();
         String _plus_1 = ("cond_" + _name_1);
         this.nestedMethod(in, counter, (i - 1), robot, (indentation + 1), _plus_1);
-        ArrayList<robotClass> _get_1 = this.robotsList.get(robot);
-        int _plusPlus = counter++;
-        names.add(_get_1.get(_plusPlus).name);
       }
     }
     return null;

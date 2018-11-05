@@ -1,28 +1,38 @@
-mission{
-	conditions{
+mission{         
+	conditions{     
 		events:
 			e1: "intruder_detected",
 			e2: "out_battery"		
-			, e3 : a actions : a1 : a } robots robot1 
-		locations { not ordered : l1, l2, lcharge , l4  
+			, e3 : a , e4 : a } 
+	robots robot1, robot2 , robot3 , robot4 
+	locations { not ordered : l1, l2, lcharge , l4  
 			
 		} 
-		operators { parallel ( sequence ( 
+		operators { parallel ( 
 			delegate ( robot robot1 does Visit locations l1 ) , 
-			eventHandler ( 
-				default ( delegate ( robot robot1 does Visit locations l1 , l2 ) ) 
-				except e1 ( eventHandler ( 
-					default ( delegate ( robot robot1 does Visit locations l2 ) ) 
-					except e2 ( delegate ( robot robot1 does Visit locations l1 affecting event e2 ) ) affecting event e1
-				) ) ) , 
-			delegate ( robot robot1 does Patrolling locations l1 stoppingEvents e3 ) , 
 			fallback ( 
-				delegate ( robot robot1 does Visit locations l1 ) , 
-				delegate ( robot robot1 does Visit locations l2 )
-			) )
-		) 
+			 	fallback ( 
+			 		delegate ( robot robot1 does Visit locations lcharge ) , 
+			 		delegate ( robot robot1 does Visit locations l1 )
+			 	) , 
+				
+				delegate ( robot  robot1 does Visit locations l2 )) , 
+			condition (  
+				if e1 then ( 
+					condition ( 
+						if e3 then ( delegate ( robot robot1 does Visit locations lcharge affecting event e3 ) ) 
+						if e4 then ( delegate ( robot robot1 does Visit locations l1 affecting event e4 ) ) affecting event e1
+					)) 
+				if e2 then ( delegate ( robot robot1 does Visit locations l2 affecting event e2 ) )
+			) , 
+			eventHandler ( default ( 
+				eventHandler ( 
+					default ( delegate ( robot robot1 does Visit locations lcharge )) 
+					except e4 ( delegate ( robot robot1 does Visit locations l1 affecting event e4 ) ) )
+			) except e2 ( delegate ( robot robot1 does Visit locations l2 affecting event e2 ) ) ) )
+		
 		 
 	}    
 }              
-
+  
     

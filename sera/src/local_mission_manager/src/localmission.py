@@ -319,14 +319,19 @@ class LocalMission(object):
 		### Just a debug version some policies need to be applied to check when the events are affecting the environment or not
 		stoppedMission=False
 		for i in range(0, len(self.status.stoppingEvents)):
-			if(self.status.stoppingEvents[i].event == event.data and \
-			self.status.stoppingEvents[i].task == self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]):
+			print "event.data",event.data
+			print "self.status.stoppingEvents[i].event",self.status.stoppingEvents[i].event
+			print "self.status.stoppingEvents[i].task",self.status.stoppingEvents[i].task
+			print "self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter])",self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]
+			print "re.sub(' ', '', self.status.stoppingEvents[i].event)",re.sub(' ', '', self.status.stoppingEvents[i].event)
+			if(re.sub(' ', '', self.status.stoppingEvents[i].event) == re.sub(' ', '', event.data) and \
+			re.sub(' ', '', self.status.stoppingEvents[i].task) == re.sub(' ', '', self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter])):
 				print "stop mission!"
 				stoppedMission=True
-				if self.status.counter_mission == 0:
-					self.SendLocalMission("[] l0", False, self.status.events)
-				else:
-					self.status.task_status = "accomplished"
+# 				if self.status.counter_mission == 0:
+# 					self.SendLocalMission("[] l0", False, self.status.events)
+# 				else:
+				self.status.task_status = "accomplished"
 				break
 					
 		if stoppedMission == False:
