@@ -3,7 +3,7 @@ mission{
 		events:
 			e1: "intruder_detected",
 			e2: "out_battery"		
-			, e3 : a , e4 : a } 
+			, e3 : a , e4 : a }  
 	robots robot1, robot2 , robot3 , robot4 
 	locations { not ordered : l1, l2, lcharge , l4  
 			

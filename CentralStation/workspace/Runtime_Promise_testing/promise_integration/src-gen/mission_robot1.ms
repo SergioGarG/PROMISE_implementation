@@ -1,12 +1,12 @@
-robot1[<> (l1), fb, [](<> (l1))]
+robot1[<> (l1), cond, [](<> (l1))]
 
-	fb_1[fb]
+	cond_e1[cond]
 
-		fb_1[<> (lcharge)]
+		cond_e3[<> (l2)]
 
-		fb_2[<> (lcharge)]
+		cond_e4[<> (l1)]
 
-	fb_2[<> (l2)]
+	cond_e2[<> (l2)]
 
 
 
