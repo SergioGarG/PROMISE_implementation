@@ -11,15 +11,18 @@ mission{
 			delegate ( robot robot1 does Visit locations l1 ) , 
 			eventHandler ( 
 				default ( delegate ( robot robot1 does Visit locations l1 , l2 ) ) 
-				except e1 (  delegate ( robot  robot1 does Visit locations l2 affecting event e1 ) ) ) , 
-			delegate ( robot robot1 does Patrolling locations l1 ) , 
+				except e1 ( eventHandler ( 
+					default ( delegate ( robot robot1 does Visit locations l2 ) ) 
+					except e2 ( delegate ( robot robot1 does Visit locations l1 affecting event e2 ) ) affecting event e1
+				) ) ) , 
+			delegate ( robot robot1 does Patrolling locations l1 stoppingEvents e3 ) , 
 			fallback ( 
 				delegate ( robot robot1 does Visit locations l1 ) , 
 				delegate ( robot robot1 does Visit locations l2 )
 			) )
 		) 
 		 
-	}   
-}             
+	}    
+}              
 
-   
+    

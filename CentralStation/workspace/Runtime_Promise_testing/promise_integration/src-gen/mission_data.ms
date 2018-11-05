@@ -1,5 +1,5 @@
 Robots [ robot1, ]
 Events [ e1 intruder_detected,e2 out_battery,e3 a, ]
 Actions [ a1 a, ]
-StoppingEvents [  ]
+StoppingEvents [ {robot1,[] (<> (l1)),e3} ]
 
