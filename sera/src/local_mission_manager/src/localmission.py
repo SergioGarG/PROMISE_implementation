@@ -381,35 +381,42 @@ class LocalMission(object):
 				self.update_manager()
 		else:
 			print "Not recognized action(",mission.mission.data,"), task will not be sent"
-
-
+			
+	def returnIndex(self, operator, rex, instantiation, previous):
+		index=0
+		for index in range(0, len(previous)):
+			if previous[index] == self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) and \
+			instantiation[index].result != None:
+				break
+							 
+		equal=False
+		for n in range(0, len(instantiation)):
+			if self.missions[self.status.counter_mission].parent != None:
+				for j in range(0, len(self.missions[self.missions[self.status.counter_mission].parent].children)):
+					if self.missions[self.status.counter_mission].id == self.missions[self.missions[self.missions[self.status.counter_mission].parent].children[j]].id:
+						if operator == "eh":
+							self.status.counter_eh=n
+						if operator == "fb":
+							self.status.counter_fb=n
+						if operator == "cond":
+							self.status.counter_cond=n
+						equal=True
+						break
+			if equal:
+				equal=False
+				break
+		return index
 
 	################Executing callbacks
 	def checkOperator(self):
+		index=0
 		####Event handler
-		equal=False
-		l=0
 		if self.status.prog_eh_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
 		len(self.status.event_handler)>0:
-			for l in range(0, len(self.status.prev_eh)):
-				if self.status.prev_eh[l] == self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) and \
-				self.status.event_handler[l].result != None:
-					break
-								 
-			equal=False
-			for n in range(0, len(self.status.event_handler)):
-				if self.missions[self.status.counter_mission].parent != None:
-					for j in range(0, len(self.missions[self.missions[self.status.counter_mission].parent].children)):
-						if self.missions[self.status.counter_mission].id == self.missions[self.missions[self.missions[self.status.counter_mission].parent].children[j]].id:
-							self.status.counter_eh=n
-							equal=True
-							break
-				if equal:
-					equal=False
-					break
+			index=self.returnIndex("eh", self.status.prog_eh_task, self.status.event_handler, self.status.prev_eh)
 		if self.status.prog_eh_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
 		(len(self.status.event_handler)==0 or \
-		self.status.event_handler[l].result == None):
+		self.status.event_handler[index].result == None):
 			for i in range(0, len(self.missions[self.status.counter_mission].children)):
 				#If the keyword eh is detected, the code checks where is the default mission of the event handler and jumps to it.
 				if self.missions[self.missions[self.status.counter_mission].children[i]].id == "eh_default": 
@@ -419,25 +426,10 @@ class LocalMission(object):
 		####Fallback
 		if self.status.prog_fb_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
 		len(self.status.fallback)>0:
-			for l in range(0, len(self.status.prev_fb)):
-				if self.status.prev_fb[l] == self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) and \
-				self.status.fallback[l].result != None:
-					break					 
-			equal=False
-			for n in range(0, len(self.status.fallback)):
-				if self.missions[self.status.counter_mission].parent != None:
-					for j in range(0, len(self.missions[self.missions[self.status.counter_mission].parent].children)):
-						if self.missions[self.status.counter_mission].id == self.missions[self.missions[self.missions[self.status.counter_mission].parent].children[j]].id:
-							self.status.counter_fb=n
-							equal=True
-							break
-				if equal:
-					equal=False
-					break
-				
+			index=self.returnIndex("fb", self.status.prog_fb_task, self.status.fallback, self.status.prev_fb)
 		if self.status.prog_fb_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
 		(len(self.status.fallback)==0 or \
-		self.status.fallback[l].result == None):
+		self.status.fallback[index].result == None):
 			for i in range(0, len(self.missions[self.status.counter_mission].children)):
 				#If the keyword fb is detected, the code checks where is the first branch of the fallback and jumps to it.
 				if self.missions[self.missions[self.status.counter_mission].children[i]].id == "fb_1": 
@@ -447,25 +439,10 @@ class LocalMission(object):
 		####Condition
 		if self.status.prog_cond_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
 		len(self.status.condition)>0:
-			for l in range(0, len(self.status.prev_cond)):
-				if self.status.prev_cond[l] == self.missions[self.status.counter_mission].id+"-"+str(self.status.counter_mission) and \
-				self.status.condition[l].result != None:
-					break					 
-			equal=False
-			for n in range(0, len(self.status.condition)):
-				if self.missions[self.status.counter_mission].parent != None:
-					for j in range(0, len(self.missions[self.missions[self.status.counter_mission].parent].children)):
-						if self.missions[self.status.counter_mission].id == self.missions[self.missions[self.missions[self.status.counter_mission].parent].children[j]].id:
-							self.status.counter_cond=n
-							equal=True
-							break
-				if equal:
-					equal=False
-					break
-				
+			index=self.returnIndex("cond", self.status.prog_cond_task, self.status.condition, self.status.prev_cond)				
 		if self.status.prog_cond_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
 		(len(self.status.condition)==0 or \
-		self.status.condition[l].result == None):
+		self.status.condition[index].result == None):
 			for i in range(0, len(self.missions[self.status.counter_mission].children)):
 				#If the keyword cond is detected, the code checks where is the first branch of the condition and jumps to it.
 				if self.status.prog_cond.match(self.missions[self.missions[self.status.counter_mission].children[i]].id): 
@@ -541,11 +518,11 @@ class LocalMission(object):
 					self.status.resend = True
 					self.status.event_handler[self.status.counter_eh].counter=i
 					self.status.counter_mission=self.status.event_handler[self.status.counter_eh].index[self.status.event_handler[self.status.counter_eh].counter]
-					self.status.resend=True
 					break
 				else:
 					print "the detected event", self.status.detected_event, "is not in the list of triggering events, I'll keep looking for it"
 			self.status.event_flag = False
+			
 	def checkFinite(self, index, index_mission):	
 		#checks whether the target task is finite
 		helper = self.missions[index_mission].mission.mission[index].split(" ", 1)	
