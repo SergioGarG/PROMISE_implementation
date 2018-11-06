@@ -47,7 +47,7 @@ class Status(object):
 		self.state = 0
 		self.resend_task = rospy.Time()
 		task_status_lock = False
-		self.sent=False
+		self.sent = False
 		self.stoppingEvents = []
 		self.actions = []
 
@@ -97,7 +97,7 @@ class MissionClass(object):
 		self.id = String()
 		self.mission = Mission()
 		self.counter = 0
-		self.first = True
+		self.first = False
 		self.children = []
 		self.parent = None
 		
@@ -120,6 +120,7 @@ class FallbackClass(object):
 		self.counter = 0
 		self.length = 0
 		self.result = None
+		self.check_again = 0
 
 class ConditionClass(object):
 	def __init__(self):
@@ -130,6 +131,7 @@ class ConditionClass(object):
 		self.success = []
 		self.condition_executed = []
 		self.result = None
+		self.check_again = 0
 
 class LocalMission(object):
 	# Constructor of the class
@@ -175,13 +177,13 @@ class LocalMission(object):
 				if (self.status.ongoing_events[i] in self.missions[self.status.condition[self.status.counter_cond].index[self.status.condition[self.status.counter_cond].counter]].mission.events):
 					self.status.counter_mission=self.status.condition[self.status.counter_cond].index[self.status.condition[self.status.counter_cond].counter]
 					self.status.condition[self.status.counter_cond].condition_executed[self.status.condition[self.status.counter_cond].counter]=True			
-					print "the ongoing event", self.status.ongoing_events[i],"triggers the operator with id",self.status.counter_mission
+					# ongoing event", self.status.ongoing_events[i],"triggers the operator with id",self.status.counter_mission
 					break
 			if self.status.condition[self.status.counter_cond].condition_executed[self.status.condition[self.status.counter_cond].counter] == False:
 				self.status.condition[self.status.counter_cond].success[self.status.condition[self.status.counter_cond].counter]=True
 				if self.status.condition[self.status.counter_cond].counter+1 < self.status.condition[self.status.counter_cond].length:
 					self.status.condition[self.status.counter_cond].counter+=1
-					print "Checking the next item of the condition operator", self.status.condition[self.status.counter_cond].index[self.status.condition[self.status.counter_cond].counter]
+					#print "Checking the next item of the condition operator", self.status.condition[self.status.counter_cond].index[self.status.condition[self.status.counter_cond].counter]
 					self.update_manager()
 				else:
 					self.evaluateResult("cond", self.status.condition, self.status.counter_cond)
@@ -312,9 +314,6 @@ class LocalMission(object):
 			re.sub(' ', '', self.status.stoppingEvents[i].task) == re.sub(' ', '', self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter])):
 				print "stop mission!"
 				stoppedMission=True
-# 				if self.status.counter_mission == 0:
-# 					self.SendLocalMission("[] l0", False, self.status.events)
-# 				else:
 				self.status.task_status = "accomplished"
 				break
 					
@@ -394,15 +393,23 @@ class LocalMission(object):
 			if self.missions[self.status.counter_mission].parent != None:
 				for j in range(0, len(self.missions[self.missions[self.status.counter_mission].parent].children)):
 					if self.missions[self.status.counter_mission].id == self.missions[self.missions[self.missions[self.status.counter_mission].parent].children[j]].id:
-						if operator == "eh":
-							self.status.counter_eh=n
-						if operator == "fb":
-							self.status.counter_fb=n
-						if operator == "cond":
-							self.status.counter_cond=n
 						equal=True
 						break
 			if equal:
+				if instantiation[index].result != None and instantiation[index].check_again <= 1:
+					instantiation[index].check_again+=1
+				elif instantiation[index].result != None and instantiation[index].check_again > 1:
+					instantiation[index].result = None
+					instantiation[index].check_again=0
+				if operator == "eh":
+					self.status.counter_eh=n
+					self.status.event_handler=instantiation
+				if operator == "fb":
+					self.status.counter_fb=n
+					self.status.fallback=instantiation
+				if operator == "cond":
+					self.status.counter_cond=n
+					self.status.condition=instantiation
 				equal=False
 				break
 		return index
@@ -439,7 +446,7 @@ class LocalMission(object):
 		####Condition
 		if self.status.prog_cond_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
 		len(self.status.condition)>0:
-			index=self.returnIndex("cond", self.status.prog_cond_task, self.status.condition, self.status.prev_cond)				
+			index=self.returnIndex("cond", self.status.prog_cond_task, self.status.condition, self.status.prev_cond)		
 		if self.status.prog_cond_task.match(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter]) and \
 		(len(self.status.condition)==0 or \
 		self.status.condition[index].result == None):
@@ -474,7 +481,8 @@ class LocalMission(object):
 			if operator == "eh" or operator == "cond":
 				for j in range(0, instantiation[counter].length):
 					instantiation[counter].success.append(True)
-					instantiation[counter].condition_executed.append(False)
+					if operator == "cond":
+						instantiation[counter].condition_executed.append(False)
 			instantiation[counter].result=None
 			previous.append(instantiation[counter].id)
 			print operator,"operator detected with length",instantiation[counter].length,", id",instantiation[counter].id,\
@@ -519,8 +527,8 @@ class LocalMission(object):
 					self.status.event_handler[self.status.counter_eh].counter=i
 					self.status.counter_mission=self.status.event_handler[self.status.counter_eh].index[self.status.event_handler[self.status.counter_eh].counter]
 					break
-				else:
-					print "the detected event", self.status.detected_event, "is not in the list of triggering events, I'll keep looking for it"
+# 				else:
+# 					print "the detected event", self.status.detected_event, "is not in the list of triggering events, I'll keep looking for it"
 			self.status.event_flag = False
 			
 	def checkFinite(self, index, index_mission):	
@@ -576,9 +584,7 @@ class LocalMission(object):
 		# print "------------------------------------------------"	
 		# print "Current task", self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], "(",self.missions[self.status.counter_mission].mission.finite,") of mission", self.missions[self.status.counter_mission].mission.mission
 		# print "------------------------------------------------"
-		print "process"
 		if self.missions[self.status.counter_mission].first == True or self.status.resend == True:
-			print "first or resend"
 			self.missions[self.status.counter_mission].first=False
 			self.status.resend = False
 			self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
