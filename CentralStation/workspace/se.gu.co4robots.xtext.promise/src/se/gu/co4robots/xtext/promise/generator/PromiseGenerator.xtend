@@ -12,11 +12,10 @@ import org.eclipse.xtext.generator.IGeneratorContext
 
 import promise.Mission
 import promise.Location
-import promise.OrderedLocation
-import promise.NotOrderedLocation
 import promise.Robot
 import promise.Operator
-import promise.Condition
+import promise.Event
+import promise.Action
 import promise.CompositionOperator
 import promise.DelegateOp
 import promise.FallBackOp
@@ -32,11 +31,6 @@ import promise.SimpleAction
 import java.util.Iterator
 
 
-/**
- * Generates code from your model files on save.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
- */
  
 ///////Robot class//////
 public class robotClass{
@@ -76,11 +70,11 @@ class PromiseGenerator extends AbstractGenerator {
 			
 			fsa.generateFile('mission_data.ms', '''
 			Robots [ «FOR robot : resource.allContents.filter(Robot).toIterable»«robot.name»,«ENDFOR» ]
-			Events [ «FOR condition : resource.allContents.filter(Condition).toIterable»«IF condition.class == promise.impl.EventImpl»«condition.name» «condition.description»,«ENDIF»«ENDFOR» ]
-			Actions [ «FOR condition : resource.allContents.filter(Condition).toIterable»«IF condition.class == promise.impl.ActionImpl»«condition.name» «condition.description»,«ENDIF»«ENDFOR» ]
+			Events [ «FOR condition : resource.allContents.filter(Event).toIterable»«condition.name» «condition.description»,«ENDFOR» ]
+			Actions [ «FOR condition : resource.allContents.filter(Action).toIterable»«condition.name» «condition.description»,«ENDFOR» ]
 			StoppingEvents [ «FOR j:0..<stoppingEvents.length»{«stoppingEvents.get(j)»}«ENDFOR» ]
 
-		''')
+			''')
 		
 		for (var i=0; i < availableRobots.length; i++){
 			
@@ -105,8 +99,6 @@ class PromiseGenerator extends AbstractGenerator {
 									«robotsList.get(i).get(j).name»«missions=robotsList.get(i).get(j).missionList»
 				«ENDIF»
 			«ENDFOR»
-
-
 		''')
 			
 		}

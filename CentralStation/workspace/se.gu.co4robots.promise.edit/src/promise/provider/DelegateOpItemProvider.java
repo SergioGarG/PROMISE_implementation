@@ -47,34 +47,12 @@ public class DelegateOpItemProvider extends OperatorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInputLocationsPropertyDescriptor(object);
 			addInputRobotPropertyDescriptor(object);
 			addInputActionPropertyDescriptor(object);
 			addStoppingEventPropertyDescriptor(object);
+			addInputLocationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Input Locations feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInputLocationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DelegateOp_inputLocations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DelegateOp_inputLocations_feature", "_UI_DelegateOp_type"),
-				 PromisePackage.Literals.DELEGATE_OP__INPUT_LOCATIONS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -135,6 +113,28 @@ public class DelegateOpItemProvider extends OperatorItemProvider {
 				 getString("_UI_DelegateOp_stoppingEvent_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DelegateOp_stoppingEvent_feature", "_UI_DelegateOp_type"),
 				 PromisePackage.Literals.DELEGATE_OP__STOPPING_EVENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Input Locations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInputLocationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DelegateOp_inputLocations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DelegateOp_inputLocations_feature", "_UI_DelegateOp_type"),
+				 PromisePackage.Literals.DELEGATE_OP__INPUT_LOCATIONS,
 				 true,
 				 false,
 				 true,

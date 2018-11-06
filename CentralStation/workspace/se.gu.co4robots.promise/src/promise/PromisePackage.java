@@ -533,31 +533,40 @@ public interface PromisePackage extends EPackage {
 	int MISSION__OPERATOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MISSION__CONDITIONS = 1;
-
-	/**
 	 * The feature id for the '<em><b>Robots</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MISSION__ROBOTS = 2;
+	int MISSION__ROBOTS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Location</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MISSION__LOCATION = 3;
+	int MISSION__ACTIONS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MISSION__EVENTS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Locations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MISSION__LOCATIONS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Mission</em>' class.
@@ -566,7 +575,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MISSION_FEATURE_COUNT = 4;
+	int MISSION_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Mission</em>' class.
@@ -680,52 +689,6 @@ public interface PromisePackage extends EPackage {
 	int ROBOT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link promise.impl.ConditionImpl <em>Condition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see promise.impl.ConditionImpl
-	 * @see promise.impl.PromisePackageImpl#getCondition()
-	 * @generated
-	 */
-	int CONDITION = 14;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION__NAME = NAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link promise.impl.EventImpl <em>Event</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -742,7 +705,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__NAME = CONDITION__NAME;
+	int EVENT__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -751,7 +714,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__DESCRIPTION = CONDITION__DESCRIPTION;
+	int EVENT__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Event</em>' class.
@@ -760,7 +723,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
+	int EVENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Event</em>' class.
@@ -769,44 +732,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link promise.impl.LocationImpl <em>Location</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see promise.impl.LocationImpl
-	 * @see promise.impl.PromisePackageImpl#getLocation()
-	 * @generated
-	 */
-	int LOCATION = 12;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCATION__NAME = NAMED_ELEMENT__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCATION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int EVENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link promise.impl.DelegateOpImpl <em>Delegate Op</em>}' class.
@@ -816,7 +742,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getDelegateOp()
 	 * @generated
 	 */
-	int DELEGATE_OP = 13;
+	int DELEGATE_OP = 12;
 
 	/**
 	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
@@ -846,22 +772,13 @@ public interface PromisePackage extends EPackage {
 	int DELEGATE_OP__LABEL = OPERATOR__LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Input Locations</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELEGATE_OP__INPUT_LOCATIONS = OPERATOR_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Input Robot</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP__INPUT_ROBOT = OPERATOR_FEATURE_COUNT + 1;
+	int DELEGATE_OP__INPUT_ROBOT = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' containment reference.
@@ -870,7 +787,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP__PATTERN = OPERATOR_FEATURE_COUNT + 2;
+	int DELEGATE_OP__PATTERN = OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Input Action</b></em>' reference list.
@@ -879,7 +796,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP__INPUT_ACTION = OPERATOR_FEATURE_COUNT + 3;
+	int DELEGATE_OP__INPUT_ACTION = OPERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Stopping Event</b></em>' reference list.
@@ -888,7 +805,16 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP__STOPPING_EVENT = OPERATOR_FEATURE_COUNT + 4;
+	int DELEGATE_OP__STOPPING_EVENT = OPERATOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Input Locations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATE_OP__INPUT_LOCATIONS = OPERATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Delegate Op</em>' class.
@@ -916,7 +842,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 15;
+	int ACTION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -925,7 +851,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__NAME = CONDITION__NAME;
+	int ACTION__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -934,7 +860,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__DESCRIPTION = CONDITION__DESCRIPTION;
+	int ACTION__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -943,7 +869,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
+	int ACTION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Action</em>' class.
@@ -952,7 +878,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+	int ACTION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link promise.impl.MovementPatternsImpl <em>Movement Patterns</em>}' class.
@@ -962,7 +888,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getMovementPatterns()
 	 * @generated
 	 */
-	int MOVEMENT_PATTERNS = 16;
+	int MOVEMENT_PATTERNS = 14;
 
 	/**
 	 * The number of structural features of the '<em>Movement Patterns</em>' class.
@@ -990,7 +916,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getVisit()
 	 * @generated
 	 */
-	int VISIT = 17;
+	int VISIT = 15;
 
 	/**
 	 * The number of structural features of the '<em>Visit</em>' class.
@@ -1018,7 +944,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getSequencedVisit()
 	 * @generated
 	 */
-	int SEQUENCED_VISIT = 18;
+	int SEQUENCED_VISIT = 16;
 
 	/**
 	 * The number of structural features of the '<em>Sequenced Visit</em>' class.
@@ -1046,7 +972,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getOrderderVisit()
 	 * @generated
 	 */
-	int ORDERDER_VISIT = 19;
+	int ORDERDER_VISIT = 17;
 
 	/**
 	 * The number of structural features of the '<em>Orderder Visit</em>' class.
@@ -1074,7 +1000,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getStrictOrderedVisit()
 	 * @generated
 	 */
-	int STRICT_ORDERED_VISIT = 20;
+	int STRICT_ORDERED_VISIT = 18;
 
 	/**
 	 * The number of structural features of the '<em>Strict Ordered Visit</em>' class.
@@ -1102,7 +1028,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getFairVisit()
 	 * @generated
 	 */
-	int FAIR_VISIT = 21;
+	int FAIR_VISIT = 19;
 
 	/**
 	 * The number of structural features of the '<em>Fair Visit</em>' class.
@@ -1130,7 +1056,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getPatrolling()
 	 * @generated
 	 */
-	int PATROLLING = 22;
+	int PATROLLING = 20;
 
 	/**
 	 * The number of structural features of the '<em>Patrolling</em>' class.
@@ -1158,7 +1084,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getSequencedPatrolling()
 	 * @generated
 	 */
-	int SEQUENCED_PATROLLING = 23;
+	int SEQUENCED_PATROLLING = 21;
 
 	/**
 	 * The number of structural features of the '<em>Sequenced Patrolling</em>' class.
@@ -1186,7 +1112,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getOrderedPatrolling()
 	 * @generated
 	 */
-	int ORDERED_PATROLLING = 24;
+	int ORDERED_PATROLLING = 22;
 
 	/**
 	 * The number of structural features of the '<em>Ordered Patrolling</em>' class.
@@ -1214,7 +1140,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getStrictOreredPatrolling()
 	 * @generated
 	 */
-	int STRICT_ORERED_PATROLLING = 25;
+	int STRICT_ORERED_PATROLLING = 23;
 
 	/**
 	 * The number of structural features of the '<em>Strict Orered Patrolling</em>' class.
@@ -1242,7 +1168,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getFairPatrolling()
 	 * @generated
 	 */
-	int FAIR_PATROLLING = 26;
+	int FAIR_PATROLLING = 24;
 
 	/**
 	 * The number of structural features of the '<em>Fair Patrolling</em>' class.
@@ -1270,7 +1196,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getAvoidancePatterns()
 	 * @generated
 	 */
-	int AVOIDANCE_PATTERNS = 27;
+	int AVOIDANCE_PATTERNS = 25;
 
 	/**
 	 * The number of structural features of the '<em>Avoidance Patterns</em>' class.
@@ -1298,7 +1224,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getUpperRestrictedAvoidance()
 	 * @generated
 	 */
-	int UPPER_RESTRICTED_AVOIDANCE = 28;
+	int UPPER_RESTRICTED_AVOIDANCE = 26;
 
 	/**
 	 * The number of structural features of the '<em>Upper Restricted Avoidance</em>' class.
@@ -1326,7 +1252,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getExactRestrictedAvoidance()
 	 * @generated
 	 */
-	int EXACT_RESTRICTED_AVOIDANCE = 29;
+	int EXACT_RESTRICTED_AVOIDANCE = 27;
 
 	/**
 	 * The number of structural features of the '<em>Exact Restricted Avoidance</em>' class.
@@ -1354,7 +1280,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getLowerRestrictedAvoidance()
 	 * @generated
 	 */
-	int LOWER_RESTRICTED_AVOIDANCE = 30;
+	int LOWER_RESTRICTED_AVOIDANCE = 28;
 
 	/**
 	 * The number of structural features of the '<em>Lower Restricted Avoidance</em>' class.
@@ -1382,7 +1308,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getFutureAvoidance()
 	 * @generated
 	 */
-	int FUTURE_AVOIDANCE = 31;
+	int FUTURE_AVOIDANCE = 29;
 
 	/**
 	 * The number of structural features of the '<em>Future Avoidance</em>' class.
@@ -1410,7 +1336,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getGlobalAvoidance()
 	 * @generated
 	 */
-	int GLOBAL_AVOIDANCE = 32;
+	int GLOBAL_AVOIDANCE = 30;
 
 	/**
 	 * The number of structural features of the '<em>Global Avoidance</em>' class.
@@ -1438,7 +1364,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getPastAvoidance()
 	 * @generated
 	 */
-	int PAST_AVOIDANCE = 33;
+	int PAST_AVOIDANCE = 31;
 
 	/**
 	 * The number of structural features of the '<em>Past Avoidance</em>' class.
@@ -1466,7 +1392,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getTriggerPatterns()
 	 * @generated
 	 */
-	int TRIGGER_PATTERNS = 34;
+	int TRIGGER_PATTERNS = 32;
 
 	/**
 	 * The number of structural features of the '<em>Trigger Patterns</em>' class.
@@ -1494,7 +1420,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getWait()
 	 * @generated
 	 */
-	int WAIT = 35;
+	int WAIT = 33;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1531,7 +1457,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getDelayedReaction()
 	 * @generated
 	 */
-	int DELAYED_REACTION = 36;
+	int DELAYED_REACTION = 34;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1568,7 +1494,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getInstantReaction()
 	 * @generated
 	 */
-	int INSTANT_REACTION = 37;
+	int INSTANT_REACTION = 35;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1605,7 +1531,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 38;
+	int CONTEXT = 36;
 
 	/**
 	 * The feature id for the '<em><b>Robot</b></em>' containment reference list.
@@ -1617,22 +1543,13 @@ public interface PromisePackage extends EPackage {
 	int CONTEXT__ROBOT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Location</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXT__LOCATION = 1;
-
-	/**
 	 * The number of structural features of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_FEATURE_COUNT = 2;
+	int CONTEXT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Context</em>' class.
@@ -1644,14 +1561,14 @@ public interface PromisePackage extends EPackage {
 	int CONTEXT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link promise.impl.OrderedLocationImpl <em>Ordered Location</em>}' class.
+	 * The meta object id for the '{@link promise.impl.LocationImpl <em>Location</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see promise.impl.OrderedLocationImpl
-	 * @see promise.impl.PromisePackageImpl#getOrderedLocation()
+	 * @see promise.impl.LocationImpl
+	 * @see promise.impl.PromisePackageImpl#getLocation()
 	 * @generated
 	 */
-	int ORDERED_LOCATION = 39;
+	int LOCATION = 37;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1660,63 +1577,25 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORDERED_LOCATION__NAME = LOCATION__NAME;
+	int LOCATION__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Ordered Location</em>' class.
+	 * The number of structural features of the '<em>Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORDERED_LOCATION_FEATURE_COUNT = LOCATION_FEATURE_COUNT + 0;
+	int LOCATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Ordered Location</em>' class.
+	 * The number of operations of the '<em>Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORDERED_LOCATION_OPERATION_COUNT = LOCATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link promise.impl.NotOrderedLocationImpl <em>Not Ordered Location</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see promise.impl.NotOrderedLocationImpl
-	 * @see promise.impl.PromisePackageImpl#getNotOrderedLocation()
-	 * @generated
-	 */
-	int NOT_ORDERED_LOCATION = 40;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_ORDERED_LOCATION__NAME = LOCATION__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Not Ordered Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_ORDERED_LOCATION_FEATURE_COUNT = LOCATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Not Ordered Location</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_ORDERED_LOCATION_OPERATION_COUNT = LOCATION_OPERATION_COUNT + 0;
-
+	int LOCATION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link promise.impl.SimpleActionImpl <em>Simple Action</em>}' class.
@@ -1726,7 +1605,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getSimpleAction()
 	 * @generated
 	 */
-	int SIMPLE_ACTION = 41;
+	int SIMPLE_ACTION = 38;
 
 	/**
 	 * The number of structural features of the '<em>Simple Action</em>' class.
@@ -1884,17 +1763,6 @@ public interface PromisePackage extends EPackage {
 	EReference getMission_Operator();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link promise.Mission#getConditions <em>Conditions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Conditions</em>'.
-	 * @see promise.Mission#getConditions()
-	 * @see #getMission()
-	 * @generated
-	 */
-	EReference getMission_Conditions();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link promise.Mission#getRobots <em>Robots</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1906,15 +1774,37 @@ public interface PromisePackage extends EPackage {
 	EReference getMission_Robots();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link promise.Mission#getLocation <em>Location</em>}'.
+	 * Returns the meta object for the containment reference list '{@link promise.Mission#getActions <em>Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Location</em>'.
-	 * @see promise.Mission#getLocation()
+	 * @return the meta object for the containment reference list '<em>Actions</em>'.
+	 * @see promise.Mission#getActions()
 	 * @see #getMission()
 	 * @generated
 	 */
-	EReference getMission_Location();
+	EReference getMission_Actions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link promise.Mission#getEvents <em>Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Events</em>'.
+	 * @see promise.Mission#getEvents()
+	 * @see #getMission()
+	 * @generated
+	 */
+	EReference getMission_Events();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link promise.Mission#getLocations <em>Locations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Locations</em>'.
+	 * @see promise.Mission#getLocations()
+	 * @see #getMission()
+	 * @generated
+	 */
+	EReference getMission_Locations();
 
 	/**
 	 * Returns the meta object for class '{@link promise.Pattern <em>Pattern</em>}'.
@@ -1989,14 +1879,15 @@ public interface PromisePackage extends EPackage {
 	EClass getEvent();
 
 	/**
-	 * Returns the meta object for class '{@link promise.Location <em>Location</em>}'.
+	 * Returns the meta object for the attribute '{@link promise.Event#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Location</em>'.
-	 * @see promise.Location
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see promise.Event#getDescription()
+	 * @see #getEvent()
 	 * @generated
 	 */
-	EClass getLocation();
+	EAttribute getEvent_Description();
 
 	/**
 	 * Returns the meta object for class '{@link promise.DelegateOp <em>Delegate Op</em>}'.
@@ -2007,17 +1898,6 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDelegateOp();
-
-	/**
-	 * Returns the meta object for the reference list '{@link promise.DelegateOp#getInputLocations <em>Input Locations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Input Locations</em>'.
-	 * @see promise.DelegateOp#getInputLocations()
-	 * @see #getDelegateOp()
-	 * @generated
-	 */
-	EReference getDelegateOp_InputLocations();
 
 	/**
 	 * Returns the meta object for the reference list '{@link promise.DelegateOp#getInputRobot <em>Input Robot</em>}'.
@@ -2064,25 +1944,15 @@ public interface PromisePackage extends EPackage {
 	EReference getDelegateOp_StoppingEvent();
 
 	/**
-	 * Returns the meta object for class '{@link promise.Condition <em>Condition</em>}'.
+	 * Returns the meta object for the reference list '{@link promise.DelegateOp#getInputLocations <em>Input Locations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Condition</em>'.
-	 * @see promise.Condition
+	 * @return the meta object for the reference list '<em>Input Locations</em>'.
+	 * @see promise.DelegateOp#getInputLocations()
+	 * @see #getDelegateOp()
 	 * @generated
 	 */
-	EClass getCondition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link promise.Condition#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see promise.Condition#getDescription()
-	 * @see #getCondition()
-	 * @generated
-	 */
-	EAttribute getCondition_Description();
+	EReference getDelegateOp_InputLocations();
 
 	/**
 	 * Returns the meta object for class '{@link promise.Action <em>Action</em>}'.
@@ -2093,6 +1963,17 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link promise.Action#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see promise.Action#getDescription()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Description();
 
 	/**
 	 * Returns the meta object for class '{@link promise.MovementPatterns <em>Movement Patterns</em>}'.
@@ -2369,35 +2250,14 @@ public interface PromisePackage extends EPackage {
 	EReference getContext_Robot();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link promise.Context#getLocation <em>Location</em>}'.
+	 * Returns the meta object for class '{@link promise.Location <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Location</em>'.
-	 * @see promise.Context#getLocation()
-	 * @see #getContext()
+	 * @return the meta object for class '<em>Location</em>'.
+	 * @see promise.Location
 	 * @generated
 	 */
-	EReference getContext_Location();
-
-	/**
-	 * Returns the meta object for class '{@link promise.OrderedLocation <em>Ordered Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ordered Location</em>'.
-	 * @see promise.OrderedLocation
-	 * @generated
-	 */
-	EClass getOrderedLocation();
-
-	/**
-	 * Returns the meta object for class '{@link promise.NotOrderedLocation <em>Not Ordered Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Not Ordered Location</em>'.
-	 * @see promise.NotOrderedLocation
-	 * @generated
-	 */
-	EClass getNotOrderedLocation();
+	EClass getLocation();
 
 	/**
 	 * Returns the meta object for class '{@link promise.SimpleAction <em>Simple Action</em>}'.
@@ -2551,14 +2411,6 @@ public interface PromisePackage extends EPackage {
 		EReference MISSION__OPERATOR = eINSTANCE.getMission_Operator();
 
 		/**
-		 * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MISSION__CONDITIONS = eINSTANCE.getMission_Conditions();
-
-		/**
 		 * The meta object literal for the '<em><b>Robots</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2567,12 +2419,28 @@ public interface PromisePackage extends EPackage {
 		EReference MISSION__ROBOTS = eINSTANCE.getMission_Robots();
 
 		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MISSION__LOCATION = eINSTANCE.getMission_Location();
+		EReference MISSION__ACTIONS = eINSTANCE.getMission_Actions();
+
+		/**
+		 * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MISSION__EVENTS = eINSTANCE.getMission_Events();
+
+		/**
+		 * The meta object literal for the '<em><b>Locations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MISSION__LOCATIONS = eINSTANCE.getMission_Locations();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.PatternImpl <em>Pattern</em>}' class.
@@ -2641,14 +2509,12 @@ public interface PromisePackage extends EPackage {
 		EClass EVENT = eINSTANCE.getEvent();
 
 		/**
-		 * The meta object literal for the '{@link promise.impl.LocationImpl <em>Location</em>}' class.
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see promise.impl.LocationImpl
-		 * @see promise.impl.PromisePackageImpl#getLocation()
 		 * @generated
 		 */
-		EClass LOCATION = eINSTANCE.getLocation();
+		EAttribute EVENT__DESCRIPTION = eINSTANCE.getEvent_Description();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.DelegateOpImpl <em>Delegate Op</em>}' class.
@@ -2659,14 +2525,6 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EClass DELEGATE_OP = eINSTANCE.getDelegateOp();
-
-		/**
-		 * The meta object literal for the '<em><b>Input Locations</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DELEGATE_OP__INPUT_LOCATIONS = eINSTANCE.getDelegateOp_InputLocations();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Robot</b></em>' reference list feature.
@@ -2701,22 +2559,12 @@ public interface PromisePackage extends EPackage {
 		EReference DELEGATE_OP__STOPPING_EVENT = eINSTANCE.getDelegateOp_StoppingEvent();
 
 		/**
-		 * The meta object literal for the '{@link promise.impl.ConditionImpl <em>Condition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see promise.impl.ConditionImpl
-		 * @see promise.impl.PromisePackageImpl#getCondition()
-		 * @generated
-		 */
-		EClass CONDITION = eINSTANCE.getCondition();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Input Locations</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONDITION__DESCRIPTION = eINSTANCE.getCondition_Description();
+		EReference DELEGATE_OP__INPUT_LOCATIONS = eINSTANCE.getDelegateOp_InputLocations();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.ActionImpl <em>Action</em>}' class.
@@ -2727,6 +2575,14 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACTION = eINSTANCE.getAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__DESCRIPTION = eINSTANCE.getAction_Description();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.MovementPatternsImpl <em>Movement Patterns</em>}' class.
@@ -2991,32 +2847,14 @@ public interface PromisePackage extends EPackage {
 		EReference CONTEXT__ROBOT = eINSTANCE.getContext_Robot();
 
 		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' containment reference list feature.
+		 * The meta object literal for the '{@link promise.impl.LocationImpl <em>Location</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see promise.impl.LocationImpl
+		 * @see promise.impl.PromisePackageImpl#getLocation()
 		 * @generated
 		 */
-		EReference CONTEXT__LOCATION = eINSTANCE.getContext_Location();
-
-		/**
-		 * The meta object literal for the '{@link promise.impl.OrderedLocationImpl <em>Ordered Location</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see promise.impl.OrderedLocationImpl
-		 * @see promise.impl.PromisePackageImpl#getOrderedLocation()
-		 * @generated
-		 */
-		EClass ORDERED_LOCATION = eINSTANCE.getOrderedLocation();
-
-		/**
-		 * The meta object literal for the '{@link promise.impl.NotOrderedLocationImpl <em>Not Ordered Location</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see promise.impl.NotOrderedLocationImpl
-		 * @see promise.impl.PromisePackageImpl#getNotOrderedLocation()
-		 * @generated
-		 */
-		EClass NOT_ORDERED_LOCATION = eINSTANCE.getNotOrderedLocation();
+		EClass LOCATION = eINSTANCE.getLocation();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.SimpleActionImpl <em>Simple Action</em>}' class.

@@ -21,7 +21,8 @@ mission{
 			a5: "grab_tray", 
 			a6: "release_tray"}                 
 	robots robot1,robot2
-	, robot3 locations { not ordered : lstart, l1, l2, lkitchen}
+	, robot3 
+	locations: lstart, l1, l2, lkitchen
 	operators {
 		parallel( 
 			//robot1 

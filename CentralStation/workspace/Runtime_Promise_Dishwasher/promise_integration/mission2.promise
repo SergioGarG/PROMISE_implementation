@@ -8,7 +8,8 @@ mission{
 			a3: "place_pod", 
 			a4: "scrub_spots"}               
 	robots robot1
-	, robot2 locations { not ordered : l0, lout}
+	, robot2 
+	locations: l0, lout
 	operators {
 		parallel( 
 				sequence ( 

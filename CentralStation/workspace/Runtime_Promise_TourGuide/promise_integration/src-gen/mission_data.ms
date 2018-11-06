@@ -1,4 +1,5 @@
 Robots [ robot1, ]
 Events [ e0 starting_signal_received,e1 people_follow,e2 people_donot_follows, ]
 Actions [ a0 request_attention,a1 detect_and_approach_requesting_person,a2 detect_and_approach_large_group,a3 detect_and_approach_small_group,a4 introduction,a5 greet_guest,a6 ask_follow,a7 ask_sit,a8 explain_league,a9 QA_session, ]
+StoppingEvents [  ]
 

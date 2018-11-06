@@ -1,21 +1,25 @@
-robot1[eh]
+robot1[<> (l1), fb, cond, eh]
 
-	eh_default[<> (lstart), [] (<> (lstart))]
+	fb_1[fb]
 
-	eh_ehelp[cond]
+		fb_1[<> (lcharge)]
 
-		cond_e1[cond]
+		fb_2[<> (l1)]
 
-			cond_ea1[<> (lstart)]
+	fb_2[<> (l2)]
 
-			cond_ef1[<> (l1)]
+	cond_e1[cond]
 
-		cond_e2[cond]
+		cond_e3[<> (lcharge)]
 
-			cond_ea2[<> (lstart)]
+		cond_e4[<> (l1)]
 
-			cond_ef2[(X lock_table2), <> (l2), (X ask_for_order), (X receive_order), <> (lkitchen), (X repeat_order), (X grab_beverage), (X grab_tray), <> (l2), (X release_tray), <> (lkitchen), (X release_table2)]
+	cond_e2[<> (l2)]
 
-	eh_estop[<> (lstart)]
+	eh_default[eh]
 
+		eh_default[<> (lcharge)]
 
+		eh_e4[<> (l1)]
+
+	eh_e2[<> (l2)]

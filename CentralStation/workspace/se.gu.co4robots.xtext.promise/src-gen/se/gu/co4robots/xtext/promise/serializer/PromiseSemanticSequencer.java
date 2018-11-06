@@ -26,11 +26,10 @@ import promise.FallBackOp;
 import promise.FutureAvoidance;
 import promise.GlobalAvoidance;
 import promise.InstantReaction;
+import promise.Location;
 import promise.LowerRestrictedAvoidance;
 import promise.Mission;
-import promise.NotOrderedLocation;
 import promise.OrderderVisit;
-import promise.OrderedLocation;
 import promise.OrderedPatrolling;
 import promise.ParallelOp;
 import promise.PastAvoidance;
@@ -101,20 +100,17 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case PromisePackage.INSTANT_REACTION:
 				sequence_InstantReaction(context, (InstantReaction) semanticObject); 
 				return; 
+			case PromisePackage.LOCATION:
+				sequence_Location(context, (Location) semanticObject); 
+				return; 
 			case PromisePackage.LOWER_RESTRICTED_AVOIDANCE:
 				sequence_LowerRestrictedAvoidance(context, (LowerRestrictedAvoidance) semanticObject); 
 				return; 
 			case PromisePackage.MISSION:
 				sequence_Mission(context, (Mission) semanticObject); 
 				return; 
-			case PromisePackage.NOT_ORDERED_LOCATION:
-				sequence_NotOrderedLocation(context, (NotOrderedLocation) semanticObject); 
-				return; 
 			case PromisePackage.ORDERDER_VISIT:
 				sequence_OrderderVisit(context, (OrderderVisit) semanticObject); 
-				return; 
-			case PromisePackage.ORDERED_LOCATION:
-				sequence_OrderedLocation(context, (OrderedLocation) semanticObject); 
 				return; 
 			case PromisePackage.ORDERED_PATROLLING:
 				sequence_OrderedPatrolling(context, (OrderedPatrolling) semanticObject); 
@@ -165,7 +161,6 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Condition returns Action
 	 *     Action returns Action
 	 *
 	 * Constraint:
@@ -175,8 +170,8 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.NAMED_ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.CONDITION__DESCRIPTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.CONDITION__DESCRIPTION));
+			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.ACTION__DESCRIPTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.ACTION__DESCRIPTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getActionAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
@@ -251,7 +246,6 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Condition returns Event
 	 *     Event returns Event
 	 *
 	 * Constraint:
@@ -261,8 +255,8 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.NAMED_ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.CONDITION__DESCRIPTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.CONDITION__DESCRIPTION));
+			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.EVENT__DESCRIPTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.EVENT__DESCRIPTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
@@ -364,6 +358,24 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Location returns Location
+	 *
+	 * Constraint:
+	 *     name=EString
+	 */
+	protected void sequence_Location(ISerializationContext context, Location semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLocationAccess().getNameEStringParserRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Pattern returns LowerRestrictedAvoidance
 	 *     LowerRestrictedAvoidance returns LowerRestrictedAvoidance
 	 *
@@ -381,37 +393,17 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *
 	 * Constraint:
 	 *     (
-	 *         (conditions+=Event conditions+=Event*)? 
-	 *         (conditions+=Action conditions+=Action*)? 
+	 *         (events+=Event events+=Event*)? 
+	 *         (actions+=Action actions+=Action*)? 
 	 *         robots+=Robot 
 	 *         robots+=Robot* 
-	 *         (location+=OrderedLocation location+=OrderedLocation*)? 
-	 *         (location+=NotOrderedLocation location+=NotOrderedLocation*)? 
+	 *         (locations+=Location locations+=Location*)? 
 	 *         operator+=Operator 
 	 *         operator+=Operator*
 	 *     )
 	 */
 	protected void sequence_Mission(ISerializationContext context, Mission semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Location returns NotOrderedLocation
-	 *     NotOrderedLocation returns NotOrderedLocation
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_NotOrderedLocation(ISerializationContext context, NotOrderedLocation semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.NAMED_ELEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNotOrderedLocationAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
 	}
 	
 	
@@ -425,25 +417,6 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_OrderderVisit(ISerializationContext context, OrderderVisit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Location returns OrderedLocation
-	 *     OrderedLocation returns OrderedLocation
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_OrderedLocation(ISerializationContext context, OrderedLocation semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.NAMED_ELEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOrderedLocationAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
 	}
 	
 	

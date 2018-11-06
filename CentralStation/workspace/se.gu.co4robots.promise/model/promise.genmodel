@@ -22,9 +22,10 @@
     </genClasses>
     <genClasses ecoreClass="promise.ecore#//Mission">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//Mission/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//Mission/conditions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//Mission/robots"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//Mission/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//Mission/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//Mission/events"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//Mission/locations"/>
     </genClasses>
     <genClasses image="false" ecoreClass="promise.ecore#//Pattern"/>
     <genClasses image="false" ecoreClass="promise.ecore#//CompositionOperator">
@@ -34,19 +35,19 @@
     <genClasses image="false" ecoreClass="promise.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute promise.ecore#//NamedElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="promise.ecore#//Event"/>
-    <genClasses image="false" ecoreClass="promise.ecore#//Location"/>
+    <genClasses ecoreClass="promise.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute promise.ecore#//Event/description"/>
+    </genClasses>
     <genClasses ecoreClass="promise.ecore#//DelegateOp">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//DelegateOp/inputLocations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//DelegateOp/inputRobot"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//DelegateOp/pattern"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//DelegateOp/inputAction"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//DelegateOp/stoppingEvent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//DelegateOp/inputLocations"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="promise.ecore#//Condition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute promise.ecore#//Condition/description"/>
+    <genClasses ecoreClass="promise.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute promise.ecore#//Action/description"/>
     </genClasses>
-    <genClasses ecoreClass="promise.ecore#//Action"/>
     <genClasses image="false" ecoreClass="promise.ecore#//MovementPatterns"/>
     <genClasses ecoreClass="promise.ecore#//Visit"/>
     <genClasses ecoreClass="promise.ecore#//SequencedVisit"/>
@@ -77,10 +78,8 @@
     </genClasses>
     <genClasses ecoreClass="promise.ecore#//Context">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//Context/robot"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//Context/location"/>
     </genClasses>
-    <genClasses ecoreClass="promise.ecore#//OrderedLocation"/>
-    <genClasses ecoreClass="promise.ecore#//NotOrderedLocation"/>
+    <genClasses ecoreClass="promise.ecore#//Location"/>
     <genClasses ecoreClass="promise.ecore#//SimpleAction"/>
   </genPackages>
 </genmodel:GenModel>

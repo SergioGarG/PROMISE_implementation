@@ -105,17 +105,17 @@ ruleMission returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getMissionAccess().getConditionsEventParserRuleCall_2_2_2_0());
+							newCompositeNode(grammarAccess.getMissionAccess().getEventsEventParserRuleCall_2_2_2_0());
 						}
-						lv_conditions_6_0=ruleEvent
+						lv_events_6_0=ruleEvent
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getMissionRule());
 							}
 							add(
 								$current,
-								"conditions",
-								lv_conditions_6_0,
+								"events",
+								lv_events_6_0,
 								"se.gu.co4robots.xtext.promise.Promise.Event");
 							afterParserOrEnumRuleCall();
 						}
@@ -129,17 +129,17 @@ ruleMission returns [EObject current=null]
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getMissionAccess().getConditionsEventParserRuleCall_2_2_3_1_0());
+								newCompositeNode(grammarAccess.getMissionAccess().getEventsEventParserRuleCall_2_2_3_1_0());
 							}
-							lv_conditions_8_0=ruleEvent
+							lv_events_8_0=ruleEvent
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getMissionRule());
 								}
 								add(
 									$current,
-									"conditions",
-									lv_conditions_8_0,
+									"events",
+									lv_events_8_0,
 									"se.gu.co4robots.xtext.promise.Promise.Event");
 								afterParserOrEnumRuleCall();
 							}
@@ -159,17 +159,17 @@ ruleMission returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getMissionAccess().getConditionsActionParserRuleCall_2_3_2_0());
+							newCompositeNode(grammarAccess.getMissionAccess().getActionsActionParserRuleCall_2_3_2_0());
 						}
-						lv_conditions_11_0=ruleAction
+						lv_actions_11_0=ruleAction
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getMissionRule());
 							}
 							add(
 								$current,
-								"conditions",
-								lv_conditions_11_0,
+								"actions",
+								lv_actions_11_0,
 								"se.gu.co4robots.xtext.promise.Promise.Action");
 							afterParserOrEnumRuleCall();
 						}
@@ -183,17 +183,17 @@ ruleMission returns [EObject current=null]
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getMissionAccess().getConditionsActionParserRuleCall_2_3_3_1_0());
+								newCompositeNode(grammarAccess.getMissionAccess().getActionsActionParserRuleCall_2_3_3_1_0());
 							}
-							lv_conditions_13_0=ruleAction
+							lv_actions_13_0=ruleAction
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getMissionRule());
 								}
 								add(
 									$current,
-									"conditions",
-									lv_conditions_13_0,
+									"actions",
+									lv_actions_13_0,
 									"se.gu.co4robots.xtext.promise.Promise.Action");
 								afterParserOrEnumRuleCall();
 							}
@@ -254,144 +254,74 @@ ruleMission returns [EObject current=null]
 				)
 			)
 		)*
-		otherlv_19='locations'
-		{
-			newLeafNode(otherlv_19, grammarAccess.getMissionAccess().getLocationsKeyword_6());
-		}
-		otherlv_20='{'
-		{
-			newLeafNode(otherlv_20, grammarAccess.getMissionAccess().getLeftCurlyBracketKeyword_7());
-		}
 		(
-			otherlv_21='ordered'
+			otherlv_19='locations'
 			{
-				newLeafNode(otherlv_21, grammarAccess.getMissionAccess().getOrderedKeyword_8_0());
+				newLeafNode(otherlv_19, grammarAccess.getMissionAccess().getLocationsKeyword_6_0());
 			}
-			otherlv_22=':'
+			otherlv_20=':'
 			{
-				newLeafNode(otherlv_22, grammarAccess.getMissionAccess().getColonKeyword_8_1());
+				newLeafNode(otherlv_20, grammarAccess.getMissionAccess().getColonKeyword_6_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMissionAccess().getLocationOrderedLocationParserRuleCall_8_2_0());
+						newCompositeNode(grammarAccess.getMissionAccess().getLocationsLocationParserRuleCall_6_2_0());
 					}
-					lv_location_23_0=ruleOrderedLocation
+					lv_locations_21_0=ruleLocation
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMissionRule());
 						}
 						add(
 							$current,
-							"location",
-							lv_location_23_0,
-							"se.gu.co4robots.xtext.promise.Promise.OrderedLocation");
+							"locations",
+							lv_locations_21_0,
+							"se.gu.co4robots.xtext.promise.Promise.Location");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_24=','
+				otherlv_22=','
 				{
-					newLeafNode(otherlv_24, grammarAccess.getMissionAccess().getCommaKeyword_8_3_0());
+					newLeafNode(otherlv_22, grammarAccess.getMissionAccess().getCommaKeyword_6_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getMissionAccess().getLocationOrderedLocationParserRuleCall_8_3_1_0());
+							newCompositeNode(grammarAccess.getMissionAccess().getLocationsLocationParserRuleCall_6_3_1_0());
 						}
-						lv_location_25_0=ruleOrderedLocation
+						lv_locations_23_0=ruleLocation
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getMissionRule());
 							}
 							add(
 								$current,
-								"location",
-								lv_location_25_0,
-								"se.gu.co4robots.xtext.promise.Promise.OrderedLocation");
+								"locations",
+								lv_locations_23_0,
+								"se.gu.co4robots.xtext.promise.Promise.Location");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
 		)?
-		(
-			otherlv_26='not'
-			{
-				newLeafNode(otherlv_26, grammarAccess.getMissionAccess().getNotKeyword_9_0());
-			}
-			otherlv_27='ordered'
-			{
-				newLeafNode(otherlv_27, grammarAccess.getMissionAccess().getOrderedKeyword_9_1());
-			}
-			otherlv_28=':'
-			{
-				newLeafNode(otherlv_28, grammarAccess.getMissionAccess().getColonKeyword_9_2());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMissionAccess().getLocationNotOrderedLocationParserRuleCall_9_3_0());
-					}
-					lv_location_29_0=ruleNotOrderedLocation
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMissionRule());
-						}
-						add(
-							$current,
-							"location",
-							lv_location_29_0,
-							"se.gu.co4robots.xtext.promise.Promise.NotOrderedLocation");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_30=','
-				{
-					newLeafNode(otherlv_30, grammarAccess.getMissionAccess().getCommaKeyword_9_4_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getMissionAccess().getLocationNotOrderedLocationParserRuleCall_9_4_1_0());
-						}
-						lv_location_31_0=ruleNotOrderedLocation
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getMissionRule());
-							}
-							add(
-								$current,
-								"location",
-								lv_location_31_0,
-								"se.gu.co4robots.xtext.promise.Promise.NotOrderedLocation");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-		)?
-		otherlv_32='}'
+		otherlv_24='operators'
 		{
-			newLeafNode(otherlv_32, grammarAccess.getMissionAccess().getRightCurlyBracketKeyword_10());
+			newLeafNode(otherlv_24, grammarAccess.getMissionAccess().getOperatorsKeyword_7());
 		}
-		otherlv_33='operators'
+		otherlv_25='{'
 		{
-			newLeafNode(otherlv_33, grammarAccess.getMissionAccess().getOperatorsKeyword_11());
-		}
-		otherlv_34='{'
-		{
-			newLeafNode(otherlv_34, grammarAccess.getMissionAccess().getLeftCurlyBracketKeyword_12());
+			newLeafNode(otherlv_25, grammarAccess.getMissionAccess().getLeftCurlyBracketKeyword_8());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMissionAccess().getOperatorOperatorParserRuleCall_13_0());
+					newCompositeNode(grammarAccess.getMissionAccess().getOperatorOperatorParserRuleCall_9_0());
 				}
-				lv_operator_35_0=ruleOperator
+				lv_operator_26_0=ruleOperator
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMissionRule());
@@ -399,23 +329,23 @@ ruleMission returns [EObject current=null]
 					add(
 						$current,
 						"operator",
-						lv_operator_35_0,
+						lv_operator_26_0,
 						"se.gu.co4robots.xtext.promise.Promise.Operator");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_36=','
+			otherlv_27=','
 			{
-				newLeafNode(otherlv_36, grammarAccess.getMissionAccess().getCommaKeyword_14_0());
+				newLeafNode(otherlv_27, grammarAccess.getMissionAccess().getCommaKeyword_10_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMissionAccess().getOperatorOperatorParserRuleCall_14_1_0());
+						newCompositeNode(grammarAccess.getMissionAccess().getOperatorOperatorParserRuleCall_10_1_0());
 					}
-					lv_operator_37_0=ruleOperator
+					lv_operator_28_0=ruleOperator
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMissionRule());
@@ -423,20 +353,20 @@ ruleMission returns [EObject current=null]
 						add(
 							$current,
 							"operator",
-							lv_operator_37_0,
+							lv_operator_28_0,
 							"se.gu.co4robots.xtext.promise.Promise.Operator");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
-		otherlv_38='}'
+		otherlv_29='}'
 		{
-			newLeafNode(otherlv_38, grammarAccess.getMissionAccess().getRightCurlyBracketKeyword_15());
+			newLeafNode(otherlv_29, grammarAccess.getMissionAccess().getRightCurlyBracketKeyword_11());
 		}
-		otherlv_39='}'
+		otherlv_30='}'
 		{
-			newLeafNode(otherlv_39, grammarAccess.getMissionAccess().getRightCurlyBracketKeyword_16());
+			newLeafNode(otherlv_30, grammarAccess.getMissionAccess().getRightCurlyBracketKeyword_12());
 		}
 	)
 ;
@@ -747,15 +677,15 @@ ruleRobot returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleOrderedLocation
-entryRuleOrderedLocation returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getOrderedLocationRule()); }
-	iv_ruleOrderedLocation=ruleOrderedLocation
-	{ $current=$iv_ruleOrderedLocation.current; }
+// Entry rule entryRuleLocation
+entryRuleLocation returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLocationRule()); }
+	iv_ruleLocation=ruleLocation
+	{ $current=$iv_ruleLocation.current; }
 	EOF;
 
-// Rule OrderedLocation
-ruleOrderedLocation returns [EObject current=null]
+// Rule Location
+ruleLocation returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -764,54 +694,20 @@ ruleOrderedLocation returns [EObject current=null]
 }:
 	(
 		(
-			lv_name_0_0=RULE_ID
 			{
-				newLeafNode(lv_name_0_0, grammarAccess.getOrderedLocationAccess().getNameIDTerminalRuleCall_0());
+				newCompositeNode(grammarAccess.getLocationAccess().getNameEStringParserRuleCall_0());
 			}
+			lv_name_0_0=ruleEString
 			{
 				if ($current==null) {
-					$current = createModelElement(grammarAccess.getOrderedLocationRule());
+					$current = createModelElementForParent(grammarAccess.getLocationRule());
 				}
-				setWithLastConsumed(
+				set(
 					$current,
 					"name",
 					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
-			}
-		)
-	)
-;
-
-// Entry rule entryRuleNotOrderedLocation
-entryRuleNotOrderedLocation returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNotOrderedLocationRule()); }
-	iv_ruleNotOrderedLocation=ruleNotOrderedLocation
-	{ $current=$iv_ruleNotOrderedLocation.current; }
-	EOF;
-
-// Rule NotOrderedLocation
-ruleNotOrderedLocation returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			lv_name_0_0=RULE_ID
-			{
-				newLeafNode(lv_name_0_0, grammarAccess.getNotOrderedLocationAccess().getNameIDTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getNotOrderedLocationRule());
-				}
-				setWithLastConsumed(
-					$current,
-					"name",
-					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
+					"se.gu.co4robots.xtext.promise.Promise.EString");
+				afterParserOrEnumRuleCall();
 			}
 		)
 	)

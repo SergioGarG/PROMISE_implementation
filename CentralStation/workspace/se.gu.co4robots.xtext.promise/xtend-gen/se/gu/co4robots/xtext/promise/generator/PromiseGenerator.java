@@ -15,18 +15,17 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import promise.Action;
 import promise.CompositionOperator;
-import promise.Condition;
 import promise.ConditionOp;
 import promise.DelegateOp;
+import promise.Event;
 import promise.EventHandlerOp;
 import promise.FallBackOp;
 import promise.Operator;
 import promise.ParallelOp;
 import promise.Robot;
 import promise.SequenceOp;
-import promise.impl.ActionImpl;
-import promise.impl.EventImpl;
 import se.gu.co4robots.xtext.promise.generator.robotClass;
 
 @SuppressWarnings("all")
@@ -70,40 +69,28 @@ public class PromiseGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("Events [ ");
     {
-      Iterable<Condition> _iterable_1 = IteratorExtensions.<Condition>toIterable(Iterators.<Condition>filter(resource.getAllContents(), Condition.class));
-      for(final Condition condition : _iterable_1) {
-        {
-          Class<? extends Condition> _class = condition.getClass();
-          boolean _equals = Objects.equal(_class, EventImpl.class);
-          if (_equals) {
-            String _name_2 = condition.getName();
-            _builder.append(_name_2);
-            _builder.append(" ");
-            String _description = condition.getDescription();
-            _builder.append(_description);
-            _builder.append(",");
-          }
-        }
+      Iterable<Event> _iterable_1 = IteratorExtensions.<Event>toIterable(Iterators.<Event>filter(resource.getAllContents(), Event.class));
+      for(final Event condition : _iterable_1) {
+        String _name_2 = condition.getName();
+        _builder.append(_name_2);
+        _builder.append(" ");
+        String _description = condition.getDescription();
+        _builder.append(_description);
+        _builder.append(",");
       }
     }
     _builder.append(" ]");
     _builder.newLineIfNotEmpty();
     _builder.append("Actions [ ");
     {
-      Iterable<Condition> _iterable_2 = IteratorExtensions.<Condition>toIterable(Iterators.<Condition>filter(resource.getAllContents(), Condition.class));
-      for(final Condition condition_1 : _iterable_2) {
-        {
-          Class<? extends Condition> _class_1 = condition_1.getClass();
-          boolean _equals_1 = Objects.equal(_class_1, ActionImpl.class);
-          if (_equals_1) {
-            String _name_3 = condition_1.getName();
-            _builder.append(_name_3);
-            _builder.append(" ");
-            String _description_1 = condition_1.getDescription();
-            _builder.append(_description_1);
-            _builder.append(",");
-          }
-        }
+      Iterable<Action> _iterable_2 = IteratorExtensions.<Action>toIterable(Iterators.<Action>filter(resource.getAllContents(), Action.class));
+      for(final Action condition_1 : _iterable_2) {
+        String _name_3 = condition_1.getName();
+        _builder.append(_name_3);
+        _builder.append(" ");
+        String _description_1 = condition_1.getDescription();
+        _builder.append(_description_1);
+        _builder.append(",");
       }
     }
     _builder.append(" ]");
@@ -181,8 +168,6 @@ public class PromiseGenerator extends AbstractGenerator {
           }
         }
       }
-      _builder_1.newLine();
-      _builder_1.newLine();
       fsa.generateFile(_plus_1, _builder_1);
     }
     for (int i_1 = (((Object[])Conversions.unwrapArray(this.robotsList, Object.class)).length - 1); (i_1 >= 0); i_1--) {

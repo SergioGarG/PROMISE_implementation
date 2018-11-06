@@ -762,49 +762,26 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link promise.OrderedLocation} instances.
+	 * This keeps track of the one adapter used for all {@link promise.Location} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OrderedLocationItemProvider orderedLocationItemProvider;
+	protected LocationItemProvider locationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link promise.OrderedLocation}.
+	 * This creates an adapter for a {@link promise.Location}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createOrderedLocationAdapter() {
-		if (orderedLocationItemProvider == null) {
-			orderedLocationItemProvider = new OrderedLocationItemProvider(this);
+	public Adapter createLocationAdapter() {
+		if (locationItemProvider == null) {
+			locationItemProvider = new LocationItemProvider(this);
 		}
 
-		return orderedLocationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link promise.NotOrderedLocation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NotOrderedLocationItemProvider notOrderedLocationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link promise.NotOrderedLocation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNotOrderedLocationAdapter() {
-		if (notOrderedLocationItemProvider == null) {
-			notOrderedLocationItemProvider = new NotOrderedLocationItemProvider(this);
-		}
-
-		return notOrderedLocationItemProvider;
+		return locationItemProvider;
 	}
 
 	/**
@@ -959,8 +936,7 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 		if (delayedReactionItemProvider != null) delayedReactionItemProvider.dispose();
 		if (instantReactionItemProvider != null) instantReactionItemProvider.dispose();
 		if (contextItemProvider != null) contextItemProvider.dispose();
-		if (orderedLocationItemProvider != null) orderedLocationItemProvider.dispose();
-		if (notOrderedLocationItemProvider != null) notOrderedLocationItemProvider.dispose();
+		if (locationItemProvider != null) locationItemProvider.dispose();
 		if (simpleActionItemProvider != null) simpleActionItemProvider.dispose();
 	}
 

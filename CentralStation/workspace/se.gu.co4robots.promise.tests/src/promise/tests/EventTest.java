@@ -13,7 +13,7 @@ import promise.PromiseFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EventTest extends ConditionTest {
+public class EventTest extends NamedElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

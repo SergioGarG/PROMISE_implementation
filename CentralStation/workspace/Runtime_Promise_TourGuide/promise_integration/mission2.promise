@@ -16,7 +16,7 @@ mission{
 			a8: "explain_league",
 			a9: "QA_session"}               
 	robots robot1
-	locations {not ordered: l0, openArea, audienceArea}
+	locations: l0, openArea, audienceArea
 	operators {
 		parallel( eventHandler ( 
 			default ( delegate ( robot robot1 does Wait locations l0 ))			

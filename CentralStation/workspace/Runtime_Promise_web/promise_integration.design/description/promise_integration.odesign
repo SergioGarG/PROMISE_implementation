@@ -4,14 +4,14 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Missions diagram" domainClass="promise::Mission" enablePopupBars="true">
       <metamodel href="http://gu.se/co4robots.promise#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="EventNode" semanticCandidatesExpression="feature:conditions" domainClass="promise::Event">
+        <nodeMappings name="EventNode" semanticCandidatesExpression="feature:events" domainClass="promise::Event">
           <style xsi:type="style:LozengeNodeDescription" showIcon="false" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ActionNode" semanticCandidatesExpression="feature:conditions" domainClass="promise::Action">
+        <nodeMappings name="ActionNode" semanticCandidatesExpression="feature:actions" domainClass="promise::Action">
           <style xsi:type="style:LozengeNodeDescription" showIcon="false" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -213,7 +213,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="LocationNode" semanticCandidatesExpression="feature:location" domainClass="promise::Location">
+        <nodeMappings name="LocationNode" semanticCandidatesExpression="feature:locations" domainClass="promise::Location">
           <style xsi:type="style:LozengeNodeDescription" showIcon="false" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

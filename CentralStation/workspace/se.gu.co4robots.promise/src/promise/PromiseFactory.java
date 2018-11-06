@@ -292,22 +292,13 @@ public interface PromiseFactory extends EFactory {
 	Context createContext();
 
 	/**
-	 * Returns a new object of class '<em>Ordered Location</em>'.
+	 * Returns a new object of class '<em>Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Ordered Location</em>'.
+	 * @return a new object of class '<em>Location</em>'.
 	 * @generated
 	 */
-	OrderedLocation createOrderedLocation();
-
-	/**
-	 * Returns a new object of class '<em>Not Ordered Location</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Not Ordered Location</em>'.
-	 * @generated
-	 */
-	NotOrderedLocation createNotOrderedLocation();
+	Location createLocation();
 
 	/**
 	 * Returns a new object of class '<em>Simple Action</em>'.

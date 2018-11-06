@@ -10,7 +10,7 @@ package promise;
  *
  *
  * @see promise.PromisePackage#getLocation()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Location extends NamedElement {

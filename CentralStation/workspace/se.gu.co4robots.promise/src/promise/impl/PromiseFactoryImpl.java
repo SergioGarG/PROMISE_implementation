@@ -86,8 +86,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 			case PromisePackage.DELAYED_REACTION: return createDelayedReaction();
 			case PromisePackage.INSTANT_REACTION: return createInstantReaction();
 			case PromisePackage.CONTEXT: return createContext();
-			case PromisePackage.ORDERED_LOCATION: return createOrderedLocation();
-			case PromisePackage.NOT_ORDERED_LOCATION: return createNotOrderedLocation();
+			case PromisePackage.LOCATION: return createLocation();
 			case PromisePackage.SIMPLE_ACTION: return createSimpleAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -399,19 +398,9 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OrderedLocation createOrderedLocation() {
-		OrderedLocationImpl orderedLocation = new OrderedLocationImpl();
-		return orderedLocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotOrderedLocation createNotOrderedLocation() {
-		NotOrderedLocationImpl notOrderedLocation = new NotOrderedLocationImpl();
-		return notOrderedLocation;
+	public Location createLocation() {
+		LocationImpl location = new LocationImpl();
+		return location;
 	}
 
 	/**

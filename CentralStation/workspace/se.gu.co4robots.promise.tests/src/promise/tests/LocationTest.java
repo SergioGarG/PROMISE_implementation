@@ -2,7 +2,10 @@
  */
 package promise.tests;
 
+import junit.textui.TestRunner;
+
 import promise.Location;
+import promise.PromiseFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,7 +13,16 @@ import promise.Location;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class LocationTest extends NamedElementTest {
+public class LocationTest extends NamedElementTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(LocationTest.class);
+	}
 
 	/**
 	 * Constructs a new Location test case with the given name.
@@ -31,6 +43,28 @@ public abstract class LocationTest extends NamedElementTest {
 	@Override
 	protected Location getFixture() {
 		return (Location)fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(PromiseFactory.eINSTANCE.createLocation());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
 	}
 
 } //LocationTest

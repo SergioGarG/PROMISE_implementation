@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link promise.DelegateOp#getInputLocations <em>Input Locations</em>}</li>
  *   <li>{@link promise.DelegateOp#getInputRobot <em>Input Robot</em>}</li>
  *   <li>{@link promise.DelegateOp#getPattern <em>Pattern</em>}</li>
  *   <li>{@link promise.DelegateOp#getInputAction <em>Input Action</em>}</li>
  *   <li>{@link promise.DelegateOp#getStoppingEvent <em>Stopping Event</em>}</li>
+ *   <li>{@link promise.DelegateOp#getInputLocations <em>Input Locations</em>}</li>
  * </ul>
  *
  * @see promise.PromisePackage#getDelegateOp()
@@ -25,22 +25,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface DelegateOp extends Operator {
-	/**
-	 * Returns the value of the '<em><b>Input Locations</b></em>' reference list.
-	 * The list contents are of type {@link promise.Location}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Input Locations</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input Locations</em>' reference list.
-	 * @see promise.PromisePackage#getDelegateOp_InputLocations()
-	 * @model
-	 * @generated
-	 */
-	EList<Location> getInputLocations();
-
 	/**
 	 * Returns the value of the '<em><b>Input Robot</b></em>' reference list.
 	 * The list contents are of type {@link promise.Robot}.
@@ -114,5 +98,21 @@ public interface DelegateOp extends Operator {
 	 * @generated
 	 */
 	EList<Event> getStoppingEvent();
+
+	/**
+	 * Returns the value of the '<em><b>Input Locations</b></em>' reference list.
+	 * The list contents are of type {@link promise.Location}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Input Locations</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Input Locations</em>' reference list.
+	 * @see promise.PromisePackage#getDelegateOp_InputLocations()
+	 * @model
+	 * @generated
+	 */
+	EList<Location> getInputLocations();
 
 } // DelegateOp

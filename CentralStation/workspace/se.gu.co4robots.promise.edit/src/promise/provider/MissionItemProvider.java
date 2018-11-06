@@ -78,9 +78,10 @@ public class MissionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PromisePackage.Literals.MISSION__OPERATOR);
-			childrenFeatures.add(PromisePackage.Literals.MISSION__CONDITIONS);
 			childrenFeatures.add(PromisePackage.Literals.MISSION__ROBOTS);
-			childrenFeatures.add(PromisePackage.Literals.MISSION__LOCATION);
+			childrenFeatures.add(PromisePackage.Literals.MISSION__ACTIONS);
+			childrenFeatures.add(PromisePackage.Literals.MISSION__EVENTS);
+			childrenFeatures.add(PromisePackage.Literals.MISSION__LOCATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -134,9 +135,10 @@ public class MissionItemProvider
 
 		switch (notification.getFeatureID(Mission.class)) {
 			case PromisePackage.MISSION__OPERATOR:
-			case PromisePackage.MISSION__CONDITIONS:
 			case PromisePackage.MISSION__ROBOTS:
-			case PromisePackage.MISSION__LOCATION:
+			case PromisePackage.MISSION__ACTIONS:
+			case PromisePackage.MISSION__EVENTS:
+			case PromisePackage.MISSION__LOCATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -186,28 +188,23 @@ public class MissionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.MISSION__CONDITIONS,
-				 PromiseFactory.eINSTANCE.createEvent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PromisePackage.Literals.MISSION__CONDITIONS,
-				 PromiseFactory.eINSTANCE.createAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(PromisePackage.Literals.MISSION__ROBOTS,
 				 PromiseFactory.eINSTANCE.createRobot()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.MISSION__LOCATION,
-				 PromiseFactory.eINSTANCE.createOrderedLocation()));
+				(PromisePackage.Literals.MISSION__ACTIONS,
+				 PromiseFactory.eINSTANCE.createAction()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.MISSION__LOCATION,
-				 PromiseFactory.eINSTANCE.createNotOrderedLocation()));
+				(PromisePackage.Literals.MISSION__EVENTS,
+				 PromiseFactory.eINSTANCE.createEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PromisePackage.Literals.MISSION__LOCATIONS,
+				 PromiseFactory.eINSTANCE.createLocation()));
 	}
 
 	/**

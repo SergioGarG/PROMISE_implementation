@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import promise.Action;
 import promise.AvoidancePatterns;
 import promise.CompositionOperator;
-import promise.Condition;
 import promise.ConditionOp;
 import promise.Context;
 import promise.DelayedReaction;
@@ -31,10 +30,8 @@ import promise.LowerRestrictedAvoidance;
 import promise.Mission;
 import promise.MovementPatterns;
 import promise.NamedElement;
-import promise.NotOrderedLocation;
 import promise.Operator;
 import promise.OrderderVisit;
-import promise.OrderedLocation;
 import promise.OrderedPatrolling;
 import promise.ParallelOp;
 import promise.PastAvoidance;
@@ -150,21 +147,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass locationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass delegateOpEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass conditionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -339,14 +322,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass orderedLocationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass notOrderedLocationEClass = null;
+	private EClass locationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -538,7 +514,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMission_Conditions() {
+	public EReference getMission_Robots() {
 		return (EReference)missionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -547,7 +523,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMission_Robots() {
+	public EReference getMission_Actions() {
 		return (EReference)missionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -556,8 +532,17 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMission_Location() {
+	public EReference getMission_Events() {
 		return (EReference)missionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMission_Locations() {
+		return (EReference)missionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -628,8 +613,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLocation() {
-		return locationEClass;
+	public EAttribute getEvent_Description() {
+		return (EAttribute)eventEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -646,7 +631,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDelegateOp_InputLocations() {
+	public EReference getDelegateOp_InputRobot() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -655,7 +640,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDelegateOp_InputRobot() {
+	public EReference getDelegateOp_Pattern() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -664,7 +649,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDelegateOp_Pattern() {
+	public EReference getDelegateOp_InputAction() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -673,7 +658,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDelegateOp_InputAction() {
+	public EReference getDelegateOp_StoppingEvent() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -682,26 +667,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDelegateOp_StoppingEvent() {
+	public EReference getDelegateOp_InputLocations() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCondition() {
-		return conditionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCondition_Description() {
-		return (EAttribute)conditionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -711,6 +678,15 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 */
 	public EClass getAction() {
 		return actionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_Description() {
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -961,26 +937,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContext_Location() {
-		return (EReference)contextEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOrderedLocation() {
-		return orderedLocationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getNotOrderedLocation() {
-		return notOrderedLocationEClass;
+	public EClass getLocation() {
+		return locationEClass;
 	}
 
 	/**
@@ -1039,9 +997,10 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 
 		missionEClass = createEClass(MISSION);
 		createEReference(missionEClass, MISSION__OPERATOR);
-		createEReference(missionEClass, MISSION__CONDITIONS);
 		createEReference(missionEClass, MISSION__ROBOTS);
-		createEReference(missionEClass, MISSION__LOCATION);
+		createEReference(missionEClass, MISSION__ACTIONS);
+		createEReference(missionEClass, MISSION__EVENTS);
+		createEReference(missionEClass, MISSION__LOCATIONS);
 
 		patternEClass = createEClass(PATTERN);
 
@@ -1054,20 +1013,17 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		eventEClass = createEClass(EVENT);
-
-		locationEClass = createEClass(LOCATION);
+		createEAttribute(eventEClass, EVENT__DESCRIPTION);
 
 		delegateOpEClass = createEClass(DELEGATE_OP);
-		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_LOCATIONS);
 		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_ROBOT);
 		createEReference(delegateOpEClass, DELEGATE_OP__PATTERN);
 		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_ACTION);
 		createEReference(delegateOpEClass, DELEGATE_OP__STOPPING_EVENT);
-
-		conditionEClass = createEClass(CONDITION);
-		createEAttribute(conditionEClass, CONDITION__DESCRIPTION);
+		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_LOCATIONS);
 
 		actionEClass = createEClass(ACTION);
+		createEAttribute(actionEClass, ACTION__DESCRIPTION);
 
 		movementPatternsEClass = createEClass(MOVEMENT_PATTERNS);
 
@@ -1118,11 +1074,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 
 		contextEClass = createEClass(CONTEXT);
 		createEReference(contextEClass, CONTEXT__ROBOT);
-		createEReference(contextEClass, CONTEXT__LOCATION);
 
-		orderedLocationEClass = createEClass(ORDERED_LOCATION);
-
-		notOrderedLocationEClass = createEClass(NOT_ORDERED_LOCATION);
+		locationEClass = createEClass(LOCATION);
 
 		simpleActionEClass = createEClass(SIMPLE_ACTION);
 	}
@@ -1162,11 +1115,9 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		conditionOpEClass.getESuperTypes().add(this.getCompositionOperator());
 		compositionOperatorEClass.getESuperTypes().add(this.getOperator());
 		robotEClass.getESuperTypes().add(this.getNamedElement());
-		eventEClass.getESuperTypes().add(this.getCondition());
-		locationEClass.getESuperTypes().add(this.getNamedElement());
+		eventEClass.getESuperTypes().add(this.getNamedElement());
 		delegateOpEClass.getESuperTypes().add(this.getOperator());
-		conditionEClass.getESuperTypes().add(this.getNamedElement());
-		actionEClass.getESuperTypes().add(this.getCondition());
+		actionEClass.getESuperTypes().add(this.getNamedElement());
 		movementPatternsEClass.getESuperTypes().add(this.getPattern());
 		visitEClass.getESuperTypes().add(this.getMovementPatterns());
 		sequencedVisitEClass.getESuperTypes().add(this.getMovementPatterns());
@@ -1189,8 +1140,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		waitEClass.getESuperTypes().add(this.getTriggerPatterns());
 		delayedReactionEClass.getESuperTypes().add(this.getTriggerPatterns());
 		instantReactionEClass.getESuperTypes().add(this.getTriggerPatterns());
-		orderedLocationEClass.getESuperTypes().add(this.getLocation());
-		notOrderedLocationEClass.getESuperTypes().add(this.getLocation());
+		locationEClass.getESuperTypes().add(this.getNamedElement());
 		simpleActionEClass.getESuperTypes().add(this.getPattern());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1213,9 +1163,10 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 
 		initEClass(missionEClass, Mission.class, "Mission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMission_Operator(), this.getOperator(), null, "operator", null, 1, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMission_Conditions(), this.getCondition(), null, "conditions", null, 0, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMission_Robots(), this.getRobot(), null, "robots", null, 1, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMission_Location(), this.getLocation(), null, "location", null, 1, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMission_Actions(), this.getAction(), null, "actions", null, 0, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMission_Events(), this.getEvent(), null, "events", null, 0, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMission_Locations(), this.getLocation(), null, "locations", null, 0, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(patternEClass, Pattern.class, "Pattern", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1228,20 +1179,17 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(locationEClass, Location.class, "Location", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEvent_Description(), ecorePackage.getEString(), "description", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(delegateOpEClass, DelegateOp.class, "DelegateOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDelegateOp_InputLocations(), this.getLocation(), null, "inputLocations", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_InputRobot(), this.getRobot(), null, "inputRobot", null, 1, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_Pattern(), this.getPattern(), null, "pattern", null, 1, 1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_InputAction(), this.getAction(), null, "inputAction", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_StoppingEvent(), this.getEvent(), null, "stoppingEvent", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCondition_Description(), ecorePackage.getEString(), "description", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDelegateOp_InputLocations(), this.getLocation(), null, "inputLocations", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAction_Description(), ecorePackage.getEString(), "description", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(movementPatternsEClass, MovementPatterns.class, "MovementPatterns", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1292,11 +1240,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 
 		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContext_Robot(), this.getRobot(), null, "robot", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_Location(), this.getLocation(), null, "location", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(orderedLocationEClass, OrderedLocation.class, "OrderedLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(notOrderedLocationEClass, NotOrderedLocation.class, "NotOrderedLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(locationEClass, Location.class, "Location", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(simpleActionEClass, SimpleAction.class, "SimpleAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

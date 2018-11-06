@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link promise.Context#getRobot <em>Robot</em>}</li>
- *   <li>{@link promise.Context#getLocation <em>Location</em>}</li>
  * </ul>
  *
  * @see promise.PromisePackage#getContext()
@@ -39,21 +38,5 @@ public interface Context extends EObject {
 	 * @generated
 	 */
 	EList<Robot> getRobot();
-
-	/**
-	 * Returns the value of the '<em><b>Location</b></em>' containment reference list.
-	 * The list contents are of type {@link promise.Location}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Location</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Location</em>' containment reference list.
-	 * @see promise.PromisePackage#getContext_Location()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Location> getLocation();
 
 } // Context

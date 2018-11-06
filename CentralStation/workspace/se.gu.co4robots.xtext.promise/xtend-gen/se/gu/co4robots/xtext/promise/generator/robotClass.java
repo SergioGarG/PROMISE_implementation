@@ -5,11 +5,6 @@ package se.gu.co4robots.xtext.promise.generator;
 
 import java.util.ArrayList;
 
-/**
- * Generates code from your model files on save.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
- */
 @SuppressWarnings("all")
 public class robotClass {
   public String name;

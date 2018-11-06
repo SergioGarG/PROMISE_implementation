@@ -22,12 +22,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="Mission">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operator" lowerBound="1"
         upperBound="-1" eType="#//Operator" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
-        eType="#//Condition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="robots" lowerBound="1"
         upperBound="-1" eType="#//Robot" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
-        upperBound="-1" eType="#//Location" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//Event" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locations" upperBound="-1"
+        eType="#//Location" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pattern" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="CompositionOperator" abstract="true"
@@ -39,11 +41,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Location" abstract="true" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DelegateOp" eSuperTypes="#//Operator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputLocations" upperBound="-1"
-        eType="#//Location"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputRobot" lowerBound="1"
         upperBound="-1" eType="#//Robot"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
@@ -52,11 +53,12 @@
         eType="#//Action"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stoppingEvent" upperBound="-1"
         eType="#//Event"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputLocations" upperBound="-1"
+        eType="#//Location"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="MovementPatterns" abstract="true" eSuperTypes="#//Pattern"/>
   <eClassifiers xsi:type="ecore:EClass" name="Visit" eSuperTypes="#//MovementPatterns"/>
   <eClassifiers xsi:type="ecore:EClass" name="SequencedVisit" eSuperTypes="#//MovementPatterns"/>
@@ -88,10 +90,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Context">
     <eStructuralFeatures xsi:type="ecore:EReference" name="robot" upperBound="-1"
         eType="#//Robot" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" upperBound="-1"
-        eType="#//Location" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OrderedLocation" eSuperTypes="#//Location"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NotOrderedLocation" eSuperTypes="#//Location"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Location" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleAction" eSuperTypes="#//Pattern"/>
 </ecore:EPackage>

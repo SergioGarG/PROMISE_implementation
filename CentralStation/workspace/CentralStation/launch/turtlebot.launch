@@ -1,5 +1,0 @@
-<launch>
-	<node pkg="local_mission_manager" type="dummylocalmission.py" name="localmission_turtlebot" output="screen">
-		<param name="robotName" value="turtlebot" />
-	</node>
-</launch>

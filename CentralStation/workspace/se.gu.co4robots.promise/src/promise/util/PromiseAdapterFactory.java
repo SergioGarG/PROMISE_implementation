@@ -116,16 +116,8 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 				return createEventAdapter();
 			}
 			@Override
-			public Adapter caseLocation(Location object) {
-				return createLocationAdapter();
-			}
-			@Override
 			public Adapter caseDelegateOp(DelegateOp object) {
 				return createDelegateOpAdapter();
-			}
-			@Override
-			public Adapter caseCondition(Condition object) {
-				return createConditionAdapter();
 			}
 			@Override
 			public Adapter caseAction(Action object) {
@@ -224,12 +216,8 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 				return createContextAdapter();
 			}
 			@Override
-			public Adapter caseOrderedLocation(OrderedLocation object) {
-				return createOrderedLocationAdapter();
-			}
-			@Override
-			public Adapter caseNotOrderedLocation(NotOrderedLocation object) {
-				return createNotOrderedLocationAdapter();
+			public Adapter caseLocation(Location object) {
+				return createLocationAdapter();
 			}
 			@Override
 			public Adapter caseSimpleAction(SimpleAction object) {
@@ -424,20 +412,6 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link promise.Location <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see promise.Location
-	 * @generated
-	 */
-	public Adapter createLocationAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link promise.DelegateOp <em>Delegate Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -448,20 +422,6 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDelegateOpAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link promise.Condition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see promise.Condition
-	 * @generated
-	 */
-	public Adapter createConditionAdapter() {
 		return null;
 	}
 
@@ -802,30 +762,16 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link promise.OrderedLocation <em>Ordered Location</em>}'.
+	 * Creates a new adapter for an object of class '{@link promise.Location <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see promise.OrderedLocation
+	 * @see promise.Location
 	 * @generated
 	 */
-	public Adapter createOrderedLocationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link promise.NotOrderedLocation <em>Not Ordered Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see promise.NotOrderedLocation
-	 * @generated
-	 */
-	public Adapter createNotOrderedLocationAdapter() {
+	public Adapter createLocationAdapter() {
 		return null;
 	}
 

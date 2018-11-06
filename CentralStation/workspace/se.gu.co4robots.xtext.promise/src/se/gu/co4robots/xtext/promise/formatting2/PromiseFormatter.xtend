@@ -6,7 +6,8 @@ package se.gu.co4robots.xtext.promise.formatting2
 import com.google.inject.Inject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
-import promise.Condition
+import promise.Action
+import promise.Event
 import promise.FallBackOp
 import promise.Location
 import promise.Mission
@@ -20,13 +21,16 @@ class PromiseFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Mission mission, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Condition condition : mission.getConditions()) {
-			condition.format;
+		for (Event event : mission.getEvents()) {
+			event.format;
+		}
+		for (Action action : mission.getActions()) {
+			action.format;
 		}
 		for (Robot robot : mission.getRobots()) {
 			robot.format;
 		}
-		for (Location location : mission.getLocation()) {
+		for (Location location : mission.getLocations()) {
 			location.format;
 		}
 		for (Operator operator : mission.getOperator()) {

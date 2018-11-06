@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import promise.Condition;
+import promise.Action;
+import promise.Event;
 import promise.Location;
 import promise.Mission;
 import promise.Operator;
@@ -32,9 +33,10 @@ import promise.Robot;
  * </p>
  * <ul>
  *   <li>{@link promise.impl.MissionImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link promise.impl.MissionImpl#getConditions <em>Conditions</em>}</li>
  *   <li>{@link promise.impl.MissionImpl#getRobots <em>Robots</em>}</li>
- *   <li>{@link promise.impl.MissionImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link promise.impl.MissionImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link promise.impl.MissionImpl#getEvents <em>Events</em>}</li>
+ *   <li>{@link promise.impl.MissionImpl#getLocations <em>Locations</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,16 +53,6 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	protected EList<Operator> operator;
 
 	/**
-	 * The cached value of the '{@link #getConditions() <em>Conditions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConditions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Condition> conditions;
-
-	/**
 	 * The cached value of the '{@link #getRobots() <em>Robots</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,14 +63,34 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	protected EList<Robot> robots;
 
 	/**
-	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference list.
+	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLocation()
+	 * @see #getActions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Location> location;
+	protected EList<Action> actions;
+
+	/**
+	 * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEvents()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Event> events;
+
+	/**
+	 * The cached value of the '{@link #getLocations() <em>Locations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Location> locations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,18 +128,6 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Condition> getConditions() {
-		if (conditions == null) {
-			conditions = new EObjectContainmentEList<Condition>(Condition.class, this, PromisePackage.MISSION__CONDITIONS);
-		}
-		return conditions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Robot> getRobots() {
 		if (robots == null) {
 			robots = new EObjectContainmentEList<Robot>(Robot.class, this, PromisePackage.MISSION__ROBOTS);
@@ -140,11 +140,35 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Location> getLocation() {
-		if (location == null) {
-			location = new EObjectContainmentEList<Location>(Location.class, this, PromisePackage.MISSION__LOCATION);
+	public EList<Action> getActions() {
+		if (actions == null) {
+			actions = new EObjectContainmentEList<Action>(Action.class, this, PromisePackage.MISSION__ACTIONS);
 		}
-		return location;
+		return actions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Event> getEvents() {
+		if (events == null) {
+			events = new EObjectContainmentEList<Event>(Event.class, this, PromisePackage.MISSION__EVENTS);
+		}
+		return events;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Location> getLocations() {
+		if (locations == null) {
+			locations = new EObjectContainmentEList<Location>(Location.class, this, PromisePackage.MISSION__LOCATIONS);
+		}
+		return locations;
 	}
 
 	/**
@@ -157,12 +181,14 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 		switch (featureID) {
 			case PromisePackage.MISSION__OPERATOR:
 				return ((InternalEList<?>)getOperator()).basicRemove(otherEnd, msgs);
-			case PromisePackage.MISSION__CONDITIONS:
-				return ((InternalEList<?>)getConditions()).basicRemove(otherEnd, msgs);
 			case PromisePackage.MISSION__ROBOTS:
 				return ((InternalEList<?>)getRobots()).basicRemove(otherEnd, msgs);
-			case PromisePackage.MISSION__LOCATION:
-				return ((InternalEList<?>)getLocation()).basicRemove(otherEnd, msgs);
+			case PromisePackage.MISSION__ACTIONS:
+				return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+			case PromisePackage.MISSION__EVENTS:
+				return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
+			case PromisePackage.MISSION__LOCATIONS:
+				return ((InternalEList<?>)getLocations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -177,12 +203,14 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 		switch (featureID) {
 			case PromisePackage.MISSION__OPERATOR:
 				return getOperator();
-			case PromisePackage.MISSION__CONDITIONS:
-				return getConditions();
 			case PromisePackage.MISSION__ROBOTS:
 				return getRobots();
-			case PromisePackage.MISSION__LOCATION:
-				return getLocation();
+			case PromisePackage.MISSION__ACTIONS:
+				return getActions();
+			case PromisePackage.MISSION__EVENTS:
+				return getEvents();
+			case PromisePackage.MISSION__LOCATIONS:
+				return getLocations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,17 +228,21 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 				getOperator().clear();
 				getOperator().addAll((Collection<? extends Operator>)newValue);
 				return;
-			case PromisePackage.MISSION__CONDITIONS:
-				getConditions().clear();
-				getConditions().addAll((Collection<? extends Condition>)newValue);
-				return;
 			case PromisePackage.MISSION__ROBOTS:
 				getRobots().clear();
 				getRobots().addAll((Collection<? extends Robot>)newValue);
 				return;
-			case PromisePackage.MISSION__LOCATION:
-				getLocation().clear();
-				getLocation().addAll((Collection<? extends Location>)newValue);
+			case PromisePackage.MISSION__ACTIONS:
+				getActions().clear();
+				getActions().addAll((Collection<? extends Action>)newValue);
+				return;
+			case PromisePackage.MISSION__EVENTS:
+				getEvents().clear();
+				getEvents().addAll((Collection<? extends Event>)newValue);
+				return;
+			case PromisePackage.MISSION__LOCATIONS:
+				getLocations().clear();
+				getLocations().addAll((Collection<? extends Location>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -227,14 +259,17 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 			case PromisePackage.MISSION__OPERATOR:
 				getOperator().clear();
 				return;
-			case PromisePackage.MISSION__CONDITIONS:
-				getConditions().clear();
-				return;
 			case PromisePackage.MISSION__ROBOTS:
 				getRobots().clear();
 				return;
-			case PromisePackage.MISSION__LOCATION:
-				getLocation().clear();
+			case PromisePackage.MISSION__ACTIONS:
+				getActions().clear();
+				return;
+			case PromisePackage.MISSION__EVENTS:
+				getEvents().clear();
+				return;
+			case PromisePackage.MISSION__LOCATIONS:
+				getLocations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -250,12 +285,14 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 		switch (featureID) {
 			case PromisePackage.MISSION__OPERATOR:
 				return operator != null && !operator.isEmpty();
-			case PromisePackage.MISSION__CONDITIONS:
-				return conditions != null && !conditions.isEmpty();
 			case PromisePackage.MISSION__ROBOTS:
 				return robots != null && !robots.isEmpty();
-			case PromisePackage.MISSION__LOCATION:
-				return location != null && !location.isEmpty();
+			case PromisePackage.MISSION__ACTIONS:
+				return actions != null && !actions.isEmpty();
+			case PromisePackage.MISSION__EVENTS:
+				return events != null && !events.isEmpty();
+			case PromisePackage.MISSION__LOCATIONS:
+				return locations != null && !locations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

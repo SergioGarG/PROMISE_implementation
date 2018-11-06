@@ -1,5 +1,0 @@
-<launch>
-	<node pkg="local_mission_manager" type="dummylocalmission.py" name="localmission_tiago" output="screen">
-		<param name="robotName" value="tiago" />
-	</node>
-</launch>

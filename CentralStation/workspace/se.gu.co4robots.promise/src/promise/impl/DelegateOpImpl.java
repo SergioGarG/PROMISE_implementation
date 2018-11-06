@@ -32,26 +32,16 @@ import promise.Robot;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link promise.impl.DelegateOpImpl#getInputLocations <em>Input Locations</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getInputRobot <em>Input Robot</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getInputAction <em>Input Action</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getStoppingEvent <em>Stopping Event</em>}</li>
+ *   <li>{@link promise.impl.DelegateOpImpl#getInputLocations <em>Input Locations</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
-	/**
-	 * The cached value of the '{@link #getInputLocations() <em>Input Locations</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInputLocations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Location> inputLocations;
-
 	/**
 	 * The cached value of the '{@link #getInputRobot() <em>Input Robot</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -93,6 +83,16 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	protected EList<Event> stoppingEvent;
 
 	/**
+	 * The cached value of the '{@link #getInputLocations() <em>Input Locations</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputLocations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Location> inputLocations;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -109,18 +109,6 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	protected EClass eStaticClass() {
 		return PromisePackage.Literals.DELEGATE_OP;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Location> getInputLocations() {
-		if (inputLocations == null) {
-			inputLocations = new EObjectResolvingEList<Location>(Location.class, this, PromisePackage.DELEGATE_OP__INPUT_LOCATIONS);
-		}
-		return inputLocations;
 	}
 
 	/**
@@ -207,6 +195,18 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Location> getInputLocations() {
+		if (inputLocations == null) {
+			inputLocations = new EObjectResolvingEList<Location>(Location.class, this, PromisePackage.DELEGATE_OP__INPUT_LOCATIONS);
+		}
+		return inputLocations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -224,8 +224,6 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
-				return getInputLocations();
 			case PromisePackage.DELEGATE_OP__INPUT_ROBOT:
 				return getInputRobot();
 			case PromisePackage.DELEGATE_OP__PATTERN:
@@ -234,6 +232,8 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 				return getInputAction();
 			case PromisePackage.DELEGATE_OP__STOPPING_EVENT:
 				return getStoppingEvent();
+			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
+				return getInputLocations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -247,10 +247,6 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
-				getInputLocations().clear();
-				getInputLocations().addAll((Collection<? extends Location>)newValue);
-				return;
 			case PromisePackage.DELEGATE_OP__INPUT_ROBOT:
 				getInputRobot().clear();
 				getInputRobot().addAll((Collection<? extends Robot>)newValue);
@@ -266,6 +262,10 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 				getStoppingEvent().clear();
 				getStoppingEvent().addAll((Collection<? extends Event>)newValue);
 				return;
+			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
+				getInputLocations().clear();
+				getInputLocations().addAll((Collection<? extends Location>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -278,9 +278,6 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
-				getInputLocations().clear();
-				return;
 			case PromisePackage.DELEGATE_OP__INPUT_ROBOT:
 				getInputRobot().clear();
 				return;
@@ -292,6 +289,9 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 				return;
 			case PromisePackage.DELEGATE_OP__STOPPING_EVENT:
 				getStoppingEvent().clear();
+				return;
+			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
+				getInputLocations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -305,8 +305,6 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
-				return inputLocations != null && !inputLocations.isEmpty();
 			case PromisePackage.DELEGATE_OP__INPUT_ROBOT:
 				return inputRobot != null && !inputRobot.isEmpty();
 			case PromisePackage.DELEGATE_OP__PATTERN:
@@ -315,6 +313,8 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 				return inputAction != null && !inputAction.isEmpty();
 			case PromisePackage.DELEGATE_OP__STOPPING_EVENT:
 				return stoppingEvent != null && !stoppingEvent.isEmpty();
+			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
+				return inputLocations != null && !inputLocations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

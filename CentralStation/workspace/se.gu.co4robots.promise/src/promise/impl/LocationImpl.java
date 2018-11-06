@@ -14,7 +14,7 @@ import promise.PromisePackage;
  *
  * @generated
  */
-public abstract class LocationImpl extends NamedElementImpl implements Location {
+public class LocationImpl extends NamedElementImpl implements Location {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

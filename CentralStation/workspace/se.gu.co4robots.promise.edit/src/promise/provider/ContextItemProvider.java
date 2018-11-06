@@ -78,7 +78,6 @@ public class ContextItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PromisePackage.Literals.CONTEXT__ROBOT);
-			childrenFeatures.add(PromisePackage.Literals.CONTEXT__LOCATION);
 		}
 		return childrenFeatures;
 	}
@@ -132,7 +131,6 @@ public class ContextItemProvider
 
 		switch (notification.getFeatureID(Context.class)) {
 			case PromisePackage.CONTEXT__ROBOT:
-			case PromisePackage.CONTEXT__LOCATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -154,16 +152,6 @@ public class ContextItemProvider
 			(createChildParameter
 				(PromisePackage.Literals.CONTEXT__ROBOT,
 				 PromiseFactory.eINSTANCE.createRobot()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PromisePackage.Literals.CONTEXT__LOCATION,
-				 PromiseFactory.eINSTANCE.createOrderedLocation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PromisePackage.Literals.CONTEXT__LOCATION,
-				 PromiseFactory.eINSTANCE.createNotOrderedLocation()));
 	}
 
 	/**

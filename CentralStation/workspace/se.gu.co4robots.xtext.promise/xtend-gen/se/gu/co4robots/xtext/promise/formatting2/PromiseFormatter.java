@@ -11,7 +11,8 @@ import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
-import promise.Condition;
+import promise.Action;
+import promise.Event;
 import promise.FallBackOp;
 import promise.Location;
 import promise.Mission;
@@ -26,16 +27,20 @@ public class PromiseFormatter extends AbstractFormatter2 {
   private PromiseGrammarAccess _promiseGrammarAccess;
   
   protected void _format(final Mission mission, @Extension final IFormattableDocument document) {
-    EList<Condition> _conditions = mission.getConditions();
-    for (final Condition condition : _conditions) {
-      document.<Condition>format(condition);
+    EList<Event> _events = mission.getEvents();
+    for (final Event event : _events) {
+      document.<Event>format(event);
+    }
+    EList<Action> _actions = mission.getActions();
+    for (final Action action : _actions) {
+      document.<Action>format(action);
     }
     EList<Robot> _robots = mission.getRobots();
     for (final Robot robot : _robots) {
       document.<Robot>format(robot);
     }
-    EList<Location> _location = mission.getLocation();
-    for (final Location location : _location) {
+    EList<Location> _locations = mission.getLocations();
+    for (final Location location : _locations) {
       document.<Location>format(location);
     }
     EList<Operator> _operator = mission.getOperator();

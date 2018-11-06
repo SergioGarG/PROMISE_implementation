@@ -8,7 +8,7 @@ mission{
 			a3: "execute_task",
 			a4:	"charge"}                
 	robots robot1
-	locations {not ordered: l0, chargingStation}
+	locations: l0, chargingStation
 	operators {
 		parallel( eventHandler ( 
 			default ( 

@@ -16,7 +16,7 @@ mission{
 			a5: "leaveObject",
 			a6: "collabTransportation"}               
 	robots robot1,robot2
-	locations {not ordered: chargingStation, l1, l2, l3, l4 , l5 } 
+	locations: chargingStation, l1, l2, l3, l4 , l5 
 	
 	
 	operators {
@@ -24,7 +24,7 @@ mission{
 			//Robot1
 			eventHandler ( 
 				default ( eventHandler ( 
-					default ( delegate ( robot robot1 does Patrolling locations l1,l2,l3,l4 stoppingEvents : e7 ) ) 
+					default ( delegate ( robot robot1 does Patrolling locations l1,l2,l3,l4 stoppingEvents e7 ) ) 
 					except e3 ( delegate ( robot robot1 does SimpleAction actions a1 
 						affecting event e3)) 
 					except e4 ( delegate ( robot robot1 does SimpleAction actions a2 

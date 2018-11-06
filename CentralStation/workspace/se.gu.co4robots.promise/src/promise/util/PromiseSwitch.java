@@ -147,15 +147,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 			case PromisePackage.EVENT: {
 				Event event = (Event)theEObject;
 				T result = caseEvent(event);
-				if (result == null) result = caseCondition(event);
 				if (result == null) result = caseNamedElement(event);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PromisePackage.LOCATION: {
-				Location location = (Location)theEObject;
-				T result = caseLocation(location);
-				if (result == null) result = caseNamedElement(location);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -166,17 +158,9 @@ public class PromiseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PromisePackage.CONDITION: {
-				Condition condition = (Condition)theEObject;
-				T result = caseCondition(condition);
-				if (result == null) result = caseNamedElement(condition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PromisePackage.ACTION: {
 				Action action = (Action)theEObject;
 				T result = caseAction(action);
-				if (result == null) result = caseCondition(action);
 				if (result == null) result = caseNamedElement(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -360,19 +344,10 @@ public class PromiseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PromisePackage.ORDERED_LOCATION: {
-				OrderedLocation orderedLocation = (OrderedLocation)theEObject;
-				T result = caseOrderedLocation(orderedLocation);
-				if (result == null) result = caseLocation(orderedLocation);
-				if (result == null) result = caseNamedElement(orderedLocation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PromisePackage.NOT_ORDERED_LOCATION: {
-				NotOrderedLocation notOrderedLocation = (NotOrderedLocation)theEObject;
-				T result = caseNotOrderedLocation(notOrderedLocation);
-				if (result == null) result = caseLocation(notOrderedLocation);
-				if (result == null) result = caseNamedElement(notOrderedLocation);
+			case PromisePackage.LOCATION: {
+				Location location = (Location)theEObject;
+				T result = caseLocation(location);
+				if (result == null) result = caseNamedElement(location);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -568,21 +543,6 @@ public class PromiseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Location</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Location</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLocation(Location object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Delegate Op</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -594,21 +554,6 @@ public class PromiseSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDelegateOp(DelegateOp object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCondition(Condition object) {
 		return null;
 	}
 
@@ -973,32 +918,17 @@ public class PromiseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Ordered Location</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Ordered Location</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Location</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOrderedLocation(OrderedLocation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Not Ordered Location</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Not Ordered Location</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNotOrderedLocation(NotOrderedLocation object) {
+	public T caseLocation(Location object) {
 		return null;
 	}
 
