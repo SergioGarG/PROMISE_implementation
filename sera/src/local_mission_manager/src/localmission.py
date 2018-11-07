@@ -47,7 +47,6 @@ class Status(object):
 		self.state = 0
 		self.resend_task = rospy.Time()
 		task_status_lock = False
-		self.sent = False
 		self.stoppingEvents = []
 		self.actions = []
 
@@ -153,13 +152,12 @@ class LocalMission(object):
 #################################################################################################################################
 
 	def update_manager(self):	
-		#To resend the mission if the robot is stuck
+		#To resend the mission if the robot gets stuck
 # 		self.timer_now=rospy.Time.now()
-# 		if self.status.sent==True:
-# 			#print "time",self.timer_now.secs - self.status.resend_task.secs
-# 			if (self.timer_now.secs - self.status.resend_task.secs) > 10:
-# 				self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
-# 				self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
+# 		if (self.timer_now.secs - self.status.resend_task.secs) > 40:
+# 			print "time",self.timer_now.secs - self.status.resend_task.secs
+# 			self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
+# 			self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 
 		#This method tries to detect calls to embed operators ("eh", "fb", "cond") and jumps to the appropriated branches if necessary.
 		self.checkOperator()
@@ -296,28 +294,34 @@ class LocalMission(object):
 		#self.update_manager()
 
 	def TaskStatusCallback(self, taskstatus):
-		timer_now=rospy.Time.now()
 		#Collects the state of the current task (received from the planner).
 		#It only takes the updates with 1 sec of different in their timestamp to avoid bouncing.
-		if (timer_now.secs - self.status.timer.secs) > 1 and self.status.task_status_lock == False:
+		if (rospy.Time.now().secs - self.status.timer.secs) > 2 and self.status.task_status_lock == False:
 			self.status.task_status=taskstatus.data
 			self.status.timer = rospy.Time.now()
 			self.status.task_status_lock = True
+			
+			if taskstatus.data == "stucked":
+				print "robot stucked, resend mission!"
+				self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
+				self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 		self.update_manager()
 		
 
 	def TriggeringEventsCallback(self, event):
 		### Just a debug version some policies need to be applied to check when the events are affecting the environment or not
-		stoppedMission=False
+		self.status.stoppedMission=False
 		for i in range(0, len(self.status.stoppingEvents)):
 			if(re.sub(' ', '', self.status.stoppingEvents[i].event) == re.sub(' ', '', event.data) and \
 			re.sub(' ', '', self.status.stoppingEvents[i].task) == re.sub(' ', '', self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter])):
 				print "stop mission!"
-				stoppedMission=True
+				#Sending true to the planner makes it stop the current task
+				self.SendLocalMission("true", True, self.status.events)	
+				self.status.stoppedMission=True
 				self.status.task_status = "accomplished"
 				break
 					
-		if stoppedMission == False:
+		if self.status.stoppedMission == False:
 			#Simulating events that are happening or not in the environment
 			self.status.event_flag=False
 			if "$remove" in event.data:
@@ -339,9 +343,9 @@ class LocalMission(object):
 						break
 				if same == False:
 					self.status.ongoing_events.append(event.data)
+				self.checkEvent()
 			
 		print "list of current ongoing events (",self.status.ongoing_events,")"		
-		self.checkEvent()
 		self.update_manager()
 
 	########Publishers
@@ -354,9 +358,6 @@ class LocalMission(object):
 		for i in range(0, len(event)):
 			events=events+', '+event[i]
 		mission.events.data=events
-
-		if mission.mission.data == 'true':
-			self.update_manager()
 
 		self.status.sent=True
 		self.status.resend_task=rospy.Time.now()
@@ -377,9 +378,13 @@ class LocalMission(object):
 			if not self.status.prog_eh_task.match(mission.mission.data) and not self.status.prog_cond_task.match(mission.mission.data) and not self.status.prog_fb_task.match(mission.mission.data):
 				self.LocalMissionPublisher.publish(mission)
 			else:
+				print "else"
 				self.update_manager()
 		else:
 			print "Not recognized action(",mission.mission.data,"), task will not be sent"
+			
+		if mission.mission.data == 'true':
+			self.update_manager()
 			
 	def returnIndex(self, operator, rex, instantiation, previous):
 		index=0
@@ -519,7 +524,8 @@ class LocalMission(object):
 	def checkEvent(self):
 		if self.missions[self.status.counter_mission].id != None and self.missions[self.status.counter_mission].id=="eh_default":
 			for i in range(0, len(self.status.event_handler[self.status.counter_eh].index)):
-				if (self.status.detected_event in self.missions[self.status.event_handler[self.status.counter_eh].index[i]].mission.events): #and (self.status.prog_eh.match(self.missions[self.missions[self.status.counter_mission].children[i]].id)):
+				if len(self.status.event_handler) > 0 and \
+				(self.status.detected_event in self.missions[self.status.event_handler[self.status.counter_eh].index[i]].mission.events):
 					print "the detected event", self.status.detected_event, "is in the list of triggering events"
 					self.status.counter_mission=self.status.event_handler[self.status.counter_eh].index[i]
 					print "jump into the mission with id", self.status.counter_mission,",", self.missions[self.status.counter_mission].mission.mission
@@ -575,7 +581,7 @@ class LocalMission(object):
 			self.status.event_handler=instantiation
 		elif operator=="cond":
 			self.status.condition=instantiation
-		print "Operator", operator, "was a",instantiation[index].result
+		print "Operator", operator, "(index",index,") was a",instantiation[index].result
 
 	################Process callback
 	def process(self):
@@ -592,12 +598,16 @@ class LocalMission(object):
 		elif self.status.task_status == "accomplished":		
 			print "Task accomplished by the planner"
 			self.status.task_status_lock = True
-			if((self.missions[self.status.counter_mission].counter + 1) < len(self.missions[self.status.counter_mission].mission.mission)):	
+			if((self.missions[self.status.counter_mission].counter + 1) < len(self.missions[self.status.counter_mission].mission.mission)) and \
+			(self.missions[self.status.counter_mission].mission.finite == True or self.status.stoppedMission == True):	
+				self.status.stoppedMission = False
 				self.missions[self.status.counter_mission].counter+=1 
 				self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
 				self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
-			elif((self.missions[self.status.counter_mission].counter + 1) >= len(self.missions[self.status.counter_mission].mission.mission) and self.missions[self.status.counter_mission].mission.finite == True):
+			elif((self.missions[self.status.counter_mission].counter + 1) >= len(self.missions[self.status.counter_mission].mission.mission)) \
+			and (self.missions[self.status.counter_mission].mission.finite == True or self.status.stoppedMission == True):
 				print "reached end of the tasks list, mission complete!"
+				self.status.stoppedMission = False
 				#######If reached the end of the mission, time to switch to another mission based on the operator
 				###Keyword
 				if self.status.counter_mission != 0 and (self.status.prog_eh_task.match(self.missions[self.status.counter_mission].id) or self.status.prog_fb_task.match(self.missions[self.status.counter_mission].id) or self.status.prog_cond_task.match(self.missions[self.status.counter_mission].id)):	
@@ -636,9 +646,12 @@ class LocalMission(object):
 						self.missions[self.status.counter_mission].counter=0
 						self.status.counter_mission=self.missions[self.status.counter_mission].parent
 						self.status.task_status == "accomplished"
+				self.update_manager()
 
-			elif((self.missions[self.status.counter_mission].counter + 1) >= len(self.missions[self.status.counter_mission].mission.mission) and self.missions[self.status.counter_mission].mission.finite == False):
-				print "reached end of the tasks list, but the last one is not finite!"
+			elif(self.missions[self.status.counter_mission].mission.finite == False and \
+				self.status.stoppedMission == False):
+					print "reached end of the tasks list, but the last one is not finite!"
+					
 
 		elif self.status.task_status == "failure":
 			print '!!!a failure occurred during mission execution!!!' 
@@ -710,12 +723,15 @@ class LocalMission(object):
 				rospy.Subscriber("/summit_xl/local_mission/ext", String, self.LocalMissionCallback)
 				self.LocalMissionPublisher = rospy.Publisher('/summit_xl/local_mission', Mission, queue_size = 100)
 				print self.robotName
-
 		rospy.Subscriber("task_status", String, self.TaskStatusCallback)
 
 		rate = rospy.Rate(10)
 		while not rospy.is_shutdown():
 			try:
+				if (rospy.Time.now().secs - self.status.resend_task.secs) > 40 and self.missions != None and len(self.missions) > 0:
+					print "The robot got stucked for",rospy.Time.now().secs - self.status.resend_task.secs,"secs, resending mission"
+					self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
+					self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 				rate.sleep()
 			except rospy.ROSInterruptException:
 				pass

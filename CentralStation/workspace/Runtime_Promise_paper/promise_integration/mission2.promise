@@ -26,13 +26,13 @@ mission{
 	operators {
 		parallel( 
 			//robot1 
-			eventHandler ( 
+			eventHandler (  
 				default ( sequence(
 					delegate ( robot robot1 does Visit locations lstart ),
-					delegate ( robot robot1 does Wait locations lstart )))
+					delegate ( robot robot1 does Wait locations lstart stoppingEvents e2 ) ))
 				except ehelp ( condition(
 					//Table1
-					if e1 then(condition(
+					if e1 then(condition( 
 						if ea1 then(delegate( robot robot1 does Visit locations lstart affecting event ea1 ) )
 						if ef1 then(sequence( 
 							delegate ( robot robot1 does SimpleAction actions al1),
