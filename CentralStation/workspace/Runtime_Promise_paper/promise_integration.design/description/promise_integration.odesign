@@ -239,24 +239,13 @@
           </style>
         </edgeMappings>
         <toolSections name="Palette">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createNOLocation" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createLocation" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::NotOrderedLocation" referenceName="location">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'l'+container.location->filter(promise::Location)->size()"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createOLocation" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::OrderedLocation" referenceName="location">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'l'+container.location->filter(promise::Location)->size()"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Location" referenceName="locations">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'l'+container.locations->filter(promise::Location)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
