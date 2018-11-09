@@ -303,6 +303,7 @@ class LocalMission(object):
 			self.status.task_status=taskstatus.data
 			self.status.timer = rospy.Time.now()
 			self.status.task_status_lock = True
+			print "taskstatus.data",taskstatus.data
 
 			#Here I should add an exception when mission was not correctly updated
 					
@@ -351,8 +352,11 @@ class LocalMission(object):
 
 	########Publishers
 	def SendTriggerEventStatus(self, status):
-		print "answer", status.data
-		self.TriggerEventStatusPublisher.publish(status.data)
+		
+		msg = String()
+		msg.data = status
+		print "answer", msg
+		self.TriggerEventStatusPublisher.publish(msg)
 		
 	def SendLocalMission(self, localmission, finite, event):
 	# sends the received local mission after checking its feasibility
@@ -530,9 +534,6 @@ class LocalMission(object):
 	def checkEvent(self):
 		if self.missions[self.status.counter_mission].id != None and self.missions[self.status.counter_mission].id=="eh_default":
 			for i in range(0, len(self.status.event_handler[self.status.counter_eh].index)):
-				print i
-				print "self.status.event_handler[self.status.counter_eh].index",self.status.event_handler[self.status.counter_eh].index
-				print "self.missions[self.status.event_handler[self.status.counter_eh].index[i]].mission.events", self.missions[self.status.event_handler[self.status.counter_eh].index[i]].mission.events
 				if len(self.status.event_handler) > 0 and \
 				(self.status.detected_event == self.missions[self.status.event_handler[self.status.counter_eh].index[i]].mission.events):
 					print "the detected event", self.status.detected_event, "is in the list of triggering events"
@@ -726,7 +727,7 @@ class LocalMission(object):
 				rospy.Subscriber('move_base/result', MoveBaseActionResult, self.GoalResultCallback)
 				rospy.Subscriber("local_mission/ext", String, self.LocalMissionCallback)
 				self.LocalMissionPublisher = rospy.Publisher('local_mission', Mission, queue_size = 100)
-				self.TriggerEventStatusPublisher = rospy.Publisher('trigger_event_status', String, queue_size = 100)
+				self.TriggerEventStatusPublisher = rospy.Publisher('triggered_event_status', String, queue_size = 100)
 				print self.robotName
 			else:
 				rospy.Subscriber('/summit_xl/move_base/result', MoveBaseActionResult, self.GoalResultCallback)
@@ -738,10 +739,10 @@ class LocalMission(object):
 		rate = rospy.Rate(10)
 		while not rospy.is_shutdown():
 			try:
-				if (rospy.Time.now().secs - self.status.resend_task.secs) > 40 and self.missions != None and len(self.missions) > 0:
-					print "The robot got stuck for",rospy.Time.now().secs - self.status.resend_task.secs,"secs, resending mission"
-					self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
-					self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
+				# if (rospy.Time.now().secs - self.status.resend_task.secs) > 40 and self.missions != None and len(self.missions) > 0:
+				# 	print "The robot got stuck for",rospy.Time.now().secs - self.status.resend_task.secs,"secs, resending mission"
+				# 	self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
+				# 	self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 				rate.sleep()
 			except rospy.ROSInterruptException:
 				pass
