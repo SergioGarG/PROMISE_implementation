@@ -1,8 +1,8 @@
 mission{         
 	conditions{     
 		events:
-			col_loading: "col_loading",
-			col_unloading: "col_unloading"		
+			loading: "loading",
+			unloading: "unloading"		
 		actions:
 			a1: "col_loading",
 			a2: "col_unloading"
@@ -12,8 +12,8 @@ mission{
 	operators { parallel ( 
 		eventHandler ( 
 			default ( delegate ( robot tiago does Patrolling locations r3 , r4 ) ) 
-			except col_loading (  delegate ( robot  tiago does SimpleAction actions a1 affecting event col_loading ) )
-			except col_unloading ( delegate ( robot tiago does SimpleAction actions a2 affecting event col_unloading ) ) )
+			except loading (  delegate ( robot  tiago does SimpleAction actions a1 affecting event loading ) )
+			except unloading ( delegate ( robot tiago does SimpleAction actions a2 affecting event unloading ) ) )
 		
 		 )
 	}    

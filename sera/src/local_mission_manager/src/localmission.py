@@ -10,8 +10,6 @@ import io
 import os
 import re
 
-from roseus.msg import StringStamped
-
 import actionlib
 from actionlib import SimpleActionClient
 from actionlib_msgs.msg import GoalStatus
@@ -254,9 +252,10 @@ class LocalMission(object):
 				for j in range(1, len(self.missions)):
 					helper = self.missions[j].id.split("_")
 					for i in range(0, len(self.status.events)):
-						if helper[1] in self.status.events[i]:
-							helper2=self.status.events[i].split(" ")
-							self.missions[j].mission.events = helper2[0]
+						helper1 = self.status.events[i].split(" ")
+						if helper1[0] == helper[1]:
+							#helper2=self.status.events[i].split(" ")
+							self.missions[j].mission.events = helper1[0]
 			self.status.state=3
 		elif localmission.data != "stoppingEvents" and self.status.state==3:
 			self.status.actions.append(localmission.data)
@@ -296,6 +295,7 @@ class LocalMission(object):
 	def TaskStatusCallback(self, taskstatus):
 		#Collects the state of the current task (received from the planner).
 		#It only takes the updates with 1 sec of different in their timestamp to avoid bouncing.
+		
 		if taskstatus.data == "mission_updated":
 			print "mission correctly updated!"
 			self.SendTriggerEventStatus("updated")	
@@ -530,8 +530,11 @@ class LocalMission(object):
 	def checkEvent(self):
 		if self.missions[self.status.counter_mission].id != None and self.missions[self.status.counter_mission].id=="eh_default":
 			for i in range(0, len(self.status.event_handler[self.status.counter_eh].index)):
+				print i
+				print "self.status.event_handler[self.status.counter_eh].index",self.status.event_handler[self.status.counter_eh].index
+				print "self.missions[self.status.event_handler[self.status.counter_eh].index[i]].mission.events", self.missions[self.status.event_handler[self.status.counter_eh].index[i]].mission.events
 				if len(self.status.event_handler) > 0 and \
-				(self.status.detected_event in self.missions[self.status.event_handler[self.status.counter_eh].index[i]].mission.events):
+				(self.status.detected_event == self.missions[self.status.event_handler[self.status.counter_eh].index[i]].mission.events):
 					print "the detected event", self.status.detected_event, "is in the list of triggering events"
 					self.status.counter_mission=self.status.event_handler[self.status.counter_eh].index[i]
 					print "jump into the mission with id", self.status.counter_mission,",", self.missions[self.status.counter_mission].mission.mission
@@ -723,7 +726,7 @@ class LocalMission(object):
 				rospy.Subscriber('move_base/result', MoveBaseActionResult, self.GoalResultCallback)
 				rospy.Subscriber("local_mission/ext", String, self.LocalMissionCallback)
 				self.LocalMissionPublisher = rospy.Publisher('local_mission', Mission, queue_size = 100)
-				self.TriggerEventStatusPublisher = rospy.Publisher('trigger_events_status', String, queue_size = 100)
+				self.TriggerEventStatusPublisher = rospy.Publisher('trigger_event_status', String, queue_size = 100)
 				print self.robotName
 			else:
 				rospy.Subscriber('/summit_xl/move_base/result', MoveBaseActionResult, self.GoalResultCallback)
@@ -736,7 +739,7 @@ class LocalMission(object):
 		while not rospy.is_shutdown():
 			try:
 				if (rospy.Time.now().secs - self.status.resend_task.secs) > 40 and self.missions != None and len(self.missions) > 0:
-					print "The robot got stucked for",rospy.Time.now().secs - self.status.resend_task.secs,"secs, resending mission"
+					print "The robot got stuck for",rospy.Time.now().secs - self.status.resend_task.secs,"secs, resending mission"
 					self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
 					self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 				rate.sleep()
