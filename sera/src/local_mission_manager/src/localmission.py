@@ -296,16 +296,17 @@ class LocalMission(object):
 	def TaskStatusCallback(self, taskstatus):
 		#Collects the state of the current task (received from the planner).
 		#It only takes the updates with 1 sec of different in their timestamp to avoid bouncing.
+		if taskstatus.data == "mission_updated":
+			print "mission correctly updated!"
+			self.SendTriggerEventStatus("updated")	
 		if (rospy.Time.now().secs - self.status.timer.secs) > 2 and self.status.task_status_lock == False:
 			self.status.task_status=taskstatus.data
 			self.status.timer = rospy.Time.now()
 			self.status.task_status_lock = True
-			
-			if taskstatus.data == "stucked":
-				print "robot stucked, resend mission!"
-				self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
-				self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
-		self.update_manager()
+
+			#Here I should add an exception when mission was not correctly updated
+					
+			self.update_manager()
 		
 
 	def TriggeringEventsCallback(self, event):
@@ -349,6 +350,10 @@ class LocalMission(object):
 		self.update_manager()
 
 	########Publishers
+	def SendTriggerEventStatus(self, status):
+		print "answer", status.data
+		self.TriggerEventStatusPublisher.publish(status.data)
+		
 	def SendLocalMission(self, localmission, finite, event):
 	# sends the received local mission after checking its feasibility
 		mission=Mission()
@@ -386,6 +391,7 @@ class LocalMission(object):
 		if mission.mission.data == 'true':
 			self.update_manager()
 			
+	################Executing callbacks
 	def returnIndex(self, operator, rex, instantiation, previous):
 		index=0
 		for index in range(0, len(previous)):
@@ -419,7 +425,7 @@ class LocalMission(object):
 				break
 		return index
 
-	################Executing callbacks
+	
 	def checkOperator(self):
 		index=0
 		####Event handler
@@ -717,6 +723,7 @@ class LocalMission(object):
 				rospy.Subscriber('move_base/result', MoveBaseActionResult, self.GoalResultCallback)
 				rospy.Subscriber("local_mission/ext", String, self.LocalMissionCallback)
 				self.LocalMissionPublisher = rospy.Publisher('local_mission', Mission, queue_size = 100)
+				self.TriggerEventStatusPublisher = rospy.Publisher('trigger_events_status', String, queue_size = 100)
 				print self.robotName
 			else:
 				rospy.Subscriber('/summit_xl/move_base/result', MoveBaseActionResult, self.GoalResultCallback)

@@ -83,11 +83,12 @@ public class ReadWithScanner {
 	}
 	
 	//final static String FILE_PATH = "../../Runtime_Promise_paper/promise_integration/src-gen/";
-	final static String FILE_PATH = "/home/sergio/repos/ICRA_implementation/CentralStation/workspace/Runtime_Promise_paper/promise_integration/src-gen/";
+	//final static String FILE_PATH = "/home/sergio/repos/ICRA_implementation/CentralStation/workspace/Runtime_Promise_paper/promise_integration/src-gen/";
 
 	//final static String FILE_PATH = "CentralStation/workspace/Runtime_Promise_paper/promise_integration/src-gen/";
-	//final static String FILE_PATH = "/home/sergio/repos/ICRA_implementation/CentralStation/workspace/Runtime_Promise_testing/promise_integration/src-gen/";
-	final static String IP = "127.0.0.1";
+	final static String FILE_PATH = "/home/sergio/repos/ICRA_implementation/CentralStation/workspace/Runtime_Promise_testing/promise_integration/src-gen/";
+	//final static String IP = "127.0.0.1";
+	final static String IP = "147.102.51.99";
 	final static int PORT = 13000;
 	final static Charset ENCODING = StandardCharsets.UTF_8;
 

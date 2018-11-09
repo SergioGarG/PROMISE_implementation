@@ -1,5 +1,5 @@
-Robots [ robot1, ]
-Events [ e1 intruder_detected,e2 out_battery,e3 a,e4 a, ]
-Actions [  ]
+Robots [ tiago, ]
+Events [ col_loading col_loading,col_unloading col_unloading, ]
+Actions [ a1 col_loading,a2 col_unloading, ]
 StoppingEvents [  ]
 

@@ -1,33 +1,19 @@
 mission{         
 	conditions{     
 		events:
-			e1: "intruder_detected",
-			e2: "out_battery"		
-			, e3 : a , e4 : a }   
-	robots robot1
-	locations: l1, l2, lcharge , l4  
-		operators { parallel ( sequence(
-			delegate ( robot robot1 does Visit locations l1 ) , 
-			fallback ( 
-			 	fallback ( 
-			 		delegate ( robot robot1 does Visit locations lcharge ) , 
-			 		delegate ( robot robot1 does Visit locations l1 )
-			 	) , 
-				
-				delegate ( robot  robot1 does Visit locations l2 )) , 
-			condition (  
-				if e1 then ( 
-					condition ( 
-						if e3 then ( delegate ( robot robot1 does Visit locations lcharge affecting event e3 ) ) 
-						if e4 then ( delegate ( robot robot1 does Visit locations l1 affecting event e4 ) ) affecting event e1
-					)) 
-				if e2 then ( delegate ( robot robot1 does Visit locations l2 affecting event e2 ) )
-			) , 
-			eventHandler ( default ( 
-				eventHandler ( 
-					default ( delegate ( robot robot1 does Visit locations lcharge )) 
-					except e4 ( delegate ( robot robot1 does Visit locations l1 affecting event e4 ) ) )
-			) except e2 ( delegate ( robot robot1 does Visit locations l2 affecting event e2 ) ) ) )
+			col_loading: "col_loading",
+			col_unloading: "col_unloading"		
+		actions:
+			a1: "col_loading",
+			a2: "col_unloading"
+			} 
+	robots tiago 
+	locations: r1, r2, r3 , r4  
+	operators { parallel ( 
+		eventHandler ( 
+			default ( delegate ( robot tiago does Patrolling locations r3 , r4 ) ) 
+			except col_loading (  delegate ( robot  tiago does SimpleAction actions a1 affecting event col_loading ) )
+			except col_unloading ( delegate ( robot tiago does SimpleAction actions a2 affecting event col_unloading ) ) )
 		
 		 )
 	}    
