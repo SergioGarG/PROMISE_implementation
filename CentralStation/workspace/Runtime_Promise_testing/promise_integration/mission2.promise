@@ -6,7 +6,7 @@ mission{
 		actions:
 			a1: "col_loading",
 			a2: "col_unloading"
-			} 
+			}  
 	robots tiago 
 	locations: r1, r2, r3 , r4  
 	operators { parallel ( 
