@@ -1,6 +1,6 @@
 mission{   
 	conditions{
-		events:
+		events: 
 			e1: "guest_lt1", 
 			ea1: "table1_attended",
 			ef1: "table1_not_attended",
@@ -14,7 +14,7 @@ mission{
 	   		al2: "lock_table2",
 	   		ar1: "release_table1",
 	   		ar2: "release_table2",
-			a1: "ask_for_order",   
+			a1: "ask_for_order",         
 			a2: "receive_order",
 			a3: "repeat_order", 
 			a4: "grab_beverage",

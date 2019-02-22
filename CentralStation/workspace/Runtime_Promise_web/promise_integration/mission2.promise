@@ -1,6 +1,8 @@
+
+
 mission{ 
 	conditions{
-		events:
+		events: 
 			e1: "r1_out_of_battery", 
 			e2: "r2_out_of_battery", 
 			e3: "unknown_person",
@@ -8,23 +10,22 @@ mission{
 			e5: "receive_msg_from_robot1",
 			e6: "human-request_help", 
 			e7: "stop_mission"
-	   	actions:
-			a1: "raiseAlarm",   
-			a2: "call_robot2",
-			a3: "charge", 
-			a4: "pickObject", 
-			a5: "leaveObject",
-			a6: "collabTransportation"}               
+	  actions: 
+	  	a1: "raiseAlarm", 
+	  	a2: "call_robot2", 
+	  	a3: "charge",  
+	  	a4: "pickObject", 
+	  	a5: "leaveObject",
+	  	a6: "collabTransportation"}               
 	robots robot1,robot2
-	locations: chargingStation, l1, l2, l3, l4 , l5 
-	
-	
+	locations: chargingStation, l1, l2, l3, l4, l5 
 	operators {
 		parallel( 
 			//Robot1
 			eventHandler ( 
 				default ( eventHandler ( 
-					default ( delegate ( robot robot1 does Patrolling locations l1,l2,l3,l4 stoppingEvents e7 ) ) 
+					default ( delegate ( robot robot1 does Patrolling locations l1,l2,l3,l4 
+						stoppingEvents e7) ) 
 					except e3 ( delegate ( robot robot1 does SimpleAction actions a1 
 						affecting event e3)) 
 					except e4 ( delegate ( robot robot1 does SimpleAction actions a2 
@@ -32,10 +33,7 @@ mission{
 				except e1 ( sequence ( 
 					delegate ( robot robot1 does Visit locations chargingStation ) , 
 					delegate ( robot robot1 does SimpleAction actions a3 ) 
-					affecting event e1))
-			), 
-			
-			
+					affecting event e1))), 
 			//Robot2
 			eventHandler ( 
 				default ( condition ( 
@@ -50,7 +48,9 @@ mission{
 				except e2 ( sequence ( 
 					delegate ( robot robot2 does Visit locations chargingStation ) , 
 					delegate ( robot robot2 does SimpleAction actions a3 ) 
-					affecting event e2))))				
-				}
-			}
+					affecting event e2))))}}
+					
+					
+					
+					
    

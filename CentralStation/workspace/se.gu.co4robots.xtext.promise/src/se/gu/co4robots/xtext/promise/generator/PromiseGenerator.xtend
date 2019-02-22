@@ -53,13 +53,17 @@ class PromiseGenerator extends AbstractGenerator {
 	
 	var stoppingEvents= new ArrayList<String> //list with the stopping events in the mission
 	
+	var textarray = new ArrayList<String> //useful text explaining the mission for the final user
+	var text = new String 
+	
 	public override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		
 		
 		
 			for (i:0..<(resource.allContents.filter(Robot).toIterable.length)) {
-				availableRobots.add(resource.allContents.filter(Robot).toIterable.get(i).name)
-				robotsList.add(new ArrayList<robotClass>)
+					availableRobots.add(resource.allContents.filter(Robot).toIterable.get(i).name)
+					robotsList.add(new ArrayList<robotClass>)
+					//textarray.add(resource.allContents.filter(Robot).toIterable.get(i).name)
 				}
 			
 
@@ -100,7 +104,11 @@ class PromiseGenerator extends AbstractGenerator {
 				«ENDIF»
 			«ENDFOR»
 		''')
-			
+		
+			fsa.generateFile('readme_mission_'+availableRobots.get(i)+'.txt', '''
+				«textarray.get(i)»
+				''')
+			println(textarray.get(i))
 		}
 
 		for (var i = robotsList.length-1 ; i >= 0; i--) for (var j = robotsList.get(i).length-1 ; j >= 0; j--) robotsList.get(i).remove(j) //Remove all the items of the list to avoid overwritting
@@ -122,11 +130,17 @@ class PromiseGenerator extends AbstractGenerator {
 			if (!robotsList.empty) { 
 				for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
 			}
-			for (i : 0..<(in.inputOperators.toArray.length)) nestedMethod(in, index, i, robot, indentation, parent) //nestedMethod(in, names.indexOf(parent), i, robot, indentation, parent) 
+			for (i : 0..<(in.inputOperators.toArray.length)) {
+				if (i>0) text=text+" and "
+					nestedMethod(in, index, i, robot, indentation, parent) //nestedMethod(in, names.indexOf(parent), i, robot, indentation, parent) 
+				}
 		}
 		
 		def dispatch doLogic(ParallelOp in, int index, int robot, int indentation, String parent){
+			//text= "Robot "+availableRobots.get(robot)+" does " 
+			text="Robot "+availableRobots.get(robot)+" does "
 			nestedMethod(in, index, 0, robot, indentation, availableRobots.get(robot))
+			textarray.add(text)
 			var names = new ArrayList<ArrayList<String>>
 			var counter = new ArrayList<Integer>
 			if (!robotsList.empty) { 
@@ -137,16 +151,19 @@ class PromiseGenerator extends AbstractGenerator {
 						counter.add(i,j)
 						names.get(robot+i).add(robotsList.get(robot+i).get(counter.get(j)).name) 
 				}}
-				}
+			}
 			if (in.inputOperators.length > 0){
 				for(i : 1..<(in.inputOperators.length)) {
 					robotsList.get(robot+i).add(new robotClass(availableRobots.get(robot+i), new ArrayList<String>, indentation))
 					names.get(robot+i).add(robotsList.get(robot+i).get(0).name)
+					text="Robot "+availableRobots.get(robot+i)+" does "
 					nestedMethod(in, names.get(i).indexOf(availableRobots.get(robot+i)), i, robot+i, indentation, availableRobots.get(robot+i))
+					textarray.add(text)
 				}}
 		}
 		
 		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent){
+			text= text+"by default "
 			robotsList.get(robot).get(index).missionList.add("eh")
 			var int counter = robotsList.get(robot).length
 			robotsList.get(robot).add(new robotClass("eh_default", new ArrayList<String>, indentation+1))
@@ -154,6 +171,7 @@ class PromiseGenerator extends AbstractGenerator {
 			for(var i=1; i<(in.inputOperators.length); i++) {
 				counter = robotsList.get(robot).length
 				robotsList.get(robot).add(new robotClass("eh_"+in.inputObservedEvents.get(i-1).name, new ArrayList<String>, indentation+1))
+				text= text+", and if event "+in.inputObservedEvents.get(i-1).name+" occurs, it will "
 				nestedMethod(in, counter, i, robot, indentation+1, "eh_"+in.inputObservedEvents.get(i-1).name)
 			}
 		}
@@ -164,6 +182,7 @@ class PromiseGenerator extends AbstractGenerator {
 			for(var i=1; i<=(in.inputOperators.length); i++) {
 				counter = robotsList.get(robot).length
 				robotsList.get(robot).add(new robotClass("fb_"+i, new ArrayList<String>, indentation+1))
+				if (i>1) text= text+"if it fails, it tries to "
 				nestedMethod(in, counter++, i-1, robot, indentation+1, "fb_"+i)
 			}	
 		}
@@ -173,6 +192,7 @@ class PromiseGenerator extends AbstractGenerator {
 			for(var i=1; i<=(in.inputOperators.length); i++) {
 				counter = robotsList.get(robot).length
 				robotsList.get(robot).add(new robotClass("cond_"+in.inputEvents.get(i-1).name, new ArrayList<String>, indentation+1))
+				text= text+"if event"+in.inputEvents.get(i-1).name+" holds, it will "
 				nestedMethod(in, counter, i-1, robot, indentation+1, "cond_"+in.inputEvents.get(i-1).name)
 			}
 		}
@@ -184,42 +204,64 @@ class PromiseGenerator extends AbstractGenerator {
 ////////////////Passing an LTL formula
 			var template = new String 
 			
+			
 			////Core Movement Patterns
 			if(in.pattern.eClass.name == "Visit") {
 				template="<> ("+in.inputLocations.get(0).name+")"
-				for(var i=1; i<in.inputLocations.length; i++) 	template=template+" && <> ("+in.inputLocations.get(i).name+")"
+				text= text+" visit (without any specific order) locations "+in.inputLocations.get(0).name
+				for(var i=1; i<in.inputLocations.length; i++){
+					template=template+" && <> ("+in.inputLocations.get(i).name+")"
+					text= text+", "+in.inputLocations.get(i).name
+				} 	
+				
 			}
 			else if(in.pattern.eClass.name == "FairVisit") {
 				template="<> ("+in.inputLocations.get(0).name+")"
+				text= text+"visit (without any specific order) locations "
 				for(var j=0; j<in.inputLocations.length; j++) {
 					if (j==0) {
 						for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
 						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+") || ([] (!"+in.inputLocations.get(j).name+"))))"						//sets the first part of the second line
 						for(var i=2; i<in.inputLocations.length; i++) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+") || ([] (!"+in.inputLocations.get(j).name+")))"	//Rest of the second line
+						text= text+in.inputLocations.get(j).name
 					}
 					else{
 						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(0).name+") || ([] (!"+in.inputLocations.get(j).name+"))))"	//subsequent "3rd lines"
 						for(var i=1; i<in.inputLocations.length; i++) if (i != j) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+") || ([] (!"+in.inputLocations.get(j).name+")))"
+						text=text+", "+in.inputLocations.get(j).name
 					}
 				}
+				text= text+"the same number of times"
 			}
 			else if(in.pattern.eClass.name == "OrderderVisit") {
 				template="(<> ("+in.inputLocations.get(0).name+")"
-
+				text= text+"visit (with a specific order) locations "
 				for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> (("+in.inputLocations.get(i).name+")" //sets the first line
-				for(var i=0; i<in.inputLocations.length; i++) template=template+")"
+				for(var i=0; i<in.inputLocations.length; i++) {
+					template=template+")"
+					text= text+in.inputLocations.get(i).name+", "
+				}
 				for(var j=in.inputLocations.length-1; j>0; j--){
 					for(var i=j-1; i>=0; i--) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"
 				}
+				
 			}	
 			else if(in.pattern.eClass.name == "SequencedVisit") {
 				template="<> (("+in.inputLocations.get(0).name+")"
+				text= text+"visit in sequence locations "
 				for(var i=1; i<in.inputLocations.length; i++) template=template+" && (<> ("+in.inputLocations.get(i).name+")" 
-				for(var i=0; i<in.inputLocations.length; i++) template=template+")"
+				for(var i=0; i<in.inputLocations.length; i++) {
+						template=template+")"
+						text= text+in.inputLocations.get(i).name+", "
+					}
 			}	
 			else if(in.pattern.eClass.name == "StrictOrderedVisit") {
 				template="<> (("+in.inputLocations.get(0).name+")"
-				for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
+				text= text+"visit (with a strict order) locations "+in.inputLocations.get(0).name
+				for(var i=1; i<in.inputLocations.length; i++) {
+					template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
+					text= text+", "+in.inputLocations.get(i).name
+				}
 				template=template+")"
 				for(var j=in.inputLocations.length-1; j>=0; j--){
 					for(var i=in.inputLocations.length-1; i>=0; i--) {
@@ -234,30 +276,41 @@ class PromiseGenerator extends AbstractGenerator {
 			}
 			else if(in.pattern.eClass.name == "Patrolling") {
 				template="[] (<> ("+in.inputLocations.get(0).name+")"
-				for(var i=1; i<in.inputLocations.length; i++) 	template=template+" && <> ("+in.inputLocations.get(i).name+")"
+				text= text+"patrol locations "+in.inputLocations.get(0).name
+				for(var i=1; i<in.inputLocations.length; i++) 	{
+					template=template+" && <> ("+in.inputLocations.get(i).name+")"
+					text= text+", "+in.inputLocations.get(i).name
+				}
 				template=template+")"
 			}
 			else if(in.pattern.eClass.name == "FairPatrolling") {
 				template="[] (<> ("+in.inputLocations.get(0).name+")"
+				text= text+" patrol (without any specific order) locations "
 				for(var j=0; j<in.inputLocations.length; j++) {
 					if (j==0) {
 						for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
 						template=template+") && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+"))"						//sets the first part of the second line
 						for(var i=2; i<in.inputLocations.length; i++) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"	//Rest of the second line
 						template=template+")"
+						text= text+in.inputLocations.get(j).name
 					}
 					else{
 						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(0).name+"))"	//subsequent "3rd lines"
+						text=text+", "+in.inputLocations.get(j).name
 						for(var i=1; i<in.inputLocations.length; i++) if (i != j) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"
 					}
 				}
 				template=template+")"
+				text= text+"the same number of times"
 			}
 			else if(in.pattern.eClass.name == "OrderedPatrolling") {
 				template="[] (<> (("+in.inputLocations.get(0).name+")"
-
+				text= text+"patrol (with a specific order) locations "
 				for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> (("+in.inputLocations.get(i).name+")" //sets the first line
-				for(var i=0; i<in.inputLocations.length; i++) template=template+")"
+				for(var i=0; i<in.inputLocations.length; i++){
+					template=template+")"
+					text= text+in.inputLocations.get(i).name+", "
+				} 
 				for(var j=in.inputLocations.length-1; j>0; j--){
 					for(var i=j-1; i>=0; i--) template=template+" && (! ("+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"
 				}
@@ -267,7 +320,11 @@ class PromiseGenerator extends AbstractGenerator {
 			}	
 			else if(in.pattern.eClass.name == "StrictOreredPatrolling") {
 				template="[] (<> (("+in.inputLocations.get(0).name+")"
-				for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> (("+in.inputLocations.get(i).name+")" //sets the first line
+				text= text+"patrol (with a strict order) locations "+in.inputLocations.get(0).name
+				for(var i=1; i<in.inputLocations.length; i++){
+					template=template+" && <> (("+in.inputLocations.get(i).name+")" //sets the first line
+					text= text+", "+in.inputLocations.get(i).name
+				} 
 				for(var i=0; i<in.inputLocations.length; i++) template=template+")"
 				for(var j=in.inputLocations.length-1; j>=0; j--){
 					for(var i=in.inputLocations.length-1; i>=0; i--) {
@@ -282,29 +339,115 @@ class PromiseGenerator extends AbstractGenerator {
 			}		
 			else if(in.pattern.eClass.name == "SequencedPatrolling") {
 				template="[] (<> (("+in.inputLocations.get(0).name+")"
-				for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> (("+in.inputLocations.get(i).name+")" 
+				text= text+"patrol in sequence locations "+in.inputLocations.get(0).name
+				for(var i=1; i<in.inputLocations.length; i++){
+					template=template+" && <> (("+in.inputLocations.get(i).name+")" 
+					text= text+", "+in.inputLocations.get(i).name
+				} 
 				for(var i=0; i<in.inputLocations.length*2-1; i++) template=template+")"
 			}		
 			
 			////Avoidance patterns
-			else if(in.pattern.eClass.name == "ExactRestrictedAvoidance") template="(! ("+in.inputAction.get(0).description+")) U ("+in.inputAction.get(0).description+" && (X ((! "+in.inputAction.get(0).description+") U ("+in.inputAction.get(0).description+" && (X ((! "+in.inputAction.get(0).description+") U ("+in.inputAction.get(0).description+" && (X ([] (!  "+in.inputAction.get(0).description+"))))))))))"
-			else if(in.pattern.eClass.name == "FutureAvoidance") template="[] (("+in.inputAction.get(0).description+ "-> ([] ! ("+in.inputLocations.get(0).name+"))"
-			else if(in.pattern.eClass.name == "GlobalAvoidance") template="[] (! ("+in.inputLocations.get(0).name+"))"
-			else if(in.pattern.eClass.name == "LowerRestricedAvoidance") template="<> (("+in.inputLocations.get(0).name+ ") && X (<>(("+in.inputLocations.get(0).name+") && X <>( ("+in.inputLocations.get(0).name+")))))"
-			else if(in.pattern.eClass.name == "PastAvoidance") template="((! ("+in.inputLocations.get(0).name+")) U "+in.inputLocations.get(0).name+")"
-			else if(in.pattern.eClass.name == "UpperRestricedAvoidance") template="! <> (("+in.inputLocations.get(0).name+ ") && X (<>(("+in.inputLocations.get(0).name+") && X <>( ("+in.inputLocations.get(0).name+")))))"
+			// ExactRestrictedAvoidance needs to be revised, should have as input an integer containing the number of times the location must be visited
+			else if(in.pattern.eClass.name == "ExactRestrictedAvoidance"){
+				//template="(! ("+in.inputAction.get(0).description+")) U ("+in.inputAction.get(0).description+" && (X ((! "+in.inputAction.get(0).description+") U ("+in.inputAction.get(0).description+" && (X ((! "+in.inputAction.get(0).description+") U ("+in.inputAction.get(0).description+" && (X ([] (!  "+in.inputAction.get(0).description+"))))))))))"
+				if (in.inputAction.isEmpty){
+					template="(! ("+in.inputLocations.get(0).name+")) U ("+in.inputLocations.get(0).name+" && (X ((! "+in.inputLocations.get(0).name+") U ("+in.inputLocations.get(0).name+" && (X ((! "+in.inputLocations.get(0).name+") U ("+in.inputLocations.get(0).name+" && (X ([] (!  "+in.inputLocations.get(0).name+"))))))))))"
+					text=text+"visit location "+in.inputLocations.get(0).name+" an exact number of times"
+				}
+				else if (in.inputLocations.isEmpty){
+					template="(! ("+in.inputAction.get(0).description+")) U ("+in.inputAction.get(0).description+" && (X ((! "+in.inputAction.get(0).description+") U ("+in.inputAction.get(0).description+" && (X ((! "+in.inputAction.get(0).description+") U ("+in.inputAction.get(0).description+" && (X ([] (!  "+in.inputAction.get(0).description+"))))))))))"
+					text=text+"perform "+in.inputAction.get(0).description+" an exact number of times"
+				}
+			} 
+			else if(in.pattern.eClass.name == "FutureAvoidance") {
+				//template="[] (("+in.inputAction.get(0).description+ "-> ([] ! ("+in.inputLocations.get(0).name+"))" //First attempt, not correct
+				if (in.inputAction.isEmpty){
+					template="[] (("+in.affectingEvent.get(0).description+ "-> ([] ! ("+in.inputLocations.get(0).name+"))"
+					text=text+"avoid location "+in.inputLocations.get(0).name+" if "+in.affectingEvent.get(0).description+" occurs"
+				}
+				else if (in.inputLocations.isEmpty){
+					template="[] (("+in.affectingEvent.get(0).description+ "-> ([] ! ("+in.inputAction.get(0).description+"))"
+					text=text+"avoid action "+in.inputAction.get(0).description+" if "+in.affectingEvent.get(0).description+" occurs"
+				}
+			}
+			else if(in.pattern.eClass.name == "GlobalAvoidance") {
+				if (in.inputAction.isEmpty){
+					template="[] (! ("+in.inputLocations.get(0).name+"))"
+					text=text+"avoid location "+in.inputLocations.get(0).name
+				}
+				else if (in.inputLocations.isEmpty){
+					template="[] (! ("+in.inputAction.get(0).description+"))"
+					text=text+"avoid action "+in.inputAction.get(0).description
+				}				
+			}
+			// LowerRestricedAvoidance needs to be revised, should have as input an integer containing the number of times the location must be visited
+			else if(in.pattern.eClass.name == "LowerRestricedAvoidance") {
+				if (in.inputAction.isEmpty){
+					template="<> (("+in.inputLocations.get(0).name+ ") && X (<>(("+in.inputLocations.get(0).name+") && X <>( ("+in.inputLocations.get(0).name+")))))"
+					text=text+"visit location "+in.inputLocations.get(0).name+" at least N times"
+				}
+				else if (in.inputLocations.isEmpty){
+					template="<> (("+in.inputAction.get(0).description+ ") && X (<>(("+in.inputAction.get(0).description+") && X <>( ("+in.inputAction.get(0).description+")))))"
+					text=text+"perform "+in.inputAction.get(0).description+" at least N times"
+				}
+				
+			}
+			else if(in.pattern.eClass.name == "PastAvoidance") {
+				if (in.inputAction.isEmpty){
+					template="((! ("+in.inputLocations.get(0).name+")) U "+in.affectingEvent.get(0).description+")"
+					text=text+"avoid location "+in.inputLocations.get(0).name+" until "+in.affectingEvent.get(0).description+" occurs"
+				}
+				else if (in.inputLocations.isEmpty){
+					template="((! ("+in.inputAction.get(0).description+")) U "+in.affectingEvent.get(0).description+")"
+					text=text+"avoid performing "+in.inputAction.get(0).description+" until "+in.affectingEvent.get(0).description+" occurs"
+				}
+			}
+			// UpperRestricedAvoidance needs to be revised, should have as input an integer containing the number of times the location must be visited
+			else if(in.pattern.eClass.name == "UpperRestricedAvoidance") {
+				if (in.inputAction.isEmpty){
+					template="! <> (("+in.inputLocations.get(0).name+ ") && X (<>(("+in.inputLocations.get(0).name+") && X <>( ("+in.inputLocations.get(0).name+")))))"
+					text=text+"visit location "+in.inputLocations.get(0).name+" at most N times"
+				}
+				else if (in.inputLocations.isEmpty){
+					template="! <> (("+in.inputAction.get(0).description+ ") && X (<>(("+in.inputAction.get(0).description+") && X <>( ("+in.inputAction.get(0).description+")))))"
+					text=text+"perform "+in.inputAction.get(0).description+" at most N times"
+				}
+			}
 		
 			////Triggers
-			else if(in.pattern.eClass.name == "InstantReaction") template="[] (true -> "+in.inputAction.get(0).description+")" //Pattern version of InstantReaction, replaced by the KTH planner compatible version
-			else if(in.pattern.eClass.name == "DelayedReaction") template="[] (true -> (<> ("+in.inputAction.get(0).description+"))"
+			else if(in.pattern.eClass.name == "InstantReaction"){
+				if (in.inputAction.isEmpty){
+					template="[] ("+in.affectingEvent.get(0).description+" -> "+in.inputLocations.get(0).name+")" 
+					text=text+"visit "+in.inputLocations.get(0).name+" every time "+in.affectingEvent.get(0).description+" occurs"
+				}
+				else if (in.inputLocations.isEmpty){
+					template="[] ("+in.affectingEvent.get(0).description+" -> "+in.inputAction.get(0).description+")" 
+					text=text+"perform "+in.inputAction.get(0).description+" every time "+in.affectingEvent.get(0).description+" occurs"
+				}
+			} 
+			else if(in.pattern.eClass.name == "DelayedReaction") {
+				if (in.inputAction.isEmpty){
+						template="[] ("+in.affectingEvent.get(0).description+" -> (<>("+in.inputLocations.get(0).name+")))" 
+						text=text+"visit at some point later "+in.inputLocations.get(0).name+" every time "+in.affectingEvent.get(0).description+" occurs"
+					}
+					else if (in.inputLocations.isEmpty){
+						template="[] ("+in.affectingEvent.get(0).description+" -> (<>("+in.inputAction.get(0).description+")))" 
+						text=text+"perform  at some point later "+in.inputAction.get(0).description+" every time "+in.affectingEvent.get(0).description+" occurs"
+				}
+			}
 			else if(in.pattern.eClass.name == "Wait") {
 				//Correct implementation, waiting for Claudio's input
 //				if (in.inputAction.isEmpty) template="("+in.inputLocations.get(0).name+") U (true)"
 //				else if (in.inputLocations.isEmpty) template="("+in.inputAction.get(0).description+") U (true)"
 				//Debug version
 				template="[] (<> ("+in.inputLocations.get(0).name+"))"
+				text=text+"wait in location "+in.inputLocations.get(0).name
 			}
-			else if(in.pattern.eClass.name == "SimpleAction") template="(X "+in.inputAction.get(0).description+")"
+			else if(in.pattern.eClass.name == "SimpleAction"){
+				template="(X "+in.inputAction.get(0).description+")"
+				text=text+" perform action "+in.inputAction.get(0).description
+			} 
 		
 			else template="Pattern not recognized"
 			//println(template)
@@ -315,7 +458,6 @@ class PromiseGenerator extends AbstractGenerator {
 				}
 			}
 			robotsList.get(robot).get(index).missionList.add(template)
-			
 		}
 		
 

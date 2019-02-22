@@ -14,6 +14,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import promise.Action;
 import promise.CompositionOperator;
@@ -35,6 +36,10 @@ public class PromiseGenerator extends AbstractGenerator {
   private ArrayList<String> availableRobots = new ArrayList<String>();
   
   private ArrayList<String> stoppingEvents = new ArrayList<String>();
+  
+  private ArrayList<String> textarray = new ArrayList<String>();
+  
+  private String text = new String();
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
@@ -111,54 +116,56 @@ public class PromiseGenerator extends AbstractGenerator {
     _builder.newLine();
     fsa.generateFile("mission_data.ms", _builder);
     for (int i_1 = 0; (i_1 < ((Object[])Conversions.unwrapArray(this.availableRobots, Object.class)).length); i_1++) {
-      String _get_2 = this.availableRobots.get(i_1);
-      String _plus = ("mission_" + _get_2);
-      String _plus_1 = (_plus + ".ms");
-      StringConcatenation _builder_1 = new StringConcatenation();
       {
-        int _length_2 = ((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length;
-        ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_2, true);
-        for(final Integer j_1 : _doubleDotLessThan_2) {
-          {
-            if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 0)) {
-              _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name);
-              _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList);
-              _builder_1.newLineIfNotEmpty();
-            } else {
-              if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 1)) {
-                _builder_1.newLine();
-                _builder_1.append("\t");
-                _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t");
-                _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t");
+        String _get_2 = this.availableRobots.get(i_1);
+        String _plus = ("mission_" + _get_2);
+        String _plus_1 = (_plus + ".ms");
+        StringConcatenation _builder_1 = new StringConcatenation();
+        {
+          int _length_2 = ((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length;
+          ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_2, true);
+          for(final Integer j_1 : _doubleDotLessThan_2) {
+            {
+              if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 0)) {
+                _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name);
+                _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList);
                 _builder_1.newLineIfNotEmpty();
               } else {
-                if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 2)) {
+                if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 1)) {
                   _builder_1.newLine();
-                  _builder_1.append("\t\t");
-                  _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t");
-                  _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t");
+                  _builder_1.append("\t");
+                  _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t");
+                  _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t");
                   _builder_1.newLineIfNotEmpty();
                 } else {
-                  if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 3)) {
+                  if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 2)) {
                     _builder_1.newLine();
-                    _builder_1.append("\t\t\t");
-                    _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t");
-                    _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t");
+                    _builder_1.append("\t\t");
+                    _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t");
+                    _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t");
                     _builder_1.newLineIfNotEmpty();
                   } else {
-                    if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 4)) {
+                    if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 3)) {
                       _builder_1.newLine();
-                      _builder_1.append("\t\t\t\t");
-                      _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t\t");
-                      _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t\t");
+                      _builder_1.append("\t\t\t");
+                      _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t");
+                      _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t");
                       _builder_1.newLineIfNotEmpty();
                     } else {
-                      if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 5)) {
+                      if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 4)) {
                         _builder_1.newLine();
-                        _builder_1.append("\t\t\t\t\t");
-                        _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t\t\t");
-                        _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t\t\t");
+                        _builder_1.append("\t\t\t\t");
+                        _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t\t");
+                        _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t\t");
                         _builder_1.newLineIfNotEmpty();
+                      } else {
+                        if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 5)) {
+                          _builder_1.newLine();
+                          _builder_1.append("\t\t\t\t\t");
+                          _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t\t\t");
+                          _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t\t\t");
+                          _builder_1.newLineIfNotEmpty();
+                        }
                       }
                     }
                   }
@@ -167,8 +174,17 @@ public class PromiseGenerator extends AbstractGenerator {
             }
           }
         }
+        fsa.generateFile(_plus_1, _builder_1);
+        String _get_3 = this.availableRobots.get(i_1);
+        String _plus_2 = ("readme_mission_" + _get_3);
+        String _plus_3 = (_plus_2 + ".txt");
+        StringConcatenation _builder_2 = new StringConcatenation();
+        String _get_4 = this.textarray.get(i_1);
+        _builder_2.append(_get_4);
+        _builder_2.newLineIfNotEmpty();
+        fsa.generateFile(_plus_3, _builder_2);
+        InputOutput.<String>println(this.textarray.get(i_1));
       }
-      fsa.generateFile(_plus_1, _builder_1);
     }
     for (int i_1 = (((Object[])Conversions.unwrapArray(this.robotsList, Object.class)).length - 1); (i_1 >= 0); i_1--) {
       for (int j_1 = (((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length - 1); (j_1 >= 0); j_1--) {
@@ -200,13 +216,23 @@ public class PromiseGenerator extends AbstractGenerator {
     int _length = in.getInputOperators().toArray().length;
     ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
     for (final Integer i : _doubleDotLessThan) {
-      this.nestedMethod(in, index, (i).intValue(), robot, indentation, parent);
+      {
+        if (((i).intValue() > 0)) {
+          this.text = (this.text + " and ");
+        }
+        this.nestedMethod(in, index, (i).intValue(), robot, indentation, parent);
+      }
     }
     return null;
   }
   
   protected Boolean _doLogic(final ParallelOp in, final int index, final int robot, final int indentation, final String parent) {
+    String _get = this.availableRobots.get(robot);
+    String _plus = ("Robot " + _get);
+    String _plus_1 = (_plus + " does ");
+    this.text = _plus_1;
     this.nestedMethod(in, index, 0, robot, indentation, this.availableRobots.get(robot));
+    this.textarray.add(this.text);
     ArrayList<ArrayList<String>> names = new ArrayList<ArrayList<String>>();
     ArrayList<Integer> counter = new ArrayList<Integer>();
     boolean _isEmpty = this.robotsList.isEmpty();
@@ -233,13 +259,18 @@ public class PromiseGenerator extends AbstractGenerator {
       ExclusiveRange _doubleDotLessThan = new ExclusiveRange(1, _length_1, true);
       for (final Integer i : _doubleDotLessThan) {
         {
-          ArrayList<robotClass> _get = this.robotsList.get((robot + (i).intValue()));
-          String _get_1 = this.availableRobots.get((robot + (i).intValue()));
+          ArrayList<robotClass> _get_1 = this.robotsList.get((robot + (i).intValue()));
+          String _get_2 = this.availableRobots.get((robot + (i).intValue()));
           ArrayList<String> _arrayList = new ArrayList<String>();
-          robotClass _robotClass = new robotClass(_get_1, _arrayList, indentation);
-          _get.add(_robotClass);
+          robotClass _robotClass = new robotClass(_get_2, _arrayList, indentation);
+          _get_1.add(_robotClass);
           names.get((robot + (i).intValue())).add(this.robotsList.get((robot + (i).intValue())).get(0).name);
+          String _get_3 = this.availableRobots.get((robot + (i).intValue()));
+          String _plus_2 = ("Robot " + _get_3);
+          String _plus_3 = (_plus_2 + " does ");
+          this.text = _plus_3;
           this.nestedMethod(in, names.get((i).intValue()).indexOf(this.availableRobots.get((robot + (i).intValue()))), (i).intValue(), (robot + (i).intValue()), indentation, this.availableRobots.get((robot + (i).intValue())));
+          this.textarray.add(this.text);
         }
       }
     }
@@ -247,6 +278,7 @@ public class PromiseGenerator extends AbstractGenerator {
   }
   
   protected Boolean _doLogic(final EventHandlerOp in, final int index, final int robot, final int indentation, final String parent) {
+    this.text = (this.text + "by default ");
     this.robotsList.get(robot).get(index).missionList.add("eh");
     int counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
     ArrayList<robotClass> _get = this.robotsList.get(robot);
@@ -264,8 +296,12 @@ public class PromiseGenerator extends AbstractGenerator {
         robotClass _robotClass_1 = new robotClass(_plus, _arrayList_1, (indentation + 1));
         _get_1.add(_robotClass_1);
         String _name_1 = in.getInputObservedEvents().get((i - 1)).getName();
-        String _plus_1 = ("eh_" + _name_1);
-        this.nestedMethod(in, counter, i, robot, (indentation + 1), _plus_1);
+        String _plus_1 = ((this.text + ", and if event ") + _name_1);
+        String _plus_2 = (_plus_1 + " occurs, it will ");
+        this.text = _plus_2;
+        String _name_2 = in.getInputObservedEvents().get((i - 1)).getName();
+        String _plus_3 = ("eh_" + _name_2);
+        this.nestedMethod(in, counter, i, robot, (indentation + 1), _plus_3);
       }
     }
     return null;
@@ -281,6 +317,9 @@ public class PromiseGenerator extends AbstractGenerator {
         ArrayList<String> _arrayList = new ArrayList<String>();
         robotClass _robotClass = new robotClass(("fb_" + Integer.valueOf(i)), _arrayList, (indentation + 1));
         _get.add(_robotClass);
+        if ((i > 1)) {
+          this.text = (this.text + "if it fails, it tries to ");
+        }
         int _plusPlus = counter++;
         this.nestedMethod(in, _plusPlus, (i - 1), robot, (indentation + 1), ("fb_" + Integer.valueOf(i)));
       }
@@ -301,8 +340,12 @@ public class PromiseGenerator extends AbstractGenerator {
         robotClass _robotClass = new robotClass(_plus, _arrayList, (indentation + 1));
         _get.add(_robotClass);
         String _name_1 = in.getInputEvents().get((i - 1)).getName();
-        String _plus_1 = ("cond_" + _name_1);
-        this.nestedMethod(in, counter, (i - 1), robot, (indentation + 1), _plus_1);
+        String _plus_1 = ((this.text + "if event") + _name_1);
+        String _plus_2 = (_plus_1 + " holds, it will ");
+        this.text = _plus_2;
+        String _name_2 = in.getInputEvents().get((i - 1)).getName();
+        String _plus_3 = ("cond_" + _name_2);
+        this.nestedMethod(in, counter, (i - 1), robot, (indentation + 1), _plus_3);
       }
     }
     return null;
@@ -319,303 +362,372 @@ public class PromiseGenerator extends AbstractGenerator {
         String _plus = ("<> (" + _name_1);
         String _plus_1 = (_plus + ")");
         template = _plus_1;
+        String _name_2 = in.getInputLocations().get(0).getName();
+        String _plus_2 = ((this.text + " visit (without any specific order) locations ") + _name_2);
+        this.text = _plus_2;
         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-          String _name_2 = in.getInputLocations().get(i).getName();
-          String _plus_2 = ((template + " && <> (") + _name_2);
-          String _plus_3 = (_plus_2 + ")");
-          template = _plus_3;
+          {
+            String _name_3 = in.getInputLocations().get(i).getName();
+            String _plus_3 = ((template + " && <> (") + _name_3);
+            String _plus_4 = (_plus_3 + ")");
+            template = _plus_4;
+            String _name_4 = in.getInputLocations().get(i).getName();
+            String _plus_5 = ((this.text + ", ") + _name_4);
+            this.text = _plus_5;
+          }
         }
       } else {
-        String _name_2 = in.getPattern().eClass().getName();
-        boolean _equals_1 = Objects.equal(_name_2, "FairVisit");
+        String _name_3 = in.getPattern().eClass().getName();
+        boolean _equals_1 = Objects.equal(_name_3, "FairVisit");
         if (_equals_1) {
-          String _name_3 = in.getInputLocations().get(0).getName();
-          String _plus_2 = ("<> (" + _name_3);
-          String _plus_3 = (_plus_2 + ")");
-          template = _plus_3;
+          String _name_4 = in.getInputLocations().get(0).getName();
+          String _plus_3 = ("<> (" + _name_4);
+          String _plus_4 = (_plus_3 + ")");
+          template = _plus_4;
+          this.text = (this.text + "visit (without any specific order) locations ");
           for (int j = 0; (j < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); j++) {
             if ((j == 0)) {
               for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                String _name_4 = in.getInputLocations().get(i).getName();
-                String _plus_4 = ((template + " && <> (") + _name_4);
-                String _plus_5 = (_plus_4 + ")");
-                template = _plus_5;
+                String _name_5 = in.getInputLocations().get(i).getName();
+                String _plus_5 = ((template + " && <> (") + _name_5);
+                String _plus_6 = (_plus_5 + ")");
+                template = _plus_6;
               }
-              String _name_4 = in.getInputLocations().get(j).getName();
-              String _plus_4 = ((template + " && [] ((") + _name_4);
-              String _plus_5 = (_plus_4 + ") -> X ((!");
               String _name_5 = in.getInputLocations().get(j).getName();
-              String _plus_6 = (_plus_5 + _name_5);
-              String _plus_7 = (_plus_6 + ") U (");
-              String _name_6 = in.getInputLocations().get((j + 1)).getName();
-              String _plus_8 = (_plus_7 + _name_6);
-              String _plus_9 = (_plus_8 + ") || ([] (!");
-              String _name_7 = in.getInputLocations().get(j).getName();
-              String _plus_10 = (_plus_9 + _name_7);
-              String _plus_11 = (_plus_10 + "))))");
-              template = _plus_11;
-              for (int i = 2; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                String _name_8 = in.getInputLocations().get(j).getName();
-                String _plus_12 = ((template + " && ((!") + _name_8);
-                String _plus_13 = (_plus_12 + ") U (");
-                String _name_9 = in.getInputLocations().get((j + 1)).getName();
-                String _plus_14 = (_plus_13 + _name_9);
-                String _plus_15 = (_plus_14 + ") || ([] (!");
-                String _name_10 = in.getInputLocations().get(j).getName();
-                String _plus_16 = (_plus_15 + _name_10);
-                String _plus_17 = (_plus_16 + ")))");
-                template = _plus_17;
-              }
-            } else {
+              String _plus_5 = ((template + " && [] ((") + _name_5);
+              String _plus_6 = (_plus_5 + ") -> X ((!");
+              String _name_6 = in.getInputLocations().get(j).getName();
+              String _plus_7 = (_plus_6 + _name_6);
+              String _plus_8 = (_plus_7 + ") U (");
+              String _name_7 = in.getInputLocations().get((j + 1)).getName();
+              String _plus_9 = (_plus_8 + _name_7);
+              String _plus_10 = (_plus_9 + ") || ([] (!");
               String _name_8 = in.getInputLocations().get(j).getName();
-              String _plus_12 = ((template + " && [] ((") + _name_8);
-              String _plus_13 = (_plus_12 + ") -> X ((!");
+              String _plus_11 = (_plus_10 + _name_8);
+              String _plus_12 = (_plus_11 + "))))");
+              template = _plus_12;
+              for (int i = 2; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
+                String _name_9 = in.getInputLocations().get(j).getName();
+                String _plus_13 = ((template + " && ((!") + _name_9);
+                String _plus_14 = (_plus_13 + ") U (");
+                String _name_10 = in.getInputLocations().get((j + 1)).getName();
+                String _plus_15 = (_plus_14 + _name_10);
+                String _plus_16 = (_plus_15 + ") || ([] (!");
+                String _name_11 = in.getInputLocations().get(j).getName();
+                String _plus_17 = (_plus_16 + _name_11);
+                String _plus_18 = (_plus_17 + ")))");
+                template = _plus_18;
+              }
               String _name_9 = in.getInputLocations().get(j).getName();
-              String _plus_14 = (_plus_13 + _name_9);
-              String _plus_15 = (_plus_14 + ") U (");
-              String _name_10 = in.getInputLocations().get(0).getName();
-              String _plus_16 = (_plus_15 + _name_10);
-              String _plus_17 = (_plus_16 + ") || ([] (!");
+              String _plus_13 = (this.text + _name_9);
+              this.text = _plus_13;
+            } else {
+              String _name_10 = in.getInputLocations().get(j).getName();
+              String _plus_14 = ((template + " && [] ((") + _name_10);
+              String _plus_15 = (_plus_14 + ") -> X ((!");
               String _name_11 = in.getInputLocations().get(j).getName();
-              String _plus_18 = (_plus_17 + _name_11);
-              String _plus_19 = (_plus_18 + "))))");
-              template = _plus_19;
+              String _plus_16 = (_plus_15 + _name_11);
+              String _plus_17 = (_plus_16 + ") U (");
+              String _name_12 = in.getInputLocations().get(0).getName();
+              String _plus_18 = (_plus_17 + _name_12);
+              String _plus_19 = (_plus_18 + ") || ([] (!");
+              String _name_13 = in.getInputLocations().get(j).getName();
+              String _plus_20 = (_plus_19 + _name_13);
+              String _plus_21 = (_plus_20 + "))))");
+              template = _plus_21;
               for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                 if ((i != j)) {
-                  String _name_12 = in.getInputLocations().get(j).getName();
-                  String _plus_20 = ((template + " && ((!") + _name_12);
-                  String _plus_21 = (_plus_20 + ") U (");
-                  String _name_13 = in.getInputLocations().get(i).getName();
-                  String _plus_22 = (_plus_21 + _name_13);
-                  String _plus_23 = (_plus_22 + ") || ([] (!");
                   String _name_14 = in.getInputLocations().get(j).getName();
-                  String _plus_24 = (_plus_23 + _name_14);
-                  String _plus_25 = (_plus_24 + ")))");
-                  template = _plus_25;
+                  String _plus_22 = ((template + " && ((!") + _name_14);
+                  String _plus_23 = (_plus_22 + ") U (");
+                  String _name_15 = in.getInputLocations().get(i).getName();
+                  String _plus_24 = (_plus_23 + _name_15);
+                  String _plus_25 = (_plus_24 + ") || ([] (!");
+                  String _name_16 = in.getInputLocations().get(j).getName();
+                  String _plus_26 = (_plus_25 + _name_16);
+                  String _plus_27 = (_plus_26 + ")))");
+                  template = _plus_27;
                 }
               }
+              String _name_14 = in.getInputLocations().get(j).getName();
+              String _plus_22 = ((this.text + ", ") + _name_14);
+              this.text = _plus_22;
             }
           }
+          this.text = (this.text + "the same number of times");
         } else {
-          String _name_4 = in.getPattern().eClass().getName();
-          boolean _equals_2 = Objects.equal(_name_4, "OrderderVisit");
+          String _name_5 = in.getPattern().eClass().getName();
+          boolean _equals_2 = Objects.equal(_name_5, "OrderderVisit");
           if (_equals_2) {
-            String _name_5 = in.getInputLocations().get(0).getName();
-            String _plus_4 = ("(<> (" + _name_5);
-            String _plus_5 = (_plus_4 + ")");
-            template = _plus_5;
+            String _name_6 = in.getInputLocations().get(0).getName();
+            String _plus_5 = ("(<> (" + _name_6);
+            String _plus_6 = (_plus_5 + ")");
+            template = _plus_6;
+            this.text = (this.text + "visit (with a specific order) locations ");
             for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-              String _name_6 = in.getInputLocations().get(i).getName();
-              String _plus_6 = ((template + " && <> ((") + _name_6);
-              String _plus_7 = (_plus_6 + ")");
-              template = _plus_7;
+              String _name_7 = in.getInputLocations().get(i).getName();
+              String _plus_7 = ((template + " && <> ((") + _name_7);
+              String _plus_8 = (_plus_7 + ")");
+              template = _plus_8;
             }
             for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-              template = (template + ")");
+              {
+                template = (template + ")");
+                String _name_7 = in.getInputLocations().get(i).getName();
+                String _plus_7 = (this.text + _name_7);
+                String _plus_8 = (_plus_7 + ", ");
+                this.text = _plus_8;
+              }
             }
             for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j > 0); j--) {
               for (int i = (j - 1); (i >= 0); i--) {
-                String _name_6 = in.getInputLocations().get(j).getName();
-                String _plus_6 = ((template + " && ((!") + _name_6);
-                String _plus_7 = (_plus_6 + ") U (");
-                String _name_7 = in.getInputLocations().get(i).getName();
-                String _plus_8 = (_plus_7 + _name_7);
-                String _plus_9 = (_plus_8 + "))");
-                template = _plus_9;
+                String _name_7 = in.getInputLocations().get(j).getName();
+                String _plus_7 = ((template + " && ((!") + _name_7);
+                String _plus_8 = (_plus_7 + ") U (");
+                String _name_8 = in.getInputLocations().get(i).getName();
+                String _plus_9 = (_plus_8 + _name_8);
+                String _plus_10 = (_plus_9 + "))");
+                template = _plus_10;
               }
             }
           } else {
-            String _name_6 = in.getPattern().eClass().getName();
-            boolean _equals_3 = Objects.equal(_name_6, "SequencedVisit");
+            String _name_7 = in.getPattern().eClass().getName();
+            boolean _equals_3 = Objects.equal(_name_7, "SequencedVisit");
             if (_equals_3) {
-              String _name_7 = in.getInputLocations().get(0).getName();
-              String _plus_6 = ("<> ((" + _name_7);
-              String _plus_7 = (_plus_6 + ")");
-              template = _plus_7;
+              String _name_8 = in.getInputLocations().get(0).getName();
+              String _plus_7 = ("<> ((" + _name_8);
+              String _plus_8 = (_plus_7 + ")");
+              template = _plus_8;
+              this.text = (this.text + "visit in sequence locations ");
               for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                String _name_8 = in.getInputLocations().get(i).getName();
-                String _plus_8 = ((template + " && (<> (") + _name_8);
-                String _plus_9 = (_plus_8 + ")");
-                template = _plus_9;
+                String _name_9 = in.getInputLocations().get(i).getName();
+                String _plus_9 = ((template + " && (<> (") + _name_9);
+                String _plus_10 = (_plus_9 + ")");
+                template = _plus_10;
               }
               for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                template = (template + ")");
+                {
+                  template = (template + ")");
+                  String _name_9 = in.getInputLocations().get(i).getName();
+                  String _plus_9 = (this.text + _name_9);
+                  String _plus_10 = (_plus_9 + ", ");
+                  this.text = _plus_10;
+                }
               }
             } else {
-              String _name_8 = in.getPattern().eClass().getName();
-              boolean _equals_4 = Objects.equal(_name_8, "StrictOrderedVisit");
+              String _name_9 = in.getPattern().eClass().getName();
+              boolean _equals_4 = Objects.equal(_name_9, "StrictOrderedVisit");
               if (_equals_4) {
-                String _name_9 = in.getInputLocations().get(0).getName();
-                String _plus_8 = ("<> ((" + _name_9);
-                String _plus_9 = (_plus_8 + ")");
-                template = _plus_9;
+                String _name_10 = in.getInputLocations().get(0).getName();
+                String _plus_9 = ("<> ((" + _name_10);
+                String _plus_10 = (_plus_9 + ")");
+                template = _plus_10;
+                String _name_11 = in.getInputLocations().get(0).getName();
+                String _plus_11 = ((this.text + "visit (with a strict order) locations ") + _name_11);
+                this.text = _plus_11;
                 for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                  String _name_10 = in.getInputLocations().get(i).getName();
-                  String _plus_10 = ((template + " && <> (") + _name_10);
-                  String _plus_11 = (_plus_10 + ")");
-                  template = _plus_11;
+                  {
+                    String _name_12 = in.getInputLocations().get(i).getName();
+                    String _plus_12 = ((template + " && <> (") + _name_12);
+                    String _plus_13 = (_plus_12 + ")");
+                    template = _plus_13;
+                    String _name_13 = in.getInputLocations().get(i).getName();
+                    String _plus_14 = ((this.text + ", ") + _name_13);
+                    this.text = _plus_14;
+                  }
                 }
                 template = (template + ")");
                 for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j >= 0); j--) {
                   for (int i = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (i >= 0); i--) {
                     if ((i != j)) {
-                      String _name_10 = in.getInputLocations().get(j).getName();
-                      String _plus_10 = ((template + " && ((!") + _name_10);
-                      String _plus_11 = (_plus_10 + ") U (");
-                      String _name_11 = in.getInputLocations().get(i).getName();
-                      String _plus_12 = (_plus_11 + _name_11);
-                      String _plus_13 = (_plus_12 + "))");
-                      template = _plus_13;
+                      String _name_12 = in.getInputLocations().get(j).getName();
+                      String _plus_12 = ((template + " && ((!") + _name_12);
+                      String _plus_13 = (_plus_12 + ") U (");
+                      String _name_13 = in.getInputLocations().get(i).getName();
+                      String _plus_14 = (_plus_13 + _name_13);
+                      String _plus_15 = (_plus_14 + "))");
+                      template = _plus_15;
                     }
                   }
                 }
                 for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j > 0); j--) {
                   for (int i = (j - 1); (i >= 0); i--) {
                     if ((i != j)) {
-                      String _name_10 = in.getInputLocations().get(j).getName();
-                      String _plus_10 = ((template + " && <> (") + _name_10);
-                      String _plus_11 = (_plus_10 + " && X(((! ");
-                      String _name_11 = in.getInputLocations().get(j).getName();
-                      String _plus_12 = (_plus_11 + _name_11);
-                      String _plus_13 = (_plus_12 + ")) U ");
-                      String _name_12 = in.getInputLocations().get(i).getName();
-                      String _plus_14 = (_plus_13 + _name_12);
-                      String _plus_15 = (_plus_14 + "))");
-                      template = _plus_15;
+                      String _name_12 = in.getInputLocations().get(j).getName();
+                      String _plus_12 = ((template + " && <> (") + _name_12);
+                      String _plus_13 = (_plus_12 + " && X(((! ");
+                      String _name_13 = in.getInputLocations().get(j).getName();
+                      String _plus_14 = (_plus_13 + _name_13);
+                      String _plus_15 = (_plus_14 + ")) U ");
+                      String _name_14 = in.getInputLocations().get(i).getName();
+                      String _plus_16 = (_plus_15 + _name_14);
+                      String _plus_17 = (_plus_16 + "))");
+                      template = _plus_17;
                     }
                   }
                 }
               } else {
-                String _name_10 = in.getPattern().eClass().getName();
-                boolean _equals_5 = Objects.equal(_name_10, "Patrolling");
+                String _name_12 = in.getPattern().eClass().getName();
+                boolean _equals_5 = Objects.equal(_name_12, "Patrolling");
                 if (_equals_5) {
-                  String _name_11 = in.getInputLocations().get(0).getName();
-                  String _plus_10 = ("[] (<> (" + _name_11);
-                  String _plus_11 = (_plus_10 + ")");
-                  template = _plus_11;
+                  String _name_13 = in.getInputLocations().get(0).getName();
+                  String _plus_12 = ("[] (<> (" + _name_13);
+                  String _plus_13 = (_plus_12 + ")");
+                  template = _plus_13;
+                  String _name_14 = in.getInputLocations().get(0).getName();
+                  String _plus_14 = ((this.text + "patrol locations ") + _name_14);
+                  this.text = _plus_14;
                   for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                    String _name_12 = in.getInputLocations().get(i).getName();
-                    String _plus_12 = ((template + " && <> (") + _name_12);
-                    String _plus_13 = (_plus_12 + ")");
-                    template = _plus_13;
+                    {
+                      String _name_15 = in.getInputLocations().get(i).getName();
+                      String _plus_15 = ((template + " && <> (") + _name_15);
+                      String _plus_16 = (_plus_15 + ")");
+                      template = _plus_16;
+                      String _name_16 = in.getInputLocations().get(i).getName();
+                      String _plus_17 = ((this.text + ", ") + _name_16);
+                      this.text = _plus_17;
+                    }
                   }
                   template = (template + ")");
                 } else {
-                  String _name_12 = in.getPattern().eClass().getName();
-                  boolean _equals_6 = Objects.equal(_name_12, "FairPatrolling");
+                  String _name_15 = in.getPattern().eClass().getName();
+                  boolean _equals_6 = Objects.equal(_name_15, "FairPatrolling");
                   if (_equals_6) {
-                    String _name_13 = in.getInputLocations().get(0).getName();
-                    String _plus_12 = ("[] (<> (" + _name_13);
-                    String _plus_13 = (_plus_12 + ")");
-                    template = _plus_13;
+                    String _name_16 = in.getInputLocations().get(0).getName();
+                    String _plus_15 = ("[] (<> (" + _name_16);
+                    String _plus_16 = (_plus_15 + ")");
+                    template = _plus_16;
+                    this.text = (this.text + " patrol (without any specific order) locations ");
                     for (int j = 0; (j < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); j++) {
                       if ((j == 0)) {
                         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                          String _name_14 = in.getInputLocations().get(i).getName();
-                          String _plus_14 = ((template + " && <> (") + _name_14);
-                          String _plus_15 = (_plus_14 + ")");
-                          template = _plus_15;
+                          String _name_17 = in.getInputLocations().get(i).getName();
+                          String _plus_17 = ((template + " && <> (") + _name_17);
+                          String _plus_18 = (_plus_17 + ")");
+                          template = _plus_18;
                         }
-                        String _name_14 = in.getInputLocations().get(j).getName();
-                        String _plus_14 = ((template + ") && [] ((") + _name_14);
-                        String _plus_15 = (_plus_14 + ") -> X ((!");
-                        String _name_15 = in.getInputLocations().get(j).getName();
-                        String _plus_16 = (_plus_15 + _name_15);
-                        String _plus_17 = (_plus_16 + ") U (");
-                        String _name_16 = in.getInputLocations().get((j + 1)).getName();
-                        String _plus_18 = (_plus_17 + _name_16);
-                        String _plus_19 = (_plus_18 + "))");
-                        template = _plus_19;
+                        String _name_17 = in.getInputLocations().get(j).getName();
+                        String _plus_17 = ((template + ") && [] ((") + _name_17);
+                        String _plus_18 = (_plus_17 + ") -> X ((!");
+                        String _name_18 = in.getInputLocations().get(j).getName();
+                        String _plus_19 = (_plus_18 + _name_18);
+                        String _plus_20 = (_plus_19 + ") U (");
+                        String _name_19 = in.getInputLocations().get((j + 1)).getName();
+                        String _plus_21 = (_plus_20 + _name_19);
+                        String _plus_22 = (_plus_21 + "))");
+                        template = _plus_22;
                         for (int i = 2; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                          String _name_17 = in.getInputLocations().get(j).getName();
-                          String _plus_20 = ((template + " && ((!") + _name_17);
-                          String _plus_21 = (_plus_20 + ") U (");
-                          String _name_18 = in.getInputLocations().get(i).getName();
-                          String _plus_22 = (_plus_21 + _name_18);
-                          String _plus_23 = (_plus_22 + "))");
-                          template = _plus_23;
+                          String _name_20 = in.getInputLocations().get(j).getName();
+                          String _plus_23 = ((template + " && ((!") + _name_20);
+                          String _plus_24 = (_plus_23 + ") U (");
+                          String _name_21 = in.getInputLocations().get(i).getName();
+                          String _plus_25 = (_plus_24 + _name_21);
+                          String _plus_26 = (_plus_25 + "))");
+                          template = _plus_26;
                         }
                         template = (template + ")");
+                        String _name_20 = in.getInputLocations().get(j).getName();
+                        String _plus_23 = (this.text + _name_20);
+                        this.text = _plus_23;
                       } else {
-                        String _name_17 = in.getInputLocations().get(j).getName();
-                        String _plus_20 = ((template + " && [] ((") + _name_17);
-                        String _plus_21 = (_plus_20 + ") -> X ((!");
-                        String _name_18 = in.getInputLocations().get(j).getName();
-                        String _plus_22 = (_plus_21 + _name_18);
-                        String _plus_23 = (_plus_22 + ") U (");
-                        String _name_19 = in.getInputLocations().get(0).getName();
-                        String _plus_24 = (_plus_23 + _name_19);
-                        String _plus_25 = (_plus_24 + "))");
-                        template = _plus_25;
+                        String _name_21 = in.getInputLocations().get(j).getName();
+                        String _plus_24 = ((template + " && [] ((") + _name_21);
+                        String _plus_25 = (_plus_24 + ") -> X ((!");
+                        String _name_22 = in.getInputLocations().get(j).getName();
+                        String _plus_26 = (_plus_25 + _name_22);
+                        String _plus_27 = (_plus_26 + ") U (");
+                        String _name_23 = in.getInputLocations().get(0).getName();
+                        String _plus_28 = (_plus_27 + _name_23);
+                        String _plus_29 = (_plus_28 + "))");
+                        template = _plus_29;
+                        String _name_24 = in.getInputLocations().get(j).getName();
+                        String _plus_30 = ((this.text + ", ") + _name_24);
+                        this.text = _plus_30;
                         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                           if ((i != j)) {
-                            String _name_20 = in.getInputLocations().get(j).getName();
-                            String _plus_26 = ((template + " && ((!") + _name_20);
-                            String _plus_27 = (_plus_26 + ") U (");
-                            String _name_21 = in.getInputLocations().get(i).getName();
-                            String _plus_28 = (_plus_27 + _name_21);
-                            String _plus_29 = (_plus_28 + "))");
-                            template = _plus_29;
+                            String _name_25 = in.getInputLocations().get(j).getName();
+                            String _plus_31 = ((template + " && ((!") + _name_25);
+                            String _plus_32 = (_plus_31 + ") U (");
+                            String _name_26 = in.getInputLocations().get(i).getName();
+                            String _plus_33 = (_plus_32 + _name_26);
+                            String _plus_34 = (_plus_33 + "))");
+                            template = _plus_34;
                           }
                         }
                       }
                     }
                     template = (template + ")");
+                    this.text = (this.text + "the same number of times");
                   } else {
-                    String _name_14 = in.getPattern().eClass().getName();
-                    boolean _equals_7 = Objects.equal(_name_14, "OrderedPatrolling");
+                    String _name_17 = in.getPattern().eClass().getName();
+                    boolean _equals_7 = Objects.equal(_name_17, "OrderedPatrolling");
                     if (_equals_7) {
-                      String _name_15 = in.getInputLocations().get(0).getName();
-                      String _plus_14 = ("[] (<> ((" + _name_15);
-                      String _plus_15 = (_plus_14 + ")");
-                      template = _plus_15;
+                      String _name_18 = in.getInputLocations().get(0).getName();
+                      String _plus_17 = ("[] (<> ((" + _name_18);
+                      String _plus_18 = (_plus_17 + ")");
+                      template = _plus_18;
+                      this.text = (this.text + "patrol (with a specific order) locations ");
                       for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                        String _name_16 = in.getInputLocations().get(i).getName();
-                        String _plus_16 = ((template + " && <> ((") + _name_16);
-                        String _plus_17 = (_plus_16 + ")");
-                        template = _plus_17;
+                        String _name_19 = in.getInputLocations().get(i).getName();
+                        String _plus_19 = ((template + " && <> ((") + _name_19);
+                        String _plus_20 = (_plus_19 + ")");
+                        template = _plus_20;
                       }
                       for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                        template = (template + ")");
-                      }
-                      for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j > 0); j--) {
-                        for (int i = (j - 1); (i >= 0); i--) {
-                          String _name_16 = in.getInputLocations().get(j).getName();
-                          String _plus_16 = ((template + " && (! (") + _name_16);
-                          String _plus_17 = (_plus_16 + ") U (");
-                          String _name_17 = in.getInputLocations().get(i).getName();
-                          String _plus_18 = (_plus_17 + _name_17);
-                          String _plus_19 = (_plus_18 + "))");
-                          template = _plus_19;
+                        {
+                          template = (template + ")");
+                          String _name_19 = in.getInputLocations().get(i).getName();
+                          String _plus_19 = (this.text + _name_19);
+                          String _plus_20 = (_plus_19 + ", ");
+                          this.text = _plus_20;
                         }
                       }
                       for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j > 0); j--) {
                         for (int i = (j - 1); (i >= 0); i--) {
-                          String _name_16 = in.getInputLocations().get(j).getName();
-                          String _plus_16 = ((template + " && [] (") + _name_16);
-                          String _plus_17 = (_plus_16 + " -> X((! ");
-                          String _name_17 = in.getInputLocations().get(j).getName();
-                          String _plus_18 = (_plus_17 + _name_17);
-                          String _plus_19 = (_plus_18 + ") U ");
-                          String _name_18 = in.getInputLocations().get(i).getName();
-                          String _plus_20 = (_plus_19 + _name_18);
-                          String _plus_21 = (_plus_20 + "))");
-                          template = _plus_21;
+                          String _name_19 = in.getInputLocations().get(j).getName();
+                          String _plus_19 = ((template + " && (! (") + _name_19);
+                          String _plus_20 = (_plus_19 + ") U (");
+                          String _name_20 = in.getInputLocations().get(i).getName();
+                          String _plus_21 = (_plus_20 + _name_20);
+                          String _plus_22 = (_plus_21 + "))");
+                          template = _plus_22;
+                        }
+                      }
+                      for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j > 0); j--) {
+                        for (int i = (j - 1); (i >= 0); i--) {
+                          String _name_19 = in.getInputLocations().get(j).getName();
+                          String _plus_19 = ((template + " && [] (") + _name_19);
+                          String _plus_20 = (_plus_19 + " -> X((! ");
+                          String _name_20 = in.getInputLocations().get(j).getName();
+                          String _plus_21 = (_plus_20 + _name_20);
+                          String _plus_22 = (_plus_21 + ") U ");
+                          String _name_21 = in.getInputLocations().get(i).getName();
+                          String _plus_23 = (_plus_22 + _name_21);
+                          String _plus_24 = (_plus_23 + "))");
+                          template = _plus_24;
                         }
                       }
                     } else {
-                      String _name_16 = in.getPattern().eClass().getName();
-                      boolean _equals_8 = Objects.equal(_name_16, "StrictOreredPatrolling");
+                      String _name_19 = in.getPattern().eClass().getName();
+                      boolean _equals_8 = Objects.equal(_name_19, "StrictOreredPatrolling");
                       if (_equals_8) {
-                        String _name_17 = in.getInputLocations().get(0).getName();
-                        String _plus_16 = ("[] (<> ((" + _name_17);
-                        String _plus_17 = (_plus_16 + ")");
-                        template = _plus_17;
+                        String _name_20 = in.getInputLocations().get(0).getName();
+                        String _plus_19 = ("[] (<> ((" + _name_20);
+                        String _plus_20 = (_plus_19 + ")");
+                        template = _plus_20;
+                        String _name_21 = in.getInputLocations().get(0).getName();
+                        String _plus_21 = ((this.text + "patrol (with a strict order) locations ") + _name_21);
+                        this.text = _plus_21;
                         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                          String _name_18 = in.getInputLocations().get(i).getName();
-                          String _plus_18 = ((template + " && <> ((") + _name_18);
-                          String _plus_19 = (_plus_18 + ")");
-                          template = _plus_19;
+                          {
+                            String _name_22 = in.getInputLocations().get(i).getName();
+                            String _plus_22 = ((template + " && <> ((") + _name_22);
+                            String _plus_23 = (_plus_22 + ")");
+                            template = _plus_23;
+                            String _name_23 = in.getInputLocations().get(i).getName();
+                            String _plus_24 = ((this.text + ", ") + _name_23);
+                            this.text = _plus_24;
+                          }
                         }
                         for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                           template = (template + ")");
@@ -623,165 +735,401 @@ public class PromiseGenerator extends AbstractGenerator {
                         for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j >= 0); j--) {
                           for (int i = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (i >= 0); i--) {
                             if ((i != j)) {
-                              String _name_18 = in.getInputLocations().get(j).getName();
-                              String _plus_18 = ((template + " && ((!") + _name_18);
-                              String _plus_19 = (_plus_18 + ") U (");
-                              String _name_19 = in.getInputLocations().get(i).getName();
-                              String _plus_20 = (_plus_19 + _name_19);
-                              String _plus_21 = (_plus_20 + "))");
-                              template = _plus_21;
+                              String _name_22 = in.getInputLocations().get(j).getName();
+                              String _plus_22 = ((template + " && ((!") + _name_22);
+                              String _plus_23 = (_plus_22 + ") U (");
+                              String _name_23 = in.getInputLocations().get(i).getName();
+                              String _plus_24 = (_plus_23 + _name_23);
+                              String _plus_25 = (_plus_24 + "))");
+                              template = _plus_25;
                             }
                           }
                         }
                         for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j > 0); j--) {
                           for (int i = (j - 1); (i >= 0); i--) {
                             if ((i != j)) {
-                              String _name_18 = in.getInputLocations().get(j).getName();
-                              String _plus_18 = ((template + " && [] (") + _name_18);
-                              String _plus_19 = (_plus_18 + " -> X((! ");
-                              String _name_19 = in.getInputLocations().get(j).getName();
-                              String _plus_20 = (_plus_19 + _name_19);
-                              String _plus_21 = (_plus_20 + ")) U ");
-                              String _name_20 = in.getInputLocations().get(i).getName();
-                              String _plus_22 = (_plus_21 + _name_20);
-                              String _plus_23 = (_plus_22 + "))");
-                              template = _plus_23;
+                              String _name_22 = in.getInputLocations().get(j).getName();
+                              String _plus_22 = ((template + " && [] (") + _name_22);
+                              String _plus_23 = (_plus_22 + " -> X((! ");
+                              String _name_23 = in.getInputLocations().get(j).getName();
+                              String _plus_24 = (_plus_23 + _name_23);
+                              String _plus_25 = (_plus_24 + ")) U ");
+                              String _name_24 = in.getInputLocations().get(i).getName();
+                              String _plus_26 = (_plus_25 + _name_24);
+                              String _plus_27 = (_plus_26 + "))");
+                              template = _plus_27;
                             }
                           }
                         }
                       } else {
-                        String _name_18 = in.getPattern().eClass().getName();
-                        boolean _equals_9 = Objects.equal(_name_18, "SequencedPatrolling");
+                        String _name_22 = in.getPattern().eClass().getName();
+                        boolean _equals_9 = Objects.equal(_name_22, "SequencedPatrolling");
                         if (_equals_9) {
-                          String _name_19 = in.getInputLocations().get(0).getName();
-                          String _plus_18 = ("[] (<> ((" + _name_19);
-                          String _plus_19 = (_plus_18 + ")");
-                          template = _plus_19;
+                          String _name_23 = in.getInputLocations().get(0).getName();
+                          String _plus_22 = ("[] (<> ((" + _name_23);
+                          String _plus_23 = (_plus_22 + ")");
+                          template = _plus_23;
+                          String _name_24 = in.getInputLocations().get(0).getName();
+                          String _plus_24 = ((this.text + "patrol in sequence locations ") + _name_24);
+                          this.text = _plus_24;
                           for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                            String _name_20 = in.getInputLocations().get(i).getName();
-                            String _plus_20 = ((template + " && <> ((") + _name_20);
-                            String _plus_21 = (_plus_20 + ")");
-                            template = _plus_21;
+                            {
+                              String _name_25 = in.getInputLocations().get(i).getName();
+                              String _plus_25 = ((template + " && <> ((") + _name_25);
+                              String _plus_26 = (_plus_25 + ")");
+                              template = _plus_26;
+                              String _name_26 = in.getInputLocations().get(i).getName();
+                              String _plus_27 = ((this.text + ", ") + _name_26);
+                              this.text = _plus_27;
+                            }
                           }
                           for (int i = 0; (i < ((((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length * 2) - 1)); i++) {
                             template = (template + ")");
                           }
                         } else {
-                          String _name_20 = in.getPattern().eClass().getName();
-                          boolean _equals_10 = Objects.equal(_name_20, "ExactRestrictedAvoidance");
+                          String _name_25 = in.getPattern().eClass().getName();
+                          boolean _equals_10 = Objects.equal(_name_25, "ExactRestrictedAvoidance");
                           if (_equals_10) {
-                            String _description = in.getInputAction().get(0).getDescription();
-                            String _plus_20 = ("(! (" + _description);
-                            String _plus_21 = (_plus_20 + ")) U (");
-                            String _description_1 = in.getInputAction().get(0).getDescription();
-                            String _plus_22 = (_plus_21 + _description_1);
-                            String _plus_23 = (_plus_22 + " && (X ((! ");
-                            String _description_2 = in.getInputAction().get(0).getDescription();
-                            String _plus_24 = (_plus_23 + _description_2);
-                            String _plus_25 = (_plus_24 + ") U (");
-                            String _description_3 = in.getInputAction().get(0).getDescription();
-                            String _plus_26 = (_plus_25 + _description_3);
-                            String _plus_27 = (_plus_26 + " && (X ((! ");
-                            String _description_4 = in.getInputAction().get(0).getDescription();
-                            String _plus_28 = (_plus_27 + _description_4);
-                            String _plus_29 = (_plus_28 + ") U (");
-                            String _description_5 = in.getInputAction().get(0).getDescription();
-                            String _plus_30 = (_plus_29 + _description_5);
-                            String _plus_31 = (_plus_30 + " && (X ([] (!  ");
-                            String _description_6 = in.getInputAction().get(0).getDescription();
-                            String _plus_32 = (_plus_31 + _description_6);
-                            String _plus_33 = (_plus_32 + "))))))))))");
-                            template = _plus_33;
-                          } else {
-                            String _name_21 = in.getPattern().eClass().getName();
-                            boolean _equals_11 = Objects.equal(_name_21, "FutureAvoidance");
-                            if (_equals_11) {
-                              String _description_7 = in.getInputAction().get(0).getDescription();
-                              String _plus_34 = ("[] ((" + _description_7);
-                              String _plus_35 = (_plus_34 + "-> ([] ! (");
-                              String _name_22 = in.getInputLocations().get(0).getName();
-                              String _plus_36 = (_plus_35 + _name_22);
-                              String _plus_37 = (_plus_36 + "))");
-                              template = _plus_37;
+                            boolean _isEmpty = in.getInputAction().isEmpty();
+                            if (_isEmpty) {
+                              String _name_26 = in.getInputLocations().get(0).getName();
+                              String _plus_25 = ("(! (" + _name_26);
+                              String _plus_26 = (_plus_25 + ")) U (");
+                              String _name_27 = in.getInputLocations().get(0).getName();
+                              String _plus_27 = (_plus_26 + _name_27);
+                              String _plus_28 = (_plus_27 + " && (X ((! ");
+                              String _name_28 = in.getInputLocations().get(0).getName();
+                              String _plus_29 = (_plus_28 + _name_28);
+                              String _plus_30 = (_plus_29 + ") U (");
+                              String _name_29 = in.getInputLocations().get(0).getName();
+                              String _plus_31 = (_plus_30 + _name_29);
+                              String _plus_32 = (_plus_31 + " && (X ((! ");
+                              String _name_30 = in.getInputLocations().get(0).getName();
+                              String _plus_33 = (_plus_32 + _name_30);
+                              String _plus_34 = (_plus_33 + ") U (");
+                              String _name_31 = in.getInputLocations().get(0).getName();
+                              String _plus_35 = (_plus_34 + _name_31);
+                              String _plus_36 = (_plus_35 + " && (X ([] (!  ");
+                              String _name_32 = in.getInputLocations().get(0).getName();
+                              String _plus_37 = (_plus_36 + _name_32);
+                              String _plus_38 = (_plus_37 + "))))))))))");
+                              template = _plus_38;
+                              String _name_33 = in.getInputLocations().get(0).getName();
+                              String _plus_39 = ((this.text + "visit location ") + _name_33);
+                              String _plus_40 = (_plus_39 + " an exact number of times");
+                              this.text = _plus_40;
                             } else {
-                              String _name_23 = in.getPattern().eClass().getName();
-                              boolean _equals_12 = Objects.equal(_name_23, "GlobalAvoidance");
-                              if (_equals_12) {
-                                String _name_24 = in.getInputLocations().get(0).getName();
-                                String _plus_38 = ("[] (! (" + _name_24);
-                                String _plus_39 = (_plus_38 + "))");
-                                template = _plus_39;
+                              boolean _isEmpty_1 = in.getInputLocations().isEmpty();
+                              if (_isEmpty_1) {
+                                String _description = in.getInputAction().get(0).getDescription();
+                                String _plus_41 = ("(! (" + _description);
+                                String _plus_42 = (_plus_41 + ")) U (");
+                                String _description_1 = in.getInputAction().get(0).getDescription();
+                                String _plus_43 = (_plus_42 + _description_1);
+                                String _plus_44 = (_plus_43 + " && (X ((! ");
+                                String _description_2 = in.getInputAction().get(0).getDescription();
+                                String _plus_45 = (_plus_44 + _description_2);
+                                String _plus_46 = (_plus_45 + ") U (");
+                                String _description_3 = in.getInputAction().get(0).getDescription();
+                                String _plus_47 = (_plus_46 + _description_3);
+                                String _plus_48 = (_plus_47 + " && (X ((! ");
+                                String _description_4 = in.getInputAction().get(0).getDescription();
+                                String _plus_49 = (_plus_48 + _description_4);
+                                String _plus_50 = (_plus_49 + ") U (");
+                                String _description_5 = in.getInputAction().get(0).getDescription();
+                                String _plus_51 = (_plus_50 + _description_5);
+                                String _plus_52 = (_plus_51 + " && (X ([] (!  ");
+                                String _description_6 = in.getInputAction().get(0).getDescription();
+                                String _plus_53 = (_plus_52 + _description_6);
+                                String _plus_54 = (_plus_53 + "))))))))))");
+                                template = _plus_54;
+                                String _description_7 = in.getInputAction().get(0).getDescription();
+                                String _plus_55 = ((this.text + "perform ") + _description_7);
+                                String _plus_56 = (_plus_55 + " an exact number of times");
+                                this.text = _plus_56;
+                              }
+                            }
+                          } else {
+                            String _name_34 = in.getPattern().eClass().getName();
+                            boolean _equals_11 = Objects.equal(_name_34, "FutureAvoidance");
+                            if (_equals_11) {
+                              boolean _isEmpty_2 = in.getInputAction().isEmpty();
+                              if (_isEmpty_2) {
+                                String _description_8 = in.getAffectingEvent().get(0).getDescription();
+                                String _plus_57 = ("[] ((" + _description_8);
+                                String _plus_58 = (_plus_57 + "-> ([] ! (");
+                                String _name_35 = in.getInputLocations().get(0).getName();
+                                String _plus_59 = (_plus_58 + _name_35);
+                                String _plus_60 = (_plus_59 + "))");
+                                template = _plus_60;
+                                String _name_36 = in.getInputLocations().get(0).getName();
+                                String _plus_61 = ((this.text + "avoid location ") + _name_36);
+                                String _plus_62 = (_plus_61 + " if ");
+                                String _description_9 = in.getAffectingEvent().get(0).getDescription();
+                                String _plus_63 = (_plus_62 + _description_9);
+                                String _plus_64 = (_plus_63 + " occurs");
+                                this.text = _plus_64;
                               } else {
-                                String _name_25 = in.getPattern().eClass().getName();
-                                boolean _equals_13 = Objects.equal(_name_25, "LowerRestricedAvoidance");
-                                if (_equals_13) {
-                                  String _name_26 = in.getInputLocations().get(0).getName();
-                                  String _plus_40 = ("<> ((" + _name_26);
-                                  String _plus_41 = (_plus_40 + ") && X (<>((");
-                                  String _name_27 = in.getInputLocations().get(0).getName();
-                                  String _plus_42 = (_plus_41 + _name_27);
-                                  String _plus_43 = (_plus_42 + ") && X <>( (");
-                                  String _name_28 = in.getInputLocations().get(0).getName();
-                                  String _plus_44 = (_plus_43 + _name_28);
-                                  String _plus_45 = (_plus_44 + ")))))");
-                                  template = _plus_45;
+                                boolean _isEmpty_3 = in.getInputLocations().isEmpty();
+                                if (_isEmpty_3) {
+                                  String _description_10 = in.getAffectingEvent().get(0).getDescription();
+                                  String _plus_65 = ("[] ((" + _description_10);
+                                  String _plus_66 = (_plus_65 + "-> ([] ! (");
+                                  String _description_11 = in.getInputAction().get(0).getDescription();
+                                  String _plus_67 = (_plus_66 + _description_11);
+                                  String _plus_68 = (_plus_67 + "))");
+                                  template = _plus_68;
+                                  String _description_12 = in.getInputAction().get(0).getDescription();
+                                  String _plus_69 = ((this.text + "avoid action ") + _description_12);
+                                  String _plus_70 = (_plus_69 + " if ");
+                                  String _description_13 = in.getAffectingEvent().get(0).getDescription();
+                                  String _plus_71 = (_plus_70 + _description_13);
+                                  String _plus_72 = (_plus_71 + " occurs");
+                                  this.text = _plus_72;
+                                }
+                              }
+                            } else {
+                              String _name_37 = in.getPattern().eClass().getName();
+                              boolean _equals_12 = Objects.equal(_name_37, "GlobalAvoidance");
+                              if (_equals_12) {
+                                boolean _isEmpty_4 = in.getInputAction().isEmpty();
+                                if (_isEmpty_4) {
+                                  String _name_38 = in.getInputLocations().get(0).getName();
+                                  String _plus_73 = ("[] (! (" + _name_38);
+                                  String _plus_74 = (_plus_73 + "))");
+                                  template = _plus_74;
+                                  String _name_39 = in.getInputLocations().get(0).getName();
+                                  String _plus_75 = ((this.text + "avoid location ") + _name_39);
+                                  this.text = _plus_75;
                                 } else {
-                                  String _name_29 = in.getPattern().eClass().getName();
-                                  boolean _equals_14 = Objects.equal(_name_29, "PastAvoidance");
-                                  if (_equals_14) {
-                                    String _name_30 = in.getInputLocations().get(0).getName();
-                                    String _plus_46 = ("((! (" + _name_30);
-                                    String _plus_47 = (_plus_46 + ")) U ");
-                                    String _name_31 = in.getInputLocations().get(0).getName();
-                                    String _plus_48 = (_plus_47 + _name_31);
-                                    String _plus_49 = (_plus_48 + ")");
-                                    template = _plus_49;
+                                  boolean _isEmpty_5 = in.getInputLocations().isEmpty();
+                                  if (_isEmpty_5) {
+                                    String _description_14 = in.getInputAction().get(0).getDescription();
+                                    String _plus_76 = ("[] (! (" + _description_14);
+                                    String _plus_77 = (_plus_76 + "))");
+                                    template = _plus_77;
+                                    String _description_15 = in.getInputAction().get(0).getDescription();
+                                    String _plus_78 = ((this.text + "avoid action ") + _description_15);
+                                    this.text = _plus_78;
+                                  }
+                                }
+                              } else {
+                                String _name_40 = in.getPattern().eClass().getName();
+                                boolean _equals_13 = Objects.equal(_name_40, "LowerRestricedAvoidance");
+                                if (_equals_13) {
+                                  boolean _isEmpty_6 = in.getInputAction().isEmpty();
+                                  if (_isEmpty_6) {
+                                    String _name_41 = in.getInputLocations().get(0).getName();
+                                    String _plus_79 = ("<> ((" + _name_41);
+                                    String _plus_80 = (_plus_79 + ") && X (<>((");
+                                    String _name_42 = in.getInputLocations().get(0).getName();
+                                    String _plus_81 = (_plus_80 + _name_42);
+                                    String _plus_82 = (_plus_81 + ") && X <>( (");
+                                    String _name_43 = in.getInputLocations().get(0).getName();
+                                    String _plus_83 = (_plus_82 + _name_43);
+                                    String _plus_84 = (_plus_83 + ")))))");
+                                    template = _plus_84;
+                                    String _name_44 = in.getInputLocations().get(0).getName();
+                                    String _plus_85 = ((this.text + "visit location ") + _name_44);
+                                    String _plus_86 = (_plus_85 + " at least N times");
+                                    this.text = _plus_86;
                                   } else {
-                                    String _name_32 = in.getPattern().eClass().getName();
-                                    boolean _equals_15 = Objects.equal(_name_32, "UpperRestricedAvoidance");
-                                    if (_equals_15) {
-                                      String _name_33 = in.getInputLocations().get(0).getName();
-                                      String _plus_50 = ("! <> ((" + _name_33);
-                                      String _plus_51 = (_plus_50 + ") && X (<>((");
-                                      String _name_34 = in.getInputLocations().get(0).getName();
-                                      String _plus_52 = (_plus_51 + _name_34);
-                                      String _plus_53 = (_plus_52 + ") && X <>( (");
-                                      String _name_35 = in.getInputLocations().get(0).getName();
-                                      String _plus_54 = (_plus_53 + _name_35);
-                                      String _plus_55 = (_plus_54 + ")))))");
-                                      template = _plus_55;
+                                    boolean _isEmpty_7 = in.getInputLocations().isEmpty();
+                                    if (_isEmpty_7) {
+                                      String _description_16 = in.getInputAction().get(0).getDescription();
+                                      String _plus_87 = ("<> ((" + _description_16);
+                                      String _plus_88 = (_plus_87 + ") && X (<>((");
+                                      String _description_17 = in.getInputAction().get(0).getDescription();
+                                      String _plus_89 = (_plus_88 + _description_17);
+                                      String _plus_90 = (_plus_89 + ") && X <>( (");
+                                      String _description_18 = in.getInputAction().get(0).getDescription();
+                                      String _plus_91 = (_plus_90 + _description_18);
+                                      String _plus_92 = (_plus_91 + ")))))");
+                                      template = _plus_92;
+                                      String _description_19 = in.getInputAction().get(0).getDescription();
+                                      String _plus_93 = ((this.text + "perform ") + _description_19);
+                                      String _plus_94 = (_plus_93 + " at least N times");
+                                      this.text = _plus_94;
+                                    }
+                                  }
+                                } else {
+                                  String _name_45 = in.getPattern().eClass().getName();
+                                  boolean _equals_14 = Objects.equal(_name_45, "PastAvoidance");
+                                  if (_equals_14) {
+                                    boolean _isEmpty_8 = in.getInputAction().isEmpty();
+                                    if (_isEmpty_8) {
+                                      String _name_46 = in.getInputLocations().get(0).getName();
+                                      String _plus_95 = ("((! (" + _name_46);
+                                      String _plus_96 = (_plus_95 + ")) U ");
+                                      String _description_20 = in.getAffectingEvent().get(0).getDescription();
+                                      String _plus_97 = (_plus_96 + _description_20);
+                                      String _plus_98 = (_plus_97 + ")");
+                                      template = _plus_98;
+                                      String _name_47 = in.getInputLocations().get(0).getName();
+                                      String _plus_99 = ((this.text + "avoid location ") + _name_47);
+                                      String _plus_100 = (_plus_99 + " until ");
+                                      String _description_21 = in.getAffectingEvent().get(0).getDescription();
+                                      String _plus_101 = (_plus_100 + _description_21);
+                                      String _plus_102 = (_plus_101 + " occurs");
+                                      this.text = _plus_102;
                                     } else {
-                                      String _name_36 = in.getPattern().eClass().getName();
-                                      boolean _equals_16 = Objects.equal(_name_36, "InstantReaction");
-                                      if (_equals_16) {
-                                        String _description_8 = in.getInputAction().get(0).getDescription();
-                                        String _plus_56 = ("[] (true -> " + _description_8);
-                                        String _plus_57 = (_plus_56 + ")");
-                                        template = _plus_57;
+                                      boolean _isEmpty_9 = in.getInputLocations().isEmpty();
+                                      if (_isEmpty_9) {
+                                        String _description_22 = in.getInputAction().get(0).getDescription();
+                                        String _plus_103 = ("((! (" + _description_22);
+                                        String _plus_104 = (_plus_103 + ")) U ");
+                                        String _description_23 = in.getAffectingEvent().get(0).getDescription();
+                                        String _plus_105 = (_plus_104 + _description_23);
+                                        String _plus_106 = (_plus_105 + ")");
+                                        template = _plus_106;
+                                        String _description_24 = in.getInputAction().get(0).getDescription();
+                                        String _plus_107 = ((this.text + "avoid performing ") + _description_24);
+                                        String _plus_108 = (_plus_107 + " until ");
+                                        String _description_25 = in.getAffectingEvent().get(0).getDescription();
+                                        String _plus_109 = (_plus_108 + _description_25);
+                                        String _plus_110 = (_plus_109 + " occurs");
+                                        this.text = _plus_110;
+                                      }
+                                    }
+                                  } else {
+                                    String _name_48 = in.getPattern().eClass().getName();
+                                    boolean _equals_15 = Objects.equal(_name_48, "UpperRestricedAvoidance");
+                                    if (_equals_15) {
+                                      boolean _isEmpty_10 = in.getInputAction().isEmpty();
+                                      if (_isEmpty_10) {
+                                        String _name_49 = in.getInputLocations().get(0).getName();
+                                        String _plus_111 = ("! <> ((" + _name_49);
+                                        String _plus_112 = (_plus_111 + ") && X (<>((");
+                                        String _name_50 = in.getInputLocations().get(0).getName();
+                                        String _plus_113 = (_plus_112 + _name_50);
+                                        String _plus_114 = (_plus_113 + ") && X <>( (");
+                                        String _name_51 = in.getInputLocations().get(0).getName();
+                                        String _plus_115 = (_plus_114 + _name_51);
+                                        String _plus_116 = (_plus_115 + ")))))");
+                                        template = _plus_116;
+                                        String _name_52 = in.getInputLocations().get(0).getName();
+                                        String _plus_117 = ((this.text + "visit location ") + _name_52);
+                                        String _plus_118 = (_plus_117 + " at most N times");
+                                        this.text = _plus_118;
                                       } else {
-                                        String _name_37 = in.getPattern().eClass().getName();
-                                        boolean _equals_17 = Objects.equal(_name_37, "DelayedReaction");
-                                        if (_equals_17) {
-                                          String _description_9 = in.getInputAction().get(0).getDescription();
-                                          String _plus_58 = ("[] (true -> (<> (" + _description_9);
-                                          String _plus_59 = (_plus_58 + "))");
-                                          template = _plus_59;
+                                        boolean _isEmpty_11 = in.getInputLocations().isEmpty();
+                                        if (_isEmpty_11) {
+                                          String _description_26 = in.getInputAction().get(0).getDescription();
+                                          String _plus_119 = ("! <> ((" + _description_26);
+                                          String _plus_120 = (_plus_119 + ") && X (<>((");
+                                          String _description_27 = in.getInputAction().get(0).getDescription();
+                                          String _plus_121 = (_plus_120 + _description_27);
+                                          String _plus_122 = (_plus_121 + ") && X <>( (");
+                                          String _description_28 = in.getInputAction().get(0).getDescription();
+                                          String _plus_123 = (_plus_122 + _description_28);
+                                          String _plus_124 = (_plus_123 + ")))))");
+                                          template = _plus_124;
+                                          String _description_29 = in.getInputAction().get(0).getDescription();
+                                          String _plus_125 = ((this.text + "perform ") + _description_29);
+                                          String _plus_126 = (_plus_125 + " at most N times");
+                                          this.text = _plus_126;
+                                        }
+                                      }
+                                    } else {
+                                      String _name_53 = in.getPattern().eClass().getName();
+                                      boolean _equals_16 = Objects.equal(_name_53, "InstantReaction");
+                                      if (_equals_16) {
+                                        boolean _isEmpty_12 = in.getInputAction().isEmpty();
+                                        if (_isEmpty_12) {
+                                          String _description_30 = in.getAffectingEvent().get(0).getDescription();
+                                          String _plus_127 = ("[] (" + _description_30);
+                                          String _plus_128 = (_plus_127 + " -> ");
+                                          String _name_54 = in.getInputLocations().get(0).getName();
+                                          String _plus_129 = (_plus_128 + _name_54);
+                                          String _plus_130 = (_plus_129 + ")");
+                                          template = _plus_130;
+                                          String _name_55 = in.getInputLocations().get(0).getName();
+                                          String _plus_131 = ((this.text + "visit ") + _name_55);
+                                          String _plus_132 = (_plus_131 + " every time ");
+                                          String _description_31 = in.getAffectingEvent().get(0).getDescription();
+                                          String _plus_133 = (_plus_132 + _description_31);
+                                          String _plus_134 = (_plus_133 + " occurs");
+                                          this.text = _plus_134;
                                         } else {
-                                          String _name_38 = in.getPattern().eClass().getName();
-                                          boolean _equals_18 = Objects.equal(_name_38, "Wait");
-                                          if (_equals_18) {
-                                            String _name_39 = in.getInputLocations().get(0).getName();
-                                            String _plus_60 = ("[] (<> (" + _name_39);
-                                            String _plus_61 = (_plus_60 + "))");
-                                            template = _plus_61;
+                                          boolean _isEmpty_13 = in.getInputLocations().isEmpty();
+                                          if (_isEmpty_13) {
+                                            String _description_32 = in.getAffectingEvent().get(0).getDescription();
+                                            String _plus_135 = ("[] (" + _description_32);
+                                            String _plus_136 = (_plus_135 + " -> ");
+                                            String _description_33 = in.getInputAction().get(0).getDescription();
+                                            String _plus_137 = (_plus_136 + _description_33);
+                                            String _plus_138 = (_plus_137 + ")");
+                                            template = _plus_138;
+                                            String _description_34 = in.getInputAction().get(0).getDescription();
+                                            String _plus_139 = ((this.text + "perform ") + _description_34);
+                                            String _plus_140 = (_plus_139 + " every time ");
+                                            String _description_35 = in.getAffectingEvent().get(0).getDescription();
+                                            String _plus_141 = (_plus_140 + _description_35);
+                                            String _plus_142 = (_plus_141 + " occurs");
+                                            this.text = _plus_142;
+                                          }
+                                        }
+                                      } else {
+                                        String _name_56 = in.getPattern().eClass().getName();
+                                        boolean _equals_17 = Objects.equal(_name_56, "DelayedReaction");
+                                        if (_equals_17) {
+                                          boolean _isEmpty_14 = in.getInputAction().isEmpty();
+                                          if (_isEmpty_14) {
+                                            String _description_36 = in.getAffectingEvent().get(0).getDescription();
+                                            String _plus_143 = ("[] (" + _description_36);
+                                            String _plus_144 = (_plus_143 + " -> (<>(");
+                                            String _name_57 = in.getInputLocations().get(0).getName();
+                                            String _plus_145 = (_plus_144 + _name_57);
+                                            String _plus_146 = (_plus_145 + ")))");
+                                            template = _plus_146;
+                                            String _name_58 = in.getInputLocations().get(0).getName();
+                                            String _plus_147 = ((this.text + "visit at some point later ") + _name_58);
+                                            String _plus_148 = (_plus_147 + " every time ");
+                                            String _description_37 = in.getAffectingEvent().get(0).getDescription();
+                                            String _plus_149 = (_plus_148 + _description_37);
+                                            String _plus_150 = (_plus_149 + " occurs");
+                                            this.text = _plus_150;
                                           } else {
-                                            String _name_40 = in.getPattern().eClass().getName();
-                                            boolean _equals_19 = Objects.equal(_name_40, "SimpleAction");
+                                            boolean _isEmpty_15 = in.getInputLocations().isEmpty();
+                                            if (_isEmpty_15) {
+                                              String _description_38 = in.getAffectingEvent().get(0).getDescription();
+                                              String _plus_151 = ("[] (" + _description_38);
+                                              String _plus_152 = (_plus_151 + " -> (<>(");
+                                              String _description_39 = in.getInputAction().get(0).getDescription();
+                                              String _plus_153 = (_plus_152 + _description_39);
+                                              String _plus_154 = (_plus_153 + ")))");
+                                              template = _plus_154;
+                                              String _description_40 = in.getInputAction().get(0).getDescription();
+                                              String _plus_155 = ((this.text + "perform  at some point later ") + _description_40);
+                                              String _plus_156 = (_plus_155 + " every time ");
+                                              String _description_41 = in.getAffectingEvent().get(0).getDescription();
+                                              String _plus_157 = (_plus_156 + _description_41);
+                                              String _plus_158 = (_plus_157 + " occurs");
+                                              this.text = _plus_158;
+                                            }
+                                          }
+                                        } else {
+                                          String _name_59 = in.getPattern().eClass().getName();
+                                          boolean _equals_18 = Objects.equal(_name_59, "Wait");
+                                          if (_equals_18) {
+                                            String _name_60 = in.getInputLocations().get(0).getName();
+                                            String _plus_159 = ("[] (<> (" + _name_60);
+                                            String _plus_160 = (_plus_159 + "))");
+                                            template = _plus_160;
+                                            String _name_61 = in.getInputLocations().get(0).getName();
+                                            String _plus_161 = ((this.text + "wait in location ") + _name_61);
+                                            this.text = _plus_161;
+                                          } else {
+                                            String _name_62 = in.getPattern().eClass().getName();
+                                            boolean _equals_19 = Objects.equal(_name_62, "SimpleAction");
                                             if (_equals_19) {
-                                              String _description_10 = in.getInputAction().get(0).getDescription();
-                                              String _plus_62 = ("(X " + _description_10);
-                                              String _plus_63 = (_plus_62 + ")");
-                                              template = _plus_63;
+                                              String _description_42 = in.getInputAction().get(0).getDescription();
+                                              String _plus_162 = ("(X " + _description_42);
+                                              String _plus_163 = (_plus_162 + ")");
+                                              template = _plus_163;
+                                              String _description_43 = in.getInputAction().get(0).getDescription();
+                                              String _plus_164 = ((this.text + " perform action ") + _description_43);
+                                              this.text = _plus_164;
                                             } else {
                                               template = "Pattern not recognized";
                                             }
@@ -809,12 +1157,12 @@ public class PromiseGenerator extends AbstractGenerator {
       if (_greaterThan) {
         for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getStoppingEvent(), Object.class)).length); i++) {
           String _get = this.availableRobots.get(robot);
-          String _plus_64 = (_get + ",");
-          String _plus_65 = (_plus_64 + template);
-          String _plus_66 = (_plus_65 + ",");
-          String _name_41 = in.getStoppingEvent().get(i).getName();
-          String _plus_67 = (_plus_66 + _name_41);
-          this.stoppingEvents.add(_plus_67);
+          String _plus_165 = (_get + ",");
+          String _plus_166 = (_plus_165 + template);
+          String _plus_167 = (_plus_166 + ",");
+          String _name_63 = in.getStoppingEvent().get(i).getName();
+          String _plus_168 = (_plus_167 + _name_63);
+          this.stoppingEvents.add(_plus_168);
         }
       }
       _xblockexpression = this.robotsList.get(robot).get(index).missionList.add(template);
