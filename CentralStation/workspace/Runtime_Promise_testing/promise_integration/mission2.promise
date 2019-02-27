@@ -1,22 +1,35 @@
 mission{         
 	conditions{     
 		events:
-			loading: "loading",
-			unloading: "unloading"		
+			e1: "obj_in_l2",
+			e2: "r2_in_l1",
+			e3: "r2_in_l2"
 		actions:
-			a1: "col_loading",
-			a2: "col_unloading"
-			}  
-	robots tiago 
-	locations: r1, r2, r3 , r4  
-	operators { parallel ( 
-		eventHandler ( 
-			default ( delegate ( robot tiago does Patrolling locations r3 , r4 ) ) 
-			except loading (  delegate ( robot  tiago does SimpleAction actions a1 affecting event loading ) )
-			except unloading ( delegate ( robot tiago does SimpleAction actions a2 affecting event unloading ) ) )
-		
-		 )
-	}    
-}              
-  
-             
+			a1: "recording",
+			a2: "call_operator"
+		}  
+	robots r1, r2 
+	locations: l1, l2, l3 , l4  
+	
+	operators {
+		parallel(
+		eventHandler (
+			default (
+				delegate ( robot r1 does StrictOrderedVisit locations l1, l2, l3 , l4 )
+			)
+			except e1 ( 
+				sequence ( 
+					delegate (robot r1 does Visit locations l1, l2)
+					affecting event e1
+				)
+			) 
+		),
+		condition ( 
+			if e2 then (
+				delegate (robot r2 does InstantReaction actions a1 affecting event e2))
+			if e3 then (
+			delegate (robot r2 does InstantReaction actions a2 affecting event e3)
+		)))
+	}
+	  
+} 

@@ -43,6 +43,21 @@ public class PromiseGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    for (int i = (((Object[])Conversions.unwrapArray(this.robotsList, Object.class)).length - 1); (i >= 0); i--) {
+      for (int j = (((Object[])Conversions.unwrapArray(this.robotsList.get(i), Object.class)).length - 1); (j >= 0); j--) {
+        this.robotsList.get(i).remove(j);
+      }
+    }
+    for (int i = (((Object[])Conversions.unwrapArray(this.availableRobots, Object.class)).length - 1); (i >= 0); i--) {
+      this.availableRobots.remove(i);
+    }
+    for (int i = (((Object[])Conversions.unwrapArray(this.textarray, Object.class)).length - 1); (i >= 0); i--) {
+      this.textarray.remove(i);
+    }
+    for (int i = (((Object[])Conversions.unwrapArray(this.stoppingEvents, Object.class)).length - 1); (i >= 0); i--) {
+      this.stoppingEvents.remove(i);
+    }
+    InputOutput.<String>println("removing");
     int _length = ((Object[])Conversions.unwrapArray(IteratorExtensions.<Robot>toIterable(Iterators.<Robot>filter(resource.getAllContents(), Robot.class)), Object.class)).length;
     ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
     for (final Integer i : _doubleDotLessThan) {
@@ -186,17 +201,6 @@ public class PromiseGenerator extends AbstractGenerator {
         InputOutput.<String>println(this.textarray.get(i_1));
       }
     }
-    for (int i_1 = (((Object[])Conversions.unwrapArray(this.robotsList, Object.class)).length - 1); (i_1 >= 0); i_1--) {
-      for (int j_1 = (((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length - 1); (j_1 >= 0); j_1--) {
-        this.robotsList.get(i_1).remove(j_1);
-      }
-    }
-    for (int i_1 = (((Object[])Conversions.unwrapArray(this.availableRobots, Object.class)).length - 1); (i_1 >= 0); i_1--) {
-      this.availableRobots.remove(i_1);
-    }
-    for (int i_1 = (((Object[])Conversions.unwrapArray(this.stoppingEvents, Object.class)).length - 1); (i_1 >= 0); i_1--) {
-      this.stoppingEvents.remove(i_1);
-    }
   }
   
   public Object nestedMethod(final CompositionOperator in, final int index, final int suboperator, final int robot, final int indentation, final String parent) {
@@ -246,6 +250,9 @@ public class PromiseGenerator extends AbstractGenerator {
           for (int j = 0; (j < ((Object[])Conversions.unwrapArray(this.robotsList.get(i), Object.class)).length); j++) {
             {
               counter.add(i, Integer.valueOf(j));
+              InputOutput.<String>println(((("i" + Integer.valueOf(i)) + "j") + Integer.valueOf(j)));
+              InputOutput.<Integer>println(Integer.valueOf((robot + i)));
+              InputOutput.<String>println(this.robotsList.get((robot + i)).get((counter.get(j)).intValue()).name);
               names.get((robot + i)).add(this.robotsList.get((robot + i)).get((counter.get(j)).intValue()).name);
             }
           }

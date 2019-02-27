@@ -58,6 +58,14 @@ class PromiseGenerator extends AbstractGenerator {
 	
 	public override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		
+		for (var i = robotsList.length-1 ; i >= 0; i--) {
+			for (var j = robotsList.get(i).length-1 ; j >= 0; j--) robotsList.get(i).remove(j) //Remove all the items of the list to avoid overwritting
+		}
+ 		for (var i = availableRobots.length-1 ; i >= 0; i--) availableRobots.remove(i)
+ 		for (var i = textarray.length-1 ; i >= 0; i--)	textarray.remove(i)
+ 		for (var i = stoppingEvents.length-1 ; i >= 0; i--) stoppingEvents.remove(i)
+ 		
+ 		println("removing")
 		
 		
 			for (i:0..<(resource.allContents.filter(Robot).toIterable.length)) {
@@ -111,10 +119,10 @@ class PromiseGenerator extends AbstractGenerator {
 			println(textarray.get(i))
 		}
 
-		for (var i = robotsList.length-1 ; i >= 0; i--) for (var j = robotsList.get(i).length-1 ; j >= 0; j--) robotsList.get(i).remove(j) //Remove all the items of the list to avoid overwritting
- 		for (var i = availableRobots.length-1 ; i >= 0; i--) availableRobots.remove(i)
- 		for (var i = stoppingEvents.length-1 ; i >= 0; i--) stoppingEvents.remove(i)
 		}
+		
+		
+		
 		
 		//////////////////////////Methods
 		
@@ -149,6 +157,9 @@ class PromiseGenerator extends AbstractGenerator {
 					names.add(new ArrayList<String>)
 					for(var j=0; j<(robotsList.get(i).length);j++){
 						counter.add(i,j)
+						println("i"+i+"j"+j)
+						println(robot+i)
+						println(robotsList.get(robot+i).get(counter.get(j)).name)
 						names.get(robot+i).add(robotsList.get(robot+i).get(counter.get(j)).name) 
 				}}
 			}
