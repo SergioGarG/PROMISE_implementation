@@ -9,11 +9,11 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import promise.ANDOp;
 import promise.Action;
 import promise.AvoidancePatterns;
 import promise.CompositionOperator;
 import promise.ConditionOp;
-import promise.Context;
 import promise.DelayedReaction;
 import promise.DelegateOp;
 import promise.Event;
@@ -30,6 +30,7 @@ import promise.LowerRestrictedAvoidance;
 import promise.Mission;
 import promise.MovementPatterns;
 import promise.NamedElement;
+import promise.OROp;
 import promise.Operator;
 import promise.OrderderVisit;
 import promise.OrderedPatrolling;
@@ -315,13 +316,6 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass contextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass locationEClass = null;
 
 	/**
@@ -330,6 +324,20 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * @generated
 	 */
 	private EClass simpleActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass andOpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass orOpEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -417,15 +425,6 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 */
 	public EReference getOperator_Parent() {
 		return (EReference)operatorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOperator_Label() {
-		return (EAttribute)operatorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -919,24 +918,6 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getContext() {
-		return contextEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getContext_Robot() {
-		return (EReference)contextEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getLocation() {
 		return locationEClass;
 	}
@@ -948,6 +929,24 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 */
 	public EClass getSimpleAction() {
 		return simpleActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getANDOp() {
+		return andOpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOROp() {
+		return orOpEClass;
 	}
 
 	/**
@@ -981,7 +980,6 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		operatorEClass = createEClass(OPERATOR);
 		createEReference(operatorEClass, OPERATOR__AFFECTING_EVENT);
 		createEReference(operatorEClass, OPERATOR__PARENT);
-		createEAttribute(operatorEClass, OPERATOR__LABEL);
 
 		fallBackOpEClass = createEClass(FALL_BACK_OP);
 
@@ -1072,12 +1070,13 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		instantReactionEClass = createEClass(INSTANT_REACTION);
 		createEAttribute(instantReactionEClass, INSTANT_REACTION__DESCRIPTION);
 
-		contextEClass = createEClass(CONTEXT);
-		createEReference(contextEClass, CONTEXT__ROBOT);
-
 		locationEClass = createEClass(LOCATION);
 
 		simpleActionEClass = createEClass(SIMPLE_ACTION);
+
+		andOpEClass = createEClass(AND_OP);
+
+		orOpEClass = createEClass(OR_OP);
 	}
 
 	/**
@@ -1142,12 +1141,13 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		instantReactionEClass.getESuperTypes().add(this.getTriggerPatterns());
 		locationEClass.getESuperTypes().add(this.getNamedElement());
 		simpleActionEClass.getESuperTypes().add(this.getPattern());
+		andOpEClass.getESuperTypes().add(this.getCompositionOperator());
+		orOpEClass.getESuperTypes().add(this.getCompositionOperator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperator_AffectingEvent(), this.getEvent(), null, "affectingEvent", null, 0, -1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperator_Parent(), this.getCompositionOperator(), this.getCompositionOperator_InputOperators(), "parent", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOperator_Label(), ecorePackage.getEString(), "label", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fallBackOpEClass, FallBackOp.class, "FallBackOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1238,12 +1238,13 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEClass(instantReactionEClass, InstantReaction.class, "InstantReaction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInstantReaction_Description(), ecorePackage.getEString(), "description", null, 0, 1, InstantReaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContext_Robot(), this.getRobot(), null, "robot", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(locationEClass, Location.class, "Location", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(simpleActionEClass, SimpleAction.class, "SimpleAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(andOpEClass, ANDOp.class, "ANDOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(orOpEClass, OROp.class, "OROp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

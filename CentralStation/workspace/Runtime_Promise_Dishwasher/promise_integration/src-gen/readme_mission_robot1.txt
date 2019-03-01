@@ -1,0 +1,1 @@
+Robot robot1 does  visit (without any specific order) locations l0 and  perform action clean_table and  perform action fill_dishwasher and  perform action place_pod and  perform action scrub_spots and  visit (without any specific order) locations lout

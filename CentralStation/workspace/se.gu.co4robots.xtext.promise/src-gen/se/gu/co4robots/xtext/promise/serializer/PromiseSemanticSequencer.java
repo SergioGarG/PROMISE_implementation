@@ -14,6 +14,7 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import promise.ANDOp;
 import promise.ConditionOp;
 import promise.DelayedReaction;
 import promise.DelegateOp;
@@ -29,6 +30,7 @@ import promise.InstantReaction;
 import promise.Location;
 import promise.LowerRestrictedAvoidance;
 import promise.Mission;
+import promise.OROp;
 import promise.OrderderVisit;
 import promise.OrderedPatrolling;
 import promise.ParallelOp;
@@ -61,6 +63,9 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == PromisePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case PromisePackage.AND_OP:
+				sequence_ANDOp(context, (ANDOp) semanticObject); 
+				return; 
 			case PromisePackage.ACTION:
 				sequence_Action(context, (promise.Action) semanticObject); 
 				return; 
@@ -108,6 +113,9 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case PromisePackage.MISSION:
 				sequence_Mission(context, (Mission) semanticObject); 
+				return; 
+			case PromisePackage.OR_OP:
+				sequence_OROp(context, (OROp) semanticObject); 
 				return; 
 			case PromisePackage.ORDERDER_VISIT:
 				sequence_OrderderVisit(context, (OrderderVisit) semanticObject); 
@@ -158,6 +166,19 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Operator returns ANDOp
+	 *     ANDOp returns ANDOp
+	 *
+	 * Constraint:
+	 *     ((affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)? inputOperators+=Operator inputOperators+=Operator)
+	 */
+	protected void sequence_ANDOp(ISerializationContext context, ANDOp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -403,6 +424,19 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     )
 	 */
 	protected void sequence_Mission(ISerializationContext context, Mission semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Operator returns OROp
+	 *     OROp returns OROp
+	 *
+	 * Constraint:
+	 *     ((affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)? inputOperators+=Operator inputOperators+=Operator)
+	 */
+	protected void sequence_OROp(ISerializationContext context, OROp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -188,6 +188,16 @@ public class MissionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(PromisePackage.Literals.MISSION__OPERATOR,
+				 PromiseFactory.eINSTANCE.createANDOp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PromisePackage.Literals.MISSION__OPERATOR,
+				 PromiseFactory.eINSTANCE.createOROp()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(PromisePackage.Literals.MISSION__ROBOTS,
 				 PromiseFactory.eINSTANCE.createRobot()));
 

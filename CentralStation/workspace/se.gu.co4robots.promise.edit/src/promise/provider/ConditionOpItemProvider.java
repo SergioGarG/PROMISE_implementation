@@ -12,7 +12,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import promise.ConditionOp;
 import promise.PromisePackage;
 
 /**
@@ -89,10 +88,7 @@ public class ConditionOpItemProvider extends CompositionOperatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ConditionOp)object).getLabel();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ConditionOp_type") :
-			getString("_UI_ConditionOp_type") + " " + label;
+		return getString("_UI_ConditionOp_type");
 	}
 	
 

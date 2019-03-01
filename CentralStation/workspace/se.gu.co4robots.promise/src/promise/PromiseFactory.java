@@ -283,15 +283,6 @@ public interface PromiseFactory extends EFactory {
 	InstantReaction createInstantReaction();
 
 	/**
-	 * Returns a new object of class '<em>Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Context</em>'.
-	 * @generated
-	 */
-	Context createContext();
-
-	/**
 	 * Returns a new object of class '<em>Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -308,6 +299,24 @@ public interface PromiseFactory extends EFactory {
 	 * @generated
 	 */
 	SimpleAction createSimpleAction();
+
+	/**
+	 * Returns a new object of class '<em>AND Op</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>AND Op</em>'.
+	 * @generated
+	 */
+	ANDOp createANDOp();
+
+	/**
+	 * Returns a new object of class '<em>OR Op</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>OR Op</em>'.
+	 * @generated
+	 */
+	OROp createOROp();
 
 	/**
 	 * Returns the package supported by this factory.

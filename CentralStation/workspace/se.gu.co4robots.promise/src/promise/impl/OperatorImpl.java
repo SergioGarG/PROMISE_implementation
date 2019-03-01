@@ -33,7 +33,6 @@ import promise.PromisePackage;
  * <ul>
  *   <li>{@link promise.impl.OperatorImpl#getAffectingEvent <em>Affecting Event</em>}</li>
  *   <li>{@link promise.impl.OperatorImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link promise.impl.OperatorImpl#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,26 +47,6 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected EList<Event> affectingEvent;
-
-	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String LABEL_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected String label = LABEL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,27 +125,6 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLabel() {
-		return label;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLabel(String newLabel) {
-		String oldLabel = label;
-		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PromisePackage.OPERATOR__LABEL, oldLabel, label));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -218,8 +176,6 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 				return getAffectingEvent();
 			case PromisePackage.OPERATOR__PARENT:
 				return getParent();
-			case PromisePackage.OPERATOR__LABEL:
-				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -240,9 +196,6 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 			case PromisePackage.OPERATOR__PARENT:
 				setParent((CompositionOperator)newValue);
 				return;
-			case PromisePackage.OPERATOR__LABEL:
-				setLabel((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -261,9 +214,6 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 			case PromisePackage.OPERATOR__PARENT:
 				setParent((CompositionOperator)null);
 				return;
-			case PromisePackage.OPERATOR__LABEL:
-				setLabel(LABEL_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -280,26 +230,8 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 				return affectingEvent != null && !affectingEvent.isEmpty();
 			case PromisePackage.OPERATOR__PARENT:
 				return getParent() != null;
-			case PromisePackage.OPERATOR__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (label: ");
-		result.append(label);
-		result.append(')');
-		return result.toString();
 	}
 
 } //OperatorImpl

@@ -10,6 +10,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -21,12 +22,16 @@ import se.gu.co4robots.xtext.promise.services.PromiseGrammarAccess;
 public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected PromiseGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_ANDOp_ANDKeyword_4_1_or_AmpersandKeyword_4_0_or_AndKeyword_4_2;
 	protected AbstractElementAlias match_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q;
+	protected AbstractElementAlias match_OROp_ORKeyword_4_1_or_OrKeyword_4_2_or_VerticalLineKeyword_4_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (PromiseGrammarAccess) access;
+		match_ANDOp_ANDKeyword_4_1_or_AmpersandKeyword_4_0_or_AndKeyword_4_2 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getANDOpAccess().getANDKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getANDOpAccess().getAmpersandKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getANDOpAccess().getAndKeyword_4_2()));
 		match_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMissionAccess().getConditionsKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getMissionAccess().getLeftCurlyBracketKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getMissionAccess().getRightCurlyBracketKeyword_2_4()));
+		match_OROp_ORKeyword_4_1_or_OrKeyword_4_2_or_VerticalLineKeyword_4_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOROpAccess().getORKeyword_4_1()), new TokenAlias(false, false, grammarAccess.getOROpAccess().getOrKeyword_4_2()), new TokenAlias(false, false, grammarAccess.getOROpAccess().getVerticalLineKeyword_4_0()));
 	}
 	
 	@Override
@@ -41,12 +46,27 @@ public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q.equals(syntax))
+			if (match_ANDOp_ANDKeyword_4_1_or_AmpersandKeyword_4_0_or_AndKeyword_4_2.equals(syntax))
+				emit_ANDOp_ANDKeyword_4_1_or_AmpersandKeyword_4_0_or_AndKeyword_4_2(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q.equals(syntax))
 				emit_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_OROp_ORKeyword_4_1_or_OrKeyword_4_2_or_VerticalLineKeyword_4_0.equals(syntax))
+				emit_OROp_ORKeyword_4_1_or_OrKeyword_4_2_or_VerticalLineKeyword_4_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     '&' | 'and' | 'AND'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     inputOperators+=Operator (ambiguity) inputOperators+=Operator
+	 */
+	protected void emit_ANDOp_ANDKeyword_4_1_or_AmpersandKeyword_4_0_or_AndKeyword_4_2(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     ('conditions' '{' '}')?
@@ -55,6 +75,17 @@ public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) 'mission' '{' (ambiguity) 'robots' robots+=Robot
 	 */
 	protected void emit_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'OR' | '|' | 'or'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     inputOperators+=Operator (ambiguity) inputOperators+=Operator
+	 */
+	protected void emit_OROp_ORKeyword_4_1_or_OrKeyword_4_2_or_VerticalLineKeyword_4_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

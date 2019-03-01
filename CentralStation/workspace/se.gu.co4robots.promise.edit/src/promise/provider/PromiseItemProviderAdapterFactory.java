@@ -739,29 +739,6 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link promise.Context} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ContextItemProvider contextItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link promise.Context}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createContextAdapter() {
-		if (contextItemProvider == null) {
-			contextItemProvider = new ContextItemProvider(this);
-		}
-
-		return contextItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link promise.Location} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -805,6 +782,52 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 		}
 
 		return simpleActionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link promise.ANDOp} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ANDOpItemProvider andOpItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link promise.ANDOp}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createANDOpAdapter() {
+		if (andOpItemProvider == null) {
+			andOpItemProvider = new ANDOpItemProvider(this);
+		}
+
+		return andOpItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link promise.OROp} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OROpItemProvider orOpItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link promise.OROp}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOROpAdapter() {
+		if (orOpItemProvider == null) {
+			orOpItemProvider = new OROpItemProvider(this);
+		}
+
+		return orOpItemProvider;
 	}
 
 	/**
@@ -935,9 +958,10 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 		if (waitItemProvider != null) waitItemProvider.dispose();
 		if (delayedReactionItemProvider != null) delayedReactionItemProvider.dispose();
 		if (instantReactionItemProvider != null) instantReactionItemProvider.dispose();
-		if (contextItemProvider != null) contextItemProvider.dispose();
 		if (locationItemProvider != null) locationItemProvider.dispose();
 		if (simpleActionItemProvider != null) simpleActionItemProvider.dispose();
+		if (andOpItemProvider != null) andOpItemProvider.dispose();
+		if (orOpItemProvider != null) orOpItemProvider.dispose();
 	}
 
 }

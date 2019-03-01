@@ -11,8 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import promise.FallBackOp;
-
 /**
  * This is the item provider adapter for a {@link promise.FallBackOp} object.
  * <!-- begin-user-doc -->
@@ -64,10 +62,7 @@ public class FallBackOpItemProvider extends CompositionOperatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((FallBackOp)object).getLabel();
-		return label == null || label.length() == 0 ?
-			getString("_UI_FallBackOp_type") :
-			getString("_UI_FallBackOp_type") + " " + label;
+		return getString("_UI_FallBackOp_type");
 	}
 	
 

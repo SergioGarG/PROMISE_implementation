@@ -16,6 +16,7 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import promise.ANDOp;
 import promise.Action;
 import promise.CompositionOperator;
 import promise.ConditionOp;
@@ -23,6 +24,7 @@ import promise.DelegateOp;
 import promise.Event;
 import promise.EventHandlerOp;
 import promise.FallBackOp;
+import promise.OROp;
 import promise.Operator;
 import promise.ParallelOp;
 import promise.Robot;
@@ -40,6 +42,8 @@ public class PromiseGenerator extends AbstractGenerator {
   private ArrayList<String> textarray = new ArrayList<String>();
   
   private String text = new String();
+  
+  private String template = new String();
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
@@ -72,7 +76,7 @@ public class PromiseGenerator extends AbstractGenerator {
     ArrayList<String> _arrayList = new ArrayList<String>();
     robotClass _robotClass = new robotClass(_name, _arrayList, 0);
     _get.add(_robotClass);
-    this.doLogic(((Operator[])Conversions.unwrapArray(IteratorExtensions.<Operator>toIterable(Iterators.<Operator>filter(resource.getAllContents(), Operator.class)), Operator.class))[0], 0, 0, 0, this.availableRobots.get(0));
+    this.doLogic(((Operator[])Conversions.unwrapArray(IteratorExtensions.<Operator>toIterable(Iterators.<Operator>filter(resource.getAllContents(), Operator.class)), Operator.class))[0], 0, 0, 0, this.availableRobots.get(0), "");
     ArrayList<ArrayList<String>> missionsList = new ArrayList<ArrayList<String>>();
     ArrayList<String> missions = new ArrayList<String>();
     StringConcatenation _builder = new StringConcatenation();
@@ -204,10 +208,10 @@ public class PromiseGenerator extends AbstractGenerator {
   }
   
   public Object nestedMethod(final CompositionOperator in, final int index, final int suboperator, final int robot, final int indentation, final String parent) {
-    return this.doLogic(in.getInputOperators().get(suboperator), index, robot, indentation, parent);
+    return this.doLogic(in.getInputOperators().get(suboperator), index, robot, indentation, parent, "");
   }
   
-  protected Boolean _doLogic(final SequenceOp in, final int index, final int robot, final int indentation, final String parent) {
+  protected Object _doLogic(final SequenceOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
     ArrayList<String> names = new ArrayList<String>();
     int counter = 0;
     boolean _isEmpty = this.robotsList.isEmpty();
@@ -230,7 +234,7 @@ public class PromiseGenerator extends AbstractGenerator {
     return null;
   }
   
-  protected Boolean _doLogic(final ParallelOp in, final int index, final int robot, final int indentation, final String parent) {
+  protected Object _doLogic(final ParallelOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
     String _get = this.availableRobots.get(robot);
     String _plus = ("Robot " + _get);
     String _plus_1 = (_plus + " does ");
@@ -250,9 +254,6 @@ public class PromiseGenerator extends AbstractGenerator {
           for (int j = 0; (j < ((Object[])Conversions.unwrapArray(this.robotsList.get(i), Object.class)).length); j++) {
             {
               counter.add(i, Integer.valueOf(j));
-              InputOutput.<String>println(((("i" + Integer.valueOf(i)) + "j") + Integer.valueOf(j)));
-              InputOutput.<Integer>println(Integer.valueOf((robot + i)));
-              InputOutput.<String>println(this.robotsList.get((robot + i)).get((counter.get(j)).intValue()).name);
               names.get((robot + i)).add(this.robotsList.get((robot + i)).get((counter.get(j)).intValue()).name);
             }
           }
@@ -284,7 +285,7 @@ public class PromiseGenerator extends AbstractGenerator {
     return null;
   }
   
-  protected Boolean _doLogic(final EventHandlerOp in, final int index, final int robot, final int indentation, final String parent) {
+  protected Object _doLogic(final EventHandlerOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
     this.text = (this.text + "by default ");
     this.robotsList.get(robot).get(index).missionList.add("eh");
     int counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
@@ -314,7 +315,7 @@ public class PromiseGenerator extends AbstractGenerator {
     return null;
   }
   
-  protected Boolean _doLogic(final FallBackOp in, final int index, final int robot, final int indentation, final String parent) {
+  protected Object _doLogic(final FallBackOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
     this.robotsList.get(robot).get(index).missionList.add("fb");
     int counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
     for (int i = 1; (i <= ((Object[])Conversions.unwrapArray(in.getInputOperators(), Object.class)).length); i++) {
@@ -334,50 +335,65 @@ public class PromiseGenerator extends AbstractGenerator {
     return null;
   }
   
-  protected Boolean _doLogic(final ConditionOp in, final int index, final int robot, final int indentation, final String parent) {
-    this.robotsList.get(robot).get(index).missionList.add("cond");
+  protected Object _doLogic(final ConditionOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
+    this.robotsList.get(robot).get(index).missionList.add("fb");
     int counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
     for (int i = 1; (i <= ((Object[])Conversions.unwrapArray(in.getInputOperators(), Object.class)).length); i++) {
       {
         counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
         ArrayList<robotClass> _get = this.robotsList.get(robot);
-        String _name = in.getInputEvents().get((i - 1)).getName();
-        String _plus = ("cond_" + _name);
         ArrayList<String> _arrayList = new ArrayList<String>();
-        robotClass _robotClass = new robotClass(_plus, _arrayList, (indentation + 1));
+        robotClass _robotClass = new robotClass(("fb_" + Integer.valueOf(i)), _arrayList, (indentation + 1));
         _get.add(_robotClass);
-        String _name_1 = in.getInputEvents().get((i - 1)).getName();
-        String _plus_1 = ((this.text + "if event") + _name_1);
-        String _plus_2 = (_plus_1 + " holds, it will ");
-        this.text = _plus_2;
-        String _name_2 = in.getInputEvents().get((i - 1)).getName();
-        String _plus_3 = ("cond_" + _name_2);
-        this.nestedMethod(in, counter, (i - 1), robot, (indentation + 1), _plus_3);
+        if ((i > 1)) {
+          this.text = (this.text + "if it fails, it tries to ");
+        }
+        int _plusPlus = counter++;
+        this.nestedMethod(in, _plusPlus, (i - 1), robot, (indentation + 1), ("fb_" + Integer.valueOf(i)));
       }
     }
     return null;
   }
   
-  protected Boolean _doLogic(final DelegateOp in, final int index, final int robot, final int indentation, final String parent) {
-    boolean _xblockexpression = false;
+  protected Object _doLogic(final ANDOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
+    Object _xblockexpression = null;
     {
-      String template = new String();
+      this.doLogic(in.getInputOperators().get(0), index, robot, indentation, parent, "and_left");
+      this.text = (this.text + " and ");
+      _xblockexpression = this.doLogic(in.getInputOperators().get(1), index, robot, indentation, parent, "right");
+    }
+    return _xblockexpression;
+  }
+  
+  protected Object _doLogic(final OROp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
+    Object _xblockexpression = null;
+    {
+      this.doLogic(in.getInputOperators().get(0), index, robot, indentation, parent, "or_left");
+      this.text = (this.text + " or ");
+      _xblockexpression = this.doLogic(in.getInputOperators().get(1), index, robot, indentation, parent, "right");
+    }
+    return _xblockexpression;
+  }
+  
+  protected Object _doLogic(final DelegateOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
+    Object _xblockexpression = null;
+    {
       String _name = in.getPattern().eClass().getName();
       boolean _equals = Objects.equal(_name, "Visit");
       if (_equals) {
         String _name_1 = in.getInputLocations().get(0).getName();
         String _plus = ("<> (" + _name_1);
         String _plus_1 = (_plus + ")");
-        template = _plus_1;
+        this.template = _plus_1;
         String _name_2 = in.getInputLocations().get(0).getName();
         String _plus_2 = ((this.text + " visit (without any specific order) locations ") + _name_2);
         this.text = _plus_2;
         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
           {
             String _name_3 = in.getInputLocations().get(i).getName();
-            String _plus_3 = ((template + " && <> (") + _name_3);
+            String _plus_3 = ((this.template + " && <> (") + _name_3);
             String _plus_4 = (_plus_3 + ")");
-            template = _plus_4;
+            this.template = _plus_4;
             String _name_4 = in.getInputLocations().get(i).getName();
             String _plus_5 = ((this.text + ", ") + _name_4);
             this.text = _plus_5;
@@ -390,18 +406,18 @@ public class PromiseGenerator extends AbstractGenerator {
           String _name_4 = in.getInputLocations().get(0).getName();
           String _plus_3 = ("<> (" + _name_4);
           String _plus_4 = (_plus_3 + ")");
-          template = _plus_4;
+          this.template = _plus_4;
           this.text = (this.text + "visit (without any specific order) locations ");
           for (int j = 0; (j < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); j++) {
             if ((j == 0)) {
               for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                 String _name_5 = in.getInputLocations().get(i).getName();
-                String _plus_5 = ((template + " && <> (") + _name_5);
+                String _plus_5 = ((this.template + " && <> (") + _name_5);
                 String _plus_6 = (_plus_5 + ")");
-                template = _plus_6;
+                this.template = _plus_6;
               }
               String _name_5 = in.getInputLocations().get(j).getName();
-              String _plus_5 = ((template + " && [] ((") + _name_5);
+              String _plus_5 = ((this.template + " && [] ((") + _name_5);
               String _plus_6 = (_plus_5 + ") -> X ((!");
               String _name_6 = in.getInputLocations().get(j).getName();
               String _plus_7 = (_plus_6 + _name_6);
@@ -412,10 +428,10 @@ public class PromiseGenerator extends AbstractGenerator {
               String _name_8 = in.getInputLocations().get(j).getName();
               String _plus_11 = (_plus_10 + _name_8);
               String _plus_12 = (_plus_11 + "))))");
-              template = _plus_12;
+              this.template = _plus_12;
               for (int i = 2; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                 String _name_9 = in.getInputLocations().get(j).getName();
-                String _plus_13 = ((template + " && ((!") + _name_9);
+                String _plus_13 = ((this.template + " && ((!") + _name_9);
                 String _plus_14 = (_plus_13 + ") U (");
                 String _name_10 = in.getInputLocations().get((j + 1)).getName();
                 String _plus_15 = (_plus_14 + _name_10);
@@ -423,14 +439,14 @@ public class PromiseGenerator extends AbstractGenerator {
                 String _name_11 = in.getInputLocations().get(j).getName();
                 String _plus_17 = (_plus_16 + _name_11);
                 String _plus_18 = (_plus_17 + ")))");
-                template = _plus_18;
+                this.template = _plus_18;
               }
               String _name_9 = in.getInputLocations().get(j).getName();
               String _plus_13 = (this.text + _name_9);
               this.text = _plus_13;
             } else {
               String _name_10 = in.getInputLocations().get(j).getName();
-              String _plus_14 = ((template + " && [] ((") + _name_10);
+              String _plus_14 = ((this.template + " && [] ((") + _name_10);
               String _plus_15 = (_plus_14 + ") -> X ((!");
               String _name_11 = in.getInputLocations().get(j).getName();
               String _plus_16 = (_plus_15 + _name_11);
@@ -441,11 +457,11 @@ public class PromiseGenerator extends AbstractGenerator {
               String _name_13 = in.getInputLocations().get(j).getName();
               String _plus_20 = (_plus_19 + _name_13);
               String _plus_21 = (_plus_20 + "))))");
-              template = _plus_21;
+              this.template = _plus_21;
               for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                 if ((i != j)) {
                   String _name_14 = in.getInputLocations().get(j).getName();
-                  String _plus_22 = ((template + " && ((!") + _name_14);
+                  String _plus_22 = ((this.template + " && ((!") + _name_14);
                   String _plus_23 = (_plus_22 + ") U (");
                   String _name_15 = in.getInputLocations().get(i).getName();
                   String _plus_24 = (_plus_23 + _name_15);
@@ -453,7 +469,7 @@ public class PromiseGenerator extends AbstractGenerator {
                   String _name_16 = in.getInputLocations().get(j).getName();
                   String _plus_26 = (_plus_25 + _name_16);
                   String _plus_27 = (_plus_26 + ")))");
-                  template = _plus_27;
+                  this.template = _plus_27;
                 }
               }
               String _name_14 = in.getInputLocations().get(j).getName();
@@ -469,17 +485,17 @@ public class PromiseGenerator extends AbstractGenerator {
             String _name_6 = in.getInputLocations().get(0).getName();
             String _plus_5 = ("(<> (" + _name_6);
             String _plus_6 = (_plus_5 + ")");
-            template = _plus_6;
+            this.template = _plus_6;
             this.text = (this.text + "visit (with a specific order) locations ");
             for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
               String _name_7 = in.getInputLocations().get(i).getName();
-              String _plus_7 = ((template + " && <> ((") + _name_7);
+              String _plus_7 = ((this.template + " && <> ((") + _name_7);
               String _plus_8 = (_plus_7 + ")");
-              template = _plus_8;
+              this.template = _plus_8;
             }
             for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
               {
-                template = (template + ")");
+                this.template = (this.template + ")");
                 String _name_7 = in.getInputLocations().get(i).getName();
                 String _plus_7 = (this.text + _name_7);
                 String _plus_8 = (_plus_7 + ", ");
@@ -489,12 +505,12 @@ public class PromiseGenerator extends AbstractGenerator {
             for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j > 0); j--) {
               for (int i = (j - 1); (i >= 0); i--) {
                 String _name_7 = in.getInputLocations().get(j).getName();
-                String _plus_7 = ((template + " && ((!") + _name_7);
+                String _plus_7 = ((this.template + " && ((!") + _name_7);
                 String _plus_8 = (_plus_7 + ") U (");
                 String _name_8 = in.getInputLocations().get(i).getName();
                 String _plus_9 = (_plus_8 + _name_8);
                 String _plus_10 = (_plus_9 + "))");
-                template = _plus_10;
+                this.template = _plus_10;
               }
             }
           } else {
@@ -504,17 +520,17 @@ public class PromiseGenerator extends AbstractGenerator {
               String _name_8 = in.getInputLocations().get(0).getName();
               String _plus_7 = ("<> ((" + _name_8);
               String _plus_8 = (_plus_7 + ")");
-              template = _plus_8;
+              this.template = _plus_8;
               this.text = (this.text + "visit in sequence locations ");
               for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                 String _name_9 = in.getInputLocations().get(i).getName();
-                String _plus_9 = ((template + " && (<> (") + _name_9);
+                String _plus_9 = ((this.template + " && (<> (") + _name_9);
                 String _plus_10 = (_plus_9 + ")");
-                template = _plus_10;
+                this.template = _plus_10;
               }
               for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                 {
-                  template = (template + ")");
+                  this.template = (this.template + ")");
                   String _name_9 = in.getInputLocations().get(i).getName();
                   String _plus_9 = (this.text + _name_9);
                   String _plus_10 = (_plus_9 + ", ");
@@ -528,32 +544,32 @@ public class PromiseGenerator extends AbstractGenerator {
                 String _name_10 = in.getInputLocations().get(0).getName();
                 String _plus_9 = ("<> ((" + _name_10);
                 String _plus_10 = (_plus_9 + ")");
-                template = _plus_10;
+                this.template = _plus_10;
                 String _name_11 = in.getInputLocations().get(0).getName();
                 String _plus_11 = ((this.text + "visit (with a strict order) locations ") + _name_11);
                 this.text = _plus_11;
                 for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                   {
                     String _name_12 = in.getInputLocations().get(i).getName();
-                    String _plus_12 = ((template + " && <> (") + _name_12);
+                    String _plus_12 = ((this.template + " && <> (") + _name_12);
                     String _plus_13 = (_plus_12 + ")");
-                    template = _plus_13;
+                    this.template = _plus_13;
                     String _name_13 = in.getInputLocations().get(i).getName();
                     String _plus_14 = ((this.text + ", ") + _name_13);
                     this.text = _plus_14;
                   }
                 }
-                template = (template + ")");
+                this.template = (this.template + ")");
                 for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j >= 0); j--) {
                   for (int i = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (i >= 0); i--) {
                     if ((i != j)) {
                       String _name_12 = in.getInputLocations().get(j).getName();
-                      String _plus_12 = ((template + " && ((!") + _name_12);
+                      String _plus_12 = ((this.template + " && ((!") + _name_12);
                       String _plus_13 = (_plus_12 + ") U (");
                       String _name_13 = in.getInputLocations().get(i).getName();
                       String _plus_14 = (_plus_13 + _name_13);
                       String _plus_15 = (_plus_14 + "))");
-                      template = _plus_15;
+                      this.template = _plus_15;
                     }
                   }
                 }
@@ -561,7 +577,7 @@ public class PromiseGenerator extends AbstractGenerator {
                   for (int i = (j - 1); (i >= 0); i--) {
                     if ((i != j)) {
                       String _name_12 = in.getInputLocations().get(j).getName();
-                      String _plus_12 = ((template + " && <> (") + _name_12);
+                      String _plus_12 = ((this.template + " && <> (") + _name_12);
                       String _plus_13 = (_plus_12 + " && X(((! ");
                       String _name_13 = in.getInputLocations().get(j).getName();
                       String _plus_14 = (_plus_13 + _name_13);
@@ -569,7 +585,7 @@ public class PromiseGenerator extends AbstractGenerator {
                       String _name_14 = in.getInputLocations().get(i).getName();
                       String _plus_16 = (_plus_15 + _name_14);
                       String _plus_17 = (_plus_16 + "))");
-                      template = _plus_17;
+                      this.template = _plus_17;
                     }
                   }
                 }
@@ -580,22 +596,22 @@ public class PromiseGenerator extends AbstractGenerator {
                   String _name_13 = in.getInputLocations().get(0).getName();
                   String _plus_12 = ("[] (<> (" + _name_13);
                   String _plus_13 = (_plus_12 + ")");
-                  template = _plus_13;
+                  this.template = _plus_13;
                   String _name_14 = in.getInputLocations().get(0).getName();
                   String _plus_14 = ((this.text + "patrol locations ") + _name_14);
                   this.text = _plus_14;
                   for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                     {
                       String _name_15 = in.getInputLocations().get(i).getName();
-                      String _plus_15 = ((template + " && <> (") + _name_15);
+                      String _plus_15 = ((this.template + " && <> (") + _name_15);
                       String _plus_16 = (_plus_15 + ")");
-                      template = _plus_16;
+                      this.template = _plus_16;
                       String _name_16 = in.getInputLocations().get(i).getName();
                       String _plus_17 = ((this.text + ", ") + _name_16);
                       this.text = _plus_17;
                     }
                   }
-                  template = (template + ")");
+                  this.template = (this.template + ")");
                 } else {
                   String _name_15 = in.getPattern().eClass().getName();
                   boolean _equals_6 = Objects.equal(_name_15, "FairPatrolling");
@@ -603,18 +619,18 @@ public class PromiseGenerator extends AbstractGenerator {
                     String _name_16 = in.getInputLocations().get(0).getName();
                     String _plus_15 = ("[] (<> (" + _name_16);
                     String _plus_16 = (_plus_15 + ")");
-                    template = _plus_16;
+                    this.template = _plus_16;
                     this.text = (this.text + " patrol (without any specific order) locations ");
                     for (int j = 0; (j < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); j++) {
                       if ((j == 0)) {
                         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                           String _name_17 = in.getInputLocations().get(i).getName();
-                          String _plus_17 = ((template + " && <> (") + _name_17);
+                          String _plus_17 = ((this.template + " && <> (") + _name_17);
                           String _plus_18 = (_plus_17 + ")");
-                          template = _plus_18;
+                          this.template = _plus_18;
                         }
                         String _name_17 = in.getInputLocations().get(j).getName();
-                        String _plus_17 = ((template + ") && [] ((") + _name_17);
+                        String _plus_17 = ((this.template + ") && [] ((") + _name_17);
                         String _plus_18 = (_plus_17 + ") -> X ((!");
                         String _name_18 = in.getInputLocations().get(j).getName();
                         String _plus_19 = (_plus_18 + _name_18);
@@ -622,23 +638,23 @@ public class PromiseGenerator extends AbstractGenerator {
                         String _name_19 = in.getInputLocations().get((j + 1)).getName();
                         String _plus_21 = (_plus_20 + _name_19);
                         String _plus_22 = (_plus_21 + "))");
-                        template = _plus_22;
+                        this.template = _plus_22;
                         for (int i = 2; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                           String _name_20 = in.getInputLocations().get(j).getName();
-                          String _plus_23 = ((template + " && ((!") + _name_20);
+                          String _plus_23 = ((this.template + " && ((!") + _name_20);
                           String _plus_24 = (_plus_23 + ") U (");
                           String _name_21 = in.getInputLocations().get(i).getName();
                           String _plus_25 = (_plus_24 + _name_21);
                           String _plus_26 = (_plus_25 + "))");
-                          template = _plus_26;
+                          this.template = _plus_26;
                         }
-                        template = (template + ")");
+                        this.template = (this.template + ")");
                         String _name_20 = in.getInputLocations().get(j).getName();
                         String _plus_23 = (this.text + _name_20);
                         this.text = _plus_23;
                       } else {
                         String _name_21 = in.getInputLocations().get(j).getName();
-                        String _plus_24 = ((template + " && [] ((") + _name_21);
+                        String _plus_24 = ((this.template + " && [] ((") + _name_21);
                         String _plus_25 = (_plus_24 + ") -> X ((!");
                         String _name_22 = in.getInputLocations().get(j).getName();
                         String _plus_26 = (_plus_25 + _name_22);
@@ -646,24 +662,24 @@ public class PromiseGenerator extends AbstractGenerator {
                         String _name_23 = in.getInputLocations().get(0).getName();
                         String _plus_28 = (_plus_27 + _name_23);
                         String _plus_29 = (_plus_28 + "))");
-                        template = _plus_29;
+                        this.template = _plus_29;
                         String _name_24 = in.getInputLocations().get(j).getName();
                         String _plus_30 = ((this.text + ", ") + _name_24);
                         this.text = _plus_30;
                         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                           if ((i != j)) {
                             String _name_25 = in.getInputLocations().get(j).getName();
-                            String _plus_31 = ((template + " && ((!") + _name_25);
+                            String _plus_31 = ((this.template + " && ((!") + _name_25);
                             String _plus_32 = (_plus_31 + ") U (");
                             String _name_26 = in.getInputLocations().get(i).getName();
                             String _plus_33 = (_plus_32 + _name_26);
                             String _plus_34 = (_plus_33 + "))");
-                            template = _plus_34;
+                            this.template = _plus_34;
                           }
                         }
                       }
                     }
-                    template = (template + ")");
+                    this.template = (this.template + ")");
                     this.text = (this.text + "the same number of times");
                   } else {
                     String _name_17 = in.getPattern().eClass().getName();
@@ -672,17 +688,17 @@ public class PromiseGenerator extends AbstractGenerator {
                       String _name_18 = in.getInputLocations().get(0).getName();
                       String _plus_17 = ("[] (<> ((" + _name_18);
                       String _plus_18 = (_plus_17 + ")");
-                      template = _plus_18;
+                      this.template = _plus_18;
                       this.text = (this.text + "patrol (with a specific order) locations ");
                       for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                         String _name_19 = in.getInputLocations().get(i).getName();
-                        String _plus_19 = ((template + " && <> ((") + _name_19);
+                        String _plus_19 = ((this.template + " && <> ((") + _name_19);
                         String _plus_20 = (_plus_19 + ")");
-                        template = _plus_20;
+                        this.template = _plus_20;
                       }
                       for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                         {
-                          template = (template + ")");
+                          this.template = (this.template + ")");
                           String _name_19 = in.getInputLocations().get(i).getName();
                           String _plus_19 = (this.text + _name_19);
                           String _plus_20 = (_plus_19 + ", ");
@@ -692,18 +708,18 @@ public class PromiseGenerator extends AbstractGenerator {
                       for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j > 0); j--) {
                         for (int i = (j - 1); (i >= 0); i--) {
                           String _name_19 = in.getInputLocations().get(j).getName();
-                          String _plus_19 = ((template + " && (! (") + _name_19);
+                          String _plus_19 = ((this.template + " && (! (") + _name_19);
                           String _plus_20 = (_plus_19 + ") U (");
                           String _name_20 = in.getInputLocations().get(i).getName();
                           String _plus_21 = (_plus_20 + _name_20);
                           String _plus_22 = (_plus_21 + "))");
-                          template = _plus_22;
+                          this.template = _plus_22;
                         }
                       }
                       for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j > 0); j--) {
                         for (int i = (j - 1); (i >= 0); i--) {
                           String _name_19 = in.getInputLocations().get(j).getName();
-                          String _plus_19 = ((template + " && [] (") + _name_19);
+                          String _plus_19 = ((this.template + " && [] (") + _name_19);
                           String _plus_20 = (_plus_19 + " -> X((! ");
                           String _name_20 = in.getInputLocations().get(j).getName();
                           String _plus_21 = (_plus_20 + _name_20);
@@ -711,7 +727,7 @@ public class PromiseGenerator extends AbstractGenerator {
                           String _name_21 = in.getInputLocations().get(i).getName();
                           String _plus_23 = (_plus_22 + _name_21);
                           String _plus_24 = (_plus_23 + "))");
-                          template = _plus_24;
+                          this.template = _plus_24;
                         }
                       }
                     } else {
@@ -721,34 +737,34 @@ public class PromiseGenerator extends AbstractGenerator {
                         String _name_20 = in.getInputLocations().get(0).getName();
                         String _plus_19 = ("[] (<> ((" + _name_20);
                         String _plus_20 = (_plus_19 + ")");
-                        template = _plus_20;
+                        this.template = _plus_20;
                         String _name_21 = in.getInputLocations().get(0).getName();
                         String _plus_21 = ((this.text + "patrol (with a strict order) locations ") + _name_21);
                         this.text = _plus_21;
                         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                           {
                             String _name_22 = in.getInputLocations().get(i).getName();
-                            String _plus_22 = ((template + " && <> ((") + _name_22);
+                            String _plus_22 = ((this.template + " && <> ((") + _name_22);
                             String _plus_23 = (_plus_22 + ")");
-                            template = _plus_23;
+                            this.template = _plus_23;
                             String _name_23 = in.getInputLocations().get(i).getName();
                             String _plus_24 = ((this.text + ", ") + _name_23);
                             this.text = _plus_24;
                           }
                         }
                         for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
-                          template = (template + ")");
+                          this.template = (this.template + ")");
                         }
                         for (int j = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (j >= 0); j--) {
                           for (int i = (((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length - 1); (i >= 0); i--) {
                             if ((i != j)) {
                               String _name_22 = in.getInputLocations().get(j).getName();
-                              String _plus_22 = ((template + " && ((!") + _name_22);
+                              String _plus_22 = ((this.template + " && ((!") + _name_22);
                               String _plus_23 = (_plus_22 + ") U (");
                               String _name_23 = in.getInputLocations().get(i).getName();
                               String _plus_24 = (_plus_23 + _name_23);
                               String _plus_25 = (_plus_24 + "))");
-                              template = _plus_25;
+                              this.template = _plus_25;
                             }
                           }
                         }
@@ -756,7 +772,7 @@ public class PromiseGenerator extends AbstractGenerator {
                           for (int i = (j - 1); (i >= 0); i--) {
                             if ((i != j)) {
                               String _name_22 = in.getInputLocations().get(j).getName();
-                              String _plus_22 = ((template + " && [] (") + _name_22);
+                              String _plus_22 = ((this.template + " && [] (") + _name_22);
                               String _plus_23 = (_plus_22 + " -> X((! ");
                               String _name_23 = in.getInputLocations().get(j).getName();
                               String _plus_24 = (_plus_23 + _name_23);
@@ -764,7 +780,7 @@ public class PromiseGenerator extends AbstractGenerator {
                               String _name_24 = in.getInputLocations().get(i).getName();
                               String _plus_26 = (_plus_25 + _name_24);
                               String _plus_27 = (_plus_26 + "))");
-                              template = _plus_27;
+                              this.template = _plus_27;
                             }
                           }
                         }
@@ -775,23 +791,23 @@ public class PromiseGenerator extends AbstractGenerator {
                           String _name_23 = in.getInputLocations().get(0).getName();
                           String _plus_22 = ("[] (<> ((" + _name_23);
                           String _plus_23 = (_plus_22 + ")");
-                          template = _plus_23;
+                          this.template = _plus_23;
                           String _name_24 = in.getInputLocations().get(0).getName();
                           String _plus_24 = ((this.text + "patrol in sequence locations ") + _name_24);
                           this.text = _plus_24;
                           for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                             {
                               String _name_25 = in.getInputLocations().get(i).getName();
-                              String _plus_25 = ((template + " && <> ((") + _name_25);
+                              String _plus_25 = ((this.template + " && <> ((") + _name_25);
                               String _plus_26 = (_plus_25 + ")");
-                              template = _plus_26;
+                              this.template = _plus_26;
                               String _name_26 = in.getInputLocations().get(i).getName();
                               String _plus_27 = ((this.text + ", ") + _name_26);
                               this.text = _plus_27;
                             }
                           }
                           for (int i = 0; (i < ((((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length * 2) - 1)); i++) {
-                            template = (template + ")");
+                            this.template = (this.template + ")");
                           }
                         } else {
                           String _name_25 = in.getPattern().eClass().getName();
@@ -820,7 +836,7 @@ public class PromiseGenerator extends AbstractGenerator {
                               String _name_32 = in.getInputLocations().get(0).getName();
                               String _plus_37 = (_plus_36 + _name_32);
                               String _plus_38 = (_plus_37 + "))))))))))");
-                              template = _plus_38;
+                              this.template = _plus_38;
                               String _name_33 = in.getInputLocations().get(0).getName();
                               String _plus_39 = ((this.text + "visit location ") + _name_33);
                               String _plus_40 = (_plus_39 + " an exact number of times");
@@ -849,7 +865,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                 String _description_6 = in.getInputAction().get(0).getDescription();
                                 String _plus_53 = (_plus_52 + _description_6);
                                 String _plus_54 = (_plus_53 + "))))))))))");
-                                template = _plus_54;
+                                this.template = _plus_54;
                                 String _description_7 = in.getInputAction().get(0).getDescription();
                                 String _plus_55 = ((this.text + "perform ") + _description_7);
                                 String _plus_56 = (_plus_55 + " an exact number of times");
@@ -868,7 +884,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                 String _name_35 = in.getInputLocations().get(0).getName();
                                 String _plus_59 = (_plus_58 + _name_35);
                                 String _plus_60 = (_plus_59 + "))");
-                                template = _plus_60;
+                                this.template = _plus_60;
                                 String _name_36 = in.getInputLocations().get(0).getName();
                                 String _plus_61 = ((this.text + "avoid location ") + _name_36);
                                 String _plus_62 = (_plus_61 + " if ");
@@ -885,7 +901,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                   String _description_11 = in.getInputAction().get(0).getDescription();
                                   String _plus_67 = (_plus_66 + _description_11);
                                   String _plus_68 = (_plus_67 + "))");
-                                  template = _plus_68;
+                                  this.template = _plus_68;
                                   String _description_12 = in.getInputAction().get(0).getDescription();
                                   String _plus_69 = ((this.text + "avoid action ") + _description_12);
                                   String _plus_70 = (_plus_69 + " if ");
@@ -904,7 +920,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                   String _name_38 = in.getInputLocations().get(0).getName();
                                   String _plus_73 = ("[] (! (" + _name_38);
                                   String _plus_74 = (_plus_73 + "))");
-                                  template = _plus_74;
+                                  this.template = _plus_74;
                                   String _name_39 = in.getInputLocations().get(0).getName();
                                   String _plus_75 = ((this.text + "avoid location ") + _name_39);
                                   this.text = _plus_75;
@@ -914,7 +930,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                     String _description_14 = in.getInputAction().get(0).getDescription();
                                     String _plus_76 = ("[] (! (" + _description_14);
                                     String _plus_77 = (_plus_76 + "))");
-                                    template = _plus_77;
+                                    this.template = _plus_77;
                                     String _description_15 = in.getInputAction().get(0).getDescription();
                                     String _plus_78 = ((this.text + "avoid action ") + _description_15);
                                     this.text = _plus_78;
@@ -935,7 +951,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                     String _name_43 = in.getInputLocations().get(0).getName();
                                     String _plus_83 = (_plus_82 + _name_43);
                                     String _plus_84 = (_plus_83 + ")))))");
-                                    template = _plus_84;
+                                    this.template = _plus_84;
                                     String _name_44 = in.getInputLocations().get(0).getName();
                                     String _plus_85 = ((this.text + "visit location ") + _name_44);
                                     String _plus_86 = (_plus_85 + " at least N times");
@@ -952,7 +968,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                       String _description_18 = in.getInputAction().get(0).getDescription();
                                       String _plus_91 = (_plus_90 + _description_18);
                                       String _plus_92 = (_plus_91 + ")))))");
-                                      template = _plus_92;
+                                      this.template = _plus_92;
                                       String _description_19 = in.getInputAction().get(0).getDescription();
                                       String _plus_93 = ((this.text + "perform ") + _description_19);
                                       String _plus_94 = (_plus_93 + " at least N times");
@@ -971,7 +987,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                       String _description_20 = in.getAffectingEvent().get(0).getDescription();
                                       String _plus_97 = (_plus_96 + _description_20);
                                       String _plus_98 = (_plus_97 + ")");
-                                      template = _plus_98;
+                                      this.template = _plus_98;
                                       String _name_47 = in.getInputLocations().get(0).getName();
                                       String _plus_99 = ((this.text + "avoid location ") + _name_47);
                                       String _plus_100 = (_plus_99 + " until ");
@@ -988,7 +1004,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                         String _description_23 = in.getAffectingEvent().get(0).getDescription();
                                         String _plus_105 = (_plus_104 + _description_23);
                                         String _plus_106 = (_plus_105 + ")");
-                                        template = _plus_106;
+                                        this.template = _plus_106;
                                         String _description_24 = in.getInputAction().get(0).getDescription();
                                         String _plus_107 = ((this.text + "avoid performing ") + _description_24);
                                         String _plus_108 = (_plus_107 + " until ");
@@ -1013,7 +1029,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                         String _name_51 = in.getInputLocations().get(0).getName();
                                         String _plus_115 = (_plus_114 + _name_51);
                                         String _plus_116 = (_plus_115 + ")))))");
-                                        template = _plus_116;
+                                        this.template = _plus_116;
                                         String _name_52 = in.getInputLocations().get(0).getName();
                                         String _plus_117 = ((this.text + "visit location ") + _name_52);
                                         String _plus_118 = (_plus_117 + " at most N times");
@@ -1030,7 +1046,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                           String _description_28 = in.getInputAction().get(0).getDescription();
                                           String _plus_123 = (_plus_122 + _description_28);
                                           String _plus_124 = (_plus_123 + ")))))");
-                                          template = _plus_124;
+                                          this.template = _plus_124;
                                           String _description_29 = in.getInputAction().get(0).getDescription();
                                           String _plus_125 = ((this.text + "perform ") + _description_29);
                                           String _plus_126 = (_plus_125 + " at most N times");
@@ -1049,7 +1065,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                           String _name_54 = in.getInputLocations().get(0).getName();
                                           String _plus_129 = (_plus_128 + _name_54);
                                           String _plus_130 = (_plus_129 + ")");
-                                          template = _plus_130;
+                                          this.template = _plus_130;
                                           String _name_55 = in.getInputLocations().get(0).getName();
                                           String _plus_131 = ((this.text + "visit ") + _name_55);
                                           String _plus_132 = (_plus_131 + " every time ");
@@ -1066,7 +1082,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                             String _description_33 = in.getInputAction().get(0).getDescription();
                                             String _plus_137 = (_plus_136 + _description_33);
                                             String _plus_138 = (_plus_137 + ")");
-                                            template = _plus_138;
+                                            this.template = _plus_138;
                                             String _description_34 = in.getInputAction().get(0).getDescription();
                                             String _plus_139 = ((this.text + "perform ") + _description_34);
                                             String _plus_140 = (_plus_139 + " every time ");
@@ -1088,7 +1104,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                             String _name_57 = in.getInputLocations().get(0).getName();
                                             String _plus_145 = (_plus_144 + _name_57);
                                             String _plus_146 = (_plus_145 + ")))");
-                                            template = _plus_146;
+                                            this.template = _plus_146;
                                             String _name_58 = in.getInputLocations().get(0).getName();
                                             String _plus_147 = ((this.text + "visit at some point later ") + _name_58);
                                             String _plus_148 = (_plus_147 + " every time ");
@@ -1105,7 +1121,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                               String _description_39 = in.getInputAction().get(0).getDescription();
                                               String _plus_153 = (_plus_152 + _description_39);
                                               String _plus_154 = (_plus_153 + ")))");
-                                              template = _plus_154;
+                                              this.template = _plus_154;
                                               String _description_40 = in.getInputAction().get(0).getDescription();
                                               String _plus_155 = ((this.text + "perform  at some point later ") + _description_40);
                                               String _plus_156 = (_plus_155 + " every time ");
@@ -1122,7 +1138,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                             String _name_60 = in.getInputLocations().get(0).getName();
                                             String _plus_159 = ("[] (<> (" + _name_60);
                                             String _plus_160 = (_plus_159 + "))");
-                                            template = _plus_160;
+                                            this.template = _plus_160;
                                             String _name_61 = in.getInputLocations().get(0).getName();
                                             String _plus_161 = ((this.text + "wait in location ") + _name_61);
                                             this.text = _plus_161;
@@ -1133,12 +1149,12 @@ public class PromiseGenerator extends AbstractGenerator {
                                               String _description_42 = in.getInputAction().get(0).getDescription();
                                               String _plus_162 = ("(X " + _description_42);
                                               String _plus_163 = (_plus_162 + ")");
-                                              template = _plus_163;
+                                              this.template = _plus_163;
                                               String _description_43 = in.getInputAction().get(0).getDescription();
                                               String _plus_164 = ((this.text + " perform action ") + _description_43);
                                               this.text = _plus_164;
                                             } else {
-                                              template = "Pattern not recognized";
+                                              this.template = "Pattern not recognized";
                                             }
                                           }
                                         }
@@ -1165,34 +1181,70 @@ public class PromiseGenerator extends AbstractGenerator {
         for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getStoppingEvent(), Object.class)).length); i++) {
           String _get = this.availableRobots.get(robot);
           String _plus_165 = (_get + ",");
-          String _plus_166 = (_plus_165 + template);
+          String _plus_166 = (_plus_165 + this.template);
           String _plus_167 = (_plus_166 + ",");
           String _name_63 = in.getStoppingEvent().get(i).getName();
           String _plus_168 = (_plus_167 + _name_63);
           this.stoppingEvents.add(_plus_168);
         }
       }
-      _xblockexpression = this.robotsList.get(robot).get(index).missionList.add(template);
+      Object _xifexpression = null;
+      boolean _equals_20 = Objects.equal(hybrid, "");
+      if (_equals_20) {
+        _xifexpression = Boolean.valueOf(this.robotsList.get(robot).get(index).missionList.add(this.template));
+      } else {
+        Object _xifexpression_1 = null;
+        boolean _equals_21 = Objects.equal(hybrid, "and_left");
+        if (_equals_21) {
+          _xifexpression_1 = Boolean.valueOf(this.robotsList.get(robot).get(index).missionList.add((this.template + " && ")));
+        } else {
+          Object _xifexpression_2 = null;
+          boolean _equals_22 = Objects.equal(hybrid, "or_left");
+          if (_equals_22) {
+            _xifexpression_2 = Boolean.valueOf(this.robotsList.get(robot).get(index).missionList.add((this.template + " || ")));
+          } else {
+            String _xifexpression_3 = null;
+            boolean _equals_23 = Objects.equal(hybrid, "right");
+            if (_equals_23) {
+              int _size_1 = this.robotsList.get(robot).get(index).missionList.size();
+              int _minus = (_size_1 - 1);
+              int _size_2 = this.robotsList.get(robot).get(index).missionList.size();
+              int _minus_1 = (_size_2 - 1);
+              String _get = this.robotsList.get(robot).get(index).missionList.get(_minus_1);
+              String _plus_165 = (_get + this.template);
+              _xifexpression_3 = this.robotsList.get(robot).get(index).missionList.set(_minus, _plus_165);
+            }
+            _xifexpression_2 = _xifexpression_3;
+          }
+          _xifexpression_1 = ((Object)_xifexpression_2);
+        }
+        _xifexpression = ((Object)_xifexpression_1);
+      }
+      _xblockexpression = ((Object)_xifexpression);
     }
-    return Boolean.valueOf(_xblockexpression);
+    return _xblockexpression;
   }
   
-  public Boolean doLogic(final Operator in, final int index, final int robot, final int indentation, final String parent) {
-    if (in instanceof ConditionOp) {
-      return _doLogic((ConditionOp)in, index, robot, indentation, parent);
+  public Object doLogic(final Operator in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
+    if (in instanceof ANDOp) {
+      return _doLogic((ANDOp)in, index, robot, indentation, parent, hybrid);
+    } else if (in instanceof ConditionOp) {
+      return _doLogic((ConditionOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof EventHandlerOp) {
-      return _doLogic((EventHandlerOp)in, index, robot, indentation, parent);
+      return _doLogic((EventHandlerOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof FallBackOp) {
-      return _doLogic((FallBackOp)in, index, robot, indentation, parent);
+      return _doLogic((FallBackOp)in, index, robot, indentation, parent, hybrid);
+    } else if (in instanceof OROp) {
+      return _doLogic((OROp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof ParallelOp) {
-      return _doLogic((ParallelOp)in, index, robot, indentation, parent);
+      return _doLogic((ParallelOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof SequenceOp) {
-      return _doLogic((SequenceOp)in, index, robot, indentation, parent);
+      return _doLogic((SequenceOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof DelegateOp) {
-      return _doLogic((DelegateOp)in, index, robot, indentation, parent);
+      return _doLogic((DelegateOp)in, index, robot, indentation, parent, hybrid);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(in, index, robot, indentation, parent).toString());
+        Arrays.<Object>asList(in, index, robot, indentation, parent, hybrid).toString());
     }
   }
 }

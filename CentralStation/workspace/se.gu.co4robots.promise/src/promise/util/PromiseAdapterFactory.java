@@ -212,16 +212,20 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 				return createInstantReactionAdapter();
 			}
 			@Override
-			public Adapter caseContext(Context object) {
-				return createContextAdapter();
-			}
-			@Override
 			public Adapter caseLocation(Location object) {
 				return createLocationAdapter();
 			}
 			@Override
 			public Adapter caseSimpleAction(SimpleAction object) {
 				return createSimpleActionAdapter();
+			}
+			@Override
+			public Adapter caseANDOp(ANDOp object) {
+				return createANDOpAdapter();
+			}
+			@Override
+			public Adapter caseOROp(OROp object) {
+				return createOROpAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -748,20 +752,6 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link promise.Context <em>Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see promise.Context
-	 * @generated
-	 */
-	public Adapter createContextAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link promise.Location <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -786,6 +776,34 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSimpleActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link promise.ANDOp <em>AND Op</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see promise.ANDOp
+	 * @generated
+	 */
+	public Adapter createANDOpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link promise.OROp <em>OR Op</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see promise.OROp
+	 * @generated
+	 */
+	public Adapter createOROpAdapter() {
 		return null;
 	}
 

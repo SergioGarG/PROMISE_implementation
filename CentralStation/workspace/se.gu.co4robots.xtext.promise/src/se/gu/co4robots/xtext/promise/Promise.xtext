@@ -15,7 +15,7 @@ Mission:
 	'}';
 
 Operator:
-	FallBackOp | SequenceOp | ParallelOp | EventHandlerOp | ConditionOp | DelegateOp;
+	FallBackOp | SequenceOp | ParallelOp | EventHandlerOp | ConditionOp | DelegateOp | ANDOp | OROp;
 
 
 Pattern:
@@ -70,6 +70,18 @@ DelegateOp:
 		('actions' inputAction+=[Action|EString] ( "," inputAction+=[Action|EString])* )? 
 		('affecting event' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* )? 
 		('stoppingEvents' stoppingEvent+=[Event|EString] ( "," stoppingEvent+=[Event|EString])* )? ')';
+
+ANDOp:
+	'and' '('
+		('affectingEvent' '(' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* ')' )?
+		inputOperators+=Operator ('&' | 'AND' | 'and') inputOperators+=Operator
+	')';
+
+OROp:
+	'or' '('
+		('affectingEvent' '(' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* ')' )?
+		inputOperators+=Operator ('|' | 'OR' | 'or') inputOperators+=Operator
+	')';
 
 		
 /////////////////////////////////////// Patterns

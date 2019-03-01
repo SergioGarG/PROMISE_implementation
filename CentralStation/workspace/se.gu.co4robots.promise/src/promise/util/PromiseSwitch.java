@@ -338,12 +338,6 @@ public class PromiseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PromisePackage.CONTEXT: {
-				Context context = (Context)theEObject;
-				T result = caseContext(context);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PromisePackage.LOCATION: {
 				Location location = (Location)theEObject;
 				T result = caseLocation(location);
@@ -355,6 +349,22 @@ public class PromiseSwitch<T> extends Switch<T> {
 				SimpleAction simpleAction = (SimpleAction)theEObject;
 				T result = caseSimpleAction(simpleAction);
 				if (result == null) result = casePattern(simpleAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PromisePackage.AND_OP: {
+				ANDOp andOp = (ANDOp)theEObject;
+				T result = caseANDOp(andOp);
+				if (result == null) result = caseCompositionOperator(andOp);
+				if (result == null) result = caseOperator(andOp);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PromisePackage.OR_OP: {
+				OROp orOp = (OROp)theEObject;
+				T result = caseOROp(orOp);
+				if (result == null) result = caseCompositionOperator(orOp);
+				if (result == null) result = caseOperator(orOp);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -903,21 +913,6 @@ public class PromiseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Context</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseContext(Context object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -944,6 +939,36 @@ public class PromiseSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSimpleAction(SimpleAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>AND Op</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>AND Op</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseANDOp(ANDOp object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>OR Op</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>OR Op</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOROp(OROp object) {
 		return null;
 	}
 

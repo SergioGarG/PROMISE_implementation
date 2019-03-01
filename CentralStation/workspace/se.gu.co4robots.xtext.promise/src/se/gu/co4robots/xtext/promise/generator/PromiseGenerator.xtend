@@ -23,6 +23,8 @@ import promise.SequenceOp
 import promise.EventHandlerOp
 import promise.ParallelOp
 import promise.ConditionOp
+import promise.ANDOp
+import promise.OROp
 import promise.Visit
 import promise.Patrolling
 import promise.InstantReaction
@@ -55,6 +57,7 @@ class PromiseGenerator extends AbstractGenerator {
 	
 	var textarray = new ArrayList<String> //useful text explaining the mission for the final user
 	var text = new String 
+	var template = new String 
 	
 	public override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		
@@ -71,12 +74,11 @@ class PromiseGenerator extends AbstractGenerator {
 			for (i:0..<(resource.allContents.filter(Robot).toIterable.length)) {
 					availableRobots.add(resource.allContents.filter(Robot).toIterable.get(i).name)
 					robotsList.add(new ArrayList<robotClass>)
-					//textarray.add(resource.allContents.filter(Robot).toIterable.get(i).name)
 				}
 			
 
 			robotsList.get(0).add(new robotClass(resource.allContents.filter(Robot).toIterable.get(0).name, new ArrayList<String>, 0))
-			doLogic(resource.allContents.filter(Operator).toIterable.get(0), 0, 0, 0, availableRobots.get(0)) //perform the mission starting from the first robot and the first instantiation of robotClass
+			doLogic(resource.allContents.filter(Operator).toIterable.get(0), 0, 0, 0, availableRobots.get(0), "") //perform the mission starting from the first robot and the first instantiation of robotClass
 			var missionsList=new ArrayList<ArrayList<String>> //list of all the missions within the global mission
 			var missions=new ArrayList<String> //list of each missions within the global mission
 			
@@ -121,18 +123,15 @@ class PromiseGenerator extends AbstractGenerator {
 
 		}
 		
-		
-		
-		
 		//////////////////////////Methods
 		
 		def nestedMethod(CompositionOperator in, int index, int suboperator, int robot, int indentation, String parent){
-			doLogic(in.inputOperators.get(suboperator), index, robot, indentation, parent)		
+			doLogic(in.inputOperators.get(suboperator), index, robot, indentation, parent, "")		
 		}
 		
 		///////////////Composition operators
 		
-		def dispatch doLogic(SequenceOp in, int index, int robot, int indentation, String parent){
+		def dispatch doLogic(SequenceOp in, int index, int robot, int indentation, String parent, String hybrid){ 
 			var names = new ArrayList<String>
 			var int counter 
 			if (!robotsList.empty) { 
@@ -140,11 +139,11 @@ class PromiseGenerator extends AbstractGenerator {
 			}
 			for (i : 0..<(in.inputOperators.toArray.length)) {
 				if (i>0) text=text+" and "
-					nestedMethod(in, index, i, robot, indentation, parent) //nestedMethod(in, names.indexOf(parent), i, robot, indentation, parent) 
+					nestedMethod(in, index, i, robot, indentation, parent) 
 				}
 		}
 		
-		def dispatch doLogic(ParallelOp in, int index, int robot, int indentation, String parent){
+		def dispatch doLogic(ParallelOp in, int index, int robot, int indentation, String parent, String hybrid){
 			//text= "Robot "+availableRobots.get(robot)+" does " 
 			text="Robot "+availableRobots.get(robot)+" does "
 			nestedMethod(in, index, 0, robot, indentation, availableRobots.get(robot))
@@ -157,9 +156,6 @@ class PromiseGenerator extends AbstractGenerator {
 					names.add(new ArrayList<String>)
 					for(var j=0; j<(robotsList.get(i).length);j++){
 						counter.add(i,j)
-						println("i"+i+"j"+j)
-						println(robot+i)
-						println(robotsList.get(robot+i).get(counter.get(j)).name)
 						names.get(robot+i).add(robotsList.get(robot+i).get(counter.get(j)).name) 
 				}}
 			}
@@ -173,7 +169,7 @@ class PromiseGenerator extends AbstractGenerator {
 				}}
 		}
 		
-		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent){
+		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent, String hybrid){
 			text= text+"by default "
 			robotsList.get(robot).get(index).missionList.add("eh")
 			var int counter = robotsList.get(robot).length
@@ -187,7 +183,7 @@ class PromiseGenerator extends AbstractGenerator {
 			}
 		}
 		
-		def dispatch doLogic(FallBackOp in, int index, int robot, int indentation, String parent){
+		def dispatch doLogic(FallBackOp in, int index, int robot, int indentation, String parent, String hybrid){
 			robotsList.get(robot).get(index).missionList.add("fb")
 			var int counter = robotsList.get(robot).length
 			for(var i=1; i<=(in.inputOperators.length); i++) {
@@ -197,24 +193,36 @@ class PromiseGenerator extends AbstractGenerator {
 				nestedMethod(in, counter++, i-1, robot, indentation+1, "fb_"+i)
 			}	
 		}
-		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent){
-			robotsList.get(robot).get(index).missionList.add("cond")
+		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent, String hybrid){
+			robotsList.get(robot).get(index).missionList.add("fb")
 			var int counter = robotsList.get(robot).length
 			for(var i=1; i<=(in.inputOperators.length); i++) {
 				counter = robotsList.get(robot).length
-				robotsList.get(robot).add(new robotClass("cond_"+in.inputEvents.get(i-1).name, new ArrayList<String>, indentation+1))
-				text= text+"if event"+in.inputEvents.get(i-1).name+" holds, it will "
-				nestedMethod(in, counter, i-1, robot, indentation+1, "cond_"+in.inputEvents.get(i-1).name)
+				robotsList.get(robot).add(new robotClass("fb_"+i, new ArrayList<String>, indentation+1))
+				if (i>1) text= text+"if it fails, it tries to "
+				nestedMethod(in, counter++, i-1, robot, indentation+1, "fb_"+i)
 			}
 		}
 		
-		/////////////////Delegate operators
+		def dispatch doLogic(ANDOp in, int index, int robot, int indentation, String parent, String hybrid){	 
+			//doLogic(in.left, index, robot, indentation, parent, "and_left")
+			doLogic(in.inputOperators.get(0), index, robot, indentation, parent, "and_left")		
+			text=text+" and "	
+			//doLogic(in.right, index, robot, indentation, parent, "right")
+			doLogic(in.inputOperators.get(1), index, robot, indentation, parent, "right")		
+		}
 		
-		def dispatch doLogic(DelegateOp in, int index, int robot, int indentation, String parent){
+		def dispatch doLogic(OROp in, int index, int robot, int indentation, String parent, String hybrid){
+			doLogic(in.inputOperators.get(0), index, robot, indentation, parent, "or_left")		
+			text=text+" or "	
+			doLogic(in.inputOperators.get(1), index, robot, indentation, parent, "right")		
+		}
+		
+		/////////////////Delegate operators
+
+		def dispatch doLogic(DelegateOp in, int index, int robot, int indentation, String parent, String hybrid){
 
 ////////////////Passing an LTL formula
-			var template = new String 
-			
 			
 			////Core Movement Patterns
 			if(in.pattern.eClass.name == "Visit") {
@@ -468,7 +476,13 @@ class PromiseGenerator extends AbstractGenerator {
 					stoppingEvents.add(availableRobots.get(robot)+','+template+','+in.stoppingEvent.get(i).name)
 				}
 			}
-			robotsList.get(robot).get(index).missionList.add(template)
+			
+			if(hybrid == "") robotsList.get(robot).get(index).missionList.add(template)
+			else if(hybrid == "and_left") robotsList.get(robot).get(index).missionList.add(template+' && ')
+			else if(hybrid == "or_left") robotsList.get(robot).get(index).missionList.add(template+' || ')
+			else if(hybrid == "right") {
+				robotsList.get(robot).get(index).missionList.set(robotsList.get(robot).get(index).missionList.size-1, robotsList.get(robot).get(index).missionList.get(robotsList.get(robot).get(index).missionList.size-1)+template)
+			}
 		}
 		
 

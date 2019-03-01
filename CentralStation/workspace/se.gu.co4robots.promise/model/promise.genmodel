@@ -9,7 +9,6 @@
     <genClasses image="false" ecoreClass="promise.ecore#//Operator">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//Operator/affectingEvent"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference promise.ecore#//Operator/parent"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute promise.ecore#//Operator/label"/>
     </genClasses>
     <genClasses ecoreClass="promise.ecore#//FallBackOp"/>
     <genClasses ecoreClass="promise.ecore#//SequenceOp"/>
@@ -76,10 +75,9 @@
     <genClasses ecoreClass="promise.ecore#//InstantReaction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute promise.ecore#//InstantReaction/description"/>
     </genClasses>
-    <genClasses ecoreClass="promise.ecore#//Context">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//Context/robot"/>
-    </genClasses>
     <genClasses ecoreClass="promise.ecore#//Location"/>
     <genClasses ecoreClass="promise.ecore#//SimpleAction"/>
+    <genClasses ecoreClass="promise.ecore#//ANDOp"/>
+    <genClasses ecoreClass="promise.ecore#//OROp"/>
   </genPackages>
 </genmodel:GenModel>

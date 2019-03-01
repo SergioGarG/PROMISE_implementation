@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link promise.Operator#getAffectingEvent <em>Affecting Event</em>}</li>
  *   <li>{@link promise.Operator#getParent <em>Parent</em>}</li>
- *   <li>{@link promise.Operator#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @see promise.PromisePackage#getOperator()
@@ -68,31 +67,5 @@ public interface Operator extends EObject {
 	 * @generated
 	 */
 	void setParent(CompositionOperator value);
-
-	/**
-	 * Returns the value of the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Label</em>' attribute.
-	 * @see #setLabel(String)
-	 * @see promise.PromisePackage#getOperator_Label()
-	 * @model
-	 * @generated
-	 */
-	String getLabel();
-
-	/**
-	 * Sets the value of the '{@link promise.Operator#getLabel <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' attribute.
-	 * @see #getLabel()
-	 * @generated
-	 */
-	void setLabel(String value);
 
 } // Operator

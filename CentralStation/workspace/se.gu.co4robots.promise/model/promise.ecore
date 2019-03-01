@@ -6,7 +6,6 @@
         eType="#//Event"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//CompositionOperator"
         eOpposite="#//CompositionOperator/inputOperators"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FallBackOp" eSuperTypes="#//CompositionOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="SequenceOp" eSuperTypes="#//CompositionOperator"/>
@@ -87,10 +86,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="InstantReaction" eSuperTypes="#//TriggerPatterns">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Context">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="robot" upperBound="-1"
-        eType="#//Robot" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Location" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleAction" eSuperTypes="#//Pattern"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ANDOp" eSuperTypes="#//CompositionOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OROp" eSuperTypes="#//CompositionOperator"/>
 </ecore:EPackage>

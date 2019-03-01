@@ -252,12 +252,14 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEventHandlerOpParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cConditionOpParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cDelegateOpParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cANDOpParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cOROpParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//Operator:
-		//	FallBackOp | SequenceOp | ParallelOp | EventHandlerOp | ConditionOp | DelegateOp;
+		//	FallBackOp | SequenceOp | ParallelOp | EventHandlerOp | ConditionOp | DelegateOp | ANDOp | OROp;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//FallBackOp | SequenceOp | ParallelOp | EventHandlerOp | ConditionOp | DelegateOp
+		//FallBackOp | SequenceOp | ParallelOp | EventHandlerOp | ConditionOp | DelegateOp | ANDOp | OROp
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//FallBackOp
@@ -277,6 +279,12 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DelegateOp
 		public RuleCall getDelegateOpParserRuleCall_5() { return cDelegateOpParserRuleCall_5; }
+		
+		//ANDOp
+		public RuleCall getANDOpParserRuleCall_6() { return cANDOpParserRuleCall_6; }
+		
+		//OROp
+		public RuleCall getOROpParserRuleCall_7() { return cOROpParserRuleCall_7; }
 	}
 	public class PatternElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.Pattern");
@@ -1205,6 +1213,218 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_11() { return cRightParenthesisKeyword_11; }
 	}
+	public class ANDOpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.ANDOp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAndKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cAffectingEventKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cAffectingEventAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final CrossReference cAffectingEventEventCrossReference_2_2_0 = (CrossReference)cAffectingEventAssignment_2_2.eContents().get(0);
+		private final RuleCall cAffectingEventEventEStringParserRuleCall_2_2_0_1 = (RuleCall)cAffectingEventEventCrossReference_2_2_0.eContents().get(1);
+		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
+		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cAffectingEventAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final CrossReference cAffectingEventEventCrossReference_2_3_1_0 = (CrossReference)cAffectingEventAssignment_2_3_1.eContents().get(0);
+		private final RuleCall cAffectingEventEventEStringParserRuleCall_2_3_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_2_3_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Assignment cInputOperatorsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_0 = (RuleCall)cInputOperatorsAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Keyword cAmpersandKeyword_4_0 = (Keyword)cAlternatives_4.eContents().get(0);
+		private final Keyword cANDKeyword_4_1 = (Keyword)cAlternatives_4.eContents().get(1);
+		private final Keyword cAndKeyword_4_2 = (Keyword)cAlternatives_4.eContents().get(2);
+		private final Assignment cInputOperatorsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_5_0 = (RuleCall)cInputOperatorsAssignment_5.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//ANDOp:
+		//	'and' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+		//	inputOperators+=Operator ('&' | 'AND' | 'and') inputOperators+=Operator
+		//	')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'and' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+		//inputOperators+=Operator ('&' | 'AND' | 'and') inputOperators+=Operator ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'and'
+		public Keyword getAndKeyword_0() { return cAndKeyword_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'affectingEvent'
+		public Keyword getAffectingEventKeyword_2_0() { return cAffectingEventKeyword_2_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_1() { return cLeftParenthesisKeyword_2_1; }
+		
+		//affectingEvent+=[Event|EString]
+		public Assignment getAffectingEventAssignment_2_2() { return cAffectingEventAssignment_2_2; }
+		
+		//[Event|EString]
+		public CrossReference getAffectingEventEventCrossReference_2_2_0() { return cAffectingEventEventCrossReference_2_2_0; }
+		
+		//EString
+		public RuleCall getAffectingEventEventEStringParserRuleCall_2_2_0_1() { return cAffectingEventEventEStringParserRuleCall_2_2_0_1; }
+		
+		//("," affectingEvent+=[Event|EString])*
+		public Group getGroup_2_3() { return cGroup_2_3; }
+		
+		//","
+		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
+		
+		//affectingEvent+=[Event|EString]
+		public Assignment getAffectingEventAssignment_2_3_1() { return cAffectingEventAssignment_2_3_1; }
+		
+		//[Event|EString]
+		public CrossReference getAffectingEventEventCrossReference_2_3_1_0() { return cAffectingEventEventCrossReference_2_3_1_0; }
+		
+		//EString
+		public RuleCall getAffectingEventEventEStringParserRuleCall_2_3_1_0_1() { return cAffectingEventEventEStringParserRuleCall_2_3_1_0_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
+		
+		//inputOperators+=Operator
+		public Assignment getInputOperatorsAssignment_3() { return cInputOperatorsAssignment_3; }
+		
+		//Operator
+		public RuleCall getInputOperatorsOperatorParserRuleCall_3_0() { return cInputOperatorsOperatorParserRuleCall_3_0; }
+		
+		//'&' | 'AND' | 'and'
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		
+		//'&'
+		public Keyword getAmpersandKeyword_4_0() { return cAmpersandKeyword_4_0; }
+		
+		//'AND'
+		public Keyword getANDKeyword_4_1() { return cANDKeyword_4_1; }
+		
+		//'and'
+		public Keyword getAndKeyword_4_2() { return cAndKeyword_4_2; }
+		
+		//inputOperators+=Operator
+		public Assignment getInputOperatorsAssignment_5() { return cInputOperatorsAssignment_5; }
+		
+		//Operator
+		public RuleCall getInputOperatorsOperatorParserRuleCall_5_0() { return cInputOperatorsOperatorParserRuleCall_5_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+	}
+	public class OROpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.OROp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cOrKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cAffectingEventKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cAffectingEventAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final CrossReference cAffectingEventEventCrossReference_2_2_0 = (CrossReference)cAffectingEventAssignment_2_2.eContents().get(0);
+		private final RuleCall cAffectingEventEventEStringParserRuleCall_2_2_0_1 = (RuleCall)cAffectingEventEventCrossReference_2_2_0.eContents().get(1);
+		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
+		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cAffectingEventAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final CrossReference cAffectingEventEventCrossReference_2_3_1_0 = (CrossReference)cAffectingEventAssignment_2_3_1.eContents().get(0);
+		private final RuleCall cAffectingEventEventEStringParserRuleCall_2_3_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_2_3_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Assignment cInputOperatorsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_0 = (RuleCall)cInputOperatorsAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Keyword cVerticalLineKeyword_4_0 = (Keyword)cAlternatives_4.eContents().get(0);
+		private final Keyword cORKeyword_4_1 = (Keyword)cAlternatives_4.eContents().get(1);
+		private final Keyword cOrKeyword_4_2 = (Keyword)cAlternatives_4.eContents().get(2);
+		private final Assignment cInputOperatorsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_5_0 = (RuleCall)cInputOperatorsAssignment_5.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//OROp:
+		//	'or' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+		//	inputOperators+=Operator ('|' | 'OR' | 'or') inputOperators+=Operator
+		//	')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'or' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+		//inputOperators+=Operator ('|' | 'OR' | 'or') inputOperators+=Operator ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'or'
+		public Keyword getOrKeyword_0() { return cOrKeyword_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'affectingEvent'
+		public Keyword getAffectingEventKeyword_2_0() { return cAffectingEventKeyword_2_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_1() { return cLeftParenthesisKeyword_2_1; }
+		
+		//affectingEvent+=[Event|EString]
+		public Assignment getAffectingEventAssignment_2_2() { return cAffectingEventAssignment_2_2; }
+		
+		//[Event|EString]
+		public CrossReference getAffectingEventEventCrossReference_2_2_0() { return cAffectingEventEventCrossReference_2_2_0; }
+		
+		//EString
+		public RuleCall getAffectingEventEventEStringParserRuleCall_2_2_0_1() { return cAffectingEventEventEStringParserRuleCall_2_2_0_1; }
+		
+		//("," affectingEvent+=[Event|EString])*
+		public Group getGroup_2_3() { return cGroup_2_3; }
+		
+		//","
+		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
+		
+		//affectingEvent+=[Event|EString]
+		public Assignment getAffectingEventAssignment_2_3_1() { return cAffectingEventAssignment_2_3_1; }
+		
+		//[Event|EString]
+		public CrossReference getAffectingEventEventCrossReference_2_3_1_0() { return cAffectingEventEventCrossReference_2_3_1_0; }
+		
+		//EString
+		public RuleCall getAffectingEventEventEStringParserRuleCall_2_3_1_0_1() { return cAffectingEventEventEStringParserRuleCall_2_3_1_0_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
+		
+		//inputOperators+=Operator
+		public Assignment getInputOperatorsAssignment_3() { return cInputOperatorsAssignment_3; }
+		
+		//Operator
+		public RuleCall getInputOperatorsOperatorParserRuleCall_3_0() { return cInputOperatorsOperatorParserRuleCall_3_0; }
+		
+		//'|' | 'OR' | 'or'
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		
+		//'|'
+		public Keyword getVerticalLineKeyword_4_0() { return cVerticalLineKeyword_4_0; }
+		
+		//'OR'
+		public Keyword getORKeyword_4_1() { return cORKeyword_4_1; }
+		
+		//'or'
+		public Keyword getOrKeyword_4_2() { return cOrKeyword_4_2; }
+		
+		//inputOperators+=Operator
+		public Assignment getInputOperatorsAssignment_5() { return cInputOperatorsAssignment_5; }
+		
+		//Operator
+		public RuleCall getInputOperatorsOperatorParserRuleCall_5_0() { return cInputOperatorsOperatorParserRuleCall_5_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+	}
 	public class SimpleActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.SimpleAction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1643,6 +1863,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	private final EventHandlerOpElements pEventHandlerOp;
 	private final ConditionOpElements pConditionOp;
 	private final DelegateOpElements pDelegateOp;
+	private final ANDOpElements pANDOp;
+	private final OROpElements pOROp;
 	private final SimpleActionElements pSimpleAction;
 	private final VisitElements pVisit;
 	private final SequencedVisitElements pSequencedVisit;
@@ -1687,6 +1909,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEventHandlerOp = new EventHandlerOpElements();
 		this.pConditionOp = new ConditionOpElements();
 		this.pDelegateOp = new DelegateOpElements();
+		this.pANDOp = new ANDOpElements();
+		this.pOROp = new OROpElements();
 		this.pSimpleAction = new SimpleActionElements();
 		this.pVisit = new VisitElements();
 		this.pSequencedVisit = new SequencedVisitElements();
@@ -1753,7 +1977,7 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Operator:
-	//	FallBackOp | SequenceOp | ParallelOp | EventHandlerOp | ConditionOp | DelegateOp;
+	//	FallBackOp | SequenceOp | ParallelOp | EventHandlerOp | ConditionOp | DelegateOp | ANDOp | OROp;
 	public OperatorElements getOperatorAccess() {
 		return pOperator;
 	}
@@ -1887,6 +2111,30 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDelegateOpRule() {
 		return getDelegateOpAccess().getRule();
+	}
+	
+	//ANDOp:
+	//	'and' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+	//	inputOperators+=Operator ('&' | 'AND' | 'and') inputOperators+=Operator
+	//	')';
+	public ANDOpElements getANDOpAccess() {
+		return pANDOp;
+	}
+	
+	public ParserRule getANDOpRule() {
+		return getANDOpAccess().getRule();
+	}
+	
+	//OROp:
+	//	'or' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+	//	inputOperators+=Operator ('|' | 'OR' | 'or') inputOperators+=Operator
+	//	')';
+	public OROpElements getOROpAccess() {
+		return pOROp;
+	}
+	
+	public ParserRule getOROpRule() {
+		return getOROpAccess().getRule();
 	}
 	
 	///////////////////////////////////////// Patterns

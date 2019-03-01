@@ -1,3 +1,3 @@
-robot1[<> (l0), (X clean_table), (X fill_dishwasher), (X place_pod), cond, <> (lout)]
+robot1[<> (l0), (X clean_table), (X fill_dishwasher), (X place_pod), fb, <> (lout)]
 
-	cond_e1[(X scrub_spots)]
+	fb_1[(X scrub_spots)]

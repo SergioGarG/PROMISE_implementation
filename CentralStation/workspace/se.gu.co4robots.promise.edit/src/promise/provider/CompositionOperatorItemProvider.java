@@ -88,10 +88,7 @@ public class CompositionOperatorItemProvider extends OperatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CompositionOperator)object).getLabel();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CompositionOperator_type") :
-			getString("_UI_CompositionOperator_type") + " " + label;
+		return getString("_UI_CompositionOperator_type");
 	}
 	
 
@@ -154,6 +151,16 @@ public class CompositionOperatorItemProvider extends OperatorItemProvider {
 			(createChildParameter
 				(PromisePackage.Literals.COMPOSITION_OPERATOR__INPUT_OPERATORS,
 				 PromiseFactory.eINSTANCE.createDelegateOp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PromisePackage.Literals.COMPOSITION_OPERATOR__INPUT_OPERATORS,
+				 PromiseFactory.eINSTANCE.createANDOp()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PromisePackage.Literals.COMPOSITION_OPERATOR__INPUT_OPERATORS,
+				 PromiseFactory.eINSTANCE.createOROp()));
 	}
 
 }

@@ -440,6 +440,24 @@ ruleOperator returns [EObject current=null]
 			$current = $this_DelegateOp_5.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getOperatorAccess().getANDOpParserRuleCall_6());
+		}
+		this_ANDOp_6=ruleANDOp
+		{
+			$current = $this_ANDOp_6.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getOperatorAccess().getOROpParserRuleCall_7());
+		}
+		this_OROp_7=ruleOROp
+		{
+			$current = $this_OROp_7.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -1741,6 +1759,280 @@ ruleDelegateOp returns [EObject current=null]
 		otherlv_24=')'
 		{
 			newLeafNode(otherlv_24, grammarAccess.getDelegateOpAccess().getRightParenthesisKeyword_11());
+		}
+	)
+;
+
+// Entry rule entryRuleANDOp
+entryRuleANDOp returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getANDOpRule()); }
+	iv_ruleANDOp=ruleANDOp
+	{ $current=$iv_ruleANDOp.current; }
+	EOF;
+
+// Rule ANDOp
+ruleANDOp returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='and'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getANDOpAccess().getAndKeyword_0());
+		}
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getANDOpAccess().getLeftParenthesisKeyword_1());
+		}
+		(
+			otherlv_2='affectingEvent'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getANDOpAccess().getAffectingEventKeyword_2_0());
+			}
+			otherlv_3='('
+			{
+				newLeafNode(otherlv_3, grammarAccess.getANDOpAccess().getLeftParenthesisKeyword_2_1());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getANDOpRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getANDOpAccess().getAffectingEventEventCrossReference_2_2_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_5=','
+				{
+					newLeafNode(otherlv_5, grammarAccess.getANDOpAccess().getCommaKeyword_2_3_0());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getANDOpRule());
+							}
+						}
+						{
+							newCompositeNode(grammarAccess.getANDOpAccess().getAffectingEventEventCrossReference_2_3_1_0());
+						}
+						ruleEString
+						{
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_7=')'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getANDOpAccess().getRightParenthesisKeyword_2_4());
+			}
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getANDOpAccess().getInputOperatorsOperatorParserRuleCall_3_0());
+				}
+				lv_inputOperators_8_0=ruleOperator
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getANDOpRule());
+					}
+					add(
+						$current,
+						"inputOperators",
+						lv_inputOperators_8_0,
+						"se.gu.co4robots.xtext.promise.Promise.Operator");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_9='&'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getANDOpAccess().getAmpersandKeyword_4_0());
+			}
+			    |
+			otherlv_10='AND'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getANDOpAccess().getANDKeyword_4_1());
+			}
+			    |
+			otherlv_11='and'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getANDOpAccess().getAndKeyword_4_2());
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getANDOpAccess().getInputOperatorsOperatorParserRuleCall_5_0());
+				}
+				lv_inputOperators_12_0=ruleOperator
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getANDOpRule());
+					}
+					add(
+						$current,
+						"inputOperators",
+						lv_inputOperators_12_0,
+						"se.gu.co4robots.xtext.promise.Promise.Operator");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_13=')'
+		{
+			newLeafNode(otherlv_13, grammarAccess.getANDOpAccess().getRightParenthesisKeyword_6());
+		}
+	)
+;
+
+// Entry rule entryRuleOROp
+entryRuleOROp returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getOROpRule()); }
+	iv_ruleOROp=ruleOROp
+	{ $current=$iv_ruleOROp.current; }
+	EOF;
+
+// Rule OROp
+ruleOROp returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='or'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getOROpAccess().getOrKeyword_0());
+		}
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getOROpAccess().getLeftParenthesisKeyword_1());
+		}
+		(
+			otherlv_2='affectingEvent'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getOROpAccess().getAffectingEventKeyword_2_0());
+			}
+			otherlv_3='('
+			{
+				newLeafNode(otherlv_3, grammarAccess.getOROpAccess().getLeftParenthesisKeyword_2_1());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getOROpRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getOROpAccess().getAffectingEventEventCrossReference_2_2_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_5=','
+				{
+					newLeafNode(otherlv_5, grammarAccess.getOROpAccess().getCommaKeyword_2_3_0());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getOROpRule());
+							}
+						}
+						{
+							newCompositeNode(grammarAccess.getOROpAccess().getAffectingEventEventCrossReference_2_3_1_0());
+						}
+						ruleEString
+						{
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+			otherlv_7=')'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getOROpAccess().getRightParenthesisKeyword_2_4());
+			}
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getOROpAccess().getInputOperatorsOperatorParserRuleCall_3_0());
+				}
+				lv_inputOperators_8_0=ruleOperator
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getOROpRule());
+					}
+					add(
+						$current,
+						"inputOperators",
+						lv_inputOperators_8_0,
+						"se.gu.co4robots.xtext.promise.Promise.Operator");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_9='|'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getOROpAccess().getVerticalLineKeyword_4_0());
+			}
+			    |
+			otherlv_10='OR'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getOROpAccess().getORKeyword_4_1());
+			}
+			    |
+			otherlv_11='or'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getOROpAccess().getOrKeyword_4_2());
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getOROpAccess().getInputOperatorsOperatorParserRuleCall_5_0());
+				}
+				lv_inputOperators_12_0=ruleOperator
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getOROpRule());
+					}
+					add(
+						$current,
+						"inputOperators",
+						lv_inputOperators_12_0,
+						"se.gu.co4robots.xtext.promise.Promise.Operator");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_13=')'
+		{
+			newLeafNode(otherlv_13, grammarAccess.getOROpAccess().getRightParenthesisKeyword_6());
 		}
 	)
 ;

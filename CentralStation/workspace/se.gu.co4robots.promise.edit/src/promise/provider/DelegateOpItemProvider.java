@@ -192,10 +192,7 @@ public class DelegateOpItemProvider extends OperatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DelegateOp)object).getLabel();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DelegateOp_type") :
-			getString("_UI_DelegateOp_type") + " " + label;
+		return getString("_UI_DelegateOp_type");
 	}
 	
 

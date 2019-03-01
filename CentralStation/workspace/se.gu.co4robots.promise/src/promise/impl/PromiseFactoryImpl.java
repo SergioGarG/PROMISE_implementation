@@ -85,9 +85,10 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 			case PromisePackage.WAIT: return createWait();
 			case PromisePackage.DELAYED_REACTION: return createDelayedReaction();
 			case PromisePackage.INSTANT_REACTION: return createInstantReaction();
-			case PromisePackage.CONTEXT: return createContext();
 			case PromisePackage.LOCATION: return createLocation();
 			case PromisePackage.SIMPLE_ACTION: return createSimpleAction();
+			case PromisePackage.AND_OP: return createANDOp();
+			case PromisePackage.OR_OP: return createOROp();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -388,16 +389,6 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Context createContext() {
-		ContextImpl context = new ContextImpl();
-		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Location createLocation() {
 		LocationImpl location = new LocationImpl();
 		return location;
@@ -411,6 +402,26 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	public SimpleAction createSimpleAction() {
 		SimpleActionImpl simpleAction = new SimpleActionImpl();
 		return simpleAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ANDOp createANDOp() {
+		ANDOpImpl andOp = new ANDOpImpl();
+		return andOp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OROp createOROp() {
+		OROpImpl orOp = new OROpImpl();
+		return orOp;
 	}
 
 	/**

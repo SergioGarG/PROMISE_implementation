@@ -11,8 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import promise.ParallelOp;
-
 /**
  * This is the item provider adapter for a {@link promise.ParallelOp} object.
  * <!-- begin-user-doc -->
@@ -64,10 +62,7 @@ public class ParallelOpItemProvider extends CompositionOperatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ParallelOp)object).getLabel();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ParallelOp_type") :
-			getString("_UI_ParallelOp_type") + " " + label;
+		return getString("_UI_ParallelOp_type");
 	}
 	
 

@@ -12,7 +12,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import promise.EventHandlerOp;
 import promise.PromisePackage;
 
 /**
@@ -89,10 +88,7 @@ public class EventHandlerOpItemProvider extends CompositionOperatorItemProvider 
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EventHandlerOp)object).getLabel();
-		return label == null || label.length() == 0 ?
-			getString("_UI_EventHandlerOp_type") :
-			getString("_UI_EventHandlerOp_type") + " " + label;
+		return getString("_UI_EventHandlerOp_type");
 	}
 	
 

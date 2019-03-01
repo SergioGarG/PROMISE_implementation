@@ -33,6 +33,8 @@ public class PromiseParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
 					put(grammarAccess.getPatternAccess().getAlternatives(), "rule__Pattern__Alternatives");
+					put(grammarAccess.getANDOpAccess().getAlternatives_4(), "rule__ANDOp__Alternatives_4");
+					put(grammarAccess.getOROpAccess().getAlternatives_4(), "rule__OROp__Alternatives_4");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getMissionAccess().getGroup(), "rule__Mission__Group__0");
 					put(grammarAccess.getMissionAccess().getGroup_2(), "rule__Mission__Group_2__0");
@@ -76,6 +78,12 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDelegateOpAccess().getGroup_9_2(), "rule__DelegateOp__Group_9_2__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup_10(), "rule__DelegateOp__Group_10__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup_10_2(), "rule__DelegateOp__Group_10_2__0");
+					put(grammarAccess.getANDOpAccess().getGroup(), "rule__ANDOp__Group__0");
+					put(grammarAccess.getANDOpAccess().getGroup_2(), "rule__ANDOp__Group_2__0");
+					put(grammarAccess.getANDOpAccess().getGroup_2_3(), "rule__ANDOp__Group_2_3__0");
+					put(grammarAccess.getOROpAccess().getGroup(), "rule__OROp__Group__0");
+					put(grammarAccess.getOROpAccess().getGroup_2(), "rule__OROp__Group_2__0");
+					put(grammarAccess.getOROpAccess().getGroup_2_3(), "rule__OROp__Group_2_3__0");
 					put(grammarAccess.getSimpleActionAccess().getGroup(), "rule__SimpleAction__Group__0");
 					put(grammarAccess.getVisitAccess().getGroup(), "rule__Visit__Group__0");
 					put(grammarAccess.getSequencedVisitAccess().getGroup(), "rule__SequencedVisit__Group__0");
@@ -144,6 +152,14 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDelegateOpAccess().getAffectingEventAssignment_9_2_1(), "rule__DelegateOp__AffectingEventAssignment_9_2_1");
 					put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_10_1(), "rule__DelegateOp__StoppingEventAssignment_10_1");
 					put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_10_2_1(), "rule__DelegateOp__StoppingEventAssignment_10_2_1");
+					put(grammarAccess.getANDOpAccess().getAffectingEventAssignment_2_2(), "rule__ANDOp__AffectingEventAssignment_2_2");
+					put(grammarAccess.getANDOpAccess().getAffectingEventAssignment_2_3_1(), "rule__ANDOp__AffectingEventAssignment_2_3_1");
+					put(grammarAccess.getANDOpAccess().getInputOperatorsAssignment_3(), "rule__ANDOp__InputOperatorsAssignment_3");
+					put(grammarAccess.getANDOpAccess().getInputOperatorsAssignment_5(), "rule__ANDOp__InputOperatorsAssignment_5");
+					put(grammarAccess.getOROpAccess().getAffectingEventAssignment_2_2(), "rule__OROp__AffectingEventAssignment_2_2");
+					put(grammarAccess.getOROpAccess().getAffectingEventAssignment_2_3_1(), "rule__OROp__AffectingEventAssignment_2_3_1");
+					put(grammarAccess.getOROpAccess().getInputOperatorsAssignment_3(), "rule__OROp__InputOperatorsAssignment_3");
+					put(grammarAccess.getOROpAccess().getInputOperatorsAssignment_5(), "rule__OROp__InputOperatorsAssignment_5");
 				}
 			};
 		}

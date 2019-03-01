@@ -85,22 +85,13 @@ public interface PromisePackage extends EPackage {
 	int OPERATOR__PARENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR__LABEL = 2;
-
-	/**
 	 * The number of structural features of the '<em>Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_FEATURE_COUNT = 3;
+	int OPERATOR_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Operator</em>' class.
@@ -138,15 +129,6 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSITION_OPERATOR__PARENT = OPERATOR__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITION_OPERATOR__LABEL = OPERATOR__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -204,15 +186,6 @@ public interface PromisePackage extends EPackage {
 	int FALL_BACK_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FALL_BACK_OP__LABEL = COMPOSITION_OPERATOR__LABEL;
-
-	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,15 +239,6 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int SEQUENCE_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQUENCE_OP__LABEL = COMPOSITION_OPERATOR__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -332,15 +296,6 @@ public interface PromisePackage extends EPackage {
 	int PARALLEL_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_OP__LABEL = COMPOSITION_OPERATOR__LABEL;
-
-	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -394,15 +349,6 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int EVENT_HANDLER_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_HANDLER_OP__LABEL = COMPOSITION_OPERATOR__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -467,15 +413,6 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION_OP__LABEL = COMPOSITION_OPERATOR__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -761,15 +698,6 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int DELEGATE_OP__PARENT = OPERATOR__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELEGATE_OP__LABEL = OPERATOR__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Input Robot</b></em>' reference list.
@@ -1524,43 +1452,6 @@ public interface PromisePackage extends EPackage {
 	int INSTANT_REACTION_OPERATION_COUNT = TRIGGER_PATTERNS_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link promise.impl.ContextImpl <em>Context</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see promise.impl.ContextImpl
-	 * @see promise.impl.PromisePackageImpl#getContext()
-	 * @generated
-	 */
-	int CONTEXT = 36;
-
-	/**
-	 * The feature id for the '<em><b>Robot</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXT__ROBOT = 0;
-
-	/**
-	 * The number of structural features of the '<em>Context</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Context</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link promise.impl.LocationImpl <em>Location</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1568,7 +1459,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getLocation()
 	 * @generated
 	 */
-	int LOCATION = 37;
+	int LOCATION = 36;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1605,7 +1496,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getSimpleAction()
 	 * @generated
 	 */
-	int SIMPLE_ACTION = 38;
+	int SIMPLE_ACTION = 37;
 
 	/**
 	 * The number of structural features of the '<em>Simple Action</em>' class.
@@ -1624,6 +1515,116 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int SIMPLE_ACTION_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link promise.impl.ANDOpImpl <em>AND Op</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see promise.impl.ANDOpImpl
+	 * @see promise.impl.PromisePackageImpl#getANDOp()
+	 * @generated
+	 */
+	int AND_OP = 38;
+
+	/**
+	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_OP__AFFECTING_EVENT = COMPOSITION_OPERATOR__AFFECTING_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_OP__INPUT_OPERATORS = COMPOSITION_OPERATOR__INPUT_OPERATORS;
+
+	/**
+	 * The number of structural features of the '<em>AND Op</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_OP_FEATURE_COUNT = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>AND Op</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_OP_OPERATION_COUNT = COMPOSITION_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link promise.impl.OROpImpl <em>OR Op</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see promise.impl.OROpImpl
+	 * @see promise.impl.PromisePackageImpl#getOROp()
+	 * @generated
+	 */
+	int OR_OP = 39;
+
+	/**
+	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_OP__AFFECTING_EVENT = COMPOSITION_OPERATOR__AFFECTING_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_OP__INPUT_OPERATORS = COMPOSITION_OPERATOR__INPUT_OPERATORS;
+
+	/**
+	 * The number of structural features of the '<em>OR Op</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_OP_FEATURE_COUNT = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>OR Op</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_OP_OPERATION_COUNT = COMPOSITION_OPERATOR_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1657,17 +1658,6 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOperator_Parent();
-
-	/**
-	 * Returns the meta object for the attribute '{@link promise.Operator#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see promise.Operator#getLabel()
-	 * @see #getOperator()
-	 * @generated
-	 */
-	EAttribute getOperator_Label();
 
 	/**
 	 * Returns the meta object for class '{@link promise.FallBackOp <em>Fall Back Op</em>}'.
@@ -2229,27 +2219,6 @@ public interface PromisePackage extends EPackage {
 	EAttribute getInstantReaction_Description();
 
 	/**
-	 * Returns the meta object for class '{@link promise.Context <em>Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Context</em>'.
-	 * @see promise.Context
-	 * @generated
-	 */
-	EClass getContext();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link promise.Context#getRobot <em>Robot</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Robot</em>'.
-	 * @see promise.Context#getRobot()
-	 * @see #getContext()
-	 * @generated
-	 */
-	EReference getContext_Robot();
-
-	/**
 	 * Returns the meta object for class '{@link promise.Location <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2268,6 +2237,26 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSimpleAction();
+
+	/**
+	 * Returns the meta object for class '{@link promise.ANDOp <em>AND Op</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>AND Op</em>'.
+	 * @see promise.ANDOp
+	 * @generated
+	 */
+	EClass getANDOp();
+
+	/**
+	 * Returns the meta object for class '{@link promise.OROp <em>OR Op</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>OR Op</em>'.
+	 * @see promise.OROp
+	 * @generated
+	 */
+	EClass getOROp();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2317,14 +2306,6 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERATOR__PARENT = eINSTANCE.getOperator_Parent();
-
-		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OPERATOR__LABEL = eINSTANCE.getOperator_Label();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.FallBackOpImpl <em>Fall Back Op</em>}' class.
@@ -2829,24 +2810,6 @@ public interface PromisePackage extends EPackage {
 		EAttribute INSTANT_REACTION__DESCRIPTION = eINSTANCE.getInstantReaction_Description();
 
 		/**
-		 * The meta object literal for the '{@link promise.impl.ContextImpl <em>Context</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see promise.impl.ContextImpl
-		 * @see promise.impl.PromisePackageImpl#getContext()
-		 * @generated
-		 */
-		EClass CONTEXT = eINSTANCE.getContext();
-
-		/**
-		 * The meta object literal for the '<em><b>Robot</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTEXT__ROBOT = eINSTANCE.getContext_Robot();
-
-		/**
 		 * The meta object literal for the '{@link promise.impl.LocationImpl <em>Location</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2865,6 +2828,26 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EClass SIMPLE_ACTION = eINSTANCE.getSimpleAction();
+
+		/**
+		 * The meta object literal for the '{@link promise.impl.ANDOpImpl <em>AND Op</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see promise.impl.ANDOpImpl
+		 * @see promise.impl.PromisePackageImpl#getANDOp()
+		 * @generated
+		 */
+		EClass AND_OP = eINSTANCE.getANDOp();
+
+		/**
+		 * The meta object literal for the '{@link promise.impl.OROpImpl <em>OR Op</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see promise.impl.OROpImpl
+		 * @see promise.impl.PromisePackageImpl#getOROp()
+		 * @generated
+		 */
+		EClass OR_OP = eINSTANCE.getOROp();
 
 	}
 
