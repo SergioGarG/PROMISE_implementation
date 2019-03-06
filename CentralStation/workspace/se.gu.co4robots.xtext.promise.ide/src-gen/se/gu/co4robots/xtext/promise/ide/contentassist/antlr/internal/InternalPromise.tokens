@@ -1,8 +1,8 @@
 '&'=11
 '('=29
 ')'=30
-','=25
-':'=24
+','=24
+':'=27
 'AND'=12
 'DelayedReaction'=63
 'ExactRestrictedAvoidance'=57
@@ -25,7 +25,7 @@
 'UpperRestrictedAvoidance'=56
 'Visit'=46
 'Wait'=62
-'actions'=26
+'actions'=25
 'affecting event'=31
 'affectingEvent'=44
 'and'=13
@@ -39,7 +39,7 @@
 'except'=36
 'fallback'=28
 'if'=38
-'locations'=27
+'locations'=26
 'mission'=17
 'operators'=20
 'or'=16

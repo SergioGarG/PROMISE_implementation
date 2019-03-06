@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+<extension
+      id="wizard"
+      name="Mission"
+      point="org.eclipse.ui.newWizards">
+   <category
+         name="Mission Wizards"
+         id="wizard.category1">
+   </category>
+   <wizard
+         name="Your Mission"
+         icon="icons/wizard.gif"
+         category="wizard.category1"
+         class="se.gu.promise.wizards.MissionWizard"
+         id="wizard.wizard1">
+      <description>
+      	Describe your mission choices
+      </description>
+   </wizard>
+</extension>
+
+<extension
+      point="org.eclipse.ui.popupMenus">
+   <objectContribution
+         adaptable="false"
+         id="com.xyz.article.wizards.popup1"
+         nameFilter="*.promise"
+         objectClass="org.eclipse.core.resources.IFile">
+      <action
+            label="Your mission"
+            icon="icons/action.gif"
+            class="se.gu.promise.wizards.MissionAction"
+            id="wizard.action1">
+      </action>
+   </objectContribution>
+</extension>
+
+
+</plugin>

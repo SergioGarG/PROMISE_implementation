@@ -4,26 +4,6 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Missions diagram" domainClass="promise::Mission" enablePopupBars="true">
       <metamodel href="file:/Users/gsergio/Documents/PROMISE_implementation/CentralStation/workspace/se.gu.co4robots.promise/model/promise.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="EventNode" semanticCandidatesExpression="feature:events" domainClass="promise::Event">
-          <style xsi:type="style:LozengeNodeDescription" showIcon="false" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="ActionNode" semanticCandidatesExpression="feature:actions" domainClass="promise::Action">
-          <style xsi:type="style:LozengeNodeDescription" showIcon="false" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="RobotNode" semanticCandidatesExpression="feature:robots" domainClass="promise::Robot">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelAlignment="LEFT" sizeComputationExpression="6" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/robot-design_318-64470.jpg">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
         <nodeMappings name="FallbackOpNode" domainClass="promise::FallBackOp">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="['Op '+self.parent.inputOperators->indexOf(self)+'\n'+if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/fallback.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -213,22 +193,15 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="LocationNode" semanticCandidatesExpression="feature:locations" domainClass="promise::Location">
-          <style xsi:type="style:LozengeNodeDescription" showIcon="false" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
-          </style>
-        </nodeMappings>
         <nodeMappings name="ANDOpNode" domainClass="promise::ANDOp">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/and.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="['Op '+self.parent.inputOperators->indexOf(self)+'\n'+if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/and.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="OROpNode" domainClass="promise::OROp">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/or.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="['Op '+self.parent.inputOperators->indexOf(self)+'\n'+if(self.affectingEvent->isEmpty()) then '' else 'Trig. by: '+self.affectingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/or.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -243,50 +216,6 @@
           </style>
         </edgeMappings>
         <toolSections name="Palette">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createLocation" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='LocationNode']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Location" referenceName="locations">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'l'+container.locations->filter(promise::Location)->size()"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createRobot" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='RobotNode']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Robot" referenceName="robots">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'robot'+container.robots->filter(promise::Robot)->size()"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createEvent" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventNode']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Event" referenceName="conditions">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'e'+container.conditions->filter(promise::Event)->size()"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createAction" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ActionNode']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Action" referenceName="conditions">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'a'+container.conditions->filter(promise::Action)->size()"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="createDelegateOp" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>

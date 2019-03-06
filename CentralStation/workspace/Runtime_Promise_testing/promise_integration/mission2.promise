@@ -1,13 +1,13 @@
 mission{         
 	conditions{     
-		events: 
+		events 
 			e1: "obj_in_l1"
-		actions:
+		actions
 			
 			a1: "call_operator"
 		}  
-	robots r1, r2  
-	locations: l1, l2, l3 , l4
+	robots r1, r2 
+	locations l1, l2, l3 , l4
 	
 	operators { parallel ( 
 		
@@ -24,4 +24,4 @@ mission{
 	   
 }               
    
-                     
+                      

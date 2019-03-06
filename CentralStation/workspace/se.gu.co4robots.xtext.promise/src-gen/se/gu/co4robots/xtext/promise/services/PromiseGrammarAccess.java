@@ -34,22 +34,20 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cEventsKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Keyword cColonKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
-		private final Assignment cEventsAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
-		private final RuleCall cEventsEventParserRuleCall_2_2_2_0 = (RuleCall)cEventsAssignment_2_2_2.eContents().get(0);
-		private final Group cGroup_2_2_3 = (Group)cGroup_2_2.eContents().get(3);
-		private final Keyword cCommaKeyword_2_2_3_0 = (Keyword)cGroup_2_2_3.eContents().get(0);
-		private final Assignment cEventsAssignment_2_2_3_1 = (Assignment)cGroup_2_2_3.eContents().get(1);
-		private final RuleCall cEventsEventParserRuleCall_2_2_3_1_0 = (RuleCall)cEventsAssignment_2_2_3_1.eContents().get(0);
+		private final Assignment cEventsAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cEventsEventParserRuleCall_2_2_1_0 = (RuleCall)cEventsAssignment_2_2_1.eContents().get(0);
+		private final Group cGroup_2_2_2 = (Group)cGroup_2_2.eContents().get(2);
+		private final Keyword cCommaKeyword_2_2_2_0 = (Keyword)cGroup_2_2_2.eContents().get(0);
+		private final Assignment cEventsAssignment_2_2_2_1 = (Assignment)cGroup_2_2_2.eContents().get(1);
+		private final RuleCall cEventsEventParserRuleCall_2_2_2_1_0 = (RuleCall)cEventsAssignment_2_2_2_1.eContents().get(0);
 		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
 		private final Keyword cActionsKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
-		private final Keyword cColonKeyword_2_3_1 = (Keyword)cGroup_2_3.eContents().get(1);
-		private final Assignment cActionsAssignment_2_3_2 = (Assignment)cGroup_2_3.eContents().get(2);
-		private final RuleCall cActionsActionParserRuleCall_2_3_2_0 = (RuleCall)cActionsAssignment_2_3_2.eContents().get(0);
-		private final Group cGroup_2_3_3 = (Group)cGroup_2_3.eContents().get(3);
-		private final Keyword cCommaKeyword_2_3_3_0 = (Keyword)cGroup_2_3_3.eContents().get(0);
-		private final Assignment cActionsAssignment_2_3_3_1 = (Assignment)cGroup_2_3_3.eContents().get(1);
-		private final RuleCall cActionsActionParserRuleCall_2_3_3_1_0 = (RuleCall)cActionsAssignment_2_3_3_1.eContents().get(0);
+		private final Assignment cActionsAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cActionsActionParserRuleCall_2_3_1_0 = (RuleCall)cActionsAssignment_2_3_1.eContents().get(0);
+		private final Group cGroup_2_3_2 = (Group)cGroup_2_3.eContents().get(2);
+		private final Keyword cCommaKeyword_2_3_2_0 = (Keyword)cGroup_2_3_2.eContents().get(0);
+		private final Assignment cActionsAssignment_2_3_2_1 = (Assignment)cGroup_2_3_2.eContents().get(1);
+		private final RuleCall cActionsActionParserRuleCall_2_3_2_1_0 = (RuleCall)cActionsAssignment_2_3_2_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
 		private final Keyword cRobotsKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cRobotsAssignment_4 = (Assignment)cGroup.eContents().get(4);
@@ -60,13 +58,12 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRobotsRobotParserRuleCall_5_1_0 = (RuleCall)cRobotsAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cLocationsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cColonKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cLocationsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cLocationsLocationParserRuleCall_6_2_0 = (RuleCall)cLocationsAssignment_6_2.eContents().get(0);
-		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
-		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
-		private final Assignment cLocationsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cLocationsLocationParserRuleCall_6_3_1_0 = (RuleCall)cLocationsAssignment_6_3_1.eContents().get(0);
+		private final Assignment cLocationsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cLocationsLocationParserRuleCall_6_1_0 = (RuleCall)cLocationsAssignment_6_1.eContents().get(0);
+		private final Group cGroup_6_2 = (Group)cGroup_6.eContents().get(2);
+		private final Keyword cCommaKeyword_6_2_0 = (Keyword)cGroup_6_2.eContents().get(0);
+		private final Assignment cLocationsAssignment_6_2_1 = (Assignment)cGroup_6_2.eContents().get(1);
+		private final RuleCall cLocationsLocationParserRuleCall_6_2_1_0 = (RuleCall)cLocationsAssignment_6_2_1.eContents().get(0);
 		private final Keyword cOperatorsKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Keyword cLeftCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cOperatorAssignment_9 = (Assignment)cGroup.eContents().get(9);
@@ -80,15 +77,15 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Mission:
 		//	'mission'
-		//	'{' ('conditions' '{' ('events' ':' events+=Event ("," events+=Event)*)? ('actions' ':' actions+=Action (","
+		//	'{' ('conditions' '{' ('events' events+=Event ("," events+=Event)*)? ('actions' actions+=Action (","
 		//	actions+=Action)*)? '}')?
-		//	'robots' robots+=Robot ("," robots+=Robot)* ('locations' ':' locations+=Location ("," locations+=Location)*)?
+		//	'robots' robots+=Robot ("," robots+=Robot)* ('locations' locations+=Location ("," locations+=Location)*)?
 		//	'operators' '{' operator+=Operator ("," operator+=Operator)* '}'
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'mission' '{' ('conditions' '{' ('events' ':' events+=Event ("," events+=Event)*)? ('actions' ':' actions+=Action (","
-		//actions+=Action)*)? '}')? 'robots' robots+=Robot ("," robots+=Robot)* ('locations' ':' locations+=Location (","
+		//'mission' '{' ('conditions' '{' ('events' events+=Event ("," events+=Event)*)? ('actions' actions+=Action (","
+		//actions+=Action)*)? '}')? 'robots' robots+=Robot ("," robots+=Robot)* ('locations' locations+=Location (","
 		//locations+=Location)*)? 'operators' '{' operator+=Operator ("," operator+=Operator)* '}' '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -98,8 +95,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//('conditions' '{' ('events' ':' events+=Event ("," events+=Event)*)? ('actions' ':' actions+=Action (","
-		//actions+=Action)*)? '}')?
+		//('conditions' '{' ('events' events+=Event ("," events+=Event)*)? ('actions' actions+=Action ("," actions+=Action)*)?
+		//'}')?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'conditions'
@@ -108,59 +105,53 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
 		
-		//('events' ':' events+=Event ("," events+=Event)*)?
+		//('events' events+=Event ("," events+=Event)*)?
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//'events'
 		public Keyword getEventsKeyword_2_2_0() { return cEventsKeyword_2_2_0; }
 		
-		//':'
-		public Keyword getColonKeyword_2_2_1() { return cColonKeyword_2_2_1; }
-		
 		//events+=Event
-		public Assignment getEventsAssignment_2_2_2() { return cEventsAssignment_2_2_2; }
+		public Assignment getEventsAssignment_2_2_1() { return cEventsAssignment_2_2_1; }
 		
 		//Event
-		public RuleCall getEventsEventParserRuleCall_2_2_2_0() { return cEventsEventParserRuleCall_2_2_2_0; }
+		public RuleCall getEventsEventParserRuleCall_2_2_1_0() { return cEventsEventParserRuleCall_2_2_1_0; }
 		
 		//("," events+=Event)*
-		public Group getGroup_2_2_3() { return cGroup_2_2_3; }
+		public Group getGroup_2_2_2() { return cGroup_2_2_2; }
 		
 		//","
-		public Keyword getCommaKeyword_2_2_3_0() { return cCommaKeyword_2_2_3_0; }
+		public Keyword getCommaKeyword_2_2_2_0() { return cCommaKeyword_2_2_2_0; }
 		
 		//events+=Event
-		public Assignment getEventsAssignment_2_2_3_1() { return cEventsAssignment_2_2_3_1; }
+		public Assignment getEventsAssignment_2_2_2_1() { return cEventsAssignment_2_2_2_1; }
 		
 		//Event
-		public RuleCall getEventsEventParserRuleCall_2_2_3_1_0() { return cEventsEventParserRuleCall_2_2_3_1_0; }
+		public RuleCall getEventsEventParserRuleCall_2_2_2_1_0() { return cEventsEventParserRuleCall_2_2_2_1_0; }
 		
-		//('actions' ':' actions+=Action ("," actions+=Action)*)?
+		//('actions' actions+=Action ("," actions+=Action)*)?
 		public Group getGroup_2_3() { return cGroup_2_3; }
 		
 		//'actions'
 		public Keyword getActionsKeyword_2_3_0() { return cActionsKeyword_2_3_0; }
 		
-		//':'
-		public Keyword getColonKeyword_2_3_1() { return cColonKeyword_2_3_1; }
-		
 		//actions+=Action
-		public Assignment getActionsAssignment_2_3_2() { return cActionsAssignment_2_3_2; }
+		public Assignment getActionsAssignment_2_3_1() { return cActionsAssignment_2_3_1; }
 		
 		//Action
-		public RuleCall getActionsActionParserRuleCall_2_3_2_0() { return cActionsActionParserRuleCall_2_3_2_0; }
+		public RuleCall getActionsActionParserRuleCall_2_3_1_0() { return cActionsActionParserRuleCall_2_3_1_0; }
 		
 		//("," actions+=Action)*
-		public Group getGroup_2_3_3() { return cGroup_2_3_3; }
+		public Group getGroup_2_3_2() { return cGroup_2_3_2; }
 		
 		//","
-		public Keyword getCommaKeyword_2_3_3_0() { return cCommaKeyword_2_3_3_0; }
+		public Keyword getCommaKeyword_2_3_2_0() { return cCommaKeyword_2_3_2_0; }
 		
 		//actions+=Action
-		public Assignment getActionsAssignment_2_3_3_1() { return cActionsAssignment_2_3_3_1; }
+		public Assignment getActionsAssignment_2_3_2_1() { return cActionsAssignment_2_3_2_1; }
 		
 		//Action
-		public RuleCall getActionsActionParserRuleCall_2_3_3_1_0() { return cActionsActionParserRuleCall_2_3_3_1_0; }
+		public RuleCall getActionsActionParserRuleCall_2_3_2_1_0() { return cActionsActionParserRuleCall_2_3_2_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_2_4() { return cRightCurlyBracketKeyword_2_4; }
@@ -186,32 +177,29 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//Robot
 		public RuleCall getRobotsRobotParserRuleCall_5_1_0() { return cRobotsRobotParserRuleCall_5_1_0; }
 		
-		//('locations' ':' locations+=Location ("," locations+=Location)*)?
+		//('locations' locations+=Location ("," locations+=Location)*)?
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//'locations'
 		public Keyword getLocationsKeyword_6_0() { return cLocationsKeyword_6_0; }
 		
-		//':'
-		public Keyword getColonKeyword_6_1() { return cColonKeyword_6_1; }
-		
 		//locations+=Location
-		public Assignment getLocationsAssignment_6_2() { return cLocationsAssignment_6_2; }
+		public Assignment getLocationsAssignment_6_1() { return cLocationsAssignment_6_1; }
 		
 		//Location
-		public RuleCall getLocationsLocationParserRuleCall_6_2_0() { return cLocationsLocationParserRuleCall_6_2_0; }
+		public RuleCall getLocationsLocationParserRuleCall_6_1_0() { return cLocationsLocationParserRuleCall_6_1_0; }
 		
 		//("," locations+=Location)*
-		public Group getGroup_6_3() { return cGroup_6_3; }
+		public Group getGroup_6_2() { return cGroup_6_2; }
 		
 		//","
-		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
+		public Keyword getCommaKeyword_6_2_0() { return cCommaKeyword_6_2_0; }
 		
 		//locations+=Location
-		public Assignment getLocationsAssignment_6_3_1() { return cLocationsAssignment_6_3_1; }
+		public Assignment getLocationsAssignment_6_2_1() { return cLocationsAssignment_6_2_1; }
 		
 		//Location
-		public RuleCall getLocationsLocationParserRuleCall_6_3_1_0() { return cLocationsLocationParserRuleCall_6_3_1_0; }
+		public RuleCall getLocationsLocationParserRuleCall_6_2_1_0() { return cLocationsLocationParserRuleCall_6_2_1_0; }
 		
 		//'operators'
 		public Keyword getOperatorsKeyword_7() { return cOperatorsKeyword_7; }
@@ -1963,9 +1951,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Mission:
 	//	'mission'
-	//	'{' ('conditions' '{' ('events' ':' events+=Event ("," events+=Event)*)? ('actions' ':' actions+=Action (","
+	//	'{' ('conditions' '{' ('events' events+=Event ("," events+=Event)*)? ('actions' actions+=Action (","
 	//	actions+=Action)*)? '}')?
-	//	'robots' robots+=Robot ("," robots+=Robot)* ('locations' ':' locations+=Location ("," locations+=Location)*)?
+	//	'robots' robots+=Robot ("," robots+=Robot)* ('locations' locations+=Location ("," locations+=Location)*)?
 	//	'operators' '{' operator+=Operator ("," operator+=Operator)* '}'
 	//	'}';
 	public MissionElements getMissionAccess() {
