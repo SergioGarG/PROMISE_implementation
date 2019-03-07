@@ -1,14 +1,25 @@
-mission{ 
-	conditions{ 
+mission{         
+	conditions{     
 		events
- 		: "description of event "
+			e1: "obj_in_l1"
 		actions
- 		: "description of action "
-
-	} 
-	robots dsf
-	locations sdf
-	operators{ parallel( 
-		)
-	}
-}
+			
+			a1: "call_operator"
+		}  
+	robots r1, r2  
+	locations l1, l2, l3 , l4
+	
+	operators { parallel ( 
+		
+		eventHandler ( 
+			default ( delegate ( robot r1 does StrictOrderedVisit locations l1, l2, l4 ) ) 
+			except e1 (  sequence(
+				delegate ( robot  r1 does Visit locations l1 ) affecting event e1 ) )), 
+			or ( delegate ( robot r1 does Visit locations l1 ) or delegate ( robot r1 does Visit locations l1 ) )
+		//delegate ( robot r2 does Patrolling locations l1 , l2, l4 ) 
+		
+		
+		 ) 
+	}  
+	   
+}         
