@@ -1,8 +1,16 @@
 mission{ 
-	robots ads
-	locations zsd
+	conditions{ 
+		events
+ 		outOfBattery: "description of event outOfBattery"
+		actions
+ 		charge: "description of action charge"
+
+	} 
+	robots r1, r2
+	locations l1, l2, l3, l4
 	operators{ parallel( 
-		// Your operators come here
-		)
+		delegate ( robot r1 does SimpleAction actions charge ) ,
+		delegate ( robot r2 does Visit locations l1 , l3 )
+	)
 	}
 }
