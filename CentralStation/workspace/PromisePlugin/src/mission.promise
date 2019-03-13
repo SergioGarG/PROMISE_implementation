@@ -1,16 +1,17 @@
 mission{ 
 	conditions{ 
 		events
- 		outOfBattery: "description of event outOfBattery"
+ 		e1: "description of event e1",
+		 e2: "description of event  e2"
 		actions
- 		charge: "description of action charge"
+ 		a1: "description of action a1",
+		 a2: "description of action  a2"
 
 	} 
 	robots r1, r2
-	locations l1, l2, l3, l4
+	locations l1, l2, l3
 	operators{ parallel( 
-		delegate ( robot r1 does SimpleAction actions charge ) ,
-		delegate ( robot r2 does Visit locations l1 , l3 )
-	)
+		// Your operators come here
+		)
 	}
 }

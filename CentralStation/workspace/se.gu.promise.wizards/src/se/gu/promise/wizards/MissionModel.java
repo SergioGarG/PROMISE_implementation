@@ -41,10 +41,10 @@ public class MissionModel
 		String s;
 		s="mission{ \n";
 		//conditional
-		if ((events != null && events != " " && events != "" && events.trim().length() == 0) || 
-				(actions != null && actions != " " && actions != "" && actions.trim().length() == 0)) {
+		if ((events != null && events != " " && events != "" && events.trim().length() != 0) || 
+				(actions != null && actions != " " && actions != "" && actions.trim().length() != 0)) {
 			s=s+"\tconditions{ \n";
-			if (events != null && events != " " && events != "" && events.trim().length() == 0) {
+			if (events != null && events != " " && events != "" && events.trim().length() != 0) {
 				events.replaceAll("\\s+","");
 				String [] arrOfStr = events.split(","); 
 				s=s+"\t\tevents\n "; //then set of events
@@ -55,7 +55,7 @@ public class MissionModel
 						s=s+"\t\t"+arrOfStr[i]+": \"description of event "+arrOfStr[i]+"\"\n";
 				}
 			}
-			if (actions != null && actions != " " && actions != "" && actions.trim().length() == 0) {
+			if (actions != null && actions != " " && actions != "" && actions.trim().length() != 0) {
 				actions.replaceAll("\\s+","");
 				s=s+"\t\tactions\n "; //then set of actions
 				String [] arrOfStr2 = actions.split(","); 
