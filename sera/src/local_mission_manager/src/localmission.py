@@ -37,7 +37,6 @@ from trajectory_msgs.msg import JointTrajectoryPoint, JointTrajectory
 
 class Status(object):
 	def __init__(self):
-		self.robotname = None
 		self.counter_mission = 0
 		self.task_status = String()
 		self.resend = False
@@ -47,6 +46,7 @@ class Status(object):
 		task_status_lock = False
 		self.stoppingEvents = []
 		self.actions = []
+		self.end_globalmission = False
 
 		#Events and event handler
 		self.events = []
@@ -197,7 +197,6 @@ class LocalMission(object):
 		# string containing the local mission
 		if localmission.data == "starts":
 			self.missions=[]
-			#self.status.robotname="tiago"
 			self.status.events=[]
 			self.status.actions=[]
 			self.status.state=1
@@ -273,6 +272,7 @@ class LocalMission(object):
 			self.status.state=0
 			if self.missions != None:
 				print "Mission for robot", self.robotName, "completely received (",len(self.missions),"objects)"
+				self.missions[self.status.counter_mission].first=True
 				self.update_manager()
 			else:
 				print "Something happened during the mission reception. Please, send it again"
@@ -295,15 +295,14 @@ class LocalMission(object):
 	def TaskStatusCallback(self, taskstatus):
 		#Collects the state of the current task (received from the planner).
 		#It only takes the updates with 1 sec of different in their timestamp to avoid bouncing.
-		
 		if taskstatus.data == "mission_updated":
 			print "mission correctly updated!"
 			self.SendTriggerEventStatus("updated")	
-		if (rospy.Time.now().secs - self.status.timer.secs) > 2 and self.status.task_status_lock == False:
+		if (rospy.Time.now().secs - self.status.timer.secs) > 2 and self.status.end_globalmission == False:
 			self.status.task_status=taskstatus.data
 			self.status.timer = rospy.Time.now()
 			self.status.task_status_lock = True
-			print "taskstatus.data",taskstatus.data
+			#print "taskstatus.data",taskstatus.data
 
 			#Here I should add an exception when mission was not correctly updated
 					
@@ -355,11 +354,12 @@ class LocalMission(object):
 		
 		msg = String()
 		msg.data = status
-		print "answer", msg
+		#print "answer", msg
 		self.TriggerEventStatusPublisher.publish(msg)
 		
 	def SendLocalMission(self, localmission, finite, event):
 	# sends the received local mission after checking its feasibility
+		self.status.end_globalmission = False
 		mission=Mission()
 		mission.mission.data=localmission
 		mission.finite.data=finite
@@ -606,6 +606,7 @@ class LocalMission(object):
 			self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 			
 		elif self.status.task_status == "accomplished":		
+			self.status.end_globalmission=False
 			print "Task accomplished by the planner"
 			self.status.task_status_lock = True
 			if((self.missions[self.status.counter_mission].counter + 1) < len(self.missions[self.status.counter_mission].mission.mission)) and \
@@ -616,47 +617,55 @@ class LocalMission(object):
 				self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 			elif((self.missions[self.status.counter_mission].counter + 1) >= len(self.missions[self.status.counter_mission].mission.mission)) \
 			and (self.missions[self.status.counter_mission].mission.finite == True or self.status.stoppedMission == True):
-				print "reached end of the tasks list, mission complete!"
 				self.status.stoppedMission = False
 				#######If reached the end of the mission, time to switch to another mission based on the operator
 				###Keyword
-				if self.status.counter_mission != 0 and (self.status.prog_eh_task.match(self.missions[self.status.counter_mission].id) or self.status.prog_fb_task.match(self.missions[self.status.counter_mission].id) or self.status.prog_cond_task.match(self.missions[self.status.counter_mission].id)):	
-					self.status.task_status == ""						 
-					self.status.counter_mission=self.missions[self.status.counter_mission].parent
-				###Event handler
-				elif self.status.counter_mission != 0 and self.status.prog_eh.match(self.missions[self.status.counter_mission].id):
-					self.missions[self.status.counter_mission].counter=0
-					if self.missions[self.status.counter_mission].id == "eh_default":
+				if self.status.counter_mission != 0:
+					print "reached end of the tasks list, mission complete!"
+					if (self.status.prog_eh_task.match(self.missions[self.status.counter_mission].id) or self.status.prog_fb_task.match(self.missions[self.status.counter_mission].id) or self.status.prog_cond_task.match(self.missions[self.status.counter_mission].id)):	
+						self.status.task_status == ""						 
 						self.status.counter_mission=self.missions[self.status.counter_mission].parent
-						self.status.task_status == "accomplished"
-						self.evaluateResult("eh", self.status.event_handler, self.status.counter_eh)
-					else:
-						self.status.event_handler[self.status.counter_eh].success[self.status.event_handler[self.status.counter_eh].counter]=True
-						self.status.counter_mission=self.status.event_handler[self.status.counter_eh].default_index
-						self.status.resend = True
-					self.status.event_handler[self.status.counter_eh].counter=0
-
-				###Fallback
-				elif self.status.counter_mission != 0 and self.status.prog_fb.match(self.missions[self.status.counter_mission].id):
-					self.status.fallback[self.status.counter_fb].result = "success"
-					self.status.counter_mission=self.missions[self.status.counter_mission].parent
-					self.status.task_status == "accomplished"
-					self.status.fallback[self.status.counter_fb].counter=0
-					
-				###Condition
-				elif self.status.counter_mission != 0 and self.status.prog_cond.match(self.missions[self.status.counter_mission].id):
-					self.missions[self.status.counter_mission].counter = 0
-					self.status.condition[self.status.counter_cond].success[self.status.condition[self.status.counter_cond].counter]=True
-					if self.status.condition[self.status.counter_cond].counter+1 < self.status.condition[self.status.counter_cond].length:
-						self.status.condition[self.status.counter_cond].counter+=1
-						print "Mission with index",self.status.counter_mission,"of condition operator succesfully accomplished, checking the next one", self.missions[self.status.condition[self.status.counter_cond].index[self.status.condition[self.status.counter_cond].counter]].mission.mission 
-					elif self.status.condition[self.status.counter_cond].counter+1 >= self.status.condition[self.status.counter_cond].length:
-						self.status.condition[self.status.counter_cond].counter=0
-						self.evaluateResult("cond", self.status.condition, self.status.counter_cond)
+					###Event handler
+					elif self.status.prog_eh.match(self.missions[self.status.counter_mission].id):
 						self.missions[self.status.counter_mission].counter=0
+						if self.missions[self.status.counter_mission].id == "eh_default":
+							self.status.counter_mission=self.missions[self.status.counter_mission].parent
+							self.status.task_status == "accomplished"
+							self.evaluateResult("eh", self.status.event_handler, self.status.counter_eh)
+						else:
+							self.status.event_handler[self.status.counter_eh].success[self.status.event_handler[self.status.counter_eh].counter]=True
+							self.status.counter_mission=self.status.event_handler[self.status.counter_eh].default_index
+							self.status.resend = True
+						self.status.event_handler[self.status.counter_eh].counter=0
+
+					###Fallback
+					elif self.status.prog_fb.match(self.missions[self.status.counter_mission].id):
+						self.status.fallback[self.status.counter_fb].result = "success"
 						self.status.counter_mission=self.missions[self.status.counter_mission].parent
 						self.status.task_status == "accomplished"
-				self.update_manager()
+						self.status.fallback[self.status.counter_fb].counter=0
+						
+					###Condition
+					elif self.status.prog_cond.match(self.missions[self.status.counter_mission].id):
+						self.missions[self.status.counter_mission].counter = 0
+						self.status.condition[self.status.counter_cond].success[self.status.condition[self.status.counter_cond].counter]=True
+						if self.status.condition[self.status.counter_cond].counter+1 < self.status.condition[self.status.counter_cond].length:
+							self.status.condition[self.status.counter_cond].counter+=1
+							print "Mission with index",self.status.counter_mission,"of condition operator succesfully accomplished, checking the next one", self.missions[self.status.condition[self.status.counter_cond].index[self.status.condition[self.status.counter_cond].counter]].mission.mission 
+						elif self.status.condition[self.status.counter_cond].counter+1 >= self.status.condition[self.status.counter_cond].length:
+							self.status.condition[self.status.counter_cond].counter=0
+							self.evaluateResult("cond", self.status.condition, self.status.counter_cond)
+							self.missions[self.status.counter_mission].counter=0
+							self.status.counter_mission=self.missions[self.status.counter_mission].parent
+							self.status.task_status == "accomplished"
+					self.update_manager()
+				elif self.status.counter_mission == 0 and self.status.end_globalmission == False:
+					print "reached end of the tasks list, global mission complete!"
+					self.status.end_globalmission = True
+				else:
+					rospy.sleep(1.0)
+
+				
 
 			elif(self.missions[self.status.counter_mission].mission.finite == False and \
 				self.status.stoppedMission == False):
@@ -719,22 +728,28 @@ class LocalMission(object):
 
 		rospy.Subscriber("triggering_events", String, self.TriggeringEventsCallback)
 		if self.simulation:
-			rospy.Subscriber('/robot_0/move_base/result', MoveBaseActionResult, self.GoalResultCallback)
-			rospy.Subscriber("local_mission/ext", String, self.LocalMissionCallback)
-			self.LocalMissionPublisher = rospy.Publisher('local_mission', Mission, queue_size = 100)
+			rospy.Subscriber(self.robotName+'/move_base/result', MoveBaseActionResult, self.GoalResultCallback)
+			rospy.Subscriber(self.robotName+"local_mission/ext", String, self.LocalMissionCallback)
+			self.LocalMissionPublisher = rospy.Publisher(self.robotName+'local_mission', Mission, queue_size = 100)
 		else:
 			if (self.robotName == 'tiago' or self.robotName == 'turtlebot'):
 				rospy.Subscriber('move_base/result', MoveBaseActionResult, self.GoalResultCallback)
 				rospy.Subscriber("local_mission/ext", String, self.LocalMissionCallback)
 				self.LocalMissionPublisher = rospy.Publisher('local_mission', Mission, queue_size = 100)
-				self.TriggerEventStatusPublisher = rospy.Publisher('triggered_event_status', String, queue_size = 100)
 				print self.robotName
-			else:
+			elif self.robotName == 'summit':
 				rospy.Subscriber('/summit_xl/move_base/result', MoveBaseActionResult, self.GoalResultCallback)
 				rospy.Subscriber("/summit_xl/local_mission/ext", String, self.LocalMissionCallback)
 				self.LocalMissionPublisher = rospy.Publisher('/summit_xl/local_mission', Mission, queue_size = 100)
 				print self.robotName
-		rospy.Subscriber("task_status", String, self.TaskStatusCallback)
+			else: # self.robotName == 'ita':
+				rospy.Subscriber('/'+self.robotName+'/move_base/result', MoveBaseActionResult, self.GoalResultCallback)
+				rospy.Subscriber('/'+self.robotName+'/local_mission/ext', String, self.LocalMissionCallback)
+				self.LocalMissionPublisher = rospy.Publisher('/'+self.robotName+'/local_mission', Mission, queue_size = 100)
+				print self.robotName
+
+		self.TriggerEventStatusPublisher = rospy.Publisher(self.robotName+'/triggered_event_status', String, queue_size = 100)
+		rospy.Subscriber(self.robotName+"/task_status", String, self.TaskStatusCallback)
 
 		rate = rospy.Rate(10)
 		while not rospy.is_shutdown():

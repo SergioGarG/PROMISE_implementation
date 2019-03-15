@@ -1,0 +1,6 @@
+<launch>
+	<arg name="name" default="r1" />
+	<node pkg="local_mission_manager" type="dummylocalmission.py" name="localmission_ita_$(arg name)" output="screen">
+		<param name="robotName" value="$(arg name)" />
+	</node>
+</launch>
