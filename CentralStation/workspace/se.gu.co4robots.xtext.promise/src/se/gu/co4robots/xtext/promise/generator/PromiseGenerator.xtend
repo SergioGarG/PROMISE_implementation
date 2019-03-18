@@ -268,13 +268,13 @@ class PromiseGenerator extends AbstractGenerator {
 				for(var j=0; j<in.inputLocations.length; j++) {
 					if (j==0) {
 						for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
-						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+") || ([] (!"+in.inputLocations.get(j).name+"))))"						//sets the first part of the second line
-						for(var i=2; i<in.inputLocations.length; i++) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+") || ([] (!"+in.inputLocations.get(j).name+")))"	//Rest of the second line
+						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X (((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+")) || ([] (!"+in.inputLocations.get(j).name+"))))"						//sets the first part of the second line
+						for(var i=2; i<in.inputLocations.length; i++) template=template+" && (((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+")) || ([] (!"+in.inputLocations.get(j).name+")))"	//Rest of the second line
 						text= text+in.inputLocations.get(j).name
 					}
 					else{
-						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(0).name+") || ([] (!"+in.inputLocations.get(j).name+"))))"	//subsequent "3rd lines"
-						for(var i=1; i<in.inputLocations.length; i++) if (i != j) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+") || ([] (!"+in.inputLocations.get(j).name+")))"
+						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X (((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(0).name+")) || ([] (!"+in.inputLocations.get(j).name+"))))"	//subsequent "3rd lines"
+						for(var i=1; i<in.inputLocations.length; i++) if (i != j) template=template+" && (((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+")) || ([] (!"+in.inputLocations.get(j).name+")))"
 						text=text+", "+in.inputLocations.get(j).name
 					}
 				}
@@ -283,7 +283,7 @@ class PromiseGenerator extends AbstractGenerator {
 			else if(in.pattern.eClass.name == "OrderderVisit") {
 				template="(<> ("+in.inputLocations.get(0).name+")"
 				text= text+"visit (with a specific order) locations "
-				for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> (("+in.inputLocations.get(i).name+")" //sets the first line
+				for(var i=1; i<in.inputLocations.length; i++) template=template+" && ((<> "+in.inputLocations.get(i).name+")" //sets the first line
 				for(var i=0; i<in.inputLocations.length; i++) {
 					template=template+")"
 					text= text+in.inputLocations.get(i).name+", "
@@ -303,21 +303,19 @@ class PromiseGenerator extends AbstractGenerator {
 					}
 			}	
 			else if(in.pattern.eClass.name == "StrictOrderedVisit") {
-				template="<> (("+in.inputLocations.get(0).name+")"
-				text= text+"visit (with a strict order) locations "+in.inputLocations.get(0).name
-				for(var i=1; i<in.inputLocations.length; i++) {
-					template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
-					text= text+", "+in.inputLocations.get(i).name
+				template="(<> ("+in.inputLocations.get(0).name+")"
+				text= text+"visit (with a strict order) locations "
+				for(var i=1; i<in.inputLocations.length; i++) template=template+" && ((<> "+in.inputLocations.get(i).name+")" //sets the first line
+				for(var i=0; i<in.inputLocations.length; i++) {
+					template=template+")"
+					text= text+in.inputLocations.get(i).name+", "
 				}
-				template=template+")"
-				for(var j=in.inputLocations.length-1; j>=0; j--){
-					for(var i=in.inputLocations.length-1; i>=0; i--) {
-						if (i != j) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"
-						}
+				for(var j=in.inputLocations.length-1; j>0; j--){
+					for(var i=j-1; i>=0; i--) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"
 				}
 				for(var j=in.inputLocations.length-1; j>0; j--){
 					for(var i=j-1; i>=0; i--) {
-						if (i != j) template=template+" && <> ("+in.inputLocations.get(j).name+" && X(((! "+in.inputLocations.get(j).name+")) U "+in.inputLocations.get(i).name+"))"
+						if (i != j) template=template+" && (!("+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j).name+" && X(!("+in.inputLocations.get(j).name+") U "+in.inputLocations.get(i).name+")))"
 					}
 				}
 			}
@@ -336,15 +334,14 @@ class PromiseGenerator extends AbstractGenerator {
 				for(var j=0; j<in.inputLocations.length; j++) {
 					if (j==0) {
 						for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
-						template=template+") && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+"))"						//sets the first part of the second line
-						for(var i=2; i<in.inputLocations.length; i++) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"	//Rest of the second line
-						template=template+")"
+						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X (((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+")) || ([] (!"+in.inputLocations.get(j).name+"))))"						//sets the first part of the second line
+						for(var i=2; i<in.inputLocations.length; i++) template=template+" && (((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(j+1).name+")) || ([] (!"+in.inputLocations.get(j).name+")))"	//Rest of the second line
 						text= text+in.inputLocations.get(j).name
 					}
 					else{
-						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(0).name+"))"	//subsequent "3rd lines"
+						template=template+" && [] (("+in.inputLocations.get(j).name+") -> X (((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(0).name+")) || ([] (!"+in.inputLocations.get(j).name+"))))"	//subsequent "3rd lines"
 						text=text+", "+in.inputLocations.get(j).name
-						for(var i=1; i<in.inputLocations.length; i++) if (i != j) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"
+						for(var i=1; i<in.inputLocations.length; i++) if (i != j)  template=template+" && (((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+")) || ([] (!"+in.inputLocations.get(j).name+")))"
 					}
 				}
 				template=template+")"
@@ -353,7 +350,7 @@ class PromiseGenerator extends AbstractGenerator {
 			else if(in.pattern.eClass.name == "OrderedPatrolling") {
 				template="[] (<> (("+in.inputLocations.get(0).name+")"
 				text= text+"patrol (with a specific order) locations "
-				for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> (("+in.inputLocations.get(i).name+")" //sets the first line
+				for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
 				for(var i=0; i<in.inputLocations.length; i++){
 					template=template+")"
 					text= text+in.inputLocations.get(i).name+", "
@@ -366,7 +363,7 @@ class PromiseGenerator extends AbstractGenerator {
 				}
 			}	
 			else if(in.pattern.eClass.name == "StrictOreredPatrolling") {
-				template="[] (<> (("+in.inputLocations.get(0).name+")"
+				template="[] (<> ("+in.inputLocations.get(0).name+")"
 				text= text+"patrol (with a strict order) locations "+in.inputLocations.get(0).name
 				for(var i=1; i<in.inputLocations.length; i++){
 					template=template+" && <> (("+in.inputLocations.get(i).name+")" //sets the first line
@@ -374,13 +371,16 @@ class PromiseGenerator extends AbstractGenerator {
 				} 
 				for(var i=0; i<in.inputLocations.length; i++) template=template+")"
 				for(var j=in.inputLocations.length-1; j>=0; j--){
-					for(var i=in.inputLocations.length-1; i>=0; i--) {
-						if (i != j) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"
-						}
+					for(var i=j-1; i>=0; i--) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"
 				}
 				for(var j=in.inputLocations.length-1; j>0; j--){
 					for(var i=j-1; i>=0; i--) {
-						if (i != j) template=template+" && [] ("+in.inputLocations.get(j).name+" -> X((! "+in.inputLocations.get(j).name+")) U "+in.inputLocations.get(i).name+"))"
+						if (i != j) template=template+" && [] ("+in.inputLocations.get(j).name+" -> X((! "+in.inputLocations.get(j).name+") U "+in.inputLocations.get(i).name+"))"
+					}
+				}
+				for(var j=0; j<in.inputLocations.length; j++){
+					for(var i=j+1; i<in.inputLocations.length; i++) {
+						if (i != j) template=template+" && [] ("+in.inputLocations.get(j).name+" -> X((! "+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+")))"
 					}
 				}
 			}		
