@@ -360,13 +360,13 @@ public interface PromisePackage extends EPackage {
 	int EVENT_HANDLER_OP__INPUT_OPERATORS = COMPOSITION_OPERATOR__INPUT_OPERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Input Observed Events</b></em>' reference list.
+	 * The feature id for the '<em><b>Input Events</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_HANDLER_OP__INPUT_OBSERVED_EVENTS = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
+	int EVENT_HANDLER_OP__INPUT_EVENTS = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Event Handler Op</em>' class.
@@ -1700,15 +1700,15 @@ public interface PromisePackage extends EPackage {
 	EClass getEventHandlerOp();
 
 	/**
-	 * Returns the meta object for the reference list '{@link promise.EventHandlerOp#getInputObservedEvents <em>Input Observed Events</em>}'.
+	 * Returns the meta object for the reference list '{@link promise.EventHandlerOp#getInputEvents <em>Input Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Input Observed Events</em>'.
-	 * @see promise.EventHandlerOp#getInputObservedEvents()
+	 * @return the meta object for the reference list '<em>Input Events</em>'.
+	 * @see promise.EventHandlerOp#getInputEvents()
 	 * @see #getEventHandlerOp()
 	 * @generated
 	 */
-	EReference getEventHandlerOp_InputObservedEvents();
+	EReference getEventHandlerOp_InputEvents();
 
 	/**
 	 * Returns the meta object for class '{@link promise.ConditionOp <em>Condition Op</em>}'.
@@ -2348,12 +2348,12 @@ public interface PromisePackage extends EPackage {
 		EClass EVENT_HANDLER_OP = eINSTANCE.getEventHandlerOp();
 
 		/**
-		 * The meta object literal for the '<em><b>Input Observed Events</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Input Events</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EVENT_HANDLER_OP__INPUT_OBSERVED_EVENTS = eINSTANCE.getEventHandlerOp_InputObservedEvents();
+		EReference EVENT_HANDLER_OP__INPUT_EVENTS = eINSTANCE.getEventHandlerOp_InputEvents();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.ConditionOpImpl <em>Condition Op</em>}' class.

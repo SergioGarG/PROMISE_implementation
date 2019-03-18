@@ -3174,7 +3174,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
             	    						}
             	    					
 
-            	    						newCompositeNode(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsEventCrossReference_6_1_0());
+            	    						newCompositeNode(grammarAccess.getEventHandlerOpAccess().getInputEventsEventCrossReference_6_1_0());
             	    					
             	    pushFollow(FOLLOW_16);
             	    ruleEString();

@@ -1611,9 +1611,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_23-mNrXJEei73dAwlH3Y6Q" name="[0..*] inputObservedEvents" sourceNode="_225oILXJEei73dAwlH3Y6Q" targetNode="_22_HsbXJEei73dAwlH3Y6Q">
-      <target xmi:type="ecore:EReference" href="promise.ecore#//EventHandlerOp/inputObservedEvents"/>
-      <semanticElements xmi:type="ecore:EReference" href="promise.ecore#//EventHandlerOp/inputObservedEvents"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_23-mNrXJEei73dAwlH3Y6Q" name="[0..*] inputEvents" sourceNode="_225oILXJEei73dAwlH3Y6Q" targetNode="_22_HsbXJEei73dAwlH3Y6Q">
+      <target xmi:type="ecore:EReference" href="promise.ecore#//EventHandlerOp/inputEvents"/>
+      <semanticElements xmi:type="ecore:EReference" href="promise.ecore#//EventHandlerOp/inputEvents"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_23_NQLXJEei73dAwlH3Y6Q" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_23_NQbXJEei73dAwlH3Y6Q" showIcon="false">

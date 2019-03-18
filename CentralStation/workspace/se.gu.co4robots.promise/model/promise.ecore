@@ -11,7 +11,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SequenceOp" eSuperTypes="#//CompositionOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="ParallelOp" eSuperTypes="#//CompositionOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="EventHandlerOp" eSuperTypes="#//CompositionOperator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputObservedEvents" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputEvents" upperBound="-1"
         eType="#//Event"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionOp" eSuperTypes="#//CompositionOperator">

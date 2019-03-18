@@ -1264,7 +1264,7 @@ ruleEventHandlerOp returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsEventCrossReference_6_1_0());
+						newCompositeNode(grammarAccess.getEventHandlerOpAccess().getInputEventsEventCrossReference_6_1_0());
 					}
 					ruleEString
 					{

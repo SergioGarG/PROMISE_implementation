@@ -133,7 +133,7 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParallelOpAccess().getAffectingEventAssignment_4_1(), "rule__ParallelOp__AffectingEventAssignment_4_1");
 					put(grammarAccess.getParallelOpAccess().getAffectingEventAssignment_4_2_1(), "rule__ParallelOp__AffectingEventAssignment_4_2_1");
 					put(grammarAccess.getEventHandlerOpAccess().getInputOperatorsAssignment_4(), "rule__EventHandlerOp__InputOperatorsAssignment_4");
-					put(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsAssignment_6_1(), "rule__EventHandlerOp__InputObservedEventsAssignment_6_1");
+					put(grammarAccess.getEventHandlerOpAccess().getInputEventsAssignment_6_1(), "rule__EventHandlerOp__InputEventsAssignment_6_1");
 					put(grammarAccess.getEventHandlerOpAccess().getInputOperatorsAssignment_6_3(), "rule__EventHandlerOp__InputOperatorsAssignment_6_3");
 					put(grammarAccess.getEventHandlerOpAccess().getAffectingEventAssignment_7_1(), "rule__EventHandlerOp__AffectingEventAssignment_7_1");
 					put(grammarAccess.getEventHandlerOpAccess().getAffectingEventAssignment_7_2_1(), "rule__EventHandlerOp__AffectingEventAssignment_7_2_1");

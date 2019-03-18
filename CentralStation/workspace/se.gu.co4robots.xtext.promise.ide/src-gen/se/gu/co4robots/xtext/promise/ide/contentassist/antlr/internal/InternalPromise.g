@@ -3719,9 +3719,9 @@ rule__EventHandlerOp__Group_6__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsAssignment_6_1()); }
-	(rule__EventHandlerOp__InputObservedEventsAssignment_6_1)
-	{ after(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsAssignment_6_1()); }
+	{ before(grammarAccess.getEventHandlerOpAccess().getInputEventsAssignment_6_1()); }
+	(rule__EventHandlerOp__InputEventsAssignment_6_1)
+	{ after(grammarAccess.getEventHandlerOpAccess().getInputEventsAssignment_6_1()); }
 )
 ;
 finally {
@@ -7596,19 +7596,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EventHandlerOp__InputObservedEventsAssignment_6_1
+rule__EventHandlerOp__InputEventsAssignment_6_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsEventCrossReference_6_1_0()); }
+		{ before(grammarAccess.getEventHandlerOpAccess().getInputEventsEventCrossReference_6_1_0()); }
 		(
-			{ before(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsEventEStringParserRuleCall_6_1_0_1()); }
+			{ before(grammarAccess.getEventHandlerOpAccess().getInputEventsEventEStringParserRuleCall_6_1_0_1()); }
 			ruleEString
-			{ after(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsEventEStringParserRuleCall_6_1_0_1()); }
+			{ after(grammarAccess.getEventHandlerOpAccess().getInputEventsEventEStringParserRuleCall_6_1_0_1()); }
 		)
-		{ after(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsEventCrossReference_6_1_0()); }
+		{ after(grammarAccess.getEventHandlerOpAccess().getInputEventsEventCrossReference_6_1_0()); }
 	)
 ;
 finally {

@@ -745,9 +745,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cExceptKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cInputObservedEventsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cInputObservedEventsEventCrossReference_6_1_0 = (CrossReference)cInputObservedEventsAssignment_6_1.eContents().get(0);
-		private final RuleCall cInputObservedEventsEventEStringParserRuleCall_6_1_0_1 = (RuleCall)cInputObservedEventsEventCrossReference_6_1_0.eContents().get(1);
+		private final Assignment cInputEventsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final CrossReference cInputEventsEventCrossReference_6_1_0 = (CrossReference)cInputEventsAssignment_6_1.eContents().get(0);
+		private final RuleCall cInputEventsEventEStringParserRuleCall_6_1_0_1 = (RuleCall)cInputEventsEventCrossReference_6_1_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
 		private final Assignment cInputOperatorsAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
 		private final RuleCall cInputOperatorsOperatorParserRuleCall_6_3_0 = (RuleCall)cInputOperatorsAssignment_6_3.eContents().get(0);
@@ -766,11 +766,11 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EventHandlerOp:
 		//	'eventHandler' '('
-		//	'default' '(' inputOperators+=Operator ')' ('except' inputObservedEvents+=[Event|EString] '(' inputOperators+=Operator
-		//	')')+ ('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+		//	'default' '(' inputOperators+=Operator ')' ('except' inputEvents+=[Event|EString] '(' inputOperators+=Operator ')')+
+		//	('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'eventHandler' '(' 'default' '(' inputOperators+=Operator ')' ('except' inputObservedEvents+=[Event|EString] '('
+		//'eventHandler' '(' 'default' '(' inputOperators+=Operator ')' ('except' inputEvents+=[Event|EString] '('
 		//inputOperators+=Operator ')')+ ('affecting event' affectingEvent+=[Event|EString] (","
 		//affectingEvent+=[Event|EString])*)? ')'
 		public Group getGroup() { return cGroup; }
@@ -796,20 +796,20 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 		
-		//('except' inputObservedEvents+=[Event|EString] '(' inputOperators+=Operator ')')+
+		//('except' inputEvents+=[Event|EString] '(' inputOperators+=Operator ')')+
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//'except'
 		public Keyword getExceptKeyword_6_0() { return cExceptKeyword_6_0; }
 		
-		//inputObservedEvents+=[Event|EString]
-		public Assignment getInputObservedEventsAssignment_6_1() { return cInputObservedEventsAssignment_6_1; }
+		//inputEvents+=[Event|EString]
+		public Assignment getInputEventsAssignment_6_1() { return cInputEventsAssignment_6_1; }
 		
 		//[Event|EString]
-		public CrossReference getInputObservedEventsEventCrossReference_6_1_0() { return cInputObservedEventsEventCrossReference_6_1_0; }
+		public CrossReference getInputEventsEventCrossReference_6_1_0() { return cInputEventsEventCrossReference_6_1_0; }
 		
 		//EString
-		public RuleCall getInputObservedEventsEventEStringParserRuleCall_6_1_0_1() { return cInputObservedEventsEventEStringParserRuleCall_6_1_0_1; }
+		public RuleCall getInputEventsEventEStringParserRuleCall_6_1_0_1() { return cInputEventsEventEStringParserRuleCall_6_1_0_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_6_2() { return cLeftParenthesisKeyword_6_2; }
@@ -2065,8 +2065,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//EventHandlerOp:
 	//	'eventHandler' '('
-	//	'default' '(' inputOperators+=Operator ')' ('except' inputObservedEvents+=[Event|EString] '(' inputOperators+=Operator
-	//	')')+ ('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+	//	'default' '(' inputOperators+=Operator ')' ('except' inputEvents+=[Event|EString] '(' inputOperators+=Operator ')')+
+	//	('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
 	public EventHandlerOpElements getEventHandlerOpAccess() {
 		return pEventHandlerOp;
 	}

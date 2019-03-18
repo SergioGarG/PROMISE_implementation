@@ -256,7 +256,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 * Constraint:
 	 *     (
 	 *         inputOperators+=Operator 
-	 *         (inputObservedEvents+=[Event|EString] inputOperators+=Operator)+ 
+	 *         (inputEvents+=[Event|EString] inputOperators+=Operator)+ 
 	 *         (affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)?
 	 *     )
 	 */

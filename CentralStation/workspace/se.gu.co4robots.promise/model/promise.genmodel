@@ -14,7 +14,7 @@
     <genClasses ecoreClass="promise.ecore#//SequenceOp"/>
     <genClasses ecoreClass="promise.ecore#//ParallelOp"/>
     <genClasses ecoreClass="promise.ecore#//EventHandlerOp">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//EventHandlerOp/inputObservedEvents"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//EventHandlerOp/inputEvents"/>
     </genClasses>
     <genClasses ecoreClass="promise.ecore#//ConditionOp">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//ConditionOp/inputEvents"/>

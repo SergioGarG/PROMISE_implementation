@@ -22,22 +22,21 @@ import promise.PromisePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link promise.impl.EventHandlerOpImpl#getInputObservedEvents <em>Input Observed Events</em>}</li>
+ *   <li>{@link promise.impl.EventHandlerOpImpl#getInputEvents <em>Input Events</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class EventHandlerOpImpl extends CompositionOperatorImpl implements EventHandlerOp {
 	/**
-	 * The cached value of the '{@link #getInputObservedEvents() <em>Input Observed Events</em>}' reference list.
+	 * The cached value of the '{@link #getInputEvents() <em>Input Events</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInputObservedEvents()
+	 * @see #getInputEvents()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Event> inputObservedEvents;
-
+	protected EList<Event> inputEvents;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,11 +61,11 @@ public class EventHandlerOpImpl extends CompositionOperatorImpl implements Event
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Event> getInputObservedEvents() {
-		if (inputObservedEvents == null) {
-			inputObservedEvents = new EObjectResolvingEList<Event>(Event.class, this, PromisePackage.EVENT_HANDLER_OP__INPUT_OBSERVED_EVENTS);
+	public EList<Event> getInputEvents() {
+		if (inputEvents == null) {
+			inputEvents = new EObjectResolvingEList<Event>(Event.class, this, PromisePackage.EVENT_HANDLER_OP__INPUT_EVENTS);
 		}
-		return inputObservedEvents;
+		return inputEvents;
 	}
 
 	/**
@@ -77,8 +76,8 @@ public class EventHandlerOpImpl extends CompositionOperatorImpl implements Event
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PromisePackage.EVENT_HANDLER_OP__INPUT_OBSERVED_EVENTS:
-				return getInputObservedEvents();
+			case PromisePackage.EVENT_HANDLER_OP__INPUT_EVENTS:
+				return getInputEvents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -92,9 +91,9 @@ public class EventHandlerOpImpl extends CompositionOperatorImpl implements Event
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PromisePackage.EVENT_HANDLER_OP__INPUT_OBSERVED_EVENTS:
-				getInputObservedEvents().clear();
-				getInputObservedEvents().addAll((Collection<? extends Event>)newValue);
+			case PromisePackage.EVENT_HANDLER_OP__INPUT_EVENTS:
+				getInputEvents().clear();
+				getInputEvents().addAll((Collection<? extends Event>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -108,8 +107,8 @@ public class EventHandlerOpImpl extends CompositionOperatorImpl implements Event
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PromisePackage.EVENT_HANDLER_OP__INPUT_OBSERVED_EVENTS:
-				getInputObservedEvents().clear();
+			case PromisePackage.EVENT_HANDLER_OP__INPUT_EVENTS:
+				getInputEvents().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -123,8 +122,8 @@ public class EventHandlerOpImpl extends CompositionOperatorImpl implements Event
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PromisePackage.EVENT_HANDLER_OP__INPUT_OBSERVED_EVENTS:
-				return inputObservedEvents != null && !inputObservedEvents.isEmpty();
+			case PromisePackage.EVENT_HANDLER_OP__INPUT_EVENTS:
+				return inputEvents != null && !inputEvents.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

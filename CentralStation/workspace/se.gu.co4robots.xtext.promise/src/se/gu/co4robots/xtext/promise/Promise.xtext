@@ -54,7 +54,7 @@ ParallelOp:
 EventHandlerOp:
 	'eventHandler' '(' 
 	'default' '(' inputOperators+=Operator ')'
-	('except' inputObservedEvents+=[Event|EString] '(' inputOperators+=Operator ')')+
+	('except' inputEvents+=[Event|EString] '(' inputOperators+=Operator ')')+
 	('affecting event' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* )? ')';
 
 ConditionOp:

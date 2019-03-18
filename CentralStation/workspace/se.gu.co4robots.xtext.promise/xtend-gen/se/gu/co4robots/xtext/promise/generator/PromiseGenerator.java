@@ -61,7 +61,6 @@ public class PromiseGenerator extends AbstractGenerator {
     for (int i = (((Object[])Conversions.unwrapArray(this.stoppingEvents, Object.class)).length - 1); (i >= 0); i--) {
       this.stoppingEvents.remove(i);
     }
-    InputOutput.<String>println("removing");
     int _length = ((Object[])Conversions.unwrapArray(IteratorExtensions.<Robot>toIterable(Iterators.<Robot>filter(resource.getAllContents(), Robot.class)), Object.class)).length;
     ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
     for (final Integer i : _doubleDotLessThan) {
@@ -298,16 +297,16 @@ public class PromiseGenerator extends AbstractGenerator {
       {
         counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
         ArrayList<robotClass> _get_1 = this.robotsList.get(robot);
-        String _name = in.getInputObservedEvents().get((i - 1)).getName();
+        String _name = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
         String _plus = ("eh_" + _name);
         ArrayList<String> _arrayList_1 = new ArrayList<String>();
         robotClass _robotClass_1 = new robotClass(_plus, _arrayList_1, (indentation + 1));
         _get_1.add(_robotClass_1);
-        String _name_1 = in.getInputObservedEvents().get((i - 1)).getName();
+        String _name_1 = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
         String _plus_1 = ((this.text + ", and if event ") + _name_1);
         String _plus_2 = (_plus_1 + " occurs, it will ");
         this.text = _plus_2;
-        String _name_2 = in.getInputObservedEvents().get((i - 1)).getName();
+        String _name_2 = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
         String _plus_3 = ("eh_" + _name_2);
         this.nestedMethod(in, counter, i, robot, (indentation + 1), _plus_3);
       }
@@ -336,20 +335,24 @@ public class PromiseGenerator extends AbstractGenerator {
   }
   
   protected Object _doLogic(final ConditionOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
-    this.robotsList.get(robot).get(index).missionList.add("fb");
+    this.robotsList.get(robot).get(index).missionList.add("cond");
     int counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
     for (int i = 1; (i <= ((Object[])Conversions.unwrapArray(in.getInputOperators(), Object.class)).length); i++) {
       {
         counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
         ArrayList<robotClass> _get = this.robotsList.get(robot);
+        String _name = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
+        String _plus = ("cond_" + _name);
         ArrayList<String> _arrayList = new ArrayList<String>();
-        robotClass _robotClass = new robotClass(("fb_" + Integer.valueOf(i)), _arrayList, (indentation + 1));
+        robotClass _robotClass = new robotClass(_plus, _arrayList, (indentation + 1));
         _get.add(_robotClass);
-        if ((i > 1)) {
-          this.text = (this.text + "if it fails, it tries to ");
-        }
-        int _plusPlus = counter++;
-        this.nestedMethod(in, _plusPlus, (i - 1), robot, (indentation + 1), ("fb_" + Integer.valueOf(i)));
+        String _name_1 = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
+        String _plus_1 = ((this.text + "if event") + _name_1);
+        String _plus_2 = (_plus_1 + " holds, it will ");
+        this.text = _plus_2;
+        String _name_2 = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
+        String _plus_3 = ("cond_" + _name_2);
+        this.nestedMethod(in, counter, (i - 1), robot, (indentation + 1), _plus_3);
       }
     }
     return null;

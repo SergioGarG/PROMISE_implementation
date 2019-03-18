@@ -468,7 +468,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEventHandlerOp_InputObservedEvents() {
+	public EReference getEventHandlerOp_InputEvents() {
 		return (EReference)eventHandlerOpEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -988,7 +988,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		parallelOpEClass = createEClass(PARALLEL_OP);
 
 		eventHandlerOpEClass = createEClass(EVENT_HANDLER_OP);
-		createEReference(eventHandlerOpEClass, EVENT_HANDLER_OP__INPUT_OBSERVED_EVENTS);
+		createEReference(eventHandlerOpEClass, EVENT_HANDLER_OP__INPUT_EVENTS);
 
 		conditionOpEClass = createEClass(CONDITION_OP);
 		createEReference(conditionOpEClass, CONDITION_OP__INPUT_EVENTS);
@@ -1156,7 +1156,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEClass(parallelOpEClass, ParallelOp.class, "ParallelOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(eventHandlerOpEClass, EventHandlerOp.class, "EventHandlerOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventHandlerOp_InputObservedEvents(), this.getEvent(), null, "inputObservedEvents", null, 0, -1, EventHandlerOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventHandlerOp_InputEvents(), this.getEvent(), null, "inputEvents", null, 0, -1, EventHandlerOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionOpEClass, ConditionOp.class, "ConditionOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConditionOp_InputEvents(), this.getEvent(), null, "inputEvents", null, 0, -1, ConditionOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

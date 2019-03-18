@@ -42,25 +42,25 @@ public class EventHandlerOpItemProvider extends CompositionOperatorItemProvider 
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInputObservedEventsPropertyDescriptor(object);
+			addInputEventsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Input Observed Events feature.
+	 * This adds a property descriptor for the Input Events feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInputObservedEventsPropertyDescriptor(Object object) {
+	protected void addInputEventsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EventHandlerOp_inputObservedEvents_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EventHandlerOp_inputObservedEvents_feature", "_UI_EventHandlerOp_type"),
-				 PromisePackage.Literals.EVENT_HANDLER_OP__INPUT_OBSERVED_EVENTS,
+				 getString("_UI_EventHandlerOp_inputEvents_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventHandlerOp_inputEvents_feature", "_UI_EventHandlerOp_type"),
+				 PromisePackage.Literals.EVENT_HANDLER_OP__INPUT_EVENTS,
 				 true,
 				 false,
 				 true,

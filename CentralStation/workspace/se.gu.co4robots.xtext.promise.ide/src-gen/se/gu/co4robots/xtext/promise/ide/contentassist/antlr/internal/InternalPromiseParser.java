@@ -11510,31 +11510,31 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EventHandlerOp__Group_6__1__Impl"
-    // InternalPromise.g:3716:1: rule__EventHandlerOp__Group_6__1__Impl : ( ( rule__EventHandlerOp__InputObservedEventsAssignment_6_1 ) ) ;
+    // InternalPromise.g:3716:1: rule__EventHandlerOp__Group_6__1__Impl : ( ( rule__EventHandlerOp__InputEventsAssignment_6_1 ) ) ;
     public final void rule__EventHandlerOp__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3720:1: ( ( ( rule__EventHandlerOp__InputObservedEventsAssignment_6_1 ) ) )
-            // InternalPromise.g:3721:1: ( ( rule__EventHandlerOp__InputObservedEventsAssignment_6_1 ) )
+            // InternalPromise.g:3720:1: ( ( ( rule__EventHandlerOp__InputEventsAssignment_6_1 ) ) )
+            // InternalPromise.g:3721:1: ( ( rule__EventHandlerOp__InputEventsAssignment_6_1 ) )
             {
-            // InternalPromise.g:3721:1: ( ( rule__EventHandlerOp__InputObservedEventsAssignment_6_1 ) )
-            // InternalPromise.g:3722:2: ( rule__EventHandlerOp__InputObservedEventsAssignment_6_1 )
+            // InternalPromise.g:3721:1: ( ( rule__EventHandlerOp__InputEventsAssignment_6_1 ) )
+            // InternalPromise.g:3722:2: ( rule__EventHandlerOp__InputEventsAssignment_6_1 )
             {
-             before(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsAssignment_6_1()); 
-            // InternalPromise.g:3723:2: ( rule__EventHandlerOp__InputObservedEventsAssignment_6_1 )
-            // InternalPromise.g:3723:3: rule__EventHandlerOp__InputObservedEventsAssignment_6_1
+             before(grammarAccess.getEventHandlerOpAccess().getInputEventsAssignment_6_1()); 
+            // InternalPromise.g:3723:2: ( rule__EventHandlerOp__InputEventsAssignment_6_1 )
+            // InternalPromise.g:3723:3: rule__EventHandlerOp__InputEventsAssignment_6_1
             {
             pushFollow(FOLLOW_2);
-            rule__EventHandlerOp__InputObservedEventsAssignment_6_1();
+            rule__EventHandlerOp__InputEventsAssignment_6_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsAssignment_6_1()); 
+             after(grammarAccess.getEventHandlerOpAccess().getInputEventsAssignment_6_1()); 
 
             }
 
@@ -22752,9 +22752,9 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__EventHandlerOp__InputOperatorsAssignment_4"
 
 
-    // $ANTLR start "rule__EventHandlerOp__InputObservedEventsAssignment_6_1"
-    // InternalPromise.g:7599:1: rule__EventHandlerOp__InputObservedEventsAssignment_6_1 : ( ( ruleEString ) ) ;
-    public final void rule__EventHandlerOp__InputObservedEventsAssignment_6_1() throws RecognitionException {
+    // $ANTLR start "rule__EventHandlerOp__InputEventsAssignment_6_1"
+    // InternalPromise.g:7599:1: rule__EventHandlerOp__InputEventsAssignment_6_1 : ( ( ruleEString ) ) ;
+    public final void rule__EventHandlerOp__InputEventsAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -22765,21 +22765,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
             // InternalPromise.g:7604:2: ( ( ruleEString ) )
             // InternalPromise.g:7605:3: ( ruleEString )
             {
-             before(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsEventCrossReference_6_1_0()); 
+             before(grammarAccess.getEventHandlerOpAccess().getInputEventsEventCrossReference_6_1_0()); 
             // InternalPromise.g:7606:3: ( ruleEString )
             // InternalPromise.g:7607:4: ruleEString
             {
-             before(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsEventEStringParserRuleCall_6_1_0_1()); 
+             before(grammarAccess.getEventHandlerOpAccess().getInputEventsEventEStringParserRuleCall_6_1_0_1()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsEventEStringParserRuleCall_6_1_0_1()); 
+             after(grammarAccess.getEventHandlerOpAccess().getInputEventsEventEStringParserRuleCall_6_1_0_1()); 
 
             }
 
-             after(grammarAccess.getEventHandlerOpAccess().getInputObservedEventsEventCrossReference_6_1_0()); 
+             after(grammarAccess.getEventHandlerOpAccess().getInputEventsEventCrossReference_6_1_0()); 
 
             }
 
@@ -22798,7 +22798,7 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__EventHandlerOp__InputObservedEventsAssignment_6_1"
+    // $ANTLR end "rule__EventHandlerOp__InputEventsAssignment_6_1"
 
 
     // $ANTLR start "rule__EventHandlerOp__InputOperatorsAssignment_6_3"

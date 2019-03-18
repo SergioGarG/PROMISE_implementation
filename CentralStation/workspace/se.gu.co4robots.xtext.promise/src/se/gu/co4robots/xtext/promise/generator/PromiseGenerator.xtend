@@ -67,8 +67,6 @@ class PromiseGenerator extends AbstractGenerator {
  		for (var i = availableRobots.length-1 ; i >= 0; i--) availableRobots.remove(i)
  		for (var i = textarray.length-1 ; i >= 0; i--)	textarray.remove(i)
  		for (var i = stoppingEvents.length-1 ; i >= 0; i--) stoppingEvents.remove(i)
- 		
- 		println("removing")
 		
 		
 			for (i:0..<(resource.allContents.filter(Robot).toIterable.length)) {
@@ -169,6 +167,22 @@ class PromiseGenerator extends AbstractGenerator {
 				}}
 		}
 		
+		//First version
+//		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent, String hybrid){
+//			text= text+"by default "
+//			robotsList.get(robot).get(index).missionList.add("eh")
+//			var int counter = robotsList.get(robot).length
+//			robotsList.get(robot).add(new robotClass("eh_default", new ArrayList<String>, indentation+1))
+//			nestedMethod(in, counter, 0, robot, indentation+1, "eh_default") //always execute the first operator, the following ones are the associated with events
+//			for(var i=1; i<(in.inputOperators.length); i++) {
+//				counter = robotsList.get(robot).length
+//				robotsList.get(robot).add(new robotClass("eh_"+in.inputObservedEvents.get(i-1).name, new ArrayList<String>, indentation+1))
+//				text= text+", and if event "+in.inputObservedEvents.get(i-1).name+" occurs, it will "
+//				nestedMethod(in, counter, i, robot, indentation+1, "eh_"+in.inputObservedEvents.get(i-1).name)
+//			}
+//		}
+
+		//Attempting to simplify the events arguments
 		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent, String hybrid){
 			text= text+"by default "
 			robotsList.get(robot).get(index).missionList.add("eh")
@@ -177,9 +191,9 @@ class PromiseGenerator extends AbstractGenerator {
 			nestedMethod(in, counter, 0, robot, indentation+1, "eh_default") //always execute the first operator, the following ones are the associated with events
 			for(var i=1; i<(in.inputOperators.length); i++) {
 				counter = robotsList.get(robot).length
-				robotsList.get(robot).add(new robotClass("eh_"+in.inputObservedEvents.get(i-1).name, new ArrayList<String>, indentation+1))
-				text= text+", and if event "+in.inputObservedEvents.get(i-1).name+" occurs, it will "
-				nestedMethod(in, counter, i, robot, indentation+1, "eh_"+in.inputObservedEvents.get(i-1).name)
+				robotsList.get(robot).add(new robotClass("eh_"+in.inputOperators.get(i).affectingEvent.get(0).name, new ArrayList<String>, indentation+1))
+				text= text+", and if event "+in.inputOperators.get(i).affectingEvent.get(0).name+" occurs, it will "
+				nestedMethod(in, counter, i, robot, indentation+1, "eh_"+in.inputOperators.get(i).affectingEvent.get(0).name)
 			}
 		}
 		
@@ -193,14 +207,28 @@ class PromiseGenerator extends AbstractGenerator {
 				nestedMethod(in, counter++, i-1, robot, indentation+1, "fb_"+i)
 			}	
 		}
+		
+		//First version
+//		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent, String hybrid){
+//			robotsList.get(robot).get(index).missionList.add("cond")
+//			var int counter = robotsList.get(robot).length
+//			for(var i=1; i<=(in.inputOperators.length); i++) {
+//				counter = robotsList.get(robot).length
+//				robotsList.get(robot).add(new robotClass("cond_"+in.inputEvents.get(i-1).name, new ArrayList<String>, indentation+1))
+//				text= text+"if event"+in.inputEvents.get(i-1).name+" holds, it will "
+//				nestedMethod(in, counter, i-1, robot, indentation+1, "cond_"+in.inputEvents.get(i-1).name)
+//			}
+//		}
+		
+		//Attempting to simplify the events arguments
 		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent, String hybrid){
-			robotsList.get(robot).get(index).missionList.add("fb")
+			robotsList.get(robot).get(index).missionList.add("cond")
 			var int counter = robotsList.get(robot).length
 			for(var i=1; i<=(in.inputOperators.length); i++) {
 				counter = robotsList.get(robot).length
-				robotsList.get(robot).add(new robotClass("fb_"+i, new ArrayList<String>, indentation+1))
-				if (i>1) text= text+"if it fails, it tries to "
-				nestedMethod(in, counter++, i-1, robot, indentation+1, "fb_"+i)
+				robotsList.get(robot).add(new robotClass("cond_"+in.inputOperators.get(i).affectingEvent.get(0).name, new ArrayList<String>, indentation+1))
+				text= text+"if event"+in.inputOperators.get(i).affectingEvent.get(0).name+" holds, it will "
+				nestedMethod(in, counter, i-1, robot, indentation+1, "cond_"+in.inputOperators.get(i).affectingEvent.get(0).name)
 			}
 		}
 		
