@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link promise.DelegateOp#getInputRobot <em>Input Robot</em>}</li>
  *   <li>{@link promise.DelegateOp#getPattern <em>Pattern</em>}</li>
  *   <li>{@link promise.DelegateOp#getInputAction <em>Input Action</em>}</li>
  *   <li>{@link promise.DelegateOp#getStoppingEvent <em>Stopping Event</em>}</li>
@@ -25,22 +24,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface DelegateOp extends Operator {
-	/**
-	 * Returns the value of the '<em><b>Input Robot</b></em>' reference list.
-	 * The list contents are of type {@link promise.Robot}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Input Robot</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input Robot</em>' reference list.
-	 * @see promise.PromisePackage#getDelegateOp_InputRobot()
-	 * @model required="true"
-	 * @generated
-	 */
-	EList<Robot> getInputRobot();
-
 	/**
 	 * Returns the value of the '<em><b>Pattern</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

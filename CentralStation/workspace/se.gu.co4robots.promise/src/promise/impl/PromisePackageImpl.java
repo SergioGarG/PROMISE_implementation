@@ -630,7 +630,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDelegateOp_InputRobot() {
+	public EReference getDelegateOp_Pattern() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -639,7 +639,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDelegateOp_Pattern() {
+	public EReference getDelegateOp_InputAction() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -648,7 +648,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDelegateOp_InputAction() {
+	public EReference getDelegateOp_StoppingEvent() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -657,17 +657,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDelegateOp_StoppingEvent() {
-		return (EReference)delegateOpEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDelegateOp_InputLocations() {
-		return (EReference)delegateOpEClass.getEStructuralFeatures().get(4);
+		return (EReference)delegateOpEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1014,7 +1005,6 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		createEAttribute(eventEClass, EVENT__DESCRIPTION);
 
 		delegateOpEClass = createEClass(DELEGATE_OP);
-		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_ROBOT);
 		createEReference(delegateOpEClass, DELEGATE_OP__PATTERN);
 		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_ACTION);
 		createEReference(delegateOpEClass, DELEGATE_OP__STOPPING_EVENT);
@@ -1182,7 +1172,6 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEAttribute(getEvent_Description(), ecorePackage.getEString(), "description", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(delegateOpEClass, DelegateOp.class, "DelegateOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDelegateOp_InputRobot(), this.getRobot(), null, "inputRobot", null, 1, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_Pattern(), this.getPattern(), null, "pattern", null, 1, 1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_InputAction(), this.getAction(), null, "inputAction", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_StoppingEvent(), this.getEvent(), null, "stoppingEvent", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

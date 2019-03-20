@@ -1,1 +1,1 @@
-Robot r1 does patrol (with a strict order) locations l2, l4 and avoid location l3
+Robot r1 does by default  visit (without any specific order) locations l1, and if event e1 occurs, it will  visit (without any specific order) locations l1

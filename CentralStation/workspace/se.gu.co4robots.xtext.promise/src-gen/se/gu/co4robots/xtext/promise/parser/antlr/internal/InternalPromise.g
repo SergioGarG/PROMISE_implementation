@@ -1503,58 +1503,12 @@ ruleDelegateOp returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getDelegateOpAccess().getLeftParenthesisKeyword_1());
 		}
-		otherlv_2='robot'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getDelegateOpAccess().getRobotKeyword_2());
-		}
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDelegateOpRule());
-					}
+					newCompositeNode(grammarAccess.getDelegateOpAccess().getPatternPatternParserRuleCall_2_0());
 				}
-				{
-					newCompositeNode(grammarAccess.getDelegateOpAccess().getInputRobotRobotCrossReference_3_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_4=','
-			{
-				newLeafNode(otherlv_4, grammarAccess.getDelegateOpAccess().getCommaKeyword_4_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDelegateOpRule());
-						}
-					}
-					{
-						newCompositeNode(grammarAccess.getDelegateOpAccess().getInputRobotRobotCrossReference_4_1_0());
-					}
-					ruleEString
-					{
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-		otherlv_6='does'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getDelegateOpAccess().getDoesKeyword_5());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDelegateOpAccess().getPatternPatternParserRuleCall_6_0());
-				}
-				lv_pattern_7_0=rulePattern
+				lv_pattern_2_0=rulePattern
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDelegateOpRule());
@@ -1562,16 +1516,16 @@ ruleDelegateOp returns [EObject current=null]
 					set(
 						$current,
 						"pattern",
-						lv_pattern_7_0,
+						lv_pattern_2_0,
 						"se.gu.co4robots.xtext.promise.Promise.Pattern");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_8='locations'
+			otherlv_3='locations'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getDelegateOpAccess().getLocationsKeyword_7_0());
+				newLeafNode(otherlv_3, grammarAccess.getDelegateOpAccess().getLocationsKeyword_3_0());
 			}
 			(
 				(
@@ -1581,7 +1535,7 @@ ruleDelegateOp returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getDelegateOpAccess().getInputLocationsLocationCrossReference_7_1_0());
+						newCompositeNode(grammarAccess.getDelegateOpAccess().getInputLocationsLocationCrossReference_3_1_0());
 					}
 					ruleEString
 					{
@@ -1590,9 +1544,9 @@ ruleDelegateOp returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_10=','
+				otherlv_5=','
 				{
-					newLeafNode(otherlv_10, grammarAccess.getDelegateOpAccess().getCommaKeyword_7_2_0());
+					newLeafNode(otherlv_5, grammarAccess.getDelegateOpAccess().getCommaKeyword_3_2_0());
 				}
 				(
 					(
@@ -1602,7 +1556,7 @@ ruleDelegateOp returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getDelegateOpAccess().getInputLocationsLocationCrossReference_7_2_1_0());
+							newCompositeNode(grammarAccess.getDelegateOpAccess().getInputLocationsLocationCrossReference_3_2_1_0());
 						}
 						ruleEString
 						{
@@ -1613,9 +1567,9 @@ ruleDelegateOp returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_12='actions'
+			otherlv_7='actions'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getDelegateOpAccess().getActionsKeyword_8_0());
+				newLeafNode(otherlv_7, grammarAccess.getDelegateOpAccess().getActionsKeyword_4_0());
 			}
 			(
 				(
@@ -1625,7 +1579,7 @@ ruleDelegateOp returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getDelegateOpAccess().getInputActionActionCrossReference_8_1_0());
+						newCompositeNode(grammarAccess.getDelegateOpAccess().getInputActionActionCrossReference_4_1_0());
 					}
 					ruleEString
 					{
@@ -1634,9 +1588,9 @@ ruleDelegateOp returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_14=','
+				otherlv_9=','
 				{
-					newLeafNode(otherlv_14, grammarAccess.getDelegateOpAccess().getCommaKeyword_8_2_0());
+					newLeafNode(otherlv_9, grammarAccess.getDelegateOpAccess().getCommaKeyword_4_2_0());
 				}
 				(
 					(
@@ -1646,7 +1600,7 @@ ruleDelegateOp returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getDelegateOpAccess().getInputActionActionCrossReference_8_2_1_0());
+							newCompositeNode(grammarAccess.getDelegateOpAccess().getInputActionActionCrossReference_4_2_1_0());
 						}
 						ruleEString
 						{
@@ -1657,9 +1611,9 @@ ruleDelegateOp returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_16='affecting event'
+			otherlv_11='affecting event'
 			{
-				newLeafNode(otherlv_16, grammarAccess.getDelegateOpAccess().getAffectingEventKeyword_9_0());
+				newLeafNode(otherlv_11, grammarAccess.getDelegateOpAccess().getAffectingEventKeyword_5_0());
 			}
 			(
 				(
@@ -1669,7 +1623,7 @@ ruleDelegateOp returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getDelegateOpAccess().getAffectingEventEventCrossReference_9_1_0());
+						newCompositeNode(grammarAccess.getDelegateOpAccess().getAffectingEventEventCrossReference_5_1_0());
 					}
 					ruleEString
 					{
@@ -1678,9 +1632,9 @@ ruleDelegateOp returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_18=','
+				otherlv_13=','
 				{
-					newLeafNode(otherlv_18, grammarAccess.getDelegateOpAccess().getCommaKeyword_9_2_0());
+					newLeafNode(otherlv_13, grammarAccess.getDelegateOpAccess().getCommaKeyword_5_2_0());
 				}
 				(
 					(
@@ -1690,7 +1644,7 @@ ruleDelegateOp returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getDelegateOpAccess().getAffectingEventEventCrossReference_9_2_1_0());
+							newCompositeNode(grammarAccess.getDelegateOpAccess().getAffectingEventEventCrossReference_5_2_1_0());
 						}
 						ruleEString
 						{
@@ -1701,9 +1655,9 @@ ruleDelegateOp returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_20='stoppingEvents'
+			otherlv_15='stoppingEvents'
 			{
-				newLeafNode(otherlv_20, grammarAccess.getDelegateOpAccess().getStoppingEventsKeyword_10_0());
+				newLeafNode(otherlv_15, grammarAccess.getDelegateOpAccess().getStoppingEventsKeyword_6_0());
 			}
 			(
 				(
@@ -1713,7 +1667,7 @@ ruleDelegateOp returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_10_1_0());
+						newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_6_1_0());
 					}
 					ruleEString
 					{
@@ -1722,9 +1676,9 @@ ruleDelegateOp returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_22=','
+				otherlv_17=','
 				{
-					newLeafNode(otherlv_22, grammarAccess.getDelegateOpAccess().getCommaKeyword_10_2_0());
+					newLeafNode(otherlv_17, grammarAccess.getDelegateOpAccess().getCommaKeyword_6_2_0());
 				}
 				(
 					(
@@ -1734,7 +1688,7 @@ ruleDelegateOp returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_10_2_1_0());
+							newCompositeNode(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_6_2_1_0());
 						}
 						ruleEString
 						{
@@ -1744,9 +1698,9 @@ ruleDelegateOp returns [EObject current=null]
 				)
 			)*
 		)?
-		otherlv_24=')'
+		otherlv_19=')'
 		{
-			newLeafNode(otherlv_24, grammarAccess.getDelegateOpAccess().getRightParenthesisKeyword_11());
+			newLeafNode(otherlv_19, grammarAccess.getDelegateOpAccess().getRightParenthesisKeyword_7());
 		}
 	)
 ;

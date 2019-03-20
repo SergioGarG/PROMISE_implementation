@@ -38,7 +38,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute promise.ecore#//Event/description"/>
     </genClasses>
     <genClasses ecoreClass="promise.ecore#//DelegateOp">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//DelegateOp/inputRobot"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//DelegateOp/pattern"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//DelegateOp/inputAction"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference promise.ecore#//DelegateOp/stoppingEvent"/>

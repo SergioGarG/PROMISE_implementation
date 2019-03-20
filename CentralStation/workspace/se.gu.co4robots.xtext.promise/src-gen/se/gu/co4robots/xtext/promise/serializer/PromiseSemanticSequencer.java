@@ -234,8 +234,6 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *
 	 * Constraint:
 	 *     (
-	 *         inputRobot+=[Robot|EString] 
-	 *         inputRobot+=[Robot|EString]* 
 	 *         pattern=Pattern 
 	 *         (inputLocations+=[Location|EString] inputLocations+=[Location|EString]*)? 
 	 *         (inputAction+=[Action|EString] inputAction+=[Action|EString]*)? 

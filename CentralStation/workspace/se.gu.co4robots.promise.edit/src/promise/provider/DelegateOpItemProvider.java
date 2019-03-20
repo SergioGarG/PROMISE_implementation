@@ -47,34 +47,11 @@ public class DelegateOpItemProvider extends OperatorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInputRobotPropertyDescriptor(object);
 			addInputActionPropertyDescriptor(object);
 			addStoppingEventPropertyDescriptor(object);
 			addInputLocationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Input Robot feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInputRobotPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DelegateOp_inputRobot_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DelegateOp_inputRobot_feature", "_UI_DelegateOp_type"),
-				 PromisePackage.Literals.DELEGATE_OP__INPUT_ROBOT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

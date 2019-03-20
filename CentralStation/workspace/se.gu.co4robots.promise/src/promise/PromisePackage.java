@@ -700,22 +700,13 @@ public interface PromisePackage extends EPackage {
 	int DELEGATE_OP__PARENT = OPERATOR__PARENT;
 
 	/**
-	 * The feature id for the '<em><b>Input Robot</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELEGATE_OP__INPUT_ROBOT = OPERATOR_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP__PATTERN = OPERATOR_FEATURE_COUNT + 1;
+	int DELEGATE_OP__PATTERN = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Input Action</b></em>' reference list.
@@ -724,7 +715,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP__INPUT_ACTION = OPERATOR_FEATURE_COUNT + 2;
+	int DELEGATE_OP__INPUT_ACTION = OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Stopping Event</b></em>' reference list.
@@ -733,7 +724,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP__STOPPING_EVENT = OPERATOR_FEATURE_COUNT + 3;
+	int DELEGATE_OP__STOPPING_EVENT = OPERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Input Locations</b></em>' reference list.
@@ -742,7 +733,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP__INPUT_LOCATIONS = OPERATOR_FEATURE_COUNT + 4;
+	int DELEGATE_OP__INPUT_LOCATIONS = OPERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Delegate Op</em>' class.
@@ -751,7 +742,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 5;
+	int DELEGATE_OP_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Delegate Op</em>' class.
@@ -1890,17 +1881,6 @@ public interface PromisePackage extends EPackage {
 	EClass getDelegateOp();
 
 	/**
-	 * Returns the meta object for the reference list '{@link promise.DelegateOp#getInputRobot <em>Input Robot</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Input Robot</em>'.
-	 * @see promise.DelegateOp#getInputRobot()
-	 * @see #getDelegateOp()
-	 * @generated
-	 */
-	EReference getDelegateOp_InputRobot();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link promise.DelegateOp#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2506,14 +2486,6 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EClass DELEGATE_OP = eINSTANCE.getDelegateOp();
-
-		/**
-		 * The meta object literal for the '<em><b>Input Robot</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DELEGATE_OP__INPUT_ROBOT = eINSTANCE.getDelegateOp_InputRobot();
 
 		/**
 		 * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.

@@ -22,7 +22,6 @@ import promise.Event;
 import promise.Location;
 import promise.Pattern;
 import promise.PromisePackage;
-import promise.Robot;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +31,6 @@ import promise.Robot;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link promise.impl.DelegateOpImpl#getInputRobot <em>Input Robot</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getInputAction <em>Input Action</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getStoppingEvent <em>Stopping Event</em>}</li>
@@ -42,16 +40,6 @@ import promise.Robot;
  * @generated
  */
 public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
-	/**
-	 * The cached value of the '{@link #getInputRobot() <em>Input Robot</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInputRobot()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Robot> inputRobot;
-
 	/**
 	 * The cached value of the '{@link #getPattern() <em>Pattern</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -109,18 +97,6 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	protected EClass eStaticClass() {
 		return PromisePackage.Literals.DELEGATE_OP;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Robot> getInputRobot() {
-		if (inputRobot == null) {
-			inputRobot = new EObjectResolvingEList<Robot>(Robot.class, this, PromisePackage.DELEGATE_OP__INPUT_ROBOT);
-		}
-		return inputRobot;
 	}
 
 	/**
@@ -224,8 +200,6 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__INPUT_ROBOT:
-				return getInputRobot();
 			case PromisePackage.DELEGATE_OP__PATTERN:
 				return getPattern();
 			case PromisePackage.DELEGATE_OP__INPUT_ACTION:
@@ -247,10 +221,6 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__INPUT_ROBOT:
-				getInputRobot().clear();
-				getInputRobot().addAll((Collection<? extends Robot>)newValue);
-				return;
 			case PromisePackage.DELEGATE_OP__PATTERN:
 				setPattern((Pattern)newValue);
 				return;
@@ -278,9 +248,6 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__INPUT_ROBOT:
-				getInputRobot().clear();
-				return;
 			case PromisePackage.DELEGATE_OP__PATTERN:
 				setPattern((Pattern)null);
 				return;
@@ -305,8 +272,6 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__INPUT_ROBOT:
-				return inputRobot != null && !inputRobot.isEmpty();
 			case PromisePackage.DELEGATE_OP__PATTERN:
 				return pattern != null;
 			case PromisePackage.DELEGATE_OP__INPUT_ACTION:

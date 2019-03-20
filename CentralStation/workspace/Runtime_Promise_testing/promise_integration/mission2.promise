@@ -9,9 +9,9 @@ mission{
 	robots r1, r2
 	locations l1, l2, l3, l4
 	operators{ parallel(  
-		delegate ( robot r1 does StrictOrderedPatrolling locations l1 ,  l3),  
-		eventHandler ( default ( 
-			delegate ( robot r2 does Patrolling locations l1 , l3 )
-		) except e1 ( delegate ( robot r2 does Visit locations l2 , l4 affecting event e1 ) ) ) )
+		delegate (StrictOrderedPatrolling locations l1 ,  l3),  
+		eventHandler ( 
+			default ( delegate (Patrolling locations l1 , l3 )) 
+			except e1 ( delegate (Visit locations l2 , l4 affecting event e1 ) ) ) )
 	} 
 }       

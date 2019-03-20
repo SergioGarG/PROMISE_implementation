@@ -64,8 +64,7 @@ ConditionOp:
 
 DelegateOp:
 	'delegate' '('
-		'robot' inputRobot+=[Robot|EString] ( "," inputRobot+=[Robot|EString])*
-		'does' pattern=Pattern
+		pattern=Pattern
 		('locations' inputLocations+=[Location|EString] ( "," inputLocations+=[Location|EString])*  )?
 		('actions' inputAction+=[Action|EString] ( "," inputAction+=[Action|EString])* )? 
 		('affecting event' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* )? 
