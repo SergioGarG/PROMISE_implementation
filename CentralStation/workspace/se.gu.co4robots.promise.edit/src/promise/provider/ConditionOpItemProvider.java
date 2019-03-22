@@ -9,10 +9,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
-import promise.PromisePackage;
 
 /**
  * This is the item provider adapter for a {@link promise.ConditionOp} object.
@@ -20,7 +17,7 @@ import promise.PromisePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConditionOpItemProvider extends CompositionOperatorItemProvider {
+public class ConditionOpItemProvider extends EventBasedOperatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -42,31 +39,8 @@ public class ConditionOpItemProvider extends CompositionOperatorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInputEventsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Input Events feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInputEventsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ConditionOp_inputEvents_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionOp_inputEvents_feature", "_UI_ConditionOp_type"),
-				 PromisePackage.Literals.CONDITION_OP__INPUT_EVENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

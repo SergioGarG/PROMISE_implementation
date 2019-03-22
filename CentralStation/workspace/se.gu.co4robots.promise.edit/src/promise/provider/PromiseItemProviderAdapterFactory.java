@@ -831,6 +831,29 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link promise.EventAssignment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EventAssignmentItemProvider eventAssignmentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link promise.EventAssignment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEventAssignmentAdapter() {
+		if (eventAssignmentItemProvider == null) {
+			eventAssignmentItemProvider = new EventAssignmentItemProvider(this);
+		}
+
+		return eventAssignmentItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -962,6 +985,7 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 		if (simpleActionItemProvider != null) simpleActionItemProvider.dispose();
 		if (andOpItemProvider != null) andOpItemProvider.dispose();
 		if (orOpItemProvider != null) orOpItemProvider.dispose();
+		if (eventAssignmentItemProvider != null) eventAssignmentItemProvider.dispose();
 	}
 
 }

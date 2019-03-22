@@ -15,6 +15,7 @@ Mission:
 	'}';
 
 Operator:
+	
 	FallBackOp | SequenceOp | ParallelOp | EventHandlerOp | ConditionOp | DelegateOp | ANDOp | OROp;
 
 
@@ -41,47 +42,60 @@ Action:
 
 FallBackOp:
 	'fallback' '(' inputOperators+=Operator ( "," inputOperators+=Operator)* 
-	('affecting event' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* )?  ')';
+	//('affecting event' affectingEvent=[IntermediateEvent|EString] ( "," affectingEvent=[IntermediateEvent|EString])* )? 
+	 ')'
+	;
 
 SequenceOp:
 	'sequence' '(' inputOperators+=Operator ( "," inputOperators+=Operator)*
-	('affecting event' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* )?  ')';
+	//('affecting event' affectingEvent=[IntermediateEvent|EString]( "," affectingEvent=[IntermediateEvent|EString])* )?  
+	')'
+	;
 
 ParallelOp:
 	'parallel' '(' inputOperators+=Operator ( "," inputOperators+=Operator)*
-	('affecting event' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* )?  ')';
+	//('affecting event' affectingEvent=[IntermediateEvent|EString] ( "," affectingEvent=[IntermediateEvent|EString])* )?  
+	')'
+	;
 
 EventHandlerOp:
 	'eventHandler' '(' 
 	'default' '(' inputOperators+=Operator ')'
-	('except' inputEvents+=[Event|EString] '(' inputOperators+=Operator ')')+
-	('affecting event' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* )? ')';
+	('except' inputEvents+=EventAssignment)+
+	')';
 
 ConditionOp:
 	'condition' '(' 
-	('if' inputEvents+=[Event|EString] 'then' '(' inputOperators+=Operator ')')+
-	('affecting event' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* )?  ')';
+	('if' inputEvents+=EventAssignment )+
+	')'
+	;
 
 DelegateOp:
 	'delegate' '('
 		pattern=Pattern
 		('locations' inputLocations+=[Location|EString] ( "," inputLocations+=[Location|EString])*  )?
 		('actions' inputAction+=[Action|EString] ( "," inputAction+=[Action|EString])* )? 
-		('affecting event' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* )? 
-		('stoppingEvents' stoppingEvent+=[Event|EString] ( "," stoppingEvent+=[Event|EString])* )? ')';
+		//('affecting event' affectingEvent=[IntermediateEvent|EString] )? 
+		('stoppingEvents' stoppingEvent+=[Event|EString] ( "," stoppingEvent+=[Event|EString])* )? ')'
+		;
 
 ANDOp:
 	'and' '('
-		('affectingEvent' '(' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* ')' )?
 		inputOperators+=Operator ('&' | 'AND' | 'and') inputOperators+=Operator
+		//('affectingEvent' '(' affectingEvent=[IntermediateEvent|EString]  ')' )?
 	')';
 
 OROp:
 	'or' '('
-		('affectingEvent' '(' affectingEvent+=[Event|EString] ( "," affectingEvent+=[Event|EString])* ')' )?
 		inputOperators+=Operator ('|' | 'OR' | 'or') inputOperators+=Operator
+		//('affectingEvent' '(' affectingEvent=[IntermediateEvent|EString] ')' )?
 	')';
 
+///////////Others
+
+EventAssignment: 
+	inputEvent=[Event|EString] '(' inputOperators=Operator ')'
+;
 		
 /////////////////////////////////////// Patterns
 

@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: promise_integration
-Bundle-SymbolicName: promise_integration
-Bundle-Version: 1.0.0.qualifier

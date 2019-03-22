@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -61,8 +62,31 @@ public class MissionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addEventassignmentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Eventassignment feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEventassignmentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Mission_eventassignment_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Mission_eventassignment_feature", "_UI_Mission_type"),
+				 PromisePackage.Literals.MISSION__EVENTASSIGNMENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -82,6 +106,7 @@ public class MissionItemProvider
 			childrenFeatures.add(PromisePackage.Literals.MISSION__ACTIONS);
 			childrenFeatures.add(PromisePackage.Literals.MISSION__EVENTS);
 			childrenFeatures.add(PromisePackage.Literals.MISSION__LOCATIONS);
+			childrenFeatures.add(PromisePackage.Literals.MISSION__EVENTASSIGNMENT);
 		}
 		return childrenFeatures;
 	}
@@ -139,6 +164,7 @@ public class MissionItemProvider
 			case PromisePackage.MISSION__ACTIONS:
 			case PromisePackage.MISSION__EVENTS:
 			case PromisePackage.MISSION__LOCATIONS:
+			case PromisePackage.MISSION__EVENTASSIGNMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -215,6 +241,11 @@ public class MissionItemProvider
 			(createChildParameter
 				(PromisePackage.Literals.MISSION__LOCATIONS,
 				 PromiseFactory.eINSTANCE.createLocation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PromisePackage.Literals.MISSION__EVENTASSIGNMENT,
+				 PromiseFactory.eINSTANCE.createEventAssignment()));
 	}
 
 	/**

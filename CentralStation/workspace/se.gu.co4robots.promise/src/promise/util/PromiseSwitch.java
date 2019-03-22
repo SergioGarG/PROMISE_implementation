@@ -99,6 +99,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 			case PromisePackage.EVENT_HANDLER_OP: {
 				EventHandlerOp eventHandlerOp = (EventHandlerOp)theEObject;
 				T result = caseEventHandlerOp(eventHandlerOp);
+				if (result == null) result = caseEventBasedOperator(eventHandlerOp);
 				if (result == null) result = caseCompositionOperator(eventHandlerOp);
 				if (result == null) result = caseOperator(eventHandlerOp);
 				if (result == null) result = defaultCase(theEObject);
@@ -107,6 +108,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 			case PromisePackage.CONDITION_OP: {
 				ConditionOp conditionOp = (ConditionOp)theEObject;
 				T result = caseConditionOp(conditionOp);
+				if (result == null) result = caseEventBasedOperator(conditionOp);
 				if (result == null) result = caseCompositionOperator(conditionOp);
 				if (result == null) result = caseOperator(conditionOp);
 				if (result == null) result = defaultCase(theEObject);
@@ -365,6 +367,20 @@ public class PromiseSwitch<T> extends Switch<T> {
 				T result = caseOROp(orOp);
 				if (result == null) result = caseCompositionOperator(orOp);
 				if (result == null) result = caseOperator(orOp);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PromisePackage.EVENT_ASSIGNMENT: {
+				EventAssignment eventAssignment = (EventAssignment)theEObject;
+				T result = caseEventAssignment(eventAssignment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PromisePackage.EVENT_BASED_OPERATOR: {
+				EventBasedOperator eventBasedOperator = (EventBasedOperator)theEObject;
+				T result = caseEventBasedOperator(eventBasedOperator);
+				if (result == null) result = caseCompositionOperator(eventBasedOperator);
+				if (result == null) result = caseOperator(eventBasedOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -969,6 +985,36 @@ public class PromiseSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOROp(OROp object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event Assignment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventAssignment(EventAssignment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event Based Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event Based Operator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventBasedOperator(EventBasedOperator object) {
 		return null;
 	}
 

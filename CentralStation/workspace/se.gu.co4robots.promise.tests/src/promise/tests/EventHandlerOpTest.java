@@ -13,7 +13,7 @@ import promise.PromiseFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EventHandlerOpTest extends CompositionOperatorTest {
+public class EventHandlerOpTest extends EventBasedOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->

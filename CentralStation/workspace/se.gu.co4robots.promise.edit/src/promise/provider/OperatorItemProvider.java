@@ -57,25 +57,25 @@ public class OperatorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAffectingEventPropertyDescriptor(object);
+			addEventAssignedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Affecting Event feature.
+	 * This adds a property descriptor for the Event Assigned feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAffectingEventPropertyDescriptor(Object object) {
+	protected void addEventAssignedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Operator_affectingEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Operator_affectingEvent_feature", "_UI_Operator_type"),
-				 PromisePackage.Literals.OPERATOR__AFFECTING_EVENT,
+				 getString("_UI_Operator_eventAssigned_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operator_eventAssigned_feature", "_UI_Operator_type"),
+				 PromisePackage.Literals.OPERATOR__EVENT_ASSIGNED,
 				 true,
 				 false,
 				 true,

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link promise.Mission#getActions <em>Actions</em>}</li>
  *   <li>{@link promise.Mission#getEvents <em>Events</em>}</li>
  *   <li>{@link promise.Mission#getLocations <em>Locations</em>}</li>
+ *   <li>{@link promise.Mission#getEventassignment <em>Eventassignment</em>}</li>
  * </ul>
  *
  * @see promise.PromisePackage#getMission()
@@ -106,5 +107,31 @@ public interface Mission extends EObject {
 	 * @generated
 	 */
 	EList<Location> getLocations();
+
+	/**
+	 * Returns the value of the '<em><b>Eventassignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Eventassignment</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Eventassignment</em>' containment reference.
+	 * @see #setEventassignment(EventAssignment)
+	 * @see promise.PromisePackage#getMission_Eventassignment()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EventAssignment getEventassignment();
+
+	/**
+	 * Sets the value of the '{@link promise.Mission#getEventassignment <em>Eventassignment</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Eventassignment</em>' containment reference.
+	 * @see #getEventassignment()
+	 * @generated
+	 */
+	void setEventassignment(EventAssignment value);
 
 } // Mission

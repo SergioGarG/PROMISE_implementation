@@ -14,5 +14,4 @@ package promise;
  * @generated
  */
 public interface ANDOp extends CompositionOperator {
-
 } // ANDOp

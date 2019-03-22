@@ -89,6 +89,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 			case PromisePackage.SIMPLE_ACTION: return createSimpleAction();
 			case PromisePackage.AND_OP: return createANDOp();
 			case PromisePackage.OR_OP: return createOROp();
+			case PromisePackage.EVENT_ASSIGNMENT: return createEventAssignment();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -422,6 +423,16 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	public OROp createOROp() {
 		OROpImpl orOp = new OROpImpl();
 		return orOp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EventAssignment createEventAssignment() {
+		EventAssignmentImpl eventAssignment = new EventAssignmentImpl();
+		return eventAssignment;
 	}
 
 	/**

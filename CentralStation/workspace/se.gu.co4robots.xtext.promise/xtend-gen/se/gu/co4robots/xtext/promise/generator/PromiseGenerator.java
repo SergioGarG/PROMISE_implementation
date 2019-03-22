@@ -22,6 +22,7 @@ import promise.CompositionOperator;
 import promise.ConditionOp;
 import promise.DelegateOp;
 import promise.Event;
+import promise.EventAssignment;
 import promise.EventHandlerOp;
 import promise.FallBackOp;
 import promise.OROp;
@@ -293,22 +294,23 @@ public class PromiseGenerator extends AbstractGenerator {
     robotClass _robotClass = new robotClass("eh_default", _arrayList, (indentation + 1));
     _get.add(_robotClass);
     this.nestedMethod(in, counter, 0, robot, (indentation + 1), "eh_default");
-    for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputOperators(), Object.class)).length); i++) {
+    for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getInputEvents(), Object.class)).length); i++) {
       {
         counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
         ArrayList<robotClass> _get_1 = this.robotsList.get(robot);
-        String _name = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
+        String _name = in.getInputEvents().get(i).getInputEvent().getName();
         String _plus = ("eh_" + _name);
         ArrayList<String> _arrayList_1 = new ArrayList<String>();
         robotClass _robotClass_1 = new robotClass(_plus, _arrayList_1, (indentation + 1));
         _get_1.add(_robotClass_1);
-        String _name_1 = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
+        String _name_1 = in.getInputEvents().get(i).getInputEvent().getName();
         String _plus_1 = ((this.text + ", and if event ") + _name_1);
         String _plus_2 = (_plus_1 + " occurs, it will ");
         this.text = _plus_2;
-        String _name_2 = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
-        String _plus_3 = ("eh_" + _name_2);
-        this.nestedMethod(in, counter, i, robot, (indentation + 1), _plus_3);
+        Operator _inputOperators = in.getInputEvents().get(i).getInputOperators();
+        String _name_2 = in.getInputEvents().get(i).getInputEvent().getName();
+        String _plus_3 = ("cond_" + _name_2);
+        this.doLogic(_inputOperators, counter, robot, (indentation + 1), _plus_3, "");
       }
     }
     return null;
@@ -337,22 +339,23 @@ public class PromiseGenerator extends AbstractGenerator {
   protected Object _doLogic(final ConditionOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
     this.robotsList.get(robot).get(index).missionList.add("cond");
     int counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
-    for (int i = 1; (i <= ((Object[])Conversions.unwrapArray(in.getInputOperators(), Object.class)).length); i++) {
+    for (int i = 0; (i < ((Object[])Conversions.unwrapArray(in.getInputEvents(), Object.class)).length); i++) {
       {
         counter = ((Object[])Conversions.unwrapArray(this.robotsList.get(robot), Object.class)).length;
         ArrayList<robotClass> _get = this.robotsList.get(robot);
-        String _name = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
+        String _name = in.getInputEvents().get(i).getInputEvent().getName();
         String _plus = ("cond_" + _name);
         ArrayList<String> _arrayList = new ArrayList<String>();
         robotClass _robotClass = new robotClass(_plus, _arrayList, (indentation + 1));
         _get.add(_robotClass);
-        String _name_1 = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
-        String _plus_1 = ((this.text + "if event") + _name_1);
-        String _plus_2 = (_plus_1 + " holds, it will ");
+        String _name_1 = in.getInputEvents().get(i).getInputEvent().getName();
+        String _plus_1 = ((this.text + "if event ") + _name_1);
+        String _plus_2 = (_plus_1 + " holds, ");
         this.text = _plus_2;
-        String _name_2 = in.getInputOperators().get(i).getAffectingEvent().get(0).getName();
+        Operator _inputOperators = in.getInputEvents().get(i).getInputOperators();
+        String _name_2 = in.getInputEvents().get(i).getInputEvent().getName();
         String _plus_3 = ("cond_" + _name_2);
-        this.nestedMethod(in, counter, (i - 1), robot, (indentation + 1), _plus_3);
+        this.doLogic(_inputOperators, counter, robot, (indentation + 1), _plus_3, "");
       }
     }
     return null;
@@ -908,8 +911,8 @@ public class PromiseGenerator extends AbstractGenerator {
                             if (_equals_11) {
                               boolean _isEmpty_2 = in.getInputAction().isEmpty();
                               if (_isEmpty_2) {
-                                String _description_8 = in.getAffectingEvent().get(0).getDescription();
-                                String _plus_56 = ("[] ((" + _description_8);
+                                EventAssignment _eventAssigned = in.getEventAssigned();
+                                String _plus_56 = ("[] ((" + _eventAssigned);
                                 String _plus_57 = (_plus_56 + "-> ([] ! (");
                                 String _name_34 = in.getInputLocations().get(0).getName();
                                 String _plus_58 = (_plus_57 + _name_34);
@@ -918,25 +921,25 @@ public class PromiseGenerator extends AbstractGenerator {
                                 String _name_35 = in.getInputLocations().get(0).getName();
                                 String _plus_60 = ((this.text + "avoid location ") + _name_35);
                                 String _plus_61 = (_plus_60 + " if ");
-                                String _description_9 = in.getAffectingEvent().get(0).getDescription();
-                                String _plus_62 = (_plus_61 + _description_9);
+                                EventAssignment _eventAssigned_1 = in.getEventAssigned();
+                                String _plus_62 = (_plus_61 + _eventAssigned_1);
                                 String _plus_63 = (_plus_62 + " occurs");
                                 this.text = _plus_63;
                               } else {
                                 boolean _isEmpty_3 = in.getInputLocations().isEmpty();
                                 if (_isEmpty_3) {
-                                  String _description_10 = in.getAffectingEvent().get(0).getDescription();
-                                  String _plus_64 = ("[] ((" + _description_10);
+                                  EventAssignment _eventAssigned_2 = in.getEventAssigned();
+                                  String _plus_64 = ("[] ((" + _eventAssigned_2);
                                   String _plus_65 = (_plus_64 + "-> ([] ! (");
-                                  String _description_11 = in.getInputAction().get(0).getDescription();
-                                  String _plus_66 = (_plus_65 + _description_11);
+                                  String _description_8 = in.getInputAction().get(0).getDescription();
+                                  String _plus_66 = (_plus_65 + _description_8);
                                   String _plus_67 = (_plus_66 + "))");
                                   this.template = _plus_67;
-                                  String _description_12 = in.getInputAction().get(0).getDescription();
-                                  String _plus_68 = ((this.text + "avoid action ") + _description_12);
+                                  String _description_9 = in.getInputAction().get(0).getDescription();
+                                  String _plus_68 = ((this.text + "avoid action ") + _description_9);
                                   String _plus_69 = (_plus_68 + " if ");
-                                  String _description_13 = in.getAffectingEvent().get(0).getDescription();
-                                  String _plus_70 = (_plus_69 + _description_13);
+                                  EventAssignment _eventAssigned_3 = in.getEventAssigned();
+                                  String _plus_70 = (_plus_69 + _eventAssigned_3);
                                   String _plus_71 = (_plus_70 + " occurs");
                                   this.text = _plus_71;
                                 }
@@ -957,12 +960,12 @@ public class PromiseGenerator extends AbstractGenerator {
                                 } else {
                                   boolean _isEmpty_5 = in.getInputLocations().isEmpty();
                                   if (_isEmpty_5) {
-                                    String _description_14 = in.getInputAction().get(0).getDescription();
-                                    String _plus_75 = ("[] (! (" + _description_14);
+                                    String _description_10 = in.getInputAction().get(0).getDescription();
+                                    String _plus_75 = ("[] (! (" + _description_10);
                                     String _plus_76 = (_plus_75 + "))");
                                     this.template = _plus_76;
-                                    String _description_15 = in.getInputAction().get(0).getDescription();
-                                    String _plus_77 = ((this.text + "avoid action ") + _description_15);
+                                    String _description_11 = in.getInputAction().get(0).getDescription();
+                                    String _plus_77 = ((this.text + "avoid action ") + _description_11);
                                     this.text = _plus_77;
                                   }
                                 }
@@ -989,18 +992,18 @@ public class PromiseGenerator extends AbstractGenerator {
                                   } else {
                                     boolean _isEmpty_7 = in.getInputLocations().isEmpty();
                                     if (_isEmpty_7) {
-                                      String _description_16 = in.getInputAction().get(0).getDescription();
-                                      String _plus_86 = ("<> ((" + _description_16);
+                                      String _description_12 = in.getInputAction().get(0).getDescription();
+                                      String _plus_86 = ("<> ((" + _description_12);
                                       String _plus_87 = (_plus_86 + ") && X (<>((");
-                                      String _description_17 = in.getInputAction().get(0).getDescription();
-                                      String _plus_88 = (_plus_87 + _description_17);
+                                      String _description_13 = in.getInputAction().get(0).getDescription();
+                                      String _plus_88 = (_plus_87 + _description_13);
                                       String _plus_89 = (_plus_88 + ") && X <>( (");
-                                      String _description_18 = in.getInputAction().get(0).getDescription();
-                                      String _plus_90 = (_plus_89 + _description_18);
+                                      String _description_14 = in.getInputAction().get(0).getDescription();
+                                      String _plus_90 = (_plus_89 + _description_14);
                                       String _plus_91 = (_plus_90 + ")))))");
                                       this.template = _plus_91;
-                                      String _description_19 = in.getInputAction().get(0).getDescription();
-                                      String _plus_92 = ((this.text + "perform ") + _description_19);
+                                      String _description_15 = in.getInputAction().get(0).getDescription();
+                                      String _plus_92 = ((this.text + "perform ") + _description_15);
                                       String _plus_93 = (_plus_92 + " at least N times");
                                       this.text = _plus_93;
                                     }
@@ -1014,32 +1017,32 @@ public class PromiseGenerator extends AbstractGenerator {
                                       String _name_45 = in.getInputLocations().get(0).getName();
                                       String _plus_94 = ("((! (" + _name_45);
                                       String _plus_95 = (_plus_94 + ")) U ");
-                                      String _description_20 = in.getAffectingEvent().get(0).getDescription();
-                                      String _plus_96 = (_plus_95 + _description_20);
+                                      EventAssignment _eventAssigned_4 = in.getEventAssigned();
+                                      String _plus_96 = (_plus_95 + _eventAssigned_4);
                                       String _plus_97 = (_plus_96 + ")");
                                       this.template = _plus_97;
                                       String _name_46 = in.getInputLocations().get(0).getName();
                                       String _plus_98 = ((this.text + "avoid location ") + _name_46);
                                       String _plus_99 = (_plus_98 + " until ");
-                                      String _description_21 = in.getAffectingEvent().get(0).getDescription();
-                                      String _plus_100 = (_plus_99 + _description_21);
+                                      EventAssignment _eventAssigned_5 = in.getEventAssigned();
+                                      String _plus_100 = (_plus_99 + _eventAssigned_5);
                                       String _plus_101 = (_plus_100 + " occurs");
                                       this.text = _plus_101;
                                     } else {
                                       boolean _isEmpty_9 = in.getInputLocations().isEmpty();
                                       if (_isEmpty_9) {
-                                        String _description_22 = in.getInputAction().get(0).getDescription();
-                                        String _plus_102 = ("((! (" + _description_22);
+                                        String _description_16 = in.getInputAction().get(0).getDescription();
+                                        String _plus_102 = ("((! (" + _description_16);
                                         String _plus_103 = (_plus_102 + ")) U ");
-                                        String _description_23 = in.getAffectingEvent().get(0).getDescription();
-                                        String _plus_104 = (_plus_103 + _description_23);
+                                        EventAssignment _eventAssigned_6 = in.getEventAssigned();
+                                        String _plus_104 = (_plus_103 + _eventAssigned_6);
                                         String _plus_105 = (_plus_104 + ")");
                                         this.template = _plus_105;
-                                        String _description_24 = in.getInputAction().get(0).getDescription();
-                                        String _plus_106 = ((this.text + "avoid performing ") + _description_24);
+                                        String _description_17 = in.getInputAction().get(0).getDescription();
+                                        String _plus_106 = ((this.text + "avoid performing ") + _description_17);
                                         String _plus_107 = (_plus_106 + " until ");
-                                        String _description_25 = in.getAffectingEvent().get(0).getDescription();
-                                        String _plus_108 = (_plus_107 + _description_25);
+                                        EventAssignment _eventAssigned_7 = in.getEventAssigned();
+                                        String _plus_108 = (_plus_107 + _eventAssigned_7);
                                         String _plus_109 = (_plus_108 + " occurs");
                                         this.text = _plus_109;
                                       }
@@ -1067,18 +1070,18 @@ public class PromiseGenerator extends AbstractGenerator {
                                       } else {
                                         boolean _isEmpty_11 = in.getInputLocations().isEmpty();
                                         if (_isEmpty_11) {
-                                          String _description_26 = in.getInputAction().get(0).getDescription();
-                                          String _plus_118 = ("! <> ((" + _description_26);
+                                          String _description_18 = in.getInputAction().get(0).getDescription();
+                                          String _plus_118 = ("! <> ((" + _description_18);
                                           String _plus_119 = (_plus_118 + ") && X (<>((");
-                                          String _description_27 = in.getInputAction().get(0).getDescription();
-                                          String _plus_120 = (_plus_119 + _description_27);
+                                          String _description_19 = in.getInputAction().get(0).getDescription();
+                                          String _plus_120 = (_plus_119 + _description_19);
                                           String _plus_121 = (_plus_120 + ") && X <>( (");
-                                          String _description_28 = in.getInputAction().get(0).getDescription();
-                                          String _plus_122 = (_plus_121 + _description_28);
+                                          String _description_20 = in.getInputAction().get(0).getDescription();
+                                          String _plus_122 = (_plus_121 + _description_20);
                                           String _plus_123 = (_plus_122 + ")))))");
                                           this.template = _plus_123;
-                                          String _description_29 = in.getInputAction().get(0).getDescription();
-                                          String _plus_124 = ((this.text + "perform ") + _description_29);
+                                          String _description_21 = in.getInputAction().get(0).getDescription();
+                                          String _plus_124 = ((this.text + "perform ") + _description_21);
                                           String _plus_125 = (_plus_124 + " at most N times");
                                           this.text = _plus_125;
                                         }
@@ -1089,8 +1092,8 @@ public class PromiseGenerator extends AbstractGenerator {
                                       if (_equals_16) {
                                         boolean _isEmpty_12 = in.getInputAction().isEmpty();
                                         if (_isEmpty_12) {
-                                          String _description_30 = in.getAffectingEvent().get(0).getDescription();
-                                          String _plus_126 = ("[] (" + _description_30);
+                                          EventAssignment _eventAssigned_8 = in.getEventAssigned();
+                                          String _plus_126 = ("[] (" + _eventAssigned_8);
                                           String _plus_127 = (_plus_126 + " -> ");
                                           String _name_53 = in.getInputLocations().get(0).getName();
                                           String _plus_128 = (_plus_127 + _name_53);
@@ -1099,25 +1102,25 @@ public class PromiseGenerator extends AbstractGenerator {
                                           String _name_54 = in.getInputLocations().get(0).getName();
                                           String _plus_130 = ((this.text + "visit ") + _name_54);
                                           String _plus_131 = (_plus_130 + " every time ");
-                                          String _description_31 = in.getAffectingEvent().get(0).getDescription();
-                                          String _plus_132 = (_plus_131 + _description_31);
+                                          EventAssignment _eventAssigned_9 = in.getEventAssigned();
+                                          String _plus_132 = (_plus_131 + _eventAssigned_9);
                                           String _plus_133 = (_plus_132 + " occurs");
                                           this.text = _plus_133;
                                         } else {
                                           boolean _isEmpty_13 = in.getInputLocations().isEmpty();
                                           if (_isEmpty_13) {
-                                            String _description_32 = in.getAffectingEvent().get(0).getDescription();
-                                            String _plus_134 = ("[] (" + _description_32);
+                                            EventAssignment _eventAssigned_10 = in.getEventAssigned();
+                                            String _plus_134 = ("[] (" + _eventAssigned_10);
                                             String _plus_135 = (_plus_134 + " -> ");
-                                            String _description_33 = in.getInputAction().get(0).getDescription();
-                                            String _plus_136 = (_plus_135 + _description_33);
+                                            String _description_22 = in.getInputAction().get(0).getDescription();
+                                            String _plus_136 = (_plus_135 + _description_22);
                                             String _plus_137 = (_plus_136 + ")");
                                             this.template = _plus_137;
-                                            String _description_34 = in.getInputAction().get(0).getDescription();
-                                            String _plus_138 = ((this.text + "perform ") + _description_34);
+                                            String _description_23 = in.getInputAction().get(0).getDescription();
+                                            String _plus_138 = ((this.text + "perform ") + _description_23);
                                             String _plus_139 = (_plus_138 + " every time ");
-                                            String _description_35 = in.getAffectingEvent().get(0).getDescription();
-                                            String _plus_140 = (_plus_139 + _description_35);
+                                            EventAssignment _eventAssigned_11 = in.getEventAssigned();
+                                            String _plus_140 = (_plus_139 + _eventAssigned_11);
                                             String _plus_141 = (_plus_140 + " occurs");
                                             this.text = _plus_141;
                                           }
@@ -1128,8 +1131,8 @@ public class PromiseGenerator extends AbstractGenerator {
                                         if (_equals_17) {
                                           boolean _isEmpty_14 = in.getInputAction().isEmpty();
                                           if (_isEmpty_14) {
-                                            String _description_36 = in.getAffectingEvent().get(0).getDescription();
-                                            String _plus_142 = ("[] (" + _description_36);
+                                            EventAssignment _eventAssigned_12 = in.getEventAssigned();
+                                            String _plus_142 = ("[] (" + _eventAssigned_12);
                                             String _plus_143 = (_plus_142 + " -> (<>(");
                                             String _name_56 = in.getInputLocations().get(0).getName();
                                             String _plus_144 = (_plus_143 + _name_56);
@@ -1138,25 +1141,25 @@ public class PromiseGenerator extends AbstractGenerator {
                                             String _name_57 = in.getInputLocations().get(0).getName();
                                             String _plus_146 = ((this.text + "visit at some point later ") + _name_57);
                                             String _plus_147 = (_plus_146 + " every time ");
-                                            String _description_37 = in.getAffectingEvent().get(0).getDescription();
-                                            String _plus_148 = (_plus_147 + _description_37);
+                                            EventAssignment _eventAssigned_13 = in.getEventAssigned();
+                                            String _plus_148 = (_plus_147 + _eventAssigned_13);
                                             String _plus_149 = (_plus_148 + " occurs");
                                             this.text = _plus_149;
                                           } else {
                                             boolean _isEmpty_15 = in.getInputLocations().isEmpty();
                                             if (_isEmpty_15) {
-                                              String _description_38 = in.getAffectingEvent().get(0).getDescription();
-                                              String _plus_150 = ("[] (" + _description_38);
+                                              EventAssignment _eventAssigned_14 = in.getEventAssigned();
+                                              String _plus_150 = ("[] (" + _eventAssigned_14);
                                               String _plus_151 = (_plus_150 + " -> (<>(");
-                                              String _description_39 = in.getInputAction().get(0).getDescription();
-                                              String _plus_152 = (_plus_151 + _description_39);
+                                              String _description_24 = in.getInputAction().get(0).getDescription();
+                                              String _plus_152 = (_plus_151 + _description_24);
                                               String _plus_153 = (_plus_152 + ")))");
                                               this.template = _plus_153;
-                                              String _description_40 = in.getInputAction().get(0).getDescription();
-                                              String _plus_154 = ((this.text + "perform  at some point later ") + _description_40);
+                                              String _description_25 = in.getInputAction().get(0).getDescription();
+                                              String _plus_154 = ((this.text + "perform  at some point later ") + _description_25);
                                               String _plus_155 = (_plus_154 + " every time ");
-                                              String _description_41 = in.getAffectingEvent().get(0).getDescription();
-                                              String _plus_156 = (_plus_155 + _description_41);
+                                              EventAssignment _eventAssigned_15 = in.getEventAssigned();
+                                              String _plus_156 = (_plus_155 + _eventAssigned_15);
                                               String _plus_157 = (_plus_156 + " occurs");
                                               this.text = _plus_157;
                                             }
@@ -1176,12 +1179,12 @@ public class PromiseGenerator extends AbstractGenerator {
                                             String _name_61 = in.getPattern().eClass().getName();
                                             boolean _equals_19 = Objects.equal(_name_61, "SimpleAction");
                                             if (_equals_19) {
-                                              String _description_42 = in.getInputAction().get(0).getDescription();
-                                              String _plus_161 = ("(X " + _description_42);
+                                              String _description_26 = in.getInputAction().get(0).getDescription();
+                                              String _plus_161 = ("(X " + _description_26);
                                               String _plus_162 = (_plus_161 + ")");
                                               this.template = _plus_162;
-                                              String _description_43 = in.getInputAction().get(0).getDescription();
-                                              String _plus_163 = ((this.text + " perform action ") + _description_43);
+                                              String _description_27 = in.getInputAction().get(0).getDescription();
+                                              String _plus_163 = ((this.text + " perform action ") + _description_27);
                                               this.text = _plus_163;
                                             } else {
                                               this.template = "Pattern not recognized";
@@ -1256,12 +1259,12 @@ public class PromiseGenerator extends AbstractGenerator {
   }
   
   public Object doLogic(final Operator in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
-    if (in instanceof ANDOp) {
-      return _doLogic((ANDOp)in, index, robot, indentation, parent, hybrid);
-    } else if (in instanceof ConditionOp) {
+    if (in instanceof ConditionOp) {
       return _doLogic((ConditionOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof EventHandlerOp) {
       return _doLogic((EventHandlerOp)in, index, robot, indentation, parent, hybrid);
+    } else if (in instanceof ANDOp) {
+      return _doLogic((ANDOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof FallBackOp) {
       return _doLogic((FallBackOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof OROp) {

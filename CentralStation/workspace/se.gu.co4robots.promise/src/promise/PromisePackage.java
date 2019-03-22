@@ -67,22 +67,22 @@ public interface PromisePackage extends EPackage {
 	int OPERATOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR__AFFECTING_EVENT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR__PARENT = 1;
+	int OPERATOR__PARENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__EVENT_ASSIGNED = 1;
 
 	/**
 	 * The number of structural features of the '<em>Operator</em>' class.
@@ -113,15 +113,6 @@ public interface PromisePackage extends EPackage {
 	int COMPOSITION_OPERATOR = 8;
 
 	/**
-	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITION_OPERATOR__AFFECTING_EVENT = OPERATOR__AFFECTING_EVENT;
-
-	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -129,6 +120,15 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSITION_OPERATOR__PARENT = OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITION_OPERATOR__EVENT_ASSIGNED = OPERATOR__EVENT_ASSIGNED;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -168,15 +168,6 @@ public interface PromisePackage extends EPackage {
 	int FALL_BACK_OP = 1;
 
 	/**
-	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FALL_BACK_OP__AFFECTING_EVENT = COMPOSITION_OPERATOR__AFFECTING_EVENT;
-
-	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,6 +175,15 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int FALL_BACK_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FALL_BACK_OP__EVENT_ASSIGNED = COMPOSITION_OPERATOR__EVENT_ASSIGNED;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -223,15 +223,6 @@ public interface PromisePackage extends EPackage {
 	int SEQUENCE_OP = 2;
 
 	/**
-	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQUENCE_OP__AFFECTING_EVENT = COMPOSITION_OPERATOR__AFFECTING_EVENT;
-
-	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -239,6 +230,15 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int SEQUENCE_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE_OP__EVENT_ASSIGNED = COMPOSITION_OPERATOR__EVENT_ASSIGNED;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -278,15 +278,6 @@ public interface PromisePackage extends EPackage {
 	int PARALLEL_OP = 3;
 
 	/**
-	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_OP__AFFECTING_EVENT = COMPOSITION_OPERATOR__AFFECTING_EVENT;
-
-	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,6 +285,15 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int PARALLEL_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_OP__EVENT_ASSIGNED = COMPOSITION_OPERATOR__EVENT_ASSIGNED;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -323,6 +323,70 @@ public interface PromisePackage extends EPackage {
 	int PARALLEL_OP_OPERATION_COUNT = COMPOSITION_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link promise.impl.EventBasedOperatorImpl <em>Event Based Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see promise.impl.EventBasedOperatorImpl
+	 * @see promise.impl.PromisePackageImpl#getEventBasedOperator()
+	 * @generated
+	 */
+	int EVENT_BASED_OPERATOR = 41;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_BASED_OPERATOR__PARENT = COMPOSITION_OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_BASED_OPERATOR__EVENT_ASSIGNED = COMPOSITION_OPERATOR__EVENT_ASSIGNED;
+
+	/**
+	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_BASED_OPERATOR__INPUT_OPERATORS = COMPOSITION_OPERATOR__INPUT_OPERATORS;
+
+	/**
+	 * The feature id for the '<em><b>Input Events</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_BASED_OPERATOR__INPUT_EVENTS = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Event Based Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_BASED_OPERATOR_FEATURE_COUNT = COMPOSITION_OPERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Event Based Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_BASED_OPERATOR_OPERATION_COUNT = COMPOSITION_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link promise.impl.EventHandlerOpImpl <em>Event Handler Op</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -333,22 +397,22 @@ public interface PromisePackage extends EPackage {
 	int EVENT_HANDLER_OP = 4;
 
 	/**
-	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_HANDLER_OP__AFFECTING_EVENT = COMPOSITION_OPERATOR__AFFECTING_EVENT;
-
-	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_HANDLER_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
+	int EVENT_HANDLER_OP__PARENT = EVENT_BASED_OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_HANDLER_OP__EVENT_ASSIGNED = EVENT_BASED_OPERATOR__EVENT_ASSIGNED;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -357,16 +421,16 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_HANDLER_OP__INPUT_OPERATORS = COMPOSITION_OPERATOR__INPUT_OPERATORS;
+	int EVENT_HANDLER_OP__INPUT_OPERATORS = EVENT_BASED_OPERATOR__INPUT_OPERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Input Events</b></em>' reference list.
+	 * The feature id for the '<em><b>Input Events</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_HANDLER_OP__INPUT_EVENTS = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
+	int EVENT_HANDLER_OP__INPUT_EVENTS = EVENT_BASED_OPERATOR__INPUT_EVENTS;
 
 	/**
 	 * The number of structural features of the '<em>Event Handler Op</em>' class.
@@ -375,7 +439,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_HANDLER_OP_FEATURE_COUNT = COMPOSITION_OPERATOR_FEATURE_COUNT + 1;
+	int EVENT_HANDLER_OP_FEATURE_COUNT = EVENT_BASED_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Event Handler Op</em>' class.
@@ -384,7 +448,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_HANDLER_OP_OPERATION_COUNT = COMPOSITION_OPERATOR_OPERATION_COUNT + 0;
+	int EVENT_HANDLER_OP_OPERATION_COUNT = EVENT_BASED_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link promise.impl.ConditionOpImpl <em>Condition Op</em>}' class.
@@ -397,22 +461,22 @@ public interface PromisePackage extends EPackage {
 	int CONDITION_OP = 5;
 
 	/**
-	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION_OP__AFFECTING_EVENT = COMPOSITION_OPERATOR__AFFECTING_EVENT;
-
-	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
+	int CONDITION_OP__PARENT = EVENT_BASED_OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OP__EVENT_ASSIGNED = EVENT_BASED_OPERATOR__EVENT_ASSIGNED;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -421,16 +485,16 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_OP__INPUT_OPERATORS = COMPOSITION_OPERATOR__INPUT_OPERATORS;
+	int CONDITION_OP__INPUT_OPERATORS = EVENT_BASED_OPERATOR__INPUT_OPERATORS;
 
 	/**
-	 * The feature id for the '<em><b>Input Events</b></em>' reference list.
+	 * The feature id for the '<em><b>Input Events</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_OP__INPUT_EVENTS = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
+	int CONDITION_OP__INPUT_EVENTS = EVENT_BASED_OPERATOR__INPUT_EVENTS;
 
 	/**
 	 * The number of structural features of the '<em>Condition Op</em>' class.
@@ -439,7 +503,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_OP_FEATURE_COUNT = COMPOSITION_OPERATOR_FEATURE_COUNT + 1;
+	int CONDITION_OP_FEATURE_COUNT = EVENT_BASED_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Condition Op</em>' class.
@@ -448,7 +512,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_OP_OPERATION_COUNT = COMPOSITION_OPERATOR_OPERATION_COUNT + 0;
+	int CONDITION_OP_OPERATION_COUNT = EVENT_BASED_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link promise.impl.MissionImpl <em>Mission</em>}' class.
@@ -506,13 +570,22 @@ public interface PromisePackage extends EPackage {
 	int MISSION__LOCATIONS = 4;
 
 	/**
+	 * The feature id for the '<em><b>Eventassignment</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MISSION__EVENTASSIGNMENT = 5;
+
+	/**
 	 * The number of structural features of the '<em>Mission</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MISSION_FEATURE_COUNT = 5;
+	int MISSION_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Mission</em>' class.
@@ -682,15 +755,6 @@ public interface PromisePackage extends EPackage {
 	int DELEGATE_OP = 12;
 
 	/**
-	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELEGATE_OP__AFFECTING_EVENT = OPERATOR__AFFECTING_EVENT;
-
-	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -698,6 +762,15 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int DELEGATE_OP__PARENT = OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATE_OP__EVENT_ASSIGNED = OPERATOR__EVENT_ASSIGNED;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' containment reference.
@@ -1518,15 +1591,6 @@ public interface PromisePackage extends EPackage {
 	int AND_OP = 38;
 
 	/**
-	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND_OP__AFFECTING_EVENT = COMPOSITION_OPERATOR__AFFECTING_EVENT;
-
-	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1534,6 +1598,15 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int AND_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_OP__EVENT_ASSIGNED = COMPOSITION_OPERATOR__EVENT_ASSIGNED;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -1573,15 +1646,6 @@ public interface PromisePackage extends EPackage {
 	int OR_OP = 39;
 
 	/**
-	 * The feature id for the '<em><b>Affecting Event</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OR_OP__AFFECTING_EVENT = COMPOSITION_OPERATOR__AFFECTING_EVENT;
-
-	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1589,6 +1653,15 @@ public interface PromisePackage extends EPackage {
 	 * @ordered
 	 */
 	int OR_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR_OP__EVENT_ASSIGNED = COMPOSITION_OPERATOR__EVENT_ASSIGNED;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -1617,6 +1690,61 @@ public interface PromisePackage extends EPackage {
 	 */
 	int OR_OP_OPERATION_COUNT = COMPOSITION_OPERATOR_OPERATION_COUNT + 0;
 
+	/**
+	 * The meta object id for the '{@link promise.impl.EventAssignmentImpl <em>Event Assignment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see promise.impl.EventAssignmentImpl
+	 * @see promise.impl.PromisePackageImpl#getEventAssignment()
+	 * @generated
+	 */
+	int EVENT_ASSIGNMENT = 40;
+
+	/**
+	 * The feature id for the '<em><b>Input Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_ASSIGNMENT__INPUT_EVENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_ASSIGNMENT__INPUT_OPERATORS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent event</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_ASSIGNMENT__PARENT_EVENT = 2;
+
+	/**
+	 * The number of structural features of the '<em>Event Assignment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_ASSIGNMENT_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Event Assignment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_ASSIGNMENT_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link promise.Operator <em>Operator</em>}'.
@@ -1629,17 +1757,6 @@ public interface PromisePackage extends EPackage {
 	EClass getOperator();
 
 	/**
-	 * Returns the meta object for the reference list '{@link promise.Operator#getAffectingEvent <em>Affecting Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Affecting Event</em>'.
-	 * @see promise.Operator#getAffectingEvent()
-	 * @see #getOperator()
-	 * @generated
-	 */
-	EReference getOperator_AffectingEvent();
-
-	/**
 	 * Returns the meta object for the container reference '{@link promise.Operator#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1649,6 +1766,17 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOperator_Parent();
+
+	/**
+	 * Returns the meta object for the container reference '{@link promise.Operator#getEventAssigned <em>Event Assigned</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Event Assigned</em>'.
+	 * @see promise.Operator#getEventAssigned()
+	 * @see #getOperator()
+	 * @generated
+	 */
+	EReference getOperator_EventAssigned();
 
 	/**
 	 * Returns the meta object for class '{@link promise.FallBackOp <em>Fall Back Op</em>}'.
@@ -1691,17 +1819,6 @@ public interface PromisePackage extends EPackage {
 	EClass getEventHandlerOp();
 
 	/**
-	 * Returns the meta object for the reference list '{@link promise.EventHandlerOp#getInputEvents <em>Input Events</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Input Events</em>'.
-	 * @see promise.EventHandlerOp#getInputEvents()
-	 * @see #getEventHandlerOp()
-	 * @generated
-	 */
-	EReference getEventHandlerOp_InputEvents();
-
-	/**
 	 * Returns the meta object for class '{@link promise.ConditionOp <em>Condition Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1710,17 +1827,6 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConditionOp();
-
-	/**
-	 * Returns the meta object for the reference list '{@link promise.ConditionOp#getInputEvents <em>Input Events</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Input Events</em>'.
-	 * @see promise.ConditionOp#getInputEvents()
-	 * @see #getConditionOp()
-	 * @generated
-	 */
-	EReference getConditionOp_InputEvents();
 
 	/**
 	 * Returns the meta object for class '{@link promise.Mission <em>Mission</em>}'.
@@ -1786,6 +1892,17 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMission_Locations();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link promise.Mission#getEventassignment <em>Eventassignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Eventassignment</em>'.
+	 * @see promise.Mission#getEventassignment()
+	 * @see #getMission()
+	 * @generated
+	 */
+	EReference getMission_Eventassignment();
 
 	/**
 	 * Returns the meta object for class '{@link promise.Pattern <em>Pattern</em>}'.
@@ -2239,6 +2356,70 @@ public interface PromisePackage extends EPackage {
 	EClass getOROp();
 
 	/**
+	 * Returns the meta object for class '{@link promise.EventAssignment <em>Event Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Event Assignment</em>'.
+	 * @see promise.EventAssignment
+	 * @generated
+	 */
+	EClass getEventAssignment();
+
+	/**
+	 * Returns the meta object for the reference '{@link promise.EventAssignment#getInputEvent <em>Input Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Input Event</em>'.
+	 * @see promise.EventAssignment#getInputEvent()
+	 * @see #getEventAssignment()
+	 * @generated
+	 */
+	EReference getEventAssignment_InputEvent();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link promise.EventAssignment#getInputOperators <em>Input Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Input Operators</em>'.
+	 * @see promise.EventAssignment#getInputOperators()
+	 * @see #getEventAssignment()
+	 * @generated
+	 */
+	EReference getEventAssignment_InputOperators();
+
+	/**
+	 * Returns the meta object for the container reference '{@link promise.EventAssignment#getParent_event <em>Parent event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent event</em>'.
+	 * @see promise.EventAssignment#getParent_event()
+	 * @see #getEventAssignment()
+	 * @generated
+	 */
+	EReference getEventAssignment_Parent_event();
+
+	/**
+	 * Returns the meta object for class '{@link promise.EventBasedOperator <em>Event Based Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Event Based Operator</em>'.
+	 * @see promise.EventBasedOperator
+	 * @generated
+	 */
+	EClass getEventBasedOperator();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link promise.EventBasedOperator#getInputEvents <em>Input Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Input Events</em>'.
+	 * @see promise.EventBasedOperator#getInputEvents()
+	 * @see #getEventBasedOperator()
+	 * @generated
+	 */
+	EReference getEventBasedOperator_InputEvents();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2272,20 +2453,20 @@ public interface PromisePackage extends EPackage {
 		EClass OPERATOR = eINSTANCE.getOperator();
 
 		/**
-		 * The meta object literal for the '<em><b>Affecting Event</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPERATOR__AFFECTING_EVENT = eINSTANCE.getOperator_AffectingEvent();
-
-		/**
 		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference OPERATOR__PARENT = eINSTANCE.getOperator_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Event Assigned</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATOR__EVENT_ASSIGNED = eINSTANCE.getOperator_EventAssigned();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.FallBackOpImpl <em>Fall Back Op</em>}' class.
@@ -2328,14 +2509,6 @@ public interface PromisePackage extends EPackage {
 		EClass EVENT_HANDLER_OP = eINSTANCE.getEventHandlerOp();
 
 		/**
-		 * The meta object literal for the '<em><b>Input Events</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EVENT_HANDLER_OP__INPUT_EVENTS = eINSTANCE.getEventHandlerOp_InputEvents();
-
-		/**
 		 * The meta object literal for the '{@link promise.impl.ConditionOpImpl <em>Condition Op</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2344,14 +2517,6 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONDITION_OP = eINSTANCE.getConditionOp();
-
-		/**
-		 * The meta object literal for the '<em><b>Input Events</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONDITION_OP__INPUT_EVENTS = eINSTANCE.getConditionOp_InputEvents();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.MissionImpl <em>Mission</em>}' class.
@@ -2402,6 +2567,14 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EReference MISSION__LOCATIONS = eINSTANCE.getMission_Locations();
+
+		/**
+		 * The meta object literal for the '<em><b>Eventassignment</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MISSION__EVENTASSIGNMENT = eINSTANCE.getMission_Eventassignment();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.PatternImpl <em>Pattern</em>}' class.
@@ -2820,6 +2993,58 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EClass OR_OP = eINSTANCE.getOROp();
+
+		/**
+		 * The meta object literal for the '{@link promise.impl.EventAssignmentImpl <em>Event Assignment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see promise.impl.EventAssignmentImpl
+		 * @see promise.impl.PromisePackageImpl#getEventAssignment()
+		 * @generated
+		 */
+		EClass EVENT_ASSIGNMENT = eINSTANCE.getEventAssignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Event</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_ASSIGNMENT__INPUT_EVENT = eINSTANCE.getEventAssignment_InputEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Operators</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_ASSIGNMENT__INPUT_OPERATORS = eINSTANCE.getEventAssignment_InputOperators();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent event</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_ASSIGNMENT__PARENT_EVENT = eINSTANCE.getEventAssignment_Parent_event();
+
+		/**
+		 * The meta object literal for the '{@link promise.impl.EventBasedOperatorImpl <em>Event Based Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see promise.impl.EventBasedOperatorImpl
+		 * @see promise.impl.PromisePackageImpl#getEventBasedOperator()
+		 * @generated
+		 */
+		EClass EVENT_BASED_OPERATOR = eINSTANCE.getEventBasedOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Events</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_BASED_OPERATOR__INPUT_EVENTS = eINSTANCE.getEventBasedOperator_InputEvents();
 
 	}
 

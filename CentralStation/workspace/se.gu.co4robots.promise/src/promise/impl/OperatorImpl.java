@@ -2,12 +2,8 @@
  */
 package promise.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -15,11 +11,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import promise.CompositionOperator;
-import promise.Event;
+import promise.EventAssignment;
 import promise.Operator;
 import promise.PromisePackage;
 
@@ -31,23 +26,13 @@ import promise.PromisePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link promise.impl.OperatorImpl#getAffectingEvent <em>Affecting Event</em>}</li>
  *   <li>{@link promise.impl.OperatorImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link promise.impl.OperatorImpl#getEventAssigned <em>Event Assigned</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class OperatorImpl extends MinimalEObjectImpl.Container implements Operator {
-	/**
-	 * The cached value of the '{@link #getAffectingEvent() <em>Affecting Event</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAffectingEvent()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Event> affectingEvent;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,18 +50,6 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	protected EClass eStaticClass() {
 		return PromisePackage.Literals.OPERATOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Event> getAffectingEvent() {
-		if (affectingEvent == null) {
-			affectingEvent = new EObjectResolvingEList<Event>(Event.class, this, PromisePackage.OPERATOR__AFFECTING_EVENT);
-		}
-		return affectingEvent;
 	}
 
 	/**
@@ -125,6 +98,47 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EventAssignment getEventAssigned() {
+		if (eContainerFeatureID() != PromisePackage.OPERATOR__EVENT_ASSIGNED) return null;
+		return (EventAssignment)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEventAssigned(EventAssignment newEventAssigned, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newEventAssigned, PromisePackage.OPERATOR__EVENT_ASSIGNED, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEventAssigned(EventAssignment newEventAssigned) {
+		if (newEventAssigned != eInternalContainer() || (eContainerFeatureID() != PromisePackage.OPERATOR__EVENT_ASSIGNED && newEventAssigned != null)) {
+			if (EcoreUtil.isAncestor(this, newEventAssigned))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newEventAssigned != null)
+				msgs = ((InternalEObject)newEventAssigned).eInverseAdd(this, PromisePackage.EVENT_ASSIGNMENT__INPUT_OPERATORS, EventAssignment.class, msgs);
+			msgs = basicSetEventAssigned(newEventAssigned, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PromisePackage.OPERATOR__EVENT_ASSIGNED, newEventAssigned, newEventAssigned));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -132,6 +146,10 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParent((CompositionOperator)otherEnd, msgs);
+			case PromisePackage.OPERATOR__EVENT_ASSIGNED:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetEventAssigned((EventAssignment)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -146,6 +164,8 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case PromisePackage.OPERATOR__PARENT:
 				return basicSetParent(null, msgs);
+			case PromisePackage.OPERATOR__EVENT_ASSIGNED:
+				return basicSetEventAssigned(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -160,6 +180,8 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 		switch (eContainerFeatureID()) {
 			case PromisePackage.OPERATOR__PARENT:
 				return eInternalContainer().eInverseRemove(this, PromisePackage.COMPOSITION_OPERATOR__INPUT_OPERATORS, CompositionOperator.class, msgs);
+			case PromisePackage.OPERATOR__EVENT_ASSIGNED:
+				return eInternalContainer().eInverseRemove(this, PromisePackage.EVENT_ASSIGNMENT__INPUT_OPERATORS, EventAssignment.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -172,10 +194,10 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PromisePackage.OPERATOR__AFFECTING_EVENT:
-				return getAffectingEvent();
 			case PromisePackage.OPERATOR__PARENT:
 				return getParent();
+			case PromisePackage.OPERATOR__EVENT_ASSIGNED:
+				return getEventAssigned();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,16 +207,14 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PromisePackage.OPERATOR__AFFECTING_EVENT:
-				getAffectingEvent().clear();
-				getAffectingEvent().addAll((Collection<? extends Event>)newValue);
-				return;
 			case PromisePackage.OPERATOR__PARENT:
 				setParent((CompositionOperator)newValue);
+				return;
+			case PromisePackage.OPERATOR__EVENT_ASSIGNED:
+				setEventAssigned((EventAssignment)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -208,11 +228,11 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PromisePackage.OPERATOR__AFFECTING_EVENT:
-				getAffectingEvent().clear();
-				return;
 			case PromisePackage.OPERATOR__PARENT:
 				setParent((CompositionOperator)null);
+				return;
+			case PromisePackage.OPERATOR__EVENT_ASSIGNED:
+				setEventAssigned((EventAssignment)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -226,10 +246,10 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PromisePackage.OPERATOR__AFFECTING_EVENT:
-				return affectingEvent != null && !affectingEvent.isEmpty();
 			case PromisePackage.OPERATOR__PARENT:
 				return getParent() != null;
+			case PromisePackage.OPERATOR__EVENT_ASSIGNED:
+				return getEventAssigned() != null;
 		}
 		return super.eIsSet(featureID);
 	}

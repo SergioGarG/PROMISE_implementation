@@ -319,6 +319,15 @@ public interface PromiseFactory extends EFactory {
 	OROp createOROp();
 
 	/**
+	 * Returns a new object of class '<em>Event Assignment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Event Assignment</em>'.
+	 * @generated
+	 */
+	EventAssignment createEventAssignment();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

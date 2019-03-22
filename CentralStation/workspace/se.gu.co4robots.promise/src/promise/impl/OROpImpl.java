@@ -3,6 +3,7 @@
 package promise.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import promise.OROp;
 import promise.PromisePackage;
 

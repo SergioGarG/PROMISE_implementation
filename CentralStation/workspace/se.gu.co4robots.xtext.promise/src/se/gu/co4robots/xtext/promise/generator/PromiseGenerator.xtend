@@ -124,8 +124,11 @@ class PromiseGenerator extends AbstractGenerator {
 		//////////////////////////Methods
 		
 		def nestedMethod(CompositionOperator in, int index, int suboperator, int robot, int indentation, String parent){
+			//if (parent.contains("cond") || parent.contains("eh")) doLogic(in, index, robot, indentation, parent, "")	
 			doLogic(in.inputOperators.get(suboperator), index, robot, indentation, parent, "")		
 		}
+		
+
 		
 		///////////////Composition operators
 		
@@ -142,7 +145,6 @@ class PromiseGenerator extends AbstractGenerator {
 		}
 		
 		def dispatch doLogic(ParallelOp in, int index, int robot, int indentation, String parent, String hybrid){
-			//text= "Robot "+availableRobots.get(robot)+" does " 
 			text="Robot "+availableRobots.get(robot)+" does "
 			nestedMethod(in, index, 0, robot, indentation, availableRobots.get(robot))
 			textarray.add(text)
@@ -183,17 +185,32 @@ class PromiseGenerator extends AbstractGenerator {
 //		}
 
 		//Attempting to simplify the events arguments
+//		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent, String hybrid){
+//			text= text+"by default "
+//			robotsList.get(robot).get(index).missionList.add("eh")
+//			var int counter = robotsList.get(robot).length
+//			robotsList.get(robot).add(new robotClass("eh_default", new ArrayList<String>, indentation+1))
+//			nestedMethod(in, counter, 0, robot, indentation+1, "eh_default") //always execute the first operator, the following ones are the associated with events
+//			for(var i=1; i<(in.inputOperators.length); i++) {
+//				counter = robotsList.get(robot).length
+//				robotsList.get(robot).add(new robotClass("eh_"+in.inputOperators.get(i).affectingEvent.get(0).name, new ArrayList<String>, indentation+1))
+//				text= text+", and if event "+in.inputOperators.get(i).affectingEvent.get(0).name+" occurs, it will "
+//				nestedMethod(in, counter, i, robot, indentation+1, "eh_"+in.inputOperators.get(i).affectingEvent.get(0).name)
+//			}
+//		}
+
+		//Third to simplify the events arguments
 		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent, String hybrid){
 			text= text+"by default "
 			robotsList.get(robot).get(index).missionList.add("eh")
 			var int counter = robotsList.get(robot).length
 			robotsList.get(robot).add(new robotClass("eh_default", new ArrayList<String>, indentation+1))
 			nestedMethod(in, counter, 0, robot, indentation+1, "eh_default") //always execute the first operator, the following ones are the associated with events
-			for(var i=1; i<(in.inputOperators.length); i++) {
+			for(var i=0; i<(in.inputEvents.length); i++) {
 				counter = robotsList.get(robot).length
-				robotsList.get(robot).add(new robotClass("eh_"+in.inputOperators.get(i).affectingEvent.get(0).name, new ArrayList<String>, indentation+1))
-				text= text+", and if event "+in.inputOperators.get(i).affectingEvent.get(0).name+" occurs, it will "
-				nestedMethod(in, counter, i, robot, indentation+1, "eh_"+in.inputOperators.get(i).affectingEvent.get(0).name)
+				robotsList.get(robot).add(new robotClass("eh_"+in.inputEvents.get(i).inputEvent.name, new ArrayList<String>, indentation+1))
+				text= text+", and if event "+in.inputEvents.get(i).inputEvent.name+" occurs, it will "
+				doLogic(in.inputEvents.get(i).inputOperators, counter, robot, indentation+1, "cond_"+in.inputEvents.get(i).inputEvent.name, "")
 			}
 		}
 		
@@ -220,23 +237,33 @@ class PromiseGenerator extends AbstractGenerator {
 //			}
 //		}
 		
-		//Attempting to simplify the events arguments
+//		//Attempting to simplify the events arguments
+//		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent, String hybrid){
+//			robotsList.get(robot).get(index).missionList.add("cond")
+//			var int counter = robotsList.get(robot).length
+//			for(var i=1; i<=(in.inputOperators.length); i++) {
+//				counter = robotsList.get(robot).length
+//				robotsList.get(robot).add(new robotClass("cond_"+in.inputOperators.get(i).affectingEvent.get(0).name, new ArrayList<String>, indentation+1))
+//				text= text+"if event"+in.inputOperators.get(i).affectingEvent.get(0).name+" holds, it will "
+//				nestedMethod(in, counter, i-1, robot, indentation+1, "cond_"+in.inputOperators.get(i).affectingEvent.get(0).name)
+//			}
+//		}
+
+		//Third attempt to simplify the events arguments
 		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent, String hybrid){
 			robotsList.get(robot).get(index).missionList.add("cond")
 			var int counter = robotsList.get(robot).length
-			for(var i=1; i<=(in.inputOperators.length); i++) {
+			for(var i=0; i<(in.inputEvents.length); i++) {
 				counter = robotsList.get(robot).length
-				robotsList.get(robot).add(new robotClass("cond_"+in.inputOperators.get(i).affectingEvent.get(0).name, new ArrayList<String>, indentation+1))
-				text= text+"if event"+in.inputOperators.get(i).affectingEvent.get(0).name+" holds, it will "
-				nestedMethod(in, counter, i-1, robot, indentation+1, "cond_"+in.inputOperators.get(i).affectingEvent.get(0).name)
+				robotsList.get(robot).add(new robotClass("cond_"+in.inputEvents.get(i).inputEvent.name, new ArrayList<String>, indentation+1))
+				text= text+"if event "+in.inputEvents.get(i).inputEvent.name+" holds, "
+				doLogic(in.inputEvents.get(i).inputOperators, counter, robot, indentation+1, "cond_"+in.inputEvents.get(i).inputEvent.name, "")
 			}
 		}
 		
 		def dispatch doLogic(ANDOp in, int index, int robot, int indentation, String parent, String hybrid){	 
-			//doLogic(in.left, index, robot, indentation, parent, "and_left")
 			doLogic(in.inputOperators.get(0), index, robot, indentation, parent, "and_left")		
 			text=text+" and "	
-			//doLogic(in.right, index, robot, indentation, parent, "right")
 			doLogic(in.inputOperators.get(1), index, robot, indentation, parent, "right")		
 		}
 		
@@ -408,14 +435,13 @@ class PromiseGenerator extends AbstractGenerator {
 				}
 			} 
 			else if(in.pattern.eClass.name == "FutureAvoidance") {
-				//template="[] (("+in.inputAction.get(0).description+ "-> ([] ! ("+in.inputLocations.get(0).name+"))" //First attempt, not correct
 				if (in.inputAction.isEmpty){
-					template="[] (("+in.affectingEvent.get(0).description+ "-> ([] ! ("+in.inputLocations.get(0).name+"))"
-					text=text+"avoid location "+in.inputLocations.get(0).name+" if "+in.affectingEvent.get(0).description+" occurs"
+					template="[] (("+in.eventAssigned+ "-> ([] ! ("+in.inputLocations.get(0).name+"))"
+					text=text+"avoid location "+in.inputLocations.get(0).name+" if "+in.eventAssigned+" occurs"
 				}
 				else if (in.inputLocations.isEmpty){
-					template="[] (("+in.affectingEvent.get(0).description+ "-> ([] ! ("+in.inputAction.get(0).description+"))"
-					text=text+"avoid action "+in.inputAction.get(0).description+" if "+in.affectingEvent.get(0).description+" occurs"
+					template="[] (("+in.eventAssigned+ "-> ([] ! ("+in.inputAction.get(0).description+"))"
+					text=text+"avoid action "+in.inputAction.get(0).description+" if "+in.eventAssigned+" occurs"
 				}
 			}
 			else if(in.pattern.eClass.name == "GlobalAvoidance") {
@@ -442,12 +468,12 @@ class PromiseGenerator extends AbstractGenerator {
 			}
 			else if(in.pattern.eClass.name == "PastAvoidance") {
 				if (in.inputAction.isEmpty){
-					template="((! ("+in.inputLocations.get(0).name+")) U "+in.affectingEvent.get(0).description+")"
-					text=text+"avoid location "+in.inputLocations.get(0).name+" until "+in.affectingEvent.get(0).description+" occurs"
+					template="((! ("+in.inputLocations.get(0).name+")) U "+in.eventAssigned+")"
+					text=text+"avoid location "+in.inputLocations.get(0).name+" until "+in.eventAssigned+" occurs"
 				}
 				else if (in.inputLocations.isEmpty){
-					template="((! ("+in.inputAction.get(0).description+")) U "+in.affectingEvent.get(0).description+")"
-					text=text+"avoid performing "+in.inputAction.get(0).description+" until "+in.affectingEvent.get(0).description+" occurs"
+					template="((! ("+in.inputAction.get(0).description+")) U "+in.eventAssigned+")"
+					text=text+"avoid performing "+in.inputAction.get(0).description+" until "+in.eventAssigned+" occurs"
 				}
 			}
 			// UpperRestricedAvoidance needs to be revised, should have as input an integer containing the number of times the location must be visited
@@ -465,22 +491,22 @@ class PromiseGenerator extends AbstractGenerator {
 			////Triggers
 			else if(in.pattern.eClass.name == "InstantReaction"){
 				if (in.inputAction.isEmpty){
-					template="[] ("+in.affectingEvent.get(0).description+" -> "+in.inputLocations.get(0).name+")" 
-					text=text+"visit "+in.inputLocations.get(0).name+" every time "+in.affectingEvent.get(0).description+" occurs"
+					template="[] ("+in.eventAssigned+" -> "+in.inputLocations.get(0).name+")" 
+					text=text+"visit "+in.inputLocations.get(0).name+" every time "+in.eventAssigned+" occurs"
 				}
 				else if (in.inputLocations.isEmpty){
-					template="[] ("+in.affectingEvent.get(0).description+" -> "+in.inputAction.get(0).description+")" 
-					text=text+"perform "+in.inputAction.get(0).description+" every time "+in.affectingEvent.get(0).description+" occurs"
+					template="[] ("+in.eventAssigned+" -> "+in.inputAction.get(0).description+")" 
+					text=text+"perform "+in.inputAction.get(0).description+" every time "+in.eventAssigned+" occurs"
 				}
 			} 
 			else if(in.pattern.eClass.name == "DelayedReaction") {
 				if (in.inputAction.isEmpty){
-						template="[] ("+in.affectingEvent.get(0).description+" -> (<>("+in.inputLocations.get(0).name+")))" 
-						text=text+"visit at some point later "+in.inputLocations.get(0).name+" every time "+in.affectingEvent.get(0).description+" occurs"
+						template="[] ("+in.eventAssigned+" -> (<>("+in.inputLocations.get(0).name+")))" 
+						text=text+"visit at some point later "+in.inputLocations.get(0).name+" every time "+in.eventAssigned+" occurs"
 					}
 					else if (in.inputLocations.isEmpty){
-						template="[] ("+in.affectingEvent.get(0).description+" -> (<>("+in.inputAction.get(0).description+")))" 
-						text=text+"perform  at some point later "+in.inputAction.get(0).description+" every time "+in.affectingEvent.get(0).description+" occurs"
+						template="[] ("+in.eventAssigned+" -> (<>("+in.inputAction.get(0).description+")))" 
+						text=text+"perform  at some point later "+in.inputAction.get(0).description+" every time "+in.eventAssigned+" occurs"
 				}
 			}
 			else if(in.pattern.eClass.name == "Wait") {

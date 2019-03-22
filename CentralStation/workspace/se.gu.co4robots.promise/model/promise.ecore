@@ -2,22 +2,16 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="promise" nsURI="http://gu.se/co4robots.promise" nsPrefix="co4robots.promise">
   <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="affectingEvent" upperBound="-1"
-        eType="#//Event"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//CompositionOperator"
         eOpposite="#//CompositionOperator/inputOperators"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventAssigned" eType="#//EventAssignment"
+        eOpposite="#//EventAssignment/inputOperators"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FallBackOp" eSuperTypes="#//CompositionOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="SequenceOp" eSuperTypes="#//CompositionOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="ParallelOp" eSuperTypes="#//CompositionOperator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EventHandlerOp" eSuperTypes="#//CompositionOperator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputEvents" upperBound="-1"
-        eType="#//Event"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConditionOp" eSuperTypes="#//CompositionOperator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputEvents" upperBound="-1"
-        eType="#//Event"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventHandlerOp" eSuperTypes="#//EventBasedOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionOp" eSuperTypes="#//EventBasedOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="Mission">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operator" lowerBound="1"
         upperBound="-1" eType="#//Operator" containment="true"/>
@@ -29,6 +23,8 @@
         eType="#//Event" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="locations" upperBound="-1"
         eType="#//Location" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventassignment" eType="#//EventAssignment"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pattern" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="CompositionOperator" abstract="true"
@@ -88,4 +84,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="SimpleAction" eSuperTypes="#//Pattern"/>
   <eClassifiers xsi:type="ecore:EClass" name="ANDOp" eSuperTypes="#//CompositionOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="OROp" eSuperTypes="#//CompositionOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EventAssignment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputEvent" eType="#//Event"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputOperators" eType="#//Operator"
+        containment="true" eOpposite="#//Operator/eventAssigned"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent_event" eType="#//EventBasedOperator"
+        eOpposite="#//EventBasedOperator/inputEvents"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventBasedOperator" abstract="true"
+      eSuperTypes="#//CompositionOperator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputEvents" upperBound="-1"
+        eType="#//EventAssignment" containment="true" eOpposite="#//EventAssignment/parent_event"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -476,26 +476,17 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cInputOperatorsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_1_0 = (RuleCall)cInputOperatorsAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cAffectingEventKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_4_1_0 = (CrossReference)cAffectingEventAssignment_4_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_4_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_4_1_0.eContents().get(1);
-		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
-		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_4_2_1_0 = (CrossReference)cAffectingEventAssignment_4_2_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_4_2_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_4_2_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		///////////////////////////////////////// Operators
 		//FallBackOp:
-		//	'fallback' '(' inputOperators+=Operator ("," inputOperators+=Operator)* ('affecting event'
-		//	affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+		//	'fallback' '(' inputOperators+=Operator ("," inputOperators+=Operator)*
+		//	//('affecting event' affectingEvent=[IntermediateEvent|EString] ( "," affectingEvent=[IntermediateEvent|EString])* )? 
+		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'fallback' '(' inputOperators+=Operator ("," inputOperators+=Operator)* ('affecting event'
-		//affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')'
+		//'fallback' '(' inputOperators+=Operator ("," inputOperators+=Operator)* //('affecting event' affectingEvent=[IntermediateEvent|EString] ( "," affectingEvent=[IntermediateEvent|EString])* )? 
+		//')'
 		public Group getGroup() { return cGroup; }
 		
 		//'fallback'
@@ -522,38 +513,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//Operator
 		public RuleCall getInputOperatorsOperatorParserRuleCall_3_1_0() { return cInputOperatorsOperatorParserRuleCall_3_1_0; }
 		
-		//('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'affecting event'
-		public Keyword getAffectingEventKeyword_4_0() { return cAffectingEventKeyword_4_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_4_1() { return cAffectingEventAssignment_4_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_4_1_0() { return cAffectingEventEventCrossReference_4_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_4_1_0_1() { return cAffectingEventEventEStringParserRuleCall_4_1_0_1; }
-		
-		//("," affectingEvent+=[Event|EString])*
-		public Group getGroup_4_2() { return cGroup_4_2; }
-		
-		//","
-		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_4_2_1() { return cAffectingEventAssignment_4_2_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_4_2_1_0() { return cAffectingEventEventCrossReference_4_2_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_4_2_1_0_1() { return cAffectingEventEventEStringParserRuleCall_4_2_1_0_1; }
-		
+		////('affecting event' affectingEvent=[IntermediateEvent|EString] ( "," affectingEvent=[IntermediateEvent|EString])* )? 
 		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 	public class SequenceOpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.SequenceOp");
@@ -566,25 +528,16 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cInputOperatorsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_1_0 = (RuleCall)cInputOperatorsAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cAffectingEventKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_4_1_0 = (CrossReference)cAffectingEventAssignment_4_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_4_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_4_1_0.eContents().get(1);
-		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
-		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_4_2_1_0 = (CrossReference)cAffectingEventAssignment_4_2_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_4_2_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_4_2_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//SequenceOp:
-		//	'sequence' '(' inputOperators+=Operator ("," inputOperators+=Operator)* ('affecting event'
-		//	affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+		//	'sequence' '(' inputOperators+=Operator ("," inputOperators+=Operator)*
+		//	//('affecting event' affectingEvent=[IntermediateEvent|EString]( "," affectingEvent=[IntermediateEvent|EString])* )?  
+		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'sequence' '(' inputOperators+=Operator ("," inputOperators+=Operator)* ('affecting event'
-		//affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')'
+		//'sequence' '(' inputOperators+=Operator ("," inputOperators+=Operator)* //('affecting event' affectingEvent=[IntermediateEvent|EString]( "," affectingEvent=[IntermediateEvent|EString])* )?  
+		//')'
 		public Group getGroup() { return cGroup; }
 		
 		//'sequence'
@@ -611,38 +564,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//Operator
 		public RuleCall getInputOperatorsOperatorParserRuleCall_3_1_0() { return cInputOperatorsOperatorParserRuleCall_3_1_0; }
 		
-		//('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'affecting event'
-		public Keyword getAffectingEventKeyword_4_0() { return cAffectingEventKeyword_4_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_4_1() { return cAffectingEventAssignment_4_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_4_1_0() { return cAffectingEventEventCrossReference_4_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_4_1_0_1() { return cAffectingEventEventEStringParserRuleCall_4_1_0_1; }
-		
-		//("," affectingEvent+=[Event|EString])*
-		public Group getGroup_4_2() { return cGroup_4_2; }
-		
-		//","
-		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_4_2_1() { return cAffectingEventAssignment_4_2_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_4_2_1_0() { return cAffectingEventEventCrossReference_4_2_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_4_2_1_0_1() { return cAffectingEventEventEStringParserRuleCall_4_2_1_0_1; }
-		
+		////('affecting event' affectingEvent=[IntermediateEvent|EString]( "," affectingEvent=[IntermediateEvent|EString])* )?  
 		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 	public class ParallelOpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.ParallelOp");
@@ -655,25 +579,16 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cInputOperatorsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_1_0 = (RuleCall)cInputOperatorsAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cAffectingEventKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_4_1_0 = (CrossReference)cAffectingEventAssignment_4_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_4_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_4_1_0.eContents().get(1);
-		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
-		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_4_2_1_0 = (CrossReference)cAffectingEventAssignment_4_2_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_4_2_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_4_2_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ParallelOp:
-		//	'parallel' '(' inputOperators+=Operator ("," inputOperators+=Operator)* ('affecting event'
-		//	affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+		//	'parallel' '(' inputOperators+=Operator ("," inputOperators+=Operator)*
+		//	//('affecting event' affectingEvent=[IntermediateEvent|EString] ( "," affectingEvent=[IntermediateEvent|EString])* )?  
+		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'parallel' '(' inputOperators+=Operator ("," inputOperators+=Operator)* ('affecting event'
-		//affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')'
+		//'parallel' '(' inputOperators+=Operator ("," inputOperators+=Operator)* //('affecting event' affectingEvent=[IntermediateEvent|EString] ( "," affectingEvent=[IntermediateEvent|EString])* )?  
+		//')'
 		public Group getGroup() { return cGroup; }
 		
 		//'parallel'
@@ -700,38 +615,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//Operator
 		public RuleCall getInputOperatorsOperatorParserRuleCall_3_1_0() { return cInputOperatorsOperatorParserRuleCall_3_1_0; }
 		
-		//('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'affecting event'
-		public Keyword getAffectingEventKeyword_4_0() { return cAffectingEventKeyword_4_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_4_1() { return cAffectingEventAssignment_4_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_4_1_0() { return cAffectingEventEventCrossReference_4_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_4_1_0_1() { return cAffectingEventEventEStringParserRuleCall_4_1_0_1; }
-		
-		//("," affectingEvent+=[Event|EString])*
-		public Group getGroup_4_2() { return cGroup_4_2; }
-		
-		//","
-		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_4_2_1() { return cAffectingEventAssignment_4_2_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_4_2_1_0() { return cAffectingEventEventCrossReference_4_2_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_4_2_1_0_1() { return cAffectingEventEventEStringParserRuleCall_4_2_1_0_1; }
-		
+		////('affecting event' affectingEvent=[IntermediateEvent|EString] ( "," affectingEvent=[IntermediateEvent|EString])* )?  
 		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 	public class EventHandlerOpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.EventHandlerOp");
@@ -746,33 +632,16 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cExceptKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cInputEventsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cInputEventsEventCrossReference_6_1_0 = (CrossReference)cInputEventsAssignment_6_1.eContents().get(0);
-		private final RuleCall cInputEventsEventEStringParserRuleCall_6_1_0_1 = (RuleCall)cInputEventsEventCrossReference_6_1_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Assignment cInputOperatorsAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
-		private final RuleCall cInputOperatorsOperatorParserRuleCall_6_3_0 = (RuleCall)cInputOperatorsAssignment_6_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cAffectingEventKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_7_1_0 = (CrossReference)cAffectingEventAssignment_7_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_7_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_7_1_0.eContents().get(1);
-		private final Group cGroup_7_2 = (Group)cGroup_7.eContents().get(2);
-		private final Keyword cCommaKeyword_7_2_0 = (Keyword)cGroup_7_2.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_7_2_1 = (Assignment)cGroup_7_2.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_7_2_1_0 = (CrossReference)cAffectingEventAssignment_7_2_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_7_2_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_7_2_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final RuleCall cInputEventsEventAssignmentParserRuleCall_6_1_0 = (RuleCall)cInputEventsAssignment_6_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//EventHandlerOp:
 		//	'eventHandler' '('
-		//	'default' '(' inputOperators+=Operator ')' ('except' inputEvents+=[Event|EString] '(' inputOperators+=Operator ')')+
-		//	('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+		//	'default' '(' inputOperators+=Operator ')' ('except' inputEvents+=EventAssignment)+
+		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'eventHandler' '(' 'default' '(' inputOperators+=Operator ')' ('except' inputEvents+=[Event|EString] '('
-		//inputOperators+=Operator ')')+ ('affecting event' affectingEvent+=[Event|EString] (","
-		//affectingEvent+=[Event|EString])*)? ')'
+		//'eventHandler' '(' 'default' '(' inputOperators+=Operator ')' ('except' inputEvents+=EventAssignment)+ ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'eventHandler'
@@ -796,65 +665,20 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 		
-		//('except' inputEvents+=[Event|EString] '(' inputOperators+=Operator ')')+
+		//('except' inputEvents+=EventAssignment)+
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//'except'
 		public Keyword getExceptKeyword_6_0() { return cExceptKeyword_6_0; }
 		
-		//inputEvents+=[Event|EString]
+		//inputEvents+=EventAssignment
 		public Assignment getInputEventsAssignment_6_1() { return cInputEventsAssignment_6_1; }
 		
-		//[Event|EString]
-		public CrossReference getInputEventsEventCrossReference_6_1_0() { return cInputEventsEventCrossReference_6_1_0; }
-		
-		//EString
-		public RuleCall getInputEventsEventEStringParserRuleCall_6_1_0_1() { return cInputEventsEventEStringParserRuleCall_6_1_0_1; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_6_2() { return cLeftParenthesisKeyword_6_2; }
-		
-		//inputOperators+=Operator
-		public Assignment getInputOperatorsAssignment_6_3() { return cInputOperatorsAssignment_6_3; }
-		
-		//Operator
-		public RuleCall getInputOperatorsOperatorParserRuleCall_6_3_0() { return cInputOperatorsOperatorParserRuleCall_6_3_0; }
+		//EventAssignment
+		public RuleCall getInputEventsEventAssignmentParserRuleCall_6_1_0() { return cInputEventsEventAssignmentParserRuleCall_6_1_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_6_4() { return cRightParenthesisKeyword_6_4; }
-		
-		//('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)?
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//'affecting event'
-		public Keyword getAffectingEventKeyword_7_0() { return cAffectingEventKeyword_7_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_7_1() { return cAffectingEventAssignment_7_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_7_1_0() { return cAffectingEventEventCrossReference_7_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_7_1_0_1() { return cAffectingEventEventEStringParserRuleCall_7_1_0_1; }
-		
-		//("," affectingEvent+=[Event|EString])*
-		public Group getGroup_7_2() { return cGroup_7_2; }
-		
-		//","
-		public Keyword getCommaKeyword_7_2_0() { return cCommaKeyword_7_2_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_7_2_1() { return cAffectingEventAssignment_7_2_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_7_2_1_0() { return cAffectingEventEventCrossReference_7_2_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_7_2_1_0_1() { return cAffectingEventEventEStringParserRuleCall_7_2_1_0_1; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
 	}
 	public class ConditionOpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.ConditionOp");
@@ -864,32 +688,15 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cIfKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cInputEventsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cInputEventsEventCrossReference_2_1_0 = (CrossReference)cInputEventsAssignment_2_1.eContents().get(0);
-		private final RuleCall cInputEventsEventEStringParserRuleCall_2_1_0_1 = (RuleCall)cInputEventsEventCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cThenKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Keyword cLeftParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
-		private final Assignment cInputOperatorsAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
-		private final RuleCall cInputOperatorsOperatorParserRuleCall_2_4_0 = (RuleCall)cInputOperatorsAssignment_2_4.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_2_5 = (Keyword)cGroup_2.eContents().get(5);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cAffectingEventKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_3_1_0 = (CrossReference)cAffectingEventAssignment_3_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_3_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_3_1_0.eContents().get(1);
-		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
-		private final Keyword cCommaKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_3_2_1_0 = (CrossReference)cAffectingEventAssignment_3_2_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_3_2_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_3_2_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cInputEventsEventAssignmentParserRuleCall_2_1_0 = (RuleCall)cInputEventsAssignment_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ConditionOp:
-		//	'condition' '(' ('if' inputEvents+=[Event|EString] 'then' '(' inputOperators+=Operator ')')+ ('affecting event'
-		//	affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+		//	'condition' '(' ('if' inputEvents+=EventAssignment)+
+		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'condition' '(' ('if' inputEvents+=[Event|EString] 'then' '(' inputOperators+=Operator ')')+ ('affecting event'
-		//affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')'
+		//'condition' '(' ('if' inputEvents+=EventAssignment)+ ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'condition'
@@ -898,68 +705,20 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//('if' inputEvents+=[Event|EString] 'then' '(' inputOperators+=Operator ')')+
+		//('if' inputEvents+=EventAssignment)+
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'if'
 		public Keyword getIfKeyword_2_0() { return cIfKeyword_2_0; }
 		
-		//inputEvents+=[Event|EString]
+		//inputEvents+=EventAssignment
 		public Assignment getInputEventsAssignment_2_1() { return cInputEventsAssignment_2_1; }
 		
-		//[Event|EString]
-		public CrossReference getInputEventsEventCrossReference_2_1_0() { return cInputEventsEventCrossReference_2_1_0; }
-		
-		//EString
-		public RuleCall getInputEventsEventEStringParserRuleCall_2_1_0_1() { return cInputEventsEventEStringParserRuleCall_2_1_0_1; }
-		
-		//'then'
-		public Keyword getThenKeyword_2_2() { return cThenKeyword_2_2; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_2_3() { return cLeftParenthesisKeyword_2_3; }
-		
-		//inputOperators+=Operator
-		public Assignment getInputOperatorsAssignment_2_4() { return cInputOperatorsAssignment_2_4; }
-		
-		//Operator
-		public RuleCall getInputOperatorsOperatorParserRuleCall_2_4_0() { return cInputOperatorsOperatorParserRuleCall_2_4_0; }
+		//EventAssignment
+		public RuleCall getInputEventsEventAssignmentParserRuleCall_2_1_0() { return cInputEventsEventAssignmentParserRuleCall_2_1_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_2_5() { return cRightParenthesisKeyword_2_5; }
-		
-		//('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'affecting event'
-		public Keyword getAffectingEventKeyword_3_0() { return cAffectingEventKeyword_3_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_3_1() { return cAffectingEventAssignment_3_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_3_1_0() { return cAffectingEventEventCrossReference_3_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_3_1_0_1() { return cAffectingEventEventEStringParserRuleCall_3_1_0_1; }
-		
-		//("," affectingEvent+=[Event|EString])*
-		public Group getGroup_3_2() { return cGroup_3_2; }
-		
-		//","
-		public Keyword getCommaKeyword_3_2_0() { return cCommaKeyword_3_2_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_3_2_1() { return cAffectingEventAssignment_3_2_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_3_2_1_0() { return cAffectingEventEventCrossReference_3_2_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_3_2_1_0_1() { return cAffectingEventEventEStringParserRuleCall_3_2_1_0_1; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 	public class DelegateOpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.DelegateOp");
@@ -989,39 +748,27 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cInputActionActionCrossReference_4_2_1_0 = (CrossReference)cInputActionAssignment_4_2_1.eContents().get(0);
 		private final RuleCall cInputActionActionEStringParserRuleCall_4_2_1_0_1 = (RuleCall)cInputActionActionCrossReference_4_2_1_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cAffectingEventKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_5_1_0 = (CrossReference)cAffectingEventAssignment_5_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_5_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_5_1_0.eContents().get(1);
+		private final Keyword cStoppingEventsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cStoppingEventAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cStoppingEventEventCrossReference_5_1_0 = (CrossReference)cStoppingEventAssignment_5_1.eContents().get(0);
+		private final RuleCall cStoppingEventEventEStringParserRuleCall_5_1_0_1 = (RuleCall)cStoppingEventEventCrossReference_5_1_0.eContents().get(1);
 		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
 		private final Keyword cCommaKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_5_2_1_0 = (CrossReference)cAffectingEventAssignment_5_2_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_5_2_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_5_2_1_0.eContents().get(1);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cStoppingEventsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cStoppingEventAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cStoppingEventEventCrossReference_6_1_0 = (CrossReference)cStoppingEventAssignment_6_1.eContents().get(0);
-		private final RuleCall cStoppingEventEventEStringParserRuleCall_6_1_0_1 = (RuleCall)cStoppingEventEventCrossReference_6_1_0.eContents().get(1);
-		private final Group cGroup_6_2 = (Group)cGroup_6.eContents().get(2);
-		private final Keyword cCommaKeyword_6_2_0 = (Keyword)cGroup_6_2.eContents().get(0);
-		private final Assignment cStoppingEventAssignment_6_2_1 = (Assignment)cGroup_6_2.eContents().get(1);
-		private final CrossReference cStoppingEventEventCrossReference_6_2_1_0 = (CrossReference)cStoppingEventAssignment_6_2_1.eContents().get(0);
-		private final RuleCall cStoppingEventEventEStringParserRuleCall_6_2_1_0_1 = (RuleCall)cStoppingEventEventCrossReference_6_2_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cStoppingEventAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final CrossReference cStoppingEventEventCrossReference_5_2_1_0 = (CrossReference)cStoppingEventAssignment_5_2_1.eContents().get(0);
+		private final RuleCall cStoppingEventEventEStringParserRuleCall_5_2_1_0_1 = (RuleCall)cStoppingEventEventCrossReference_5_2_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//DelegateOp:
 		//	'delegate' '('
 		//	pattern=Pattern ('locations' inputLocations+=[Location|EString] ("," inputLocations+=[Location|EString])*)? ('actions'
-		//	inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('affecting event'
-		//	affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ('stoppingEvents'
-		//	stoppingEvent+=[Event|EString] ("," stoppingEvent+=[Event|EString])*)? ')';
+		//	inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('stoppingEvents' stoppingEvent+=[Event|EString]
+		//	("," stoppingEvent+=[Event|EString])*)? ')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'delegate' '(' pattern=Pattern ('locations' inputLocations+=[Location|EString] (","
 		//inputLocations+=[Location|EString])*)? ('actions' inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)?
-		//('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ('stoppingEvents'
-		//stoppingEvent+=[Event|EString] ("," stoppingEvent+=[Event|EString])*)? ')'
+		//('stoppingEvents' stoppingEvent+=[Event|EString] ("," stoppingEvent+=[Event|EString])*)? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'delegate'
@@ -1096,104 +843,63 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getInputActionActionEStringParserRuleCall_4_2_1_0_1() { return cInputActionActionEStringParserRuleCall_4_2_1_0_1; }
 		
-		//('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)?
+		//('stoppingEvents' stoppingEvent+=[Event|EString] ("," stoppingEvent+=[Event|EString])*)?
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//'affecting event'
-		public Keyword getAffectingEventKeyword_5_0() { return cAffectingEventKeyword_5_0; }
+		//'stoppingEvents'
+		public Keyword getStoppingEventsKeyword_5_0() { return cStoppingEventsKeyword_5_0; }
 		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_5_1() { return cAffectingEventAssignment_5_1; }
+		//stoppingEvent+=[Event|EString]
+		public Assignment getStoppingEventAssignment_5_1() { return cStoppingEventAssignment_5_1; }
 		
 		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_5_1_0() { return cAffectingEventEventCrossReference_5_1_0; }
+		public CrossReference getStoppingEventEventCrossReference_5_1_0() { return cStoppingEventEventCrossReference_5_1_0; }
 		
 		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_5_1_0_1() { return cAffectingEventEventEStringParserRuleCall_5_1_0_1; }
+		public RuleCall getStoppingEventEventEStringParserRuleCall_5_1_0_1() { return cStoppingEventEventEStringParserRuleCall_5_1_0_1; }
 		
-		//("," affectingEvent+=[Event|EString])*
+		//("," stoppingEvent+=[Event|EString])*
 		public Group getGroup_5_2() { return cGroup_5_2; }
 		
 		//","
 		public Keyword getCommaKeyword_5_2_0() { return cCommaKeyword_5_2_0; }
 		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_5_2_1() { return cAffectingEventAssignment_5_2_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_5_2_1_0() { return cAffectingEventEventCrossReference_5_2_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_5_2_1_0_1() { return cAffectingEventEventEStringParserRuleCall_5_2_1_0_1; }
-		
-		//('stoppingEvents' stoppingEvent+=[Event|EString] ("," stoppingEvent+=[Event|EString])*)?
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'stoppingEvents'
-		public Keyword getStoppingEventsKeyword_6_0() { return cStoppingEventsKeyword_6_0; }
-		
 		//stoppingEvent+=[Event|EString]
-		public Assignment getStoppingEventAssignment_6_1() { return cStoppingEventAssignment_6_1; }
+		public Assignment getStoppingEventAssignment_5_2_1() { return cStoppingEventAssignment_5_2_1; }
 		
 		//[Event|EString]
-		public CrossReference getStoppingEventEventCrossReference_6_1_0() { return cStoppingEventEventCrossReference_6_1_0; }
+		public CrossReference getStoppingEventEventCrossReference_5_2_1_0() { return cStoppingEventEventCrossReference_5_2_1_0; }
 		
 		//EString
-		public RuleCall getStoppingEventEventEStringParserRuleCall_6_1_0_1() { return cStoppingEventEventEStringParserRuleCall_6_1_0_1; }
-		
-		//("," stoppingEvent+=[Event|EString])*
-		public Group getGroup_6_2() { return cGroup_6_2; }
-		
-		//","
-		public Keyword getCommaKeyword_6_2_0() { return cCommaKeyword_6_2_0; }
-		
-		//stoppingEvent+=[Event|EString]
-		public Assignment getStoppingEventAssignment_6_2_1() { return cStoppingEventAssignment_6_2_1; }
-		
-		//[Event|EString]
-		public CrossReference getStoppingEventEventCrossReference_6_2_1_0() { return cStoppingEventEventCrossReference_6_2_1_0; }
-		
-		//EString
-		public RuleCall getStoppingEventEventEStringParserRuleCall_6_2_1_0_1() { return cStoppingEventEventEStringParserRuleCall_6_2_1_0_1; }
+		public RuleCall getStoppingEventEventEStringParserRuleCall_5_2_1_0_1() { return cStoppingEventEventEStringParserRuleCall_5_2_1_0_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
 	public class ANDOpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.ANDOp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cAndKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cAffectingEventKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cAffectingEventAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final CrossReference cAffectingEventEventCrossReference_2_2_0 = (CrossReference)cAffectingEventAssignment_2_2.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_2_2_0_1 = (RuleCall)cAffectingEventEventCrossReference_2_2_0.eContents().get(1);
-		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
-		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_2_3_1_0 = (CrossReference)cAffectingEventAssignment_2_3_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_2_3_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_2_3_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
-		private final Assignment cInputOperatorsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_0 = (RuleCall)cInputOperatorsAssignment_3.eContents().get(0);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Keyword cAmpersandKeyword_4_0 = (Keyword)cAlternatives_4.eContents().get(0);
-		private final Keyword cANDKeyword_4_1 = (Keyword)cAlternatives_4.eContents().get(1);
-		private final Keyword cAndKeyword_4_2 = (Keyword)cAlternatives_4.eContents().get(2);
-		private final Assignment cInputOperatorsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cInputOperatorsOperatorParserRuleCall_5_0 = (RuleCall)cInputOperatorsAssignment_5.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cInputOperatorsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_2_0 = (RuleCall)cInputOperatorsAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Keyword cAmpersandKeyword_3_0 = (Keyword)cAlternatives_3.eContents().get(0);
+		private final Keyword cANDKeyword_3_1 = (Keyword)cAlternatives_3.eContents().get(1);
+		private final Keyword cAndKeyword_3_2 = (Keyword)cAlternatives_3.eContents().get(2);
+		private final Assignment cInputOperatorsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_4_0 = (RuleCall)cInputOperatorsAssignment_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ANDOp:
-		//	'and' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+		//	'and' '('
 		//	inputOperators+=Operator ('&' | 'AND' | 'and') inputOperators+=Operator
+		//	//('affectingEvent' '(' affectingEvent=[IntermediateEvent|EString]  ')' )?
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'and' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
-		//inputOperators+=Operator ('&' | 'AND' | 'and') inputOperators+=Operator ')'
+		//'and' '(' inputOperators+=Operator ('&' | 'AND' | 'and') inputOperators+=Operator //('affectingEvent' '(' affectingEvent=[IntermediateEvent|EString]  ')' )?
+		//')'
 		public Group getGroup() { return cGroup; }
 		
 		//'and'
@@ -1202,104 +908,58 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'affectingEvent'
-		public Keyword getAffectingEventKeyword_2_0() { return cAffectingEventKeyword_2_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_2_1() { return cLeftParenthesisKeyword_2_1; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_2_2() { return cAffectingEventAssignment_2_2; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_2_2_0() { return cAffectingEventEventCrossReference_2_2_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_2_2_0_1() { return cAffectingEventEventEStringParserRuleCall_2_2_0_1; }
-		
-		//("," affectingEvent+=[Event|EString])*
-		public Group getGroup_2_3() { return cGroup_2_3; }
-		
-		//","
-		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_2_3_1() { return cAffectingEventAssignment_2_3_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_2_3_1_0() { return cAffectingEventEventCrossReference_2_3_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_2_3_1_0_1() { return cAffectingEventEventEStringParserRuleCall_2_3_1_0_1; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
-		
 		//inputOperators+=Operator
-		public Assignment getInputOperatorsAssignment_3() { return cInputOperatorsAssignment_3; }
+		public Assignment getInputOperatorsAssignment_2() { return cInputOperatorsAssignment_2; }
 		
 		//Operator
-		public RuleCall getInputOperatorsOperatorParserRuleCall_3_0() { return cInputOperatorsOperatorParserRuleCall_3_0; }
+		public RuleCall getInputOperatorsOperatorParserRuleCall_2_0() { return cInputOperatorsOperatorParserRuleCall_2_0; }
 		
 		//'&' | 'AND' | 'and'
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 		
 		//'&'
-		public Keyword getAmpersandKeyword_4_0() { return cAmpersandKeyword_4_0; }
+		public Keyword getAmpersandKeyword_3_0() { return cAmpersandKeyword_3_0; }
 		
 		//'AND'
-		public Keyword getANDKeyword_4_1() { return cANDKeyword_4_1; }
+		public Keyword getANDKeyword_3_1() { return cANDKeyword_3_1; }
 		
 		//'and'
-		public Keyword getAndKeyword_4_2() { return cAndKeyword_4_2; }
+		public Keyword getAndKeyword_3_2() { return cAndKeyword_3_2; }
 		
 		//inputOperators+=Operator
-		public Assignment getInputOperatorsAssignment_5() { return cInputOperatorsAssignment_5; }
+		public Assignment getInputOperatorsAssignment_4() { return cInputOperatorsAssignment_4; }
 		
 		//Operator
-		public RuleCall getInputOperatorsOperatorParserRuleCall_5_0() { return cInputOperatorsOperatorParserRuleCall_5_0; }
+		public RuleCall getInputOperatorsOperatorParserRuleCall_4_0() { return cInputOperatorsOperatorParserRuleCall_4_0; }
 		
+		////('affectingEvent' '(' affectingEvent=[IntermediateEvent|EString]  ')' )?
 		//')'
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 	}
 	public class OROpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.OROp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cOrKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cAffectingEventKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cAffectingEventAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final CrossReference cAffectingEventEventCrossReference_2_2_0 = (CrossReference)cAffectingEventAssignment_2_2.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_2_2_0_1 = (RuleCall)cAffectingEventEventCrossReference_2_2_0.eContents().get(1);
-		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
-		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
-		private final Assignment cAffectingEventAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
-		private final CrossReference cAffectingEventEventCrossReference_2_3_1_0 = (CrossReference)cAffectingEventAssignment_2_3_1.eContents().get(0);
-		private final RuleCall cAffectingEventEventEStringParserRuleCall_2_3_1_0_1 = (RuleCall)cAffectingEventEventCrossReference_2_3_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
-		private final Assignment cInputOperatorsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_0 = (RuleCall)cInputOperatorsAssignment_3.eContents().get(0);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Keyword cVerticalLineKeyword_4_0 = (Keyword)cAlternatives_4.eContents().get(0);
-		private final Keyword cORKeyword_4_1 = (Keyword)cAlternatives_4.eContents().get(1);
-		private final Keyword cOrKeyword_4_2 = (Keyword)cAlternatives_4.eContents().get(2);
-		private final Assignment cInputOperatorsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cInputOperatorsOperatorParserRuleCall_5_0 = (RuleCall)cInputOperatorsAssignment_5.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cInputOperatorsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_2_0 = (RuleCall)cInputOperatorsAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Keyword cVerticalLineKeyword_3_0 = (Keyword)cAlternatives_3.eContents().get(0);
+		private final Keyword cORKeyword_3_1 = (Keyword)cAlternatives_3.eContents().get(1);
+		private final Keyword cOrKeyword_3_2 = (Keyword)cAlternatives_3.eContents().get(2);
+		private final Assignment cInputOperatorsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_4_0 = (RuleCall)cInputOperatorsAssignment_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//OROp:
-		//	'or' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+		//	'or' '('
 		//	inputOperators+=Operator ('|' | 'OR' | 'or') inputOperators+=Operator
+		//	//('affectingEvent' '(' affectingEvent=[IntermediateEvent|EString] ')' )?
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'or' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
-		//inputOperators+=Operator ('|' | 'OR' | 'or') inputOperators+=Operator ')'
+		//'or' '(' inputOperators+=Operator ('|' | 'OR' | 'or') inputOperators+=Operator //('affectingEvent' '(' affectingEvent=[IntermediateEvent|EString] ')' )?
+		//')'
 		public Group getGroup() { return cGroup; }
 		
 		//'or'
@@ -1308,68 +968,73 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'affectingEvent'
-		public Keyword getAffectingEventKeyword_2_0() { return cAffectingEventKeyword_2_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_2_1() { return cLeftParenthesisKeyword_2_1; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_2_2() { return cAffectingEventAssignment_2_2; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_2_2_0() { return cAffectingEventEventCrossReference_2_2_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_2_2_0_1() { return cAffectingEventEventEStringParserRuleCall_2_2_0_1; }
-		
-		//("," affectingEvent+=[Event|EString])*
-		public Group getGroup_2_3() { return cGroup_2_3; }
-		
-		//","
-		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
-		
-		//affectingEvent+=[Event|EString]
-		public Assignment getAffectingEventAssignment_2_3_1() { return cAffectingEventAssignment_2_3_1; }
-		
-		//[Event|EString]
-		public CrossReference getAffectingEventEventCrossReference_2_3_1_0() { return cAffectingEventEventCrossReference_2_3_1_0; }
-		
-		//EString
-		public RuleCall getAffectingEventEventEStringParserRuleCall_2_3_1_0_1() { return cAffectingEventEventEStringParserRuleCall_2_3_1_0_1; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_2_4() { return cRightParenthesisKeyword_2_4; }
-		
 		//inputOperators+=Operator
-		public Assignment getInputOperatorsAssignment_3() { return cInputOperatorsAssignment_3; }
+		public Assignment getInputOperatorsAssignment_2() { return cInputOperatorsAssignment_2; }
 		
 		//Operator
-		public RuleCall getInputOperatorsOperatorParserRuleCall_3_0() { return cInputOperatorsOperatorParserRuleCall_3_0; }
+		public RuleCall getInputOperatorsOperatorParserRuleCall_2_0() { return cInputOperatorsOperatorParserRuleCall_2_0; }
 		
 		//'|' | 'OR' | 'or'
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 		
 		//'|'
-		public Keyword getVerticalLineKeyword_4_0() { return cVerticalLineKeyword_4_0; }
+		public Keyword getVerticalLineKeyword_3_0() { return cVerticalLineKeyword_3_0; }
 		
 		//'OR'
-		public Keyword getORKeyword_4_1() { return cORKeyword_4_1; }
+		public Keyword getORKeyword_3_1() { return cORKeyword_3_1; }
 		
 		//'or'
-		public Keyword getOrKeyword_4_2() { return cOrKeyword_4_2; }
+		public Keyword getOrKeyword_3_2() { return cOrKeyword_3_2; }
 		
 		//inputOperators+=Operator
-		public Assignment getInputOperatorsAssignment_5() { return cInputOperatorsAssignment_5; }
+		public Assignment getInputOperatorsAssignment_4() { return cInputOperatorsAssignment_4; }
 		
 		//Operator
-		public RuleCall getInputOperatorsOperatorParserRuleCall_5_0() { return cInputOperatorsOperatorParserRuleCall_5_0; }
+		public RuleCall getInputOperatorsOperatorParserRuleCall_4_0() { return cInputOperatorsOperatorParserRuleCall_4_0; }
+		
+		////('affectingEvent' '(' affectingEvent=[IntermediateEvent|EString] ')' )?
+		//')'
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+	}
+	public class EventAssignmentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.EventAssignment");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cInputEventAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cInputEventEventCrossReference_0_0 = (CrossReference)cInputEventAssignment_0.eContents().get(0);
+		private final RuleCall cInputEventEventEStringParserRuleCall_0_0_1 = (RuleCall)cInputEventEventCrossReference_0_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cInputOperatorsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_2_0 = (RuleCall)cInputOperatorsAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		/////////////Others
+		//EventAssignment:
+		//	inputEvent=[Event|EString] '(' inputOperators=Operator ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//inputEvent=[Event|EString] '(' inputOperators=Operator ')'
+		public Group getGroup() { return cGroup; }
+		
+		//inputEvent=[Event|EString]
+		public Assignment getInputEventAssignment_0() { return cInputEventAssignment_0; }
+		
+		//[Event|EString]
+		public CrossReference getInputEventEventCrossReference_0_0() { return cInputEventEventCrossReference_0_0; }
+		
+		//EString
+		public RuleCall getInputEventEventEStringParserRuleCall_0_0_1() { return cInputEventEventEStringParserRuleCall_0_0_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//inputOperators=Operator
+		public Assignment getInputOperatorsAssignment_2() { return cInputOperatorsAssignment_2; }
+		
+		//Operator
+		public RuleCall getInputOperatorsOperatorParserRuleCall_2_0() { return cInputOperatorsOperatorParserRuleCall_2_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 	public class SimpleActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.SimpleAction");
@@ -1811,6 +1476,7 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	private final DelegateOpElements pDelegateOp;
 	private final ANDOpElements pANDOp;
 	private final OROpElements pOROp;
+	private final EventAssignmentElements pEventAssignment;
 	private final SimpleActionElements pSimpleAction;
 	private final VisitElements pVisit;
 	private final SequencedVisitElements pSequencedVisit;
@@ -1857,6 +1523,7 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDelegateOp = new DelegateOpElements();
 		this.pANDOp = new ANDOpElements();
 		this.pOROp = new OROpElements();
+		this.pEventAssignment = new EventAssignmentElements();
 		this.pSimpleAction = new SimpleActionElements();
 		this.pVisit = new VisitElements();
 		this.pSequencedVisit = new SequencedVisitElements();
@@ -1989,8 +1656,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	///////////////////////////////////////// Operators
 	//FallBackOp:
-	//	'fallback' '(' inputOperators+=Operator ("," inputOperators+=Operator)* ('affecting event'
-	//	affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+	//	'fallback' '(' inputOperators+=Operator ("," inputOperators+=Operator)*
+	//	//('affecting event' affectingEvent=[IntermediateEvent|EString] ( "," affectingEvent=[IntermediateEvent|EString])* )? 
+	//	')';
 	public FallBackOpElements getFallBackOpAccess() {
 		return pFallBackOp;
 	}
@@ -2000,8 +1668,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SequenceOp:
-	//	'sequence' '(' inputOperators+=Operator ("," inputOperators+=Operator)* ('affecting event'
-	//	affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+	//	'sequence' '(' inputOperators+=Operator ("," inputOperators+=Operator)*
+	//	//('affecting event' affectingEvent=[IntermediateEvent|EString]( "," affectingEvent=[IntermediateEvent|EString])* )?  
+	//	')';
 	public SequenceOpElements getSequenceOpAccess() {
 		return pSequenceOp;
 	}
@@ -2011,8 +1680,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ParallelOp:
-	//	'parallel' '(' inputOperators+=Operator ("," inputOperators+=Operator)* ('affecting event'
-	//	affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+	//	'parallel' '(' inputOperators+=Operator ("," inputOperators+=Operator)*
+	//	//('affecting event' affectingEvent=[IntermediateEvent|EString] ( "," affectingEvent=[IntermediateEvent|EString])* )?  
+	//	')';
 	public ParallelOpElements getParallelOpAccess() {
 		return pParallelOp;
 	}
@@ -2023,8 +1693,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//EventHandlerOp:
 	//	'eventHandler' '('
-	//	'default' '(' inputOperators+=Operator ')' ('except' inputEvents+=[Event|EString] '(' inputOperators+=Operator ')')+
-	//	('affecting event' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+	//	'default' '(' inputOperators+=Operator ')' ('except' inputEvents+=EventAssignment)+
+	//	')';
 	public EventHandlerOpElements getEventHandlerOpAccess() {
 		return pEventHandlerOp;
 	}
@@ -2034,8 +1704,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ConditionOp:
-	//	'condition' '(' ('if' inputEvents+=[Event|EString] 'then' '(' inputOperators+=Operator ')')+ ('affecting event'
-	//	affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ')';
+	//	'condition' '(' ('if' inputEvents+=EventAssignment)+
+	//	')';
 	public ConditionOpElements getConditionOpAccess() {
 		return pConditionOp;
 	}
@@ -2047,9 +1717,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	//DelegateOp:
 	//	'delegate' '('
 	//	pattern=Pattern ('locations' inputLocations+=[Location|EString] ("," inputLocations+=[Location|EString])*)? ('actions'
-	//	inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('affecting event'
-	//	affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])*)? ('stoppingEvents'
-	//	stoppingEvent+=[Event|EString] ("," stoppingEvent+=[Event|EString])*)? ')';
+	//	inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('stoppingEvents' stoppingEvent+=[Event|EString]
+	//	("," stoppingEvent+=[Event|EString])*)? ')';
 	public DelegateOpElements getDelegateOpAccess() {
 		return pDelegateOp;
 	}
@@ -2059,8 +1728,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ANDOp:
-	//	'and' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+	//	'and' '('
 	//	inputOperators+=Operator ('&' | 'AND' | 'and') inputOperators+=Operator
+	//	//('affectingEvent' '(' affectingEvent=[IntermediateEvent|EString]  ')' )?
 	//	')';
 	public ANDOpElements getANDOpAccess() {
 		return pANDOp;
@@ -2071,8 +1741,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//OROp:
-	//	'or' '(' ('affectingEvent' '(' affectingEvent+=[Event|EString] ("," affectingEvent+=[Event|EString])* ')')?
+	//	'or' '('
 	//	inputOperators+=Operator ('|' | 'OR' | 'or') inputOperators+=Operator
+	//	//('affectingEvent' '(' affectingEvent=[IntermediateEvent|EString] ')' )?
 	//	')';
 	public OROpElements getOROpAccess() {
 		return pOROp;
@@ -2080,6 +1751,17 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getOROpRule() {
 		return getOROpAccess().getRule();
+	}
+	
+	/////////////Others
+	//EventAssignment:
+	//	inputEvent=[Event|EString] '(' inputOperators=Operator ')';
+	public EventAssignmentElements getEventAssignmentAccess() {
+		return pEventAssignment;
+	}
+	
+	public ParserRule getEventAssignmentRule() {
+		return getEventAssignmentAccess().getRule();
 	}
 	
 	///////////////////////////////////////// Patterns

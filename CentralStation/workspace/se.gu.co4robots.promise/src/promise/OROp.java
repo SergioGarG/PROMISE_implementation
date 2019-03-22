@@ -14,5 +14,4 @@ package promise;
  * @generated
  */
 public interface OROp extends CompositionOperator {
-
 } // OROp

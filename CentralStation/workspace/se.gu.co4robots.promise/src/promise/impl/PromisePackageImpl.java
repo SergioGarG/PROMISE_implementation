@@ -17,6 +17,8 @@ import promise.ConditionOp;
 import promise.DelayedReaction;
 import promise.DelegateOp;
 import promise.Event;
+import promise.EventAssignment;
+import promise.EventBasedOperator;
 import promise.EventHandlerOp;
 import promise.ExactRestrictedAvoidance;
 import promise.FairPatrolling;
@@ -340,6 +342,20 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	private EClass orOpEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass eventAssignmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass eventBasedOperatorEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -414,7 +430,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperator_AffectingEvent() {
+	public EReference getOperator_Parent() {
 		return (EReference)operatorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -423,7 +439,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperator_Parent() {
+	public EReference getOperator_EventAssigned() {
 		return (EReference)operatorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -468,26 +484,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEventHandlerOp_InputEvents() {
-		return (EReference)eventHandlerOpEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getConditionOp() {
 		return conditionOpEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConditionOp_InputEvents() {
-		return (EReference)conditionOpEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -542,6 +540,15 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 */
 	public EReference getMission_Locations() {
 		return (EReference)missionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMission_Eventassignment() {
+		return (EReference)missionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -945,6 +952,60 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEventAssignment() {
+		return eventAssignmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEventAssignment_InputEvent() {
+		return (EReference)eventAssignmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEventAssignment_InputOperators() {
+		return (EReference)eventAssignmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEventAssignment_Parent_event() {
+		return (EReference)eventAssignmentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEventBasedOperator() {
+		return eventBasedOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEventBasedOperator_InputEvents() {
+		return (EReference)eventBasedOperatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PromiseFactory getPromiseFactory() {
 		return (PromiseFactory)getEFactoryInstance();
 	}
@@ -969,8 +1030,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 
 		// Create classes and their features
 		operatorEClass = createEClass(OPERATOR);
-		createEReference(operatorEClass, OPERATOR__AFFECTING_EVENT);
 		createEReference(operatorEClass, OPERATOR__PARENT);
+		createEReference(operatorEClass, OPERATOR__EVENT_ASSIGNED);
 
 		fallBackOpEClass = createEClass(FALL_BACK_OP);
 
@@ -979,10 +1040,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		parallelOpEClass = createEClass(PARALLEL_OP);
 
 		eventHandlerOpEClass = createEClass(EVENT_HANDLER_OP);
-		createEReference(eventHandlerOpEClass, EVENT_HANDLER_OP__INPUT_EVENTS);
 
 		conditionOpEClass = createEClass(CONDITION_OP);
-		createEReference(conditionOpEClass, CONDITION_OP__INPUT_EVENTS);
 
 		missionEClass = createEClass(MISSION);
 		createEReference(missionEClass, MISSION__OPERATOR);
@@ -990,6 +1049,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		createEReference(missionEClass, MISSION__ACTIONS);
 		createEReference(missionEClass, MISSION__EVENTS);
 		createEReference(missionEClass, MISSION__LOCATIONS);
+		createEReference(missionEClass, MISSION__EVENTASSIGNMENT);
 
 		patternEClass = createEClass(PATTERN);
 
@@ -1067,6 +1127,14 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		andOpEClass = createEClass(AND_OP);
 
 		orOpEClass = createEClass(OR_OP);
+
+		eventAssignmentEClass = createEClass(EVENT_ASSIGNMENT);
+		createEReference(eventAssignmentEClass, EVENT_ASSIGNMENT__INPUT_EVENT);
+		createEReference(eventAssignmentEClass, EVENT_ASSIGNMENT__INPUT_OPERATORS);
+		createEReference(eventAssignmentEClass, EVENT_ASSIGNMENT__PARENT_EVENT);
+
+		eventBasedOperatorEClass = createEClass(EVENT_BASED_OPERATOR);
+		createEReference(eventBasedOperatorEClass, EVENT_BASED_OPERATOR__INPUT_EVENTS);
 	}
 
 	/**
@@ -1100,8 +1168,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		fallBackOpEClass.getESuperTypes().add(this.getCompositionOperator());
 		sequenceOpEClass.getESuperTypes().add(this.getCompositionOperator());
 		parallelOpEClass.getESuperTypes().add(this.getCompositionOperator());
-		eventHandlerOpEClass.getESuperTypes().add(this.getCompositionOperator());
-		conditionOpEClass.getESuperTypes().add(this.getCompositionOperator());
+		eventHandlerOpEClass.getESuperTypes().add(this.getEventBasedOperator());
+		conditionOpEClass.getESuperTypes().add(this.getEventBasedOperator());
 		compositionOperatorEClass.getESuperTypes().add(this.getOperator());
 		robotEClass.getESuperTypes().add(this.getNamedElement());
 		eventEClass.getESuperTypes().add(this.getNamedElement());
@@ -1133,11 +1201,12 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		simpleActionEClass.getESuperTypes().add(this.getPattern());
 		andOpEClass.getESuperTypes().add(this.getCompositionOperator());
 		orOpEClass.getESuperTypes().add(this.getCompositionOperator());
+		eventBasedOperatorEClass.getESuperTypes().add(this.getCompositionOperator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOperator_AffectingEvent(), this.getEvent(), null, "affectingEvent", null, 0, -1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperator_Parent(), this.getCompositionOperator(), this.getCompositionOperator_InputOperators(), "parent", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperator_EventAssigned(), this.getEventAssignment(), this.getEventAssignment_InputOperators(), "eventAssigned", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fallBackOpEClass, FallBackOp.class, "FallBackOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1146,10 +1215,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEClass(parallelOpEClass, ParallelOp.class, "ParallelOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(eventHandlerOpEClass, EventHandlerOp.class, "EventHandlerOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventHandlerOp_InputEvents(), this.getEvent(), null, "inputEvents", null, 0, -1, EventHandlerOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionOpEClass, ConditionOp.class, "ConditionOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConditionOp_InputEvents(), this.getEvent(), null, "inputEvents", null, 0, -1, ConditionOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(missionEClass, Mission.class, "Mission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMission_Operator(), this.getOperator(), null, "operator", null, 1, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1157,6 +1224,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEReference(getMission_Actions(), this.getAction(), null, "actions", null, 0, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMission_Events(), this.getEvent(), null, "events", null, 0, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMission_Locations(), this.getLocation(), null, "locations", null, 0, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMission_Eventassignment(), this.getEventAssignment(), null, "eventassignment", null, 0, 1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(patternEClass, Pattern.class, "Pattern", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1234,6 +1302,14 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEClass(andOpEClass, ANDOp.class, "ANDOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(orOpEClass, OROp.class, "OROp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(eventAssignmentEClass, EventAssignment.class, "EventAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEventAssignment_InputEvent(), this.getEvent(), null, "inputEvent", null, 0, 1, EventAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventAssignment_InputOperators(), this.getOperator(), this.getOperator_EventAssigned(), "inputOperators", null, 0, 1, EventAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventAssignment_Parent_event(), this.getEventBasedOperator(), this.getEventBasedOperator_InputEvents(), "parent_event", null, 0, 1, EventAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(eventBasedOperatorEClass, EventBasedOperator.class, "EventBasedOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEventBasedOperator_InputEvents(), this.getEventAssignment(), this.getEventAssignment_Parent_event(), "inputEvents", null, 0, -1, EventBasedOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

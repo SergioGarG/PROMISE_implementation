@@ -2,8 +2,6 @@
  */
 package promise;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link promise.Operator#getAffectingEvent <em>Affecting Event</em>}</li>
  *   <li>{@link promise.Operator#getParent <em>Parent</em>}</li>
+ *   <li>{@link promise.Operator#getEventAssigned <em>Event Assigned</em>}</li>
  * </ul>
  *
  * @see promise.PromisePackage#getOperator()
@@ -24,22 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Operator extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Affecting Event</b></em>' reference list.
-	 * The list contents are of type {@link promise.Event}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Affecting Event</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Affecting Event</em>' reference list.
-	 * @see promise.PromisePackage#getOperator_AffectingEvent()
-	 * @model
-	 * @generated
-	 */
-	EList<Event> getAffectingEvent();
-
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link promise.CompositionOperator#getInputOperators <em>Input Operators</em>}'.
@@ -67,5 +49,33 @@ public interface Operator extends EObject {
 	 * @generated
 	 */
 	void setParent(CompositionOperator value);
+
+	/**
+	 * Returns the value of the '<em><b>Event Assigned</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link promise.EventAssignment#getInputOperators <em>Input Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event Assigned</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Event Assigned</em>' container reference.
+	 * @see #setEventAssigned(EventAssignment)
+	 * @see promise.PromisePackage#getOperator_EventAssigned()
+	 * @see promise.EventAssignment#getInputOperators
+	 * @model opposite="inputOperators" transient="false"
+	 * @generated
+	 */
+	EventAssignment getEventAssigned();
+
+	/**
+	 * Sets the value of the '{@link promise.Operator#getEventAssigned <em>Event Assigned</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Event Assigned</em>' container reference.
+	 * @see #getEventAssigned()
+	 * @generated
+	 */
+	void setEventAssigned(EventAssignment value);
 
 } // Operator

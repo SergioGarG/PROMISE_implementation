@@ -19,6 +19,7 @@ import promise.ConditionOp;
 import promise.DelayedReaction;
 import promise.DelegateOp;
 import promise.Event;
+import promise.EventAssignment;
 import promise.EventHandlerOp;
 import promise.ExactRestrictedAvoidance;
 import promise.FairPatrolling;
@@ -80,6 +81,9 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case PromisePackage.EVENT:
 				sequence_Event(context, (Event) semanticObject); 
+				return; 
+			case PromisePackage.EVENT_ASSIGNMENT:
+				sequence_EventAssignment(context, (EventAssignment) semanticObject); 
 				return; 
 			case PromisePackage.EVENT_HANDLER_OP:
 				sequence_EventHandlerOp(context, (EventHandlerOp) semanticObject); 
@@ -173,7 +177,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     ANDOp returns ANDOp
 	 *
 	 * Constraint:
-	 *     ((affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)? inputOperators+=Operator inputOperators+=Operator)
+	 *     (inputOperators+=Operator inputOperators+=Operator)
 	 */
 	protected void sequence_ANDOp(ISerializationContext context, ANDOp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -207,7 +211,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     ConditionOp returns ConditionOp
 	 *
 	 * Constraint:
-	 *     ((inputEvents+=[Event|EString] inputOperators+=Operator)+ (affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)?)
+	 *     inputEvents+=EventAssignment+
 	 */
 	protected void sequence_ConditionOp(ISerializationContext context, ConditionOp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -237,7 +241,6 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         pattern=Pattern 
 	 *         (inputLocations+=[Location|EString] inputLocations+=[Location|EString]*)? 
 	 *         (inputAction+=[Action|EString] inputAction+=[Action|EString]*)? 
-	 *         (affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)? 
 	 *         (stoppingEvent+=[Event|EString] stoppingEvent+=[Event|EString]*)?
 	 *     )
 	 */
@@ -248,15 +251,32 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     EventAssignment returns EventAssignment
+	 *
+	 * Constraint:
+	 *     (inputEvent=[Event|EString] inputOperators=Operator)
+	 */
+	protected void sequence_EventAssignment(ISerializationContext context, EventAssignment semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.EVENT_ASSIGNMENT__INPUT_EVENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.EVENT_ASSIGNMENT__INPUT_EVENT));
+			if (transientValues.isValueTransient(semanticObject, PromisePackage.Literals.EVENT_ASSIGNMENT__INPUT_OPERATORS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.EVENT_ASSIGNMENT__INPUT_OPERATORS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEventAssignmentAccess().getInputEventEventEStringParserRuleCall_0_0_1(), semanticObject.eGet(PromisePackage.Literals.EVENT_ASSIGNMENT__INPUT_EVENT, false));
+		feeder.accept(grammarAccess.getEventAssignmentAccess().getInputOperatorsOperatorParserRuleCall_2_0(), semanticObject.getInputOperators());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Operator returns EventHandlerOp
 	 *     EventHandlerOp returns EventHandlerOp
 	 *
 	 * Constraint:
-	 *     (
-	 *         inputOperators+=Operator 
-	 *         (inputEvents+=[Event|EString] inputOperators+=Operator)+ 
-	 *         (affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)?
-	 *     )
+	 *     (inputOperators+=Operator inputEvents+=EventAssignment+)
 	 */
 	protected void sequence_EventHandlerOp(ISerializationContext context, EventHandlerOp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -329,7 +349,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     FallBackOp returns FallBackOp
 	 *
 	 * Constraint:
-	 *     (inputOperators+=Operator inputOperators+=Operator* (affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)?)
+	 *     (inputOperators+=Operator inputOperators+=Operator*)
 	 */
 	protected void sequence_FallBackOp(ISerializationContext context, FallBackOp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -432,7 +452,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     OROp returns OROp
 	 *
 	 * Constraint:
-	 *     ((affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)? inputOperators+=Operator inputOperators+=Operator)
+	 *     (inputOperators+=Operator inputOperators+=Operator)
 	 */
 	protected void sequence_OROp(ISerializationContext context, OROp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -471,7 +491,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     ParallelOp returns ParallelOp
 	 *
 	 * Constraint:
-	 *     (inputOperators+=Operator inputOperators+=Operator* (affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)?)
+	 *     (inputOperators+=Operator inputOperators+=Operator*)
 	 */
 	protected void sequence_ParallelOp(ISerializationContext context, ParallelOp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -528,7 +548,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     SequenceOp returns SequenceOp
 	 *
 	 * Constraint:
-	 *     (inputOperators+=Operator inputOperators+=Operator* (affectingEvent+=[Event|EString] affectingEvent+=[Event|EString]*)?)
+	 *     (inputOperators+=Operator inputOperators+=Operator*)
 	 */
 	protected void sequence_SequenceOp(ISerializationContext context, SequenceOp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

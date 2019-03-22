@@ -228,6 +228,14 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 				return createOROpAdapter();
 			}
 			@Override
+			public Adapter caseEventAssignment(EventAssignment object) {
+				return createEventAssignmentAdapter();
+			}
+			@Override
+			public Adapter caseEventBasedOperator(EventBasedOperator object) {
+				return createEventBasedOperatorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -804,6 +812,34 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOROpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link promise.EventAssignment <em>Event Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see promise.EventAssignment
+	 * @generated
+	 */
+	public Adapter createEventAssignmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link promise.EventBasedOperator <em>Event Based Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see promise.EventBasedOperator
+	 * @generated
+	 */
+	public Adapter createEventBasedOperatorAdapter() {
 		return null;
 	}
 
