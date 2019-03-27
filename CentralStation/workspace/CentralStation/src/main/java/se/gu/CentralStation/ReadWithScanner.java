@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -48,6 +49,8 @@ public class ReadWithScanner {
 		for(int i=0; i<robots.length; i++){
 			log(robots[i]);
 			if (robots[i] != null) {
+				text.send("starts", IP, Integer.toString(port), false);
+				text.send("starts", IP, Integer.toString(port), false);
 				text.send("starts", IP, Integer.toString(port), false);
 				mission=text.readFile(FILE_PATH+"mission_"+robots[i]+".ms");
 				text.send(mission, IP, Integer.toString(port), false);
@@ -212,6 +215,14 @@ public class ReadWithScanner {
 		} catch (IOException e) {
 			//e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Cannot connect with the robot!");
+		}
+		try
+		{
+		    Thread.sleep(100);
+		}
+		catch(InterruptedException ex)
+		{
+		    Thread.currentThread().interrupt();
 		}
 	}
 

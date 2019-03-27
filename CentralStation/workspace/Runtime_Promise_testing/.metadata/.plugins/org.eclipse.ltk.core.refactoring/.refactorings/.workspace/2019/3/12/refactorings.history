@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;promise_integration/representations.aird&apos;" deleteContents="false" description="Delete resource &apos;promise_integration/representations.aird&apos;" element1="/promise_integration/representations.aird" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1552919956553"/>
+</session>
