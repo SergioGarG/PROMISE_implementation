@@ -11,7 +11,7 @@
          id="wizard.category1">
    </category>
    <wizard
-         name="Your Mission"
+         name="Your Mission..."
          icon="icons/wizard.gif"
          category="wizard.category1"
          class="se.gu.promise.wizards.MissionWizard"
@@ -30,7 +30,7 @@
          nameFilter="*.promise"
          objectClass="org.eclipse.core.resources.IFile">
       <action
-            label="Your mission"
+            label="Your mission..."
             icon="icons/action.gif"
             class="se.gu.promise.wizards.MissionAction"
             id="wizard.action1">

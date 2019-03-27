@@ -424,14 +424,14 @@ class PromiseGenerator extends AbstractGenerator {
 			////Avoidance patterns
 			// ExactRestrictedAvoidance needs to be revised, should have as input an integer containing the number of times the location must be visited
 			else if(in.pattern.eClass.name == "ExactRestrictedAvoidance"){
-				//template="(! ("+in.inputAction.get(0).description+")) U ("+in.inputAction.get(0).description+" && (X ((! "+in.inputAction.get(0).description+") U ("+in.inputAction.get(0).description+" && (X ((! "+in.inputAction.get(0).description+") U ("+in.inputAction.get(0).description+" && (X ([] (!  "+in.inputAction.get(0).description+"))))))))))"
+				//template="(! ("+in.inputAction.get(0).name+")) U ("+in.inputAction.get(0).name+" && (X ((! "+in.inputAction.get(0).name+") U ("+in.inputAction.get(0).name+" && (X ((! "+in.inputAction.get(0).name+") U ("+in.inputAction.get(0).name+" && (X ([] (!  "+in.inputAction.get(0).name+"))))))))))"
 				if (in.inputAction.isEmpty){
 					template="(! ("+in.inputLocations.get(0).name+")) U ("+in.inputLocations.get(0).name+" && (X ((! "+in.inputLocations.get(0).name+") U ("+in.inputLocations.get(0).name+" && (X ((! "+in.inputLocations.get(0).name+") U ("+in.inputLocations.get(0).name+" && (X ([] (!  "+in.inputLocations.get(0).name+"))))))))))"
 					text=text+"visit location "+in.inputLocations.get(0).name+" an exact number of times"
 				}
 				else if (in.inputLocations.isEmpty){
-					template="(! ("+in.inputAction.get(0).description+")) U ("+in.inputAction.get(0).description+" && (X ((! "+in.inputAction.get(0).description+") U ("+in.inputAction.get(0).description+" && (X ((! "+in.inputAction.get(0).description+") U ("+in.inputAction.get(0).description+" && (X ([] (!  "+in.inputAction.get(0).description+"))))))))))"
-					text=text+"perform "+in.inputAction.get(0).description+" an exact number of times"
+					template="(! ("+in.inputAction.get(0).name+")) U ("+in.inputAction.get(0).name+" && (X ((! "+in.inputAction.get(0).name+") U ("+in.inputAction.get(0).name+" && (X ((! "+in.inputAction.get(0).name+") U ("+in.inputAction.get(0).name+" && (X ([] (!  "+in.inputAction.get(0).name+"))))))))))"
+					text=text+"perform "+in.inputAction.get(0).name+" an exact number of times"
 				}
 			} 
 			else if(in.pattern.eClass.name == "FutureAvoidance") {
@@ -440,8 +440,8 @@ class PromiseGenerator extends AbstractGenerator {
 					text=text+"avoid location "+in.inputLocations.get(0).name+" if "+in.eventAssigned+" occurs"
 				}
 				else if (in.inputLocations.isEmpty){
-					template="[] (("+in.eventAssigned+ "-> ([] ! ("+in.inputAction.get(0).description+"))"
-					text=text+"avoid action "+in.inputAction.get(0).description+" if "+in.eventAssigned+" occurs"
+					template="[] (("+in.eventAssigned+ "-> ([] ! ("+in.inputAction.get(0).name+"))"
+					text=text+"avoid action "+in.inputAction.get(0).name+" if "+in.eventAssigned+" occurs"
 				}
 			}
 			else if(in.pattern.eClass.name == "GlobalAvoidance") {
@@ -450,8 +450,8 @@ class PromiseGenerator extends AbstractGenerator {
 					text=text+"avoid location "+in.inputLocations.get(0).name
 				}
 				else if (in.inputLocations.isEmpty){
-					template="[] (! ("+in.inputAction.get(0).description+"))"
-					text=text+"avoid action "+in.inputAction.get(0).description
+					template="[] (! ("+in.inputAction.get(0).name+"))"
+					text=text+"avoid action "+in.inputAction.get(0).name
 				}				
 			}
 			// LowerRestricedAvoidance needs to be revised, should have as input an integer containing the number of times the location must be visited
@@ -461,8 +461,8 @@ class PromiseGenerator extends AbstractGenerator {
 					text=text+"visit location "+in.inputLocations.get(0).name+" at least N times"
 				}
 				else if (in.inputLocations.isEmpty){
-					template="<> (("+in.inputAction.get(0).description+ ") && X (<>(("+in.inputAction.get(0).description+") && X <>( ("+in.inputAction.get(0).description+")))))"
-					text=text+"perform "+in.inputAction.get(0).description+" at least N times"
+					template="<> (("+in.inputAction.get(0).name+ ") && X (<>(("+in.inputAction.get(0).name+") && X <>( ("+in.inputAction.get(0).name+")))))"
+					text=text+"perform "+in.inputAction.get(0).name+" at least N times"
 				}
 				
 			}
@@ -472,8 +472,8 @@ class PromiseGenerator extends AbstractGenerator {
 					text=text+"avoid location "+in.inputLocations.get(0).name+" until "+in.eventAssigned+" occurs"
 				}
 				else if (in.inputLocations.isEmpty){
-					template="((! ("+in.inputAction.get(0).description+")) U "+in.eventAssigned+")"
-					text=text+"avoid performing "+in.inputAction.get(0).description+" until "+in.eventAssigned+" occurs"
+					template="((! ("+in.inputAction.get(0).name+")) U "+in.eventAssigned+")"
+					text=text+"avoid performing "+in.inputAction.get(0).name+" until "+in.eventAssigned+" occurs"
 				}
 			}
 			// UpperRestricedAvoidance needs to be revised, should have as input an integer containing the number of times the location must be visited
@@ -483,8 +483,8 @@ class PromiseGenerator extends AbstractGenerator {
 					text=text+"visit location "+in.inputLocations.get(0).name+" at most N times"
 				}
 				else if (in.inputLocations.isEmpty){
-					template="! <> (("+in.inputAction.get(0).description+ ") && X (<>(("+in.inputAction.get(0).description+") && X <>( ("+in.inputAction.get(0).description+")))))"
-					text=text+"perform "+in.inputAction.get(0).description+" at most N times"
+					template="! <> (("+in.inputAction.get(0).name+ ") && X (<>(("+in.inputAction.get(0).name+") && X <>( ("+in.inputAction.get(0).name+")))))"
+					text=text+"perform "+in.inputAction.get(0).name+" at most N times"
 				}
 			}
 		
@@ -495,8 +495,8 @@ class PromiseGenerator extends AbstractGenerator {
 					text=text+"visit "+in.inputLocations.get(0).name+" every time "+in.eventAssigned+" occurs"
 				}
 				else if (in.inputLocations.isEmpty){
-					template="[] ("+in.eventAssigned+" -> "+in.inputAction.get(0).description+")" 
-					text=text+"perform "+in.inputAction.get(0).description+" every time "+in.eventAssigned+" occurs"
+					template="[] ("+in.eventAssigned+" -> "+in.inputAction.get(0).name+")" 
+					text=text+"perform "+in.inputAction.get(0).name+" every time "+in.eventAssigned+" occurs"
 				}
 			} 
 			else if(in.pattern.eClass.name == "DelayedReaction") {
@@ -505,21 +505,21 @@ class PromiseGenerator extends AbstractGenerator {
 						text=text+"visit at some point later "+in.inputLocations.get(0).name+" every time "+in.eventAssigned+" occurs"
 					}
 					else if (in.inputLocations.isEmpty){
-						template="[] ("+in.eventAssigned+" -> (<>("+in.inputAction.get(0).description+")))" 
-						text=text+"perform  at some point later "+in.inputAction.get(0).description+" every time "+in.eventAssigned+" occurs"
+						template="[] ("+in.eventAssigned+" -> (<>("+in.inputAction.get(0).name+")))" 
+						text=text+"perform  at some point later "+in.inputAction.get(0).name+" every time "+in.eventAssigned+" occurs"
 				}
 			}
 			else if(in.pattern.eClass.name == "Wait") {
 				//Correct implementation, waiting for Claudio's input
 //				if (in.inputAction.isEmpty) template="("+in.inputLocations.get(0).name+") U (true)"
-//				else if (in.inputLocations.isEmpty) template="("+in.inputAction.get(0).description+") U (true)"
+//				else if (in.inputLocations.isEmpty) template="("+in.inputAction.get(0).name+") U (true)"
 				//Debug version
 				template="[] (<> ("+in.inputLocations.get(0).name+"))"
 				text=text+"wait in location "+in.inputLocations.get(0).name
 			}
 			else if(in.pattern.eClass.name == "SimpleAction"){
-				template="(X "+in.inputAction.get(0).description+")"
-				text=text+" perform action "+in.inputAction.get(0).description
+				template="(X "+in.inputAction.get(0).name+")"
+				text=text+" perform action "+in.inputAction.get(0).name
 			} 
 		
 			else template="Pattern not recognized"

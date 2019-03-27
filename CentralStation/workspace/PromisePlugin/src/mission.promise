@@ -1,40 +1,16 @@
-mission { 
-	conditions { 
-		events 
-			obj_detected : "obj",
-			intruder_detected : "intruder",
-			help_requested: "help",
-			battery_down: "battery"
-		actions 
-			raise_alarm : "raise_alarm",
-			call_r2 : "call_r2",
-			raise_alarm : "raise_alarm",
-			grasp_object : "grasp_object",
-			release_object : "release_object",
-			charge_battery : "charge_battery"
+mission{ 
+	conditions{ 
+		actions
+ 		grab_coffee: "description of action grab_coffee"
+
 	} 
-	robots r1, r2
-	locations l1 , l2 , l3 , l4, kitchen, office
-	operators { parallel ( 
-		eventHandler ( 
-			default ( delegate ( Patrolling locations l2 , l3 ) )
-			except intruder_detected ( delegate ( SimpleAction actions raise_alarm ) )
-			except obj_detected ( delegate ( SimpleAction actions call_r2 ) ) 
-			except battery_down ( sequence ( 
-				delegate ( Visit locations office ) , 
-				delegate ( SimpleAction actions charge_battery )
-		) ) )
-	, eventHandler ( 
-		default ( delegate ( Wait locations l1 ) ) 
-		except help_requested ( sequence ( 
-			delegate ( Visit locations l2 ) , 
-			delegate ( SimpleAction actions grasp_object ) ,  
-			delegate ( Visit locations kitchen ) , 
-			delegate ( SimpleAction actions release_object )
-		) )
-	except battery_down ( sequence ( 
-		delegate ( Visit locations office ) , 
-		delegate ( SimpleAction actions charge_battery )
-	) ) ) ) 
-	} 
-}   
+	robots r1
+	locations l1
+	operators{ parallel( sequence ( 
+		delegate ( Visit locations l1 ) , 
+		delegate ( SimpleAction actions grab_coffee )
+	) 
+		// Your operators come here
+		)
+	}
+}

@@ -877,49 +877,49 @@ public class PromiseGenerator extends AbstractGenerator {
                             } else {
                               boolean _isEmpty_1 = in.getInputLocations().isEmpty();
                               if (_isEmpty_1) {
-                                String _description = in.getInputAction().get(0).getDescription();
-                                String _plus_40 = ("(! (" + _description);
+                                String _name_33 = in.getInputAction().get(0).getName();
+                                String _plus_40 = ("(! (" + _name_33);
                                 String _plus_41 = (_plus_40 + ")) U (");
-                                String _description_1 = in.getInputAction().get(0).getDescription();
-                                String _plus_42 = (_plus_41 + _description_1);
+                                String _name_34 = in.getInputAction().get(0).getName();
+                                String _plus_42 = (_plus_41 + _name_34);
                                 String _plus_43 = (_plus_42 + " && (X ((! ");
-                                String _description_2 = in.getInputAction().get(0).getDescription();
-                                String _plus_44 = (_plus_43 + _description_2);
+                                String _name_35 = in.getInputAction().get(0).getName();
+                                String _plus_44 = (_plus_43 + _name_35);
                                 String _plus_45 = (_plus_44 + ") U (");
-                                String _description_3 = in.getInputAction().get(0).getDescription();
-                                String _plus_46 = (_plus_45 + _description_3);
+                                String _name_36 = in.getInputAction().get(0).getName();
+                                String _plus_46 = (_plus_45 + _name_36);
                                 String _plus_47 = (_plus_46 + " && (X ((! ");
-                                String _description_4 = in.getInputAction().get(0).getDescription();
-                                String _plus_48 = (_plus_47 + _description_4);
+                                String _name_37 = in.getInputAction().get(0).getName();
+                                String _plus_48 = (_plus_47 + _name_37);
                                 String _plus_49 = (_plus_48 + ") U (");
-                                String _description_5 = in.getInputAction().get(0).getDescription();
-                                String _plus_50 = (_plus_49 + _description_5);
+                                String _name_38 = in.getInputAction().get(0).getName();
+                                String _plus_50 = (_plus_49 + _name_38);
                                 String _plus_51 = (_plus_50 + " && (X ([] (!  ");
-                                String _description_6 = in.getInputAction().get(0).getDescription();
-                                String _plus_52 = (_plus_51 + _description_6);
+                                String _name_39 = in.getInputAction().get(0).getName();
+                                String _plus_52 = (_plus_51 + _name_39);
                                 String _plus_53 = (_plus_52 + "))))))))))");
                                 this.template = _plus_53;
-                                String _description_7 = in.getInputAction().get(0).getDescription();
-                                String _plus_54 = ((this.text + "perform ") + _description_7);
+                                String _name_40 = in.getInputAction().get(0).getName();
+                                String _plus_54 = ((this.text + "perform ") + _name_40);
                                 String _plus_55 = (_plus_54 + " an exact number of times");
                                 this.text = _plus_55;
                               }
                             }
                           } else {
-                            String _name_33 = in.getPattern().eClass().getName();
-                            boolean _equals_11 = Objects.equal(_name_33, "FutureAvoidance");
+                            String _name_41 = in.getPattern().eClass().getName();
+                            boolean _equals_11 = Objects.equal(_name_41, "FutureAvoidance");
                             if (_equals_11) {
                               boolean _isEmpty_2 = in.getInputAction().isEmpty();
                               if (_isEmpty_2) {
                                 EventAssignment _eventAssigned = in.getEventAssigned();
                                 String _plus_56 = ("[] ((" + _eventAssigned);
                                 String _plus_57 = (_plus_56 + "-> ([] ! (");
-                                String _name_34 = in.getInputLocations().get(0).getName();
-                                String _plus_58 = (_plus_57 + _name_34);
+                                String _name_42 = in.getInputLocations().get(0).getName();
+                                String _plus_58 = (_plus_57 + _name_42);
                                 String _plus_59 = (_plus_58 + "))");
                                 this.template = _plus_59;
-                                String _name_35 = in.getInputLocations().get(0).getName();
-                                String _plus_60 = ((this.text + "avoid location ") + _name_35);
+                                String _name_43 = in.getInputLocations().get(0).getName();
+                                String _plus_60 = ((this.text + "avoid location ") + _name_43);
                                 String _plus_61 = (_plus_60 + " if ");
                                 EventAssignment _eventAssigned_1 = in.getEventAssigned();
                                 String _plus_62 = (_plus_61 + _eventAssigned_1);
@@ -931,12 +931,12 @@ public class PromiseGenerator extends AbstractGenerator {
                                   EventAssignment _eventAssigned_2 = in.getEventAssigned();
                                   String _plus_64 = ("[] ((" + _eventAssigned_2);
                                   String _plus_65 = (_plus_64 + "-> ([] ! (");
-                                  String _description_8 = in.getInputAction().get(0).getDescription();
-                                  String _plus_66 = (_plus_65 + _description_8);
+                                  String _name_44 = in.getInputAction().get(0).getName();
+                                  String _plus_66 = (_plus_65 + _name_44);
                                   String _plus_67 = (_plus_66 + "))");
                                   this.template = _plus_67;
-                                  String _description_9 = in.getInputAction().get(0).getDescription();
-                                  String _plus_68 = ((this.text + "avoid action ") + _description_9);
+                                  String _name_45 = in.getInputAction().get(0).getName();
+                                  String _plus_68 = ((this.text + "avoid action ") + _name_45);
                                   String _plus_69 = (_plus_68 + " if ");
                                   EventAssignment _eventAssigned_3 = in.getEventAssigned();
                                   String _plus_70 = (_plus_69 + _eventAssigned_3);
@@ -945,84 +945,84 @@ public class PromiseGenerator extends AbstractGenerator {
                                 }
                               }
                             } else {
-                              String _name_36 = in.getPattern().eClass().getName();
-                              boolean _equals_12 = Objects.equal(_name_36, "GlobalAvoidance");
+                              String _name_46 = in.getPattern().eClass().getName();
+                              boolean _equals_12 = Objects.equal(_name_46, "GlobalAvoidance");
                               if (_equals_12) {
                                 boolean _isEmpty_4 = in.getInputAction().isEmpty();
                                 if (_isEmpty_4) {
-                                  String _name_37 = in.getInputLocations().get(0).getName();
-                                  String _plus_72 = ("[] (! (" + _name_37);
+                                  String _name_47 = in.getInputLocations().get(0).getName();
+                                  String _plus_72 = ("[] (! (" + _name_47);
                                   String _plus_73 = (_plus_72 + "))");
                                   this.template = _plus_73;
-                                  String _name_38 = in.getInputLocations().get(0).getName();
-                                  String _plus_74 = ((this.text + "avoid location ") + _name_38);
+                                  String _name_48 = in.getInputLocations().get(0).getName();
+                                  String _plus_74 = ((this.text + "avoid location ") + _name_48);
                                   this.text = _plus_74;
                                 } else {
                                   boolean _isEmpty_5 = in.getInputLocations().isEmpty();
                                   if (_isEmpty_5) {
-                                    String _description_10 = in.getInputAction().get(0).getDescription();
-                                    String _plus_75 = ("[] (! (" + _description_10);
+                                    String _name_49 = in.getInputAction().get(0).getName();
+                                    String _plus_75 = ("[] (! (" + _name_49);
                                     String _plus_76 = (_plus_75 + "))");
                                     this.template = _plus_76;
-                                    String _description_11 = in.getInputAction().get(0).getDescription();
-                                    String _plus_77 = ((this.text + "avoid action ") + _description_11);
+                                    String _name_50 = in.getInputAction().get(0).getName();
+                                    String _plus_77 = ((this.text + "avoid action ") + _name_50);
                                     this.text = _plus_77;
                                   }
                                 }
                               } else {
-                                String _name_39 = in.getPattern().eClass().getName();
-                                boolean _equals_13 = Objects.equal(_name_39, "LowerRestricedAvoidance");
+                                String _name_51 = in.getPattern().eClass().getName();
+                                boolean _equals_13 = Objects.equal(_name_51, "LowerRestricedAvoidance");
                                 if (_equals_13) {
                                   boolean _isEmpty_6 = in.getInputAction().isEmpty();
                                   if (_isEmpty_6) {
-                                    String _name_40 = in.getInputLocations().get(0).getName();
-                                    String _plus_78 = ("<> ((" + _name_40);
+                                    String _name_52 = in.getInputLocations().get(0).getName();
+                                    String _plus_78 = ("<> ((" + _name_52);
                                     String _plus_79 = (_plus_78 + ") && X (<>((");
-                                    String _name_41 = in.getInputLocations().get(0).getName();
-                                    String _plus_80 = (_plus_79 + _name_41);
+                                    String _name_53 = in.getInputLocations().get(0).getName();
+                                    String _plus_80 = (_plus_79 + _name_53);
                                     String _plus_81 = (_plus_80 + ") && X <>( (");
-                                    String _name_42 = in.getInputLocations().get(0).getName();
-                                    String _plus_82 = (_plus_81 + _name_42);
+                                    String _name_54 = in.getInputLocations().get(0).getName();
+                                    String _plus_82 = (_plus_81 + _name_54);
                                     String _plus_83 = (_plus_82 + ")))))");
                                     this.template = _plus_83;
-                                    String _name_43 = in.getInputLocations().get(0).getName();
-                                    String _plus_84 = ((this.text + "visit location ") + _name_43);
+                                    String _name_55 = in.getInputLocations().get(0).getName();
+                                    String _plus_84 = ((this.text + "visit location ") + _name_55);
                                     String _plus_85 = (_plus_84 + " at least N times");
                                     this.text = _plus_85;
                                   } else {
                                     boolean _isEmpty_7 = in.getInputLocations().isEmpty();
                                     if (_isEmpty_7) {
-                                      String _description_12 = in.getInputAction().get(0).getDescription();
-                                      String _plus_86 = ("<> ((" + _description_12);
+                                      String _name_56 = in.getInputAction().get(0).getName();
+                                      String _plus_86 = ("<> ((" + _name_56);
                                       String _plus_87 = (_plus_86 + ") && X (<>((");
-                                      String _description_13 = in.getInputAction().get(0).getDescription();
-                                      String _plus_88 = (_plus_87 + _description_13);
+                                      String _name_57 = in.getInputAction().get(0).getName();
+                                      String _plus_88 = (_plus_87 + _name_57);
                                       String _plus_89 = (_plus_88 + ") && X <>( (");
-                                      String _description_14 = in.getInputAction().get(0).getDescription();
-                                      String _plus_90 = (_plus_89 + _description_14);
+                                      String _name_58 = in.getInputAction().get(0).getName();
+                                      String _plus_90 = (_plus_89 + _name_58);
                                       String _plus_91 = (_plus_90 + ")))))");
                                       this.template = _plus_91;
-                                      String _description_15 = in.getInputAction().get(0).getDescription();
-                                      String _plus_92 = ((this.text + "perform ") + _description_15);
+                                      String _name_59 = in.getInputAction().get(0).getName();
+                                      String _plus_92 = ((this.text + "perform ") + _name_59);
                                       String _plus_93 = (_plus_92 + " at least N times");
                                       this.text = _plus_93;
                                     }
                                   }
                                 } else {
-                                  String _name_44 = in.getPattern().eClass().getName();
-                                  boolean _equals_14 = Objects.equal(_name_44, "PastAvoidance");
+                                  String _name_60 = in.getPattern().eClass().getName();
+                                  boolean _equals_14 = Objects.equal(_name_60, "PastAvoidance");
                                   if (_equals_14) {
                                     boolean _isEmpty_8 = in.getInputAction().isEmpty();
                                     if (_isEmpty_8) {
-                                      String _name_45 = in.getInputLocations().get(0).getName();
-                                      String _plus_94 = ("((! (" + _name_45);
+                                      String _name_61 = in.getInputLocations().get(0).getName();
+                                      String _plus_94 = ("((! (" + _name_61);
                                       String _plus_95 = (_plus_94 + ")) U ");
                                       EventAssignment _eventAssigned_4 = in.getEventAssigned();
                                       String _plus_96 = (_plus_95 + _eventAssigned_4);
                                       String _plus_97 = (_plus_96 + ")");
                                       this.template = _plus_97;
-                                      String _name_46 = in.getInputLocations().get(0).getName();
-                                      String _plus_98 = ((this.text + "avoid location ") + _name_46);
+                                      String _name_62 = in.getInputLocations().get(0).getName();
+                                      String _plus_98 = ((this.text + "avoid location ") + _name_62);
                                       String _plus_99 = (_plus_98 + " until ");
                                       EventAssignment _eventAssigned_5 = in.getEventAssigned();
                                       String _plus_100 = (_plus_99 + _eventAssigned_5);
@@ -1031,15 +1031,15 @@ public class PromiseGenerator extends AbstractGenerator {
                                     } else {
                                       boolean _isEmpty_9 = in.getInputLocations().isEmpty();
                                       if (_isEmpty_9) {
-                                        String _description_16 = in.getInputAction().get(0).getDescription();
-                                        String _plus_102 = ("((! (" + _description_16);
+                                        String _name_63 = in.getInputAction().get(0).getName();
+                                        String _plus_102 = ("((! (" + _name_63);
                                         String _plus_103 = (_plus_102 + ")) U ");
                                         EventAssignment _eventAssigned_6 = in.getEventAssigned();
                                         String _plus_104 = (_plus_103 + _eventAssigned_6);
                                         String _plus_105 = (_plus_104 + ")");
                                         this.template = _plus_105;
-                                        String _description_17 = in.getInputAction().get(0).getDescription();
-                                        String _plus_106 = ((this.text + "avoid performing ") + _description_17);
+                                        String _name_64 = in.getInputAction().get(0).getName();
+                                        String _plus_106 = ((this.text + "avoid performing ") + _name_64);
                                         String _plus_107 = (_plus_106 + " until ");
                                         EventAssignment _eventAssigned_7 = in.getEventAssigned();
                                         String _plus_108 = (_plus_107 + _eventAssigned_7);
@@ -1048,59 +1048,59 @@ public class PromiseGenerator extends AbstractGenerator {
                                       }
                                     }
                                   } else {
-                                    String _name_47 = in.getPattern().eClass().getName();
-                                    boolean _equals_15 = Objects.equal(_name_47, "UpperRestricedAvoidance");
+                                    String _name_65 = in.getPattern().eClass().getName();
+                                    boolean _equals_15 = Objects.equal(_name_65, "UpperRestricedAvoidance");
                                     if (_equals_15) {
                                       boolean _isEmpty_10 = in.getInputAction().isEmpty();
                                       if (_isEmpty_10) {
-                                        String _name_48 = in.getInputLocations().get(0).getName();
-                                        String _plus_110 = ("! <> ((" + _name_48);
+                                        String _name_66 = in.getInputLocations().get(0).getName();
+                                        String _plus_110 = ("! <> ((" + _name_66);
                                         String _plus_111 = (_plus_110 + ") && X (<>((");
-                                        String _name_49 = in.getInputLocations().get(0).getName();
-                                        String _plus_112 = (_plus_111 + _name_49);
+                                        String _name_67 = in.getInputLocations().get(0).getName();
+                                        String _plus_112 = (_plus_111 + _name_67);
                                         String _plus_113 = (_plus_112 + ") && X <>( (");
-                                        String _name_50 = in.getInputLocations().get(0).getName();
-                                        String _plus_114 = (_plus_113 + _name_50);
+                                        String _name_68 = in.getInputLocations().get(0).getName();
+                                        String _plus_114 = (_plus_113 + _name_68);
                                         String _plus_115 = (_plus_114 + ")))))");
                                         this.template = _plus_115;
-                                        String _name_51 = in.getInputLocations().get(0).getName();
-                                        String _plus_116 = ((this.text + "visit location ") + _name_51);
+                                        String _name_69 = in.getInputLocations().get(0).getName();
+                                        String _plus_116 = ((this.text + "visit location ") + _name_69);
                                         String _plus_117 = (_plus_116 + " at most N times");
                                         this.text = _plus_117;
                                       } else {
                                         boolean _isEmpty_11 = in.getInputLocations().isEmpty();
                                         if (_isEmpty_11) {
-                                          String _description_18 = in.getInputAction().get(0).getDescription();
-                                          String _plus_118 = ("! <> ((" + _description_18);
+                                          String _name_70 = in.getInputAction().get(0).getName();
+                                          String _plus_118 = ("! <> ((" + _name_70);
                                           String _plus_119 = (_plus_118 + ") && X (<>((");
-                                          String _description_19 = in.getInputAction().get(0).getDescription();
-                                          String _plus_120 = (_plus_119 + _description_19);
+                                          String _name_71 = in.getInputAction().get(0).getName();
+                                          String _plus_120 = (_plus_119 + _name_71);
                                           String _plus_121 = (_plus_120 + ") && X <>( (");
-                                          String _description_20 = in.getInputAction().get(0).getDescription();
-                                          String _plus_122 = (_plus_121 + _description_20);
+                                          String _name_72 = in.getInputAction().get(0).getName();
+                                          String _plus_122 = (_plus_121 + _name_72);
                                           String _plus_123 = (_plus_122 + ")))))");
                                           this.template = _plus_123;
-                                          String _description_21 = in.getInputAction().get(0).getDescription();
-                                          String _plus_124 = ((this.text + "perform ") + _description_21);
+                                          String _name_73 = in.getInputAction().get(0).getName();
+                                          String _plus_124 = ((this.text + "perform ") + _name_73);
                                           String _plus_125 = (_plus_124 + " at most N times");
                                           this.text = _plus_125;
                                         }
                                       }
                                     } else {
-                                      String _name_52 = in.getPattern().eClass().getName();
-                                      boolean _equals_16 = Objects.equal(_name_52, "InstantReaction");
+                                      String _name_74 = in.getPattern().eClass().getName();
+                                      boolean _equals_16 = Objects.equal(_name_74, "InstantReaction");
                                       if (_equals_16) {
                                         boolean _isEmpty_12 = in.getInputAction().isEmpty();
                                         if (_isEmpty_12) {
                                           EventAssignment _eventAssigned_8 = in.getEventAssigned();
                                           String _plus_126 = ("[] (" + _eventAssigned_8);
                                           String _plus_127 = (_plus_126 + " -> ");
-                                          String _name_53 = in.getInputLocations().get(0).getName();
-                                          String _plus_128 = (_plus_127 + _name_53);
+                                          String _name_75 = in.getInputLocations().get(0).getName();
+                                          String _plus_128 = (_plus_127 + _name_75);
                                           String _plus_129 = (_plus_128 + ")");
                                           this.template = _plus_129;
-                                          String _name_54 = in.getInputLocations().get(0).getName();
-                                          String _plus_130 = ((this.text + "visit ") + _name_54);
+                                          String _name_76 = in.getInputLocations().get(0).getName();
+                                          String _plus_130 = ((this.text + "visit ") + _name_76);
                                           String _plus_131 = (_plus_130 + " every time ");
                                           EventAssignment _eventAssigned_9 = in.getEventAssigned();
                                           String _plus_132 = (_plus_131 + _eventAssigned_9);
@@ -1112,12 +1112,12 @@ public class PromiseGenerator extends AbstractGenerator {
                                             EventAssignment _eventAssigned_10 = in.getEventAssigned();
                                             String _plus_134 = ("[] (" + _eventAssigned_10);
                                             String _plus_135 = (_plus_134 + " -> ");
-                                            String _description_22 = in.getInputAction().get(0).getDescription();
-                                            String _plus_136 = (_plus_135 + _description_22);
+                                            String _name_77 = in.getInputAction().get(0).getName();
+                                            String _plus_136 = (_plus_135 + _name_77);
                                             String _plus_137 = (_plus_136 + ")");
                                             this.template = _plus_137;
-                                            String _description_23 = in.getInputAction().get(0).getDescription();
-                                            String _plus_138 = ((this.text + "perform ") + _description_23);
+                                            String _name_78 = in.getInputAction().get(0).getName();
+                                            String _plus_138 = ((this.text + "perform ") + _name_78);
                                             String _plus_139 = (_plus_138 + " every time ");
                                             EventAssignment _eventAssigned_11 = in.getEventAssigned();
                                             String _plus_140 = (_plus_139 + _eventAssigned_11);
@@ -1126,20 +1126,20 @@ public class PromiseGenerator extends AbstractGenerator {
                                           }
                                         }
                                       } else {
-                                        String _name_55 = in.getPattern().eClass().getName();
-                                        boolean _equals_17 = Objects.equal(_name_55, "DelayedReaction");
+                                        String _name_79 = in.getPattern().eClass().getName();
+                                        boolean _equals_17 = Objects.equal(_name_79, "DelayedReaction");
                                         if (_equals_17) {
                                           boolean _isEmpty_14 = in.getInputAction().isEmpty();
                                           if (_isEmpty_14) {
                                             EventAssignment _eventAssigned_12 = in.getEventAssigned();
                                             String _plus_142 = ("[] (" + _eventAssigned_12);
                                             String _plus_143 = (_plus_142 + " -> (<>(");
-                                            String _name_56 = in.getInputLocations().get(0).getName();
-                                            String _plus_144 = (_plus_143 + _name_56);
+                                            String _name_80 = in.getInputLocations().get(0).getName();
+                                            String _plus_144 = (_plus_143 + _name_80);
                                             String _plus_145 = (_plus_144 + ")))");
                                             this.template = _plus_145;
-                                            String _name_57 = in.getInputLocations().get(0).getName();
-                                            String _plus_146 = ((this.text + "visit at some point later ") + _name_57);
+                                            String _name_81 = in.getInputLocations().get(0).getName();
+                                            String _plus_146 = ((this.text + "visit at some point later ") + _name_81);
                                             String _plus_147 = (_plus_146 + " every time ");
                                             EventAssignment _eventAssigned_13 = in.getEventAssigned();
                                             String _plus_148 = (_plus_147 + _eventAssigned_13);
@@ -1151,12 +1151,12 @@ public class PromiseGenerator extends AbstractGenerator {
                                               EventAssignment _eventAssigned_14 = in.getEventAssigned();
                                               String _plus_150 = ("[] (" + _eventAssigned_14);
                                               String _plus_151 = (_plus_150 + " -> (<>(");
-                                              String _description_24 = in.getInputAction().get(0).getDescription();
-                                              String _plus_152 = (_plus_151 + _description_24);
+                                              String _name_82 = in.getInputAction().get(0).getName();
+                                              String _plus_152 = (_plus_151 + _name_82);
                                               String _plus_153 = (_plus_152 + ")))");
                                               this.template = _plus_153;
-                                              String _description_25 = in.getInputAction().get(0).getDescription();
-                                              String _plus_154 = ((this.text + "perform  at some point later ") + _description_25);
+                                              String _name_83 = in.getInputAction().get(0).getName();
+                                              String _plus_154 = ((this.text + "perform  at some point later ") + _name_83);
                                               String _plus_155 = (_plus_154 + " every time ");
                                               EventAssignment _eventAssigned_15 = in.getEventAssigned();
                                               String _plus_156 = (_plus_155 + _eventAssigned_15);
@@ -1165,26 +1165,26 @@ public class PromiseGenerator extends AbstractGenerator {
                                             }
                                           }
                                         } else {
-                                          String _name_58 = in.getPattern().eClass().getName();
-                                          boolean _equals_18 = Objects.equal(_name_58, "Wait");
+                                          String _name_84 = in.getPattern().eClass().getName();
+                                          boolean _equals_18 = Objects.equal(_name_84, "Wait");
                                           if (_equals_18) {
-                                            String _name_59 = in.getInputLocations().get(0).getName();
-                                            String _plus_158 = ("[] (<> (" + _name_59);
+                                            String _name_85 = in.getInputLocations().get(0).getName();
+                                            String _plus_158 = ("[] (<> (" + _name_85);
                                             String _plus_159 = (_plus_158 + "))");
                                             this.template = _plus_159;
-                                            String _name_60 = in.getInputLocations().get(0).getName();
-                                            String _plus_160 = ((this.text + "wait in location ") + _name_60);
+                                            String _name_86 = in.getInputLocations().get(0).getName();
+                                            String _plus_160 = ((this.text + "wait in location ") + _name_86);
                                             this.text = _plus_160;
                                           } else {
-                                            String _name_61 = in.getPattern().eClass().getName();
-                                            boolean _equals_19 = Objects.equal(_name_61, "SimpleAction");
+                                            String _name_87 = in.getPattern().eClass().getName();
+                                            boolean _equals_19 = Objects.equal(_name_87, "SimpleAction");
                                             if (_equals_19) {
-                                              String _description_26 = in.getInputAction().get(0).getDescription();
-                                              String _plus_161 = ("(X " + _description_26);
+                                              String _name_88 = in.getInputAction().get(0).getName();
+                                              String _plus_161 = ("(X " + _name_88);
                                               String _plus_162 = (_plus_161 + ")");
                                               this.template = _plus_162;
-                                              String _description_27 = in.getInputAction().get(0).getDescription();
-                                              String _plus_163 = ((this.text + " perform action ") + _description_27);
+                                              String _name_89 = in.getInputAction().get(0).getName();
+                                              String _plus_163 = ((this.text + " perform action ") + _name_89);
                                               this.text = _plus_163;
                                             } else {
                                               this.template = "Pattern not recognized";
@@ -1216,8 +1216,8 @@ public class PromiseGenerator extends AbstractGenerator {
           String _plus_164 = (_get + ",");
           String _plus_165 = (_plus_164 + this.template);
           String _plus_166 = (_plus_165 + ",");
-          String _name_62 = in.getStoppingEvent().get(i).getName();
-          String _plus_167 = (_plus_166 + _name_62);
+          String _name_90 = in.getStoppingEvent().get(i).getName();
+          String _plus_167 = (_plus_166 + _name_90);
           this.stoppingEvents.add(_plus_167);
         }
       }
