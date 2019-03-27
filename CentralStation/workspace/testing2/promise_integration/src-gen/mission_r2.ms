@@ -15,3 +15,5 @@ r2[cond]
 		cond_e1[<> (l0)]
 
 		cond_e4[[] (<> (l5))]
+
+	cond_e4[<> (l3)]

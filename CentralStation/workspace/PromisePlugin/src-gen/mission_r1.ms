@@ -1,5 +1,5 @@
 r1[eh]
 
-	eh_default[<> (l1)]
+	eh_default[<> (l1) && <> (l3)]
 
-	eh_e1[[] (<> ((l1) && <> ((l2) && <> ((l3))))))]
+	eh_e1[(X description of action a1)]

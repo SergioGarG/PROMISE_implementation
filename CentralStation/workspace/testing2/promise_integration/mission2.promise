@@ -37,7 +37,7 @@ mission{
 				   
 				
 		  
-		 , condition ( if e4( sequence ( delegate ( Visit locations l3 ) , delegate ( Visit locations l2 ) ) ) if e0 ( delegate ( Visit locations l2 ) ) if e1 ( eventHandler ( default ( delegate ( Visit locations l2 ) ) except e2 ( delegate ( Visit locations l3 ) ) ) ) if e3 ( condition ( if e1 ( delegate ( Visit locations l0 ) ) if e4 ( delegate ( Patrolling locations l5 ) ) ) ) ) )   
+		 , condition ( if e4( sequence ( delegate ( Visit locations l3 ) , delegate ( Visit locations l2 ) ) ) if e0 ( delegate ( Visit locations l2 ) ) if e1 ( eventHandler ( default ( delegate ( Visit locations l2 ) ) except e2 ( delegate ( Visit locations l3 ) ) ) ) if e3 ( condition ( if e1 ( delegate ( Visit locations l0 ) ) if e4 ( delegate ( Patrolling locations l5 ) ) ) ) if e4 ( delegate ( Visit locations l3 ) ) ) )   
 		  
       
 					 

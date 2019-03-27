@@ -2,12 +2,12 @@ mission {
 	conditions { 
 		events e1 : "description of event e1" 
 		actions a1 : "description of action a1"
-	} robots r1 
+	} 
+	robots r1 
 	locations l1 , l2 , l3 , l4 
-	operators { parallel ( eventHandler(
-		default(delegate(Visit locations l1))
-			except e1(delegate(SequencedPatrolling locations l1, l2, l3))
-		
-	)
+	operators { parallel ( 
+	eventHandler(
+		default( delegate ( Visit locations l1 , l3 ) ) 
+		except e1 ( delegate ( SimpleAction locations l1 , l3 actions a1 ) ) )
 	) }
 }  
