@@ -195,6 +195,7 @@ class LocalMission(object):
 	########Subscribers
 	def LocalMissionCallback(self, localmission):
 		# string containing the local mission
+		print "test", localmission.data
 		if localmission.data == "starts":
 			self.missions=[]
 			self.status.events=[]
@@ -249,12 +250,15 @@ class LocalMission(object):
 			#Matches each event to its corresponding mission object
 			if self.missions != None:
 				for j in range(1, len(self.missions)):
-					helper = self.missions[j].id.split("_")
+					helper = self.missions[j].id.split("eh_")
+					print "helper", helper
 					for i in range(0, len(self.status.events)):
 						helper1 = self.status.events[i].split(" ")
+						print "helper1", helper1
 						if helper1[0] == helper[1]:
 							#helper2=self.status.events[i].split(" ")
 							self.missions[j].mission.events = helper1[0]
+							print "self.missions[j].mission.events", self.missions[j].mission.events
 			self.status.state=3
 		elif localmission.data != "stoppingEvents" and self.status.state==3:
 			self.status.actions.append(localmission.data)
@@ -276,13 +280,13 @@ class LocalMission(object):
 				self.update_manager()
 			else:
 				print "Something happened during the mission reception. Please, send it again"
-			# for i in range(0, len(self.missions)):
+			for i in range(0, len(self.missions)):
 			# 	print "position", i
 			# 	print self.missions[i].mission
 			# 	print "id", self.missions[i].id
 			# 	print "child(s)", self.missions[i].children
 			# 	print "parent", self.missions[i].parent
-			# 	print "events", self.missions[i].mission.events
+				print "events", self.missions[i].mission.events
 			# 	print "-------------"
 			
 
@@ -543,8 +547,8 @@ class LocalMission(object):
 					self.status.event_handler[self.status.counter_eh].counter=i
 					self.status.counter_mission=self.status.event_handler[self.status.counter_eh].index[self.status.event_handler[self.status.counter_eh].counter]
 					break
-# 				else:
-# 					print "the detected event", self.status.detected_event, "is not in the list of triggering events, I'll keep looking for it"
+ 				else:
+ 					print "the detected event", self.status.detected_event, "is not in the list of triggering events"
 			self.status.event_flag = False
 			
 	def checkFinite(self, index, index_mission):	

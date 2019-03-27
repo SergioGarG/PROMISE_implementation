@@ -91,21 +91,6 @@ public class MissionModel
 
 		}
 		
-
-	    
-//		if (usePlane) s= s+"Flying from ";
-//		else s = s+"Driving from ";
-//		s= s +departure+ " to "+  destination+
-//			"\nleaving on "+departureDate +" returning on "+returnDate;
-//		if (usePlane)
-//			s = s + "\nflight: " + selectedFlight + "\nseat: "+seatChoice+
-//				"\nprice: "+price;
-//		else {
-//			s = s+ "\nrental company " + rentalCompany +
-//				 "\nprice "+ carPrice;
-//			if (buyInsurance) s = s+ "\nbuy insurance from the rental company";
-//			else  s = s +"\ndo not buy insurance from the rental company";
-//		}
 		return s;	
 	}
 }

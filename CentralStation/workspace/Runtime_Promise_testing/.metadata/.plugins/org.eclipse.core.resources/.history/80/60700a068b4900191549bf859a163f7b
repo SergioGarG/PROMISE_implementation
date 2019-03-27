@@ -1,0 +1,17 @@
+mission{ 
+	conditions{ 
+		events
+ 		e1: "description of event e1"
+		actions
+ 		a1: "description of action a1"
+
+	} 
+	robots r1, r2
+	locations l1, l2, l3, l4
+	operators{ parallel( 
+		delegate ( robot r1 does OrderedVisit locations l2 , l4),
+		eventHandler ( default ( 
+			delegate ( robot r2 does Patrolling locations l1 , l3 )
+		) except e1 ( delegate ( robot r2 does Visit locations l2 , l4 affecting event e1 ) ) ) )
+	}
+}
