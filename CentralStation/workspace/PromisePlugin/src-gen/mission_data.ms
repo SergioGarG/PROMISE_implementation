@@ -1,5 +1,5 @@
-Robots [ s, ]
-Events [ aasd description of event aasd, ]
-Actions [ sd description of action sd, ]
+Robots [ r1,r2, ]
+Events [  ]
+Actions [  ]
 StoppingEvents [  ]
 

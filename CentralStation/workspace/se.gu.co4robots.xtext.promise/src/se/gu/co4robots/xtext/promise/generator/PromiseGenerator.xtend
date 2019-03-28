@@ -113,13 +113,15 @@ class PromiseGenerator extends AbstractGenerator {
 			«ENDFOR»
 		''')
 		
-			fsa.generateFile('readme_mission_'+availableRobots.get(i)+'.txt', '''
-				«textarray.get(i)»
-				''')
-			println(textarray.get(i))
+			if(robotsList.get(i).length > 0){
+				fsa.generateFile('readme_mission_'+availableRobots.get(i)+'.txt', '''
+					«textarray.get(i)»
+					''')
+				println(textarray.get(i))
+			}
 		}
 
-		}
+	}
 		
 		//////////////////////////Methods
 		

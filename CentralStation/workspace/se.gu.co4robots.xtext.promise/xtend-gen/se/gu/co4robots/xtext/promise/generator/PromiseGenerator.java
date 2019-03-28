@@ -194,15 +194,19 @@ public class PromiseGenerator extends AbstractGenerator {
           }
         }
         fsa.generateFile(_plus_1, _builder_1);
-        String _get_3 = this.availableRobots.get(i_1);
-        String _plus_2 = ("readme_mission_" + _get_3);
-        String _plus_3 = (_plus_2 + ".txt");
-        StringConcatenation _builder_2 = new StringConcatenation();
-        String _get_4 = this.textarray.get(i_1);
-        _builder_2.append(_get_4);
-        _builder_2.newLineIfNotEmpty();
-        fsa.generateFile(_plus_3, _builder_2);
-        InputOutput.<String>println(this.textarray.get(i_1));
+        int _length_3 = ((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length;
+        boolean _greaterThan = (_length_3 > 0);
+        if (_greaterThan) {
+          String _get_3 = this.availableRobots.get(i_1);
+          String _plus_2 = ("readme_mission_" + _get_3);
+          String _plus_3 = (_plus_2 + ".txt");
+          StringConcatenation _builder_2 = new StringConcatenation();
+          String _get_4 = this.textarray.get(i_1);
+          _builder_2.append(_get_4);
+          _builder_2.newLineIfNotEmpty();
+          fsa.generateFile(_plus_3, _builder_2);
+          InputOutput.<String>println(this.textarray.get(i_1));
+        }
       }
     }
   }

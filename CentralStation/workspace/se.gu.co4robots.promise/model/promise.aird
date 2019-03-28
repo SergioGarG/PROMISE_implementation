@@ -3985,17 +3985,12 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_y_-CoFE0EemUyKWnbVbhtQ" name="[1..*] operator" sourceNode="_y_HuEFE0EemUyKWnbVbhtQ" targetNode="_y_C1kFE0EemUyKWnbVbhtQ">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_y_-CoFE0EemUyKWnbVbhtQ" name="[0..*] operator" sourceNode="_y_HuEFE0EemUyKWnbVbhtQ" targetNode="_y_C1kFE0EemUyKWnbVbhtQ">
       <target xmi:type="ecore:EReference" href="promise.ecore#//Mission/operator"/>
       <semanticElements xmi:type="ecore:EReference" href="promise.ecore#//Mission/operator"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_y_-psFE0EemUyKWnbVbhtQ" description="_y_-CoVE0EemUyKWnbVbhtQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_y_-psVE0EemUyKWnbVbhtQ" showIcon="false">
-          <customFeatures>labelSize</customFeatures>
-          <labelFormat>bold</labelFormat>
-        </centerLabelStyle>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_y_-pslE0EemUyKWnbVbhtQ" showIcon="false" labelColor="39,76,114">
-          <customFeatures>labelSize</customFeatures>
-        </endLabelStyle>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_I3_swFFfEemjGPKVfhK4Ng" description="_y__30FE0EemUyKWnbVbhtQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_I3_swVFfEemjGPKVfhK4Ng" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_I3_swlFfEemjGPKVfhK4Ng" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
@@ -4612,14 +4607,10 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_qk3ysFFBEem6Bd7K6SVvZg" name="[0..*] inputRobots" sourceNode="_y_F44FE0EemUyKWnbVbhtQ" targetNode="_y_JjQFE0EemUyKWnbVbhtQ">
       <target xmi:type="ecore:EReference" href="promise.ecore#//ParallelOp/inputRobots"/>
       <semanticElements xmi:type="ecore:EReference" href="promise.ecore#//ParallelOp/inputRobots"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_qk4ZwFFBEem6Bd7K6SVvZg" routingStyle="manhattan" strokeColor="0,0,0">
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_UcmN0FFeEemjGPKVfhK4Ng" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_qk4ZwVFBEem6Bd7K6SVvZg" showIcon="false">
-          <customFeatures>labelSize</customFeatures>
-        </centerLabelStyle>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_qk4ZwlFBEem6Bd7K6SVvZg" showIcon="false" labelColor="39,76,114">
-          <customFeatures>labelSize</customFeatures>
-        </endLabelStyle>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_UcmN0VFeEemjGPKVfhK4Ng" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_UcmN0lFeEemjGPKVfhK4Ng" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>

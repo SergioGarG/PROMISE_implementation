@@ -565,91 +565,101 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	public class ParallelOpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.ParallelOp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cParallelKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cInputRobotsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cInputRobotsRobotCrossReference_2_0 = (CrossReference)cInputRobotsAssignment_2.eContents().get(0);
-		private final RuleCall cInputRobotsRobotEStringParserRuleCall_2_0_1 = (RuleCall)cInputRobotsRobotCrossReference_2_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cInputOperatorsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cInputOperatorsOperatorParserRuleCall_4_0 = (RuleCall)cInputOperatorsAssignment_4.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cInputRobotsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cInputRobotsRobotCrossReference_6_1_0 = (CrossReference)cInputRobotsAssignment_6_1.eContents().get(0);
-		private final RuleCall cInputRobotsRobotEStringParserRuleCall_6_1_0_1 = (RuleCall)cInputRobotsRobotCrossReference_6_1_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Assignment cInputOperatorsAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
-		private final RuleCall cInputOperatorsOperatorParserRuleCall_6_3_0 = (RuleCall)cInputOperatorsAssignment_6_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Action cParallelOpAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cParallelKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cInputRobotsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final CrossReference cInputRobotsRobotCrossReference_3_0_0 = (CrossReference)cInputRobotsAssignment_3_0.eContents().get(0);
+		private final RuleCall cInputRobotsRobotEStringParserRuleCall_3_0_0_1 = (RuleCall)cInputRobotsRobotCrossReference_3_0_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cInputOperatorsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_2_0 = (RuleCall)cInputOperatorsAssignment_3_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Group cGroup_3_4 = (Group)cGroup_3.eContents().get(4);
+		private final Keyword cCommaKeyword_3_4_0 = (Keyword)cGroup_3_4.eContents().get(0);
+		private final Assignment cInputRobotsAssignment_3_4_1 = (Assignment)cGroup_3_4.eContents().get(1);
+		private final CrossReference cInputRobotsRobotCrossReference_3_4_1_0 = (CrossReference)cInputRobotsAssignment_3_4_1.eContents().get(0);
+		private final RuleCall cInputRobotsRobotEStringParserRuleCall_3_4_1_0_1 = (RuleCall)cInputRobotsRobotCrossReference_3_4_1_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_3_4_2 = (Keyword)cGroup_3_4.eContents().get(2);
+		private final Assignment cInputOperatorsAssignment_3_4_3 = (Assignment)cGroup_3_4.eContents().get(3);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_4_3_0 = (RuleCall)cInputOperatorsAssignment_3_4_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_4_4 = (Keyword)cGroup_3_4.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ParallelOp:
-		//	'parallel' '{' inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')' ("," inputRobots+=[Robot|EString] '('
-		//	inputOperators+=Operator ')')* '}';
+		//	{ParallelOp}
+		//	'parallel' '{' (inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')' ("," inputRobots+=[Robot|EString] '('
+		//	inputOperators+=Operator ')')*)? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'parallel' '{' inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')' ("," inputRobots+=[Robot|EString] '('
-		//inputOperators+=Operator ')')* '}'
+		//{ParallelOp} 'parallel' '{' (inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')' (","
+		//inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')')*)? '}'
 		public Group getGroup() { return cGroup; }
 		
+		//{ParallelOp}
+		public Action getParallelOpAction_0() { return cParallelOpAction_0; }
+		
 		//'parallel'
-		public Keyword getParallelKeyword_0() { return cParallelKeyword_0; }
+		public Keyword getParallelKeyword_1() { return cParallelKeyword_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//(inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')' ("," inputRobots+=[Robot|EString] '('
+		//inputOperators+=Operator ')')*)?
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//inputRobots+=[Robot|EString]
-		public Assignment getInputRobotsAssignment_2() { return cInputRobotsAssignment_2; }
+		public Assignment getInputRobotsAssignment_3_0() { return cInputRobotsAssignment_3_0; }
 		
 		//[Robot|EString]
-		public CrossReference getInputRobotsRobotCrossReference_2_0() { return cInputRobotsRobotCrossReference_2_0; }
+		public CrossReference getInputRobotsRobotCrossReference_3_0_0() { return cInputRobotsRobotCrossReference_3_0_0; }
 		
 		//EString
-		public RuleCall getInputRobotsRobotEStringParserRuleCall_2_0_1() { return cInputRobotsRobotEStringParserRuleCall_2_0_1; }
+		public RuleCall getInputRobotsRobotEStringParserRuleCall_3_0_0_1() { return cInputRobotsRobotEStringParserRuleCall_3_0_0_1; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+		public Keyword getLeftParenthesisKeyword_3_1() { return cLeftParenthesisKeyword_3_1; }
 		
 		//inputOperators+=Operator
-		public Assignment getInputOperatorsAssignment_4() { return cInputOperatorsAssignment_4; }
+		public Assignment getInputOperatorsAssignment_3_2() { return cInputOperatorsAssignment_3_2; }
 		
 		//Operator
-		public RuleCall getInputOperatorsOperatorParserRuleCall_4_0() { return cInputOperatorsOperatorParserRuleCall_4_0; }
+		public RuleCall getInputOperatorsOperatorParserRuleCall_3_2_0() { return cInputOperatorsOperatorParserRuleCall_3_2_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_3_3() { return cRightParenthesisKeyword_3_3; }
 		
 		//("," inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')')*
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_3_4() { return cGroup_3_4; }
 		
 		//","
-		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
+		public Keyword getCommaKeyword_3_4_0() { return cCommaKeyword_3_4_0; }
 		
 		//inputRobots+=[Robot|EString]
-		public Assignment getInputRobotsAssignment_6_1() { return cInputRobotsAssignment_6_1; }
+		public Assignment getInputRobotsAssignment_3_4_1() { return cInputRobotsAssignment_3_4_1; }
 		
 		//[Robot|EString]
-		public CrossReference getInputRobotsRobotCrossReference_6_1_0() { return cInputRobotsRobotCrossReference_6_1_0; }
+		public CrossReference getInputRobotsRobotCrossReference_3_4_1_0() { return cInputRobotsRobotCrossReference_3_4_1_0; }
 		
 		//EString
-		public RuleCall getInputRobotsRobotEStringParserRuleCall_6_1_0_1() { return cInputRobotsRobotEStringParserRuleCall_6_1_0_1; }
+		public RuleCall getInputRobotsRobotEStringParserRuleCall_3_4_1_0_1() { return cInputRobotsRobotEStringParserRuleCall_3_4_1_0_1; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_6_2() { return cLeftParenthesisKeyword_6_2; }
+		public Keyword getLeftParenthesisKeyword_3_4_2() { return cLeftParenthesisKeyword_3_4_2; }
 		
 		//inputOperators+=Operator
-		public Assignment getInputOperatorsAssignment_6_3() { return cInputOperatorsAssignment_6_3; }
+		public Assignment getInputOperatorsAssignment_3_4_3() { return cInputOperatorsAssignment_3_4_3; }
 		
 		//Operator
-		public RuleCall getInputOperatorsOperatorParserRuleCall_6_3_0() { return cInputOperatorsOperatorParserRuleCall_6_3_0; }
+		public RuleCall getInputOperatorsOperatorParserRuleCall_3_4_3_0() { return cInputOperatorsOperatorParserRuleCall_3_4_3_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_6_4() { return cRightParenthesisKeyword_6_4; }
+		public Keyword getRightParenthesisKeyword_3_4_4() { return cRightParenthesisKeyword_3_4_4; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 	public class EventHandlerOpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.EventHandlerOp");
@@ -1704,8 +1714,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ParallelOp:
-	//	'parallel' '{' inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')' ("," inputRobots+=[Robot|EString] '('
-	//	inputOperators+=Operator ')')* '}';
+	//	{ParallelOp}
+	//	'parallel' '{' (inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')' ("," inputRobots+=[Robot|EString] '('
+	//	inputOperators+=Operator ')')*)? '}';
 	public ParallelOpElements getParallelOpAccess() {
 		return pParallelOp;
 	}

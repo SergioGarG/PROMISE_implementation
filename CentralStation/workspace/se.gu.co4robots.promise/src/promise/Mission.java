@@ -39,7 +39,7 @@ public interface Mission extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operator</em>' containment reference list.
 	 * @see promise.PromisePackage#getMission_Operator()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Operator> getOperator();

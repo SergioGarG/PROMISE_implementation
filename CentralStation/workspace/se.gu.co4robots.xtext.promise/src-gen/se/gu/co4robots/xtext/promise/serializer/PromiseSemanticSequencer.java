@@ -491,7 +491,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     ParallelOp returns ParallelOp
 	 *
 	 * Constraint:
-	 *     (inputRobots+=[Robot|EString] inputOperators+=Operator (inputRobots+=[Robot|EString] inputOperators+=Operator)*)
+	 *     (inputRobots+=[Robot|EString] inputOperators+=Operator (inputRobots+=[Robot|EString] inputOperators+=Operator)*)?
 	 */
 	protected void sequence_ParallelOp(ISerializationContext context, ParallelOp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

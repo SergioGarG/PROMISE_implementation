@@ -58,7 +58,7 @@ public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     '&' | 'and' | 'AND'
+	 *     'and' | 'AND' | '&'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     inputOperators+=Operator (ambiguity) inputOperators+=Operator
@@ -80,7 +80,7 @@ public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '|' | 'or' | 'OR'
+	 *     '|' | 'OR' | 'or'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     inputOperators+=Operator (ambiguity) inputOperators+=Operator

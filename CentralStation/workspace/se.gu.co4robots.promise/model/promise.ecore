@@ -16,8 +16,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="EventHandlerOp" eSuperTypes="#//EventBasedOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionOp" eSuperTypes="#//EventBasedOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="Mission">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operator" lowerBound="1"
-        upperBound="-1" eType="#//Operator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operator" upperBound="-1"
+        eType="#//Operator" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="robots" lowerBound="1"
         upperBound="-1" eType="#//Robot" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
