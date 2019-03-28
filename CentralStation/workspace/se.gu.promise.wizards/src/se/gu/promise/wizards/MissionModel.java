@@ -72,9 +72,9 @@ public class MissionModel
 		s=s+robots+"\n";
 		s=s+"\tlocations "; //then set of locations
 		s=s+locations+"\n";
-		s=s+"\toperators{ parallel( \n"; 
+		s=s+"\toperators{ parallel{ \n"; 
 		s=s+"\t\t// Your operators come here\n";
-		s=s+"\t\t)\n";
+		s=s+"\t\t}\n";
 		s=s+"\t}\n";
 		s=s+"}";
 		

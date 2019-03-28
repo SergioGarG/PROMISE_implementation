@@ -51,8 +51,7 @@ SequenceOp:
 	;
 
 ParallelOp:
-	'parallel' '(' inputOperators+=Operator ( "," inputOperators+=Operator)*
-	')'
+	'parallel' '{' inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')' ( "," inputRobots+=[Robot|EString] '(' inputOperators+=Operator ')')* '}'
 	;
 
 EventHandlerOp:

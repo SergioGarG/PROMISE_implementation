@@ -8,8 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import promise.PromisePackage;
 
 /**
  * This is the item provider adapter for a {@link promise.ParallelOp} object.
@@ -39,8 +40,31 @@ public class ParallelOpItemProvider extends CompositionOperatorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addInputRobotsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Input Robots feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInputRobotsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParallelOp_inputRobots_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParallelOp_inputRobots_feature", "_UI_ParallelOp_type"),
+				 PromisePackage.Literals.PARALLEL_OP__INPUT_ROBOTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

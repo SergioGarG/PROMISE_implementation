@@ -3,7 +3,6 @@
 package promise.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import promise.PromisePackage;
 import promise.Robot;
 

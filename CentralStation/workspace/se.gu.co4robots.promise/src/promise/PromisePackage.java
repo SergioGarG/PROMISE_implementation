@@ -305,13 +305,22 @@ public interface PromisePackage extends EPackage {
 	int PARALLEL_OP__INPUT_OPERATORS = COMPOSITION_OPERATOR__INPUT_OPERATORS;
 
 	/**
+	 * The feature id for the '<em><b>Input Robots</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_OP__INPUT_ROBOTS = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Parallel Op</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_OP_FEATURE_COUNT = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
+	int PARALLEL_OP_FEATURE_COUNT = COMPOSITION_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Parallel Op</em>' class.
@@ -1809,6 +1818,17 @@ public interface PromisePackage extends EPackage {
 	EClass getParallelOp();
 
 	/**
+	 * Returns the meta object for the reference list '{@link promise.ParallelOp#getInputRobots <em>Input Robots</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Input Robots</em>'.
+	 * @see promise.ParallelOp#getInputRobots()
+	 * @see #getParallelOp()
+	 * @generated
+	 */
+	EReference getParallelOp_InputRobots();
+
+	/**
 	 * Returns the meta object for class '{@link promise.EventHandlerOp <em>Event Handler Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2497,6 +2517,14 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EClass PARALLEL_OP = eINSTANCE.getParallelOp();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Robots</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARALLEL_OP__INPUT_ROBOTS = eINSTANCE.getParallelOp_InputRobots();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.EventHandlerOpImpl <em>Event Handler Op</em>}' class.

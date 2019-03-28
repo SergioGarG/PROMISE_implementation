@@ -53,7 +53,7 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSequenceOpAccess().getGroup(), "rule__SequenceOp__Group__0");
 					put(grammarAccess.getSequenceOpAccess().getGroup_3(), "rule__SequenceOp__Group_3__0");
 					put(grammarAccess.getParallelOpAccess().getGroup(), "rule__ParallelOp__Group__0");
-					put(grammarAccess.getParallelOpAccess().getGroup_3(), "rule__ParallelOp__Group_3__0");
+					put(grammarAccess.getParallelOpAccess().getGroup_6(), "rule__ParallelOp__Group_6__0");
 					put(grammarAccess.getEventHandlerOpAccess().getGroup(), "rule__EventHandlerOp__Group__0");
 					put(grammarAccess.getEventHandlerOpAccess().getGroup_6(), "rule__EventHandlerOp__Group_6__0");
 					put(grammarAccess.getConditionOpAccess().getGroup(), "rule__ConditionOp__Group__0");
@@ -108,8 +108,10 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFallBackOpAccess().getInputOperatorsAssignment_3_1(), "rule__FallBackOp__InputOperatorsAssignment_3_1");
 					put(grammarAccess.getSequenceOpAccess().getInputOperatorsAssignment_2(), "rule__SequenceOp__InputOperatorsAssignment_2");
 					put(grammarAccess.getSequenceOpAccess().getInputOperatorsAssignment_3_1(), "rule__SequenceOp__InputOperatorsAssignment_3_1");
-					put(grammarAccess.getParallelOpAccess().getInputOperatorsAssignment_2(), "rule__ParallelOp__InputOperatorsAssignment_2");
-					put(grammarAccess.getParallelOpAccess().getInputOperatorsAssignment_3_1(), "rule__ParallelOp__InputOperatorsAssignment_3_1");
+					put(grammarAccess.getParallelOpAccess().getInputRobotsAssignment_2(), "rule__ParallelOp__InputRobotsAssignment_2");
+					put(grammarAccess.getParallelOpAccess().getInputOperatorsAssignment_4(), "rule__ParallelOp__InputOperatorsAssignment_4");
+					put(grammarAccess.getParallelOpAccess().getInputRobotsAssignment_6_1(), "rule__ParallelOp__InputRobotsAssignment_6_1");
+					put(grammarAccess.getParallelOpAccess().getInputOperatorsAssignment_6_3(), "rule__ParallelOp__InputOperatorsAssignment_6_3");
 					put(grammarAccess.getEventHandlerOpAccess().getInputOperatorsAssignment_4(), "rule__EventHandlerOp__InputOperatorsAssignment_4");
 					put(grammarAccess.getEventHandlerOpAccess().getInputEventsAssignment_6_1(), "rule__EventHandlerOp__InputEventsAssignment_6_1");
 					put(grammarAccess.getConditionOpAccess().getInputEventsAssignment_2_1(), "rule__ConditionOp__InputEventsAssignment_2_1");

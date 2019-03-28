@@ -1,0 +1,1 @@
+Robot r1 does by default patrol locations l1, l2, l3, and if event intruder occurs, it will  perform action raise_alarm, and if event obj_recognized occurs, it will  perform action call_r2, and if event out_of_battery occurs, it will  visit (without any specific order) locations chargingDock and  perform action charge_battery

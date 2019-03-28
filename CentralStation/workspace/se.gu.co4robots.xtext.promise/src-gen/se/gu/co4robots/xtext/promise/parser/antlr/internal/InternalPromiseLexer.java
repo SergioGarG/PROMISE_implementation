@@ -1109,10 +1109,10 @@ public class InternalPromiseLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPromise.g:2258:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalPromise.g:2258:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalPromise.g:2306:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalPromise.g:2306:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalPromise.g:2258:11: ( '^' )?
+            // InternalPromise.g:2306:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1121,7 +1121,7 @@ public class InternalPromiseLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalPromise.g:2258:11: '^'
+                    // InternalPromise.g:2306:11: '^'
                     {
                     match('^'); 
 
@@ -1139,7 +1139,7 @@ public class InternalPromiseLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalPromise.g:2258:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalPromise.g:2306:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1188,10 +1188,10 @@ public class InternalPromiseLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPromise.g:2260:10: ( ( '0' .. '9' )+ )
-            // InternalPromise.g:2260:12: ( '0' .. '9' )+
+            // InternalPromise.g:2308:10: ( ( '0' .. '9' )+ )
+            // InternalPromise.g:2308:12: ( '0' .. '9' )+
             {
-            // InternalPromise.g:2260:12: ( '0' .. '9' )+
+            // InternalPromise.g:2308:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1205,7 +1205,7 @@ public class InternalPromiseLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalPromise.g:2260:13: '0' .. '9'
+            	    // InternalPromise.g:2308:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1237,10 +1237,10 @@ public class InternalPromiseLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPromise.g:2262:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalPromise.g:2262:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalPromise.g:2310:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalPromise.g:2310:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalPromise.g:2262:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalPromise.g:2310:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1258,10 +1258,10 @@ public class InternalPromiseLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalPromise.g:2262:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalPromise.g:2310:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalPromise.g:2262:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalPromise.g:2310:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1277,7 +1277,7 @@ public class InternalPromiseLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalPromise.g:2262:21: '\\\\' .
+                    	    // InternalPromise.g:2310:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1285,7 +1285,7 @@ public class InternalPromiseLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalPromise.g:2262:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalPromise.g:2310:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1310,10 +1310,10 @@ public class InternalPromiseLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPromise.g:2262:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalPromise.g:2310:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalPromise.g:2262:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalPromise.g:2310:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1329,7 +1329,7 @@ public class InternalPromiseLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalPromise.g:2262:54: '\\\\' .
+                    	    // InternalPromise.g:2310:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1337,7 +1337,7 @@ public class InternalPromiseLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalPromise.g:2262:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalPromise.g:2310:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1380,12 +1380,12 @@ public class InternalPromiseLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPromise.g:2264:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalPromise.g:2264:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalPromise.g:2312:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalPromise.g:2312:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalPromise.g:2264:24: ( options {greedy=false; } : . )*
+            // InternalPromise.g:2312:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1410,7 +1410,7 @@ public class InternalPromiseLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalPromise.g:2264:52: .
+            	    // InternalPromise.g:2312:52: .
             	    {
             	    matchAny(); 
 
@@ -1440,12 +1440,12 @@ public class InternalPromiseLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPromise.g:2266:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalPromise.g:2266:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalPromise.g:2314:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalPromise.g:2314:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalPromise.g:2266:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalPromise.g:2314:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1458,7 +1458,7 @@ public class InternalPromiseLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalPromise.g:2266:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalPromise.g:2314:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1478,7 +1478,7 @@ public class InternalPromiseLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalPromise.g:2266:40: ( ( '\\r' )? '\\n' )?
+            // InternalPromise.g:2314:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1487,9 +1487,9 @@ public class InternalPromiseLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalPromise.g:2266:41: ( '\\r' )? '\\n'
+                    // InternalPromise.g:2314:41: ( '\\r' )? '\\n'
                     {
-                    // InternalPromise.g:2266:41: ( '\\r' )?
+                    // InternalPromise.g:2314:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1498,7 +1498,7 @@ public class InternalPromiseLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalPromise.g:2266:41: '\\r'
+                            // InternalPromise.g:2314:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1530,10 +1530,10 @@ public class InternalPromiseLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPromise.g:2268:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalPromise.g:2268:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalPromise.g:2316:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalPromise.g:2316:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalPromise.g:2268:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalPromise.g:2316:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1587,8 +1587,8 @@ public class InternalPromiseLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPromise.g:2270:16: ( . )
-            // InternalPromise.g:2270:18: .
+            // InternalPromise.g:2318:16: ( . )
+            // InternalPromise.g:2318:18: .
             {
             matchAny(); 
 

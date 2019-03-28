@@ -475,6 +475,15 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getParallelOp_InputRobots() {
+		return (EReference)parallelOpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEventHandlerOp() {
 		return eventHandlerOpEClass;
 	}
@@ -1038,6 +1047,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		sequenceOpEClass = createEClass(SEQUENCE_OP);
 
 		parallelOpEClass = createEClass(PARALLEL_OP);
+		createEReference(parallelOpEClass, PARALLEL_OP__INPUT_ROBOTS);
 
 		eventHandlerOpEClass = createEClass(EVENT_HANDLER_OP);
 
@@ -1213,6 +1223,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEClass(sequenceOpEClass, SequenceOp.class, "SequenceOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(parallelOpEClass, ParallelOp.class, "ParallelOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParallelOp_InputRobots(), this.getRobot(), null, "inputRobots", null, 0, -1, ParallelOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventHandlerOpEClass, EventHandlerOp.class, "EventHandlerOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

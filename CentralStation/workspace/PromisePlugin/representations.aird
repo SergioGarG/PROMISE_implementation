@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co4robots.promise="http://gu.se/co4robots.promise" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description">
+  <viewpoint:DAnalysis xmi:id="_zaeucFCyEemXRuOZmEoHjQ" selectedViews="_z1gdkFCyEemXRuOZmEoHjQ" version="12.1.0.201708031200">
+    <semanticResources>src/mission.promise</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_z1gdkFCyEemXRuOZmEoHjQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_1ZFJIFCyEemXRuOZmEoHjQ" name="new Missions diagram" repPath="#_1X1zAFCyEemXRuOZmEoHjQ">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']"/>
+        <target xmi:type="co4robots.promise:Mission" href="src/mission.promise#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_1ZEiEFCyEemXRuOZmEoHjQ" name="new Missions diagram" uid="_1X1zAFCyEemXRuOZmEoHjQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_1ZEiEVCyEemXRuOZmEoHjQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_1ZEiElCyEemXRuOZmEoHjQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_1ZFwMFCyEemXRuOZmEoHjQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_1ZFwMVCyEemXRuOZmEoHjQ" type="Sirius" element="_1ZEiEFCyEemXRuOZmEoHjQ" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_1ZFwMlCyEemXRuOZmEoHjQ"/>
+      </data>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_1ZEiLlCyEemXRuOZmEoHjQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/promise_integration.design/description/promise_integration.odesign#//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer"/>
+    <target xmi:type="co4robots.promise:Mission" href="src/mission.promise#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

@@ -26,7 +26,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="EventHandlerOpNode" domainClass="promise::EventHandlerOp">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="[if(self.parent->isEmpty()) then 'Event Op '+self.eventAssigned.parent_event.inputEvents->indexOf(self.eventAssigned) else 'Op '+self.parent.inputOperators->indexOf(self) endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/eventhandler.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/eventhandler.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

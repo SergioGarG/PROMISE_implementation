@@ -1009,16 +1009,36 @@ ruleParallelOp returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getParallelOpAccess().getParallelKeyword_0());
 		}
-		otherlv_1='('
+		otherlv_1='{'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getParallelOpAccess().getLeftParenthesisKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getParallelOpAccess().getLeftCurlyBracketKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getParallelOpAccess().getInputOperatorsOperatorParserRuleCall_2_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getParallelOpRule());
+					}
 				}
-				lv_inputOperators_2_0=ruleOperator
+				{
+					newCompositeNode(grammarAccess.getParallelOpAccess().getInputRobotsRobotCrossReference_2_0());
+				}
+				ruleEString
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='('
+		{
+			newLeafNode(otherlv_3, grammarAccess.getParallelOpAccess().getLeftParenthesisKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getParallelOpAccess().getInputOperatorsOperatorParserRuleCall_4_0());
+				}
+				lv_inputOperators_4_0=ruleOperator
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getParallelOpRule());
@@ -1026,23 +1046,47 @@ ruleParallelOp returns [EObject current=null]
 					add(
 						$current,
 						"inputOperators",
-						lv_inputOperators_2_0,
+						lv_inputOperators_4_0,
 						"se.gu.co4robots.xtext.promise.Promise.Operator");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_5=')'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getParallelOpAccess().getRightParenthesisKeyword_5());
+		}
 		(
-			otherlv_3=','
+			otherlv_6=','
 			{
-				newLeafNode(otherlv_3, grammarAccess.getParallelOpAccess().getCommaKeyword_3_0());
+				newLeafNode(otherlv_6, grammarAccess.getParallelOpAccess().getCommaKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getParallelOpAccess().getInputOperatorsOperatorParserRuleCall_3_1_0());
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getParallelOpRule());
+						}
 					}
-					lv_inputOperators_4_0=ruleOperator
+					{
+						newCompositeNode(grammarAccess.getParallelOpAccess().getInputRobotsRobotCrossReference_6_1_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_8='('
+			{
+				newLeafNode(otherlv_8, grammarAccess.getParallelOpAccess().getLeftParenthesisKeyword_6_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getParallelOpAccess().getInputOperatorsOperatorParserRuleCall_6_3_0());
+					}
+					lv_inputOperators_9_0=ruleOperator
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getParallelOpRule());
@@ -1050,16 +1094,20 @@ ruleParallelOp returns [EObject current=null]
 						add(
 							$current,
 							"inputOperators",
-							lv_inputOperators_4_0,
+							lv_inputOperators_9_0,
 							"se.gu.co4robots.xtext.promise.Promise.Operator");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
+			otherlv_10=')'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getParallelOpAccess().getRightParenthesisKeyword_6_4());
+			}
 		)*
-		otherlv_5=')'
+		otherlv_11='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getParallelOpAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_11, grammarAccess.getParallelOpAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
