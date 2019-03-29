@@ -109,29 +109,19 @@ public interface Mission extends EObject {
 	EList<Location> getLocations();
 
 	/**
-	 * Returns the value of the '<em><b>Eventassignment</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Eventassignment</b></em>' containment reference list.
+	 * The list contents are of type {@link promise.EventAssignment}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Eventassignment</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Eventassignment</em>' containment reference.
-	 * @see #setEventassignment(EventAssignment)
+	 * @return the value of the '<em>Eventassignment</em>' containment reference list.
 	 * @see promise.PromisePackage#getMission_Eventassignment()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EventAssignment getEventassignment();
-
-	/**
-	 * Sets the value of the '{@link promise.Mission#getEventassignment <em>Eventassignment</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Eventassignment</em>' containment reference.
-	 * @see #getEventassignment()
-	 * @generated
-	 */
-	void setEventassignment(EventAssignment value);
+	EList<EventAssignment> getEventassignment();
 
 } // Mission

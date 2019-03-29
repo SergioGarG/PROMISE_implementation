@@ -579,7 +579,7 @@ public interface PromisePackage extends EPackage {
 	int MISSION__LOCATIONS = 4;
 
 	/**
-	 * The feature id for the '<em><b>Eventassignment</b></em>' containment reference.
+	 * The feature id for the '<em><b>Eventassignment</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1914,10 +1914,10 @@ public interface PromisePackage extends EPackage {
 	EReference getMission_Locations();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link promise.Mission#getEventassignment <em>Eventassignment</em>}'.
+	 * Returns the meta object for the containment reference list '{@link promise.Mission#getEventassignment <em>Eventassignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Eventassignment</em>'.
+	 * @return the meta object for the containment reference list '<em>Eventassignment</em>'.
 	 * @see promise.Mission#getEventassignment()
 	 * @see #getMission()
 	 * @generated
@@ -2597,7 +2597,7 @@ public interface PromisePackage extends EPackage {
 		EReference MISSION__LOCATIONS = eINSTANCE.getMission_Locations();
 
 		/**
-		 * The meta object literal for the '<em><b>Eventassignment</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Eventassignment</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -3,16 +3,12 @@
 package promise.impl;
 
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -97,14 +93,14 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	protected EList<Location> locations;
 
 	/**
-	 * The cached value of the '{@link #getEventassignment() <em>Eventassignment</em>}' containment reference.
+	 * The cached value of the '{@link #getEventassignment() <em>Eventassignment</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEventassignment()
 	 * @generated
 	 * @ordered
 	 */
-	protected EventAssignment eventassignment;
+	protected EList<EventAssignment> eventassignment;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,42 +186,11 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventAssignment getEventassignment() {
+	public EList<EventAssignment> getEventassignment() {
+		if (eventassignment == null) {
+			eventassignment = new EObjectContainmentEList<EventAssignment>(EventAssignment.class, this, PromisePackage.MISSION__EVENTASSIGNMENT);
+		}
 		return eventassignment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEventassignment(EventAssignment newEventassignment, NotificationChain msgs) {
-		EventAssignment oldEventassignment = eventassignment;
-		eventassignment = newEventassignment;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PromisePackage.MISSION__EVENTASSIGNMENT, oldEventassignment, newEventassignment);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEventassignment(EventAssignment newEventassignment) {
-		if (newEventassignment != eventassignment) {
-			NotificationChain msgs = null;
-			if (eventassignment != null)
-				msgs = ((InternalEObject)eventassignment).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PromisePackage.MISSION__EVENTASSIGNMENT, null, msgs);
-			if (newEventassignment != null)
-				msgs = ((InternalEObject)newEventassignment).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PromisePackage.MISSION__EVENTASSIGNMENT, null, msgs);
-			msgs = basicSetEventassignment(newEventassignment, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PromisePackage.MISSION__EVENTASSIGNMENT, newEventassignment, newEventassignment));
 	}
 
 	/**
@@ -247,7 +212,7 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 			case PromisePackage.MISSION__LOCATIONS:
 				return ((InternalEList<?>)getLocations()).basicRemove(otherEnd, msgs);
 			case PromisePackage.MISSION__EVENTASSIGNMENT:
-				return basicSetEventassignment(null, msgs);
+				return ((InternalEList<?>)getEventassignment()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -306,7 +271,8 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 				getLocations().addAll((Collection<? extends Location>)newValue);
 				return;
 			case PromisePackage.MISSION__EVENTASSIGNMENT:
-				setEventassignment((EventAssignment)newValue);
+				getEventassignment().clear();
+				getEventassignment().addAll((Collection<? extends EventAssignment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -336,7 +302,7 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 				getLocations().clear();
 				return;
 			case PromisePackage.MISSION__EVENTASSIGNMENT:
-				setEventassignment((EventAssignment)null);
+				getEventassignment().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -361,7 +327,7 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 			case PromisePackage.MISSION__LOCATIONS:
 				return locations != null && !locations.isEmpty();
 			case PromisePackage.MISSION__EVENTASSIGNMENT:
-				return eventassignment != null;
+				return eventassignment != null && !eventassignment.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

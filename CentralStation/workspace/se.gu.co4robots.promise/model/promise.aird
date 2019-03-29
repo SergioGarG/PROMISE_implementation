@@ -4047,7 +4047,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zABtAFE0EemUyKWnbVbhtQ" name="[0..1] eventassignment" sourceNode="_y_HuEFE0EemUyKWnbVbhtQ" targetNode="_y_dFQFE0EemUyKWnbVbhtQ">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_zABtAFE0EemUyKWnbVbhtQ" name="[0..*] eventassignment" sourceNode="_y_HuEFE0EemUyKWnbVbhtQ" targetNode="_y_dFQFE0EemUyKWnbVbhtQ">
       <target xmi:type="ecore:EReference" href="promise.ecore#//Mission/eventassignment"/>
       <semanticElements xmi:type="ecore:EReference" href="promise.ecore#//Mission/eventassignment"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_zACUEFE0EemUyKWnbVbhtQ" description="_y__30FE0EemUyKWnbVbhtQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">

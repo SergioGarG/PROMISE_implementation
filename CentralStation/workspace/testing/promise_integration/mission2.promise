@@ -1,10 +1,21 @@
 mission{ 
-	robots r1, r2
+	conditions{ 
+		events
+ 		e1: "description of event e1"
+		actions
+ 		a1: "description of action a1"
+
+	} 
+	robots r1
 	locations l1, l2, l3
 	operators{ parallel{ 
 		// Your operators come here
-		
-		r1 ( delegate ( Patrolling locations l1 ) ) , 
-		r2 ( delegate ( FairVisit locations l2, l1 ) ) }
+		r1 ( eventHandler ( 
+			default ( 
+				delegate ( Patrolling locations l1 , l2 )
+		) 
+			except e1 ( 
+				delegate ( SimpleAction actions a1 )
+			) ) ) }
 	}
-} 
+}
