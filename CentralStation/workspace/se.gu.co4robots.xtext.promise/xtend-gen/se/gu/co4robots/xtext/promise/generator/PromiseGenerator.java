@@ -76,7 +76,12 @@ public class PromiseGenerator extends AbstractGenerator {
     ArrayList<String> _arrayList = new ArrayList<String>();
     robotClass _robotClass = new robotClass(_name, _arrayList, 0);
     _get.add(_robotClass);
-    this.doLogic(((Operator[])Conversions.unwrapArray(IteratorExtensions.<Operator>toIterable(Iterators.<Operator>filter(resource.getAllContents(), Operator.class)), Operator.class))[0], 0, 0, 0, this.availableRobots.get(0), "");
+    Operator _get_1 = ((Operator[])Conversions.unwrapArray(IteratorExtensions.<Operator>toIterable(Iterators.<Operator>filter(resource.getAllContents(), Operator.class)), Operator.class))[0];
+    int _size = ((CompositionOperator) _get_1).getInputOperators().size();
+    boolean _greaterThan = (_size > 0);
+    if (_greaterThan) {
+      this.doLogic(((Operator[])Conversions.unwrapArray(IteratorExtensions.<Operator>toIterable(Iterators.<Operator>filter(resource.getAllContents(), Operator.class)), Operator.class))[0], 0, 0, 0, this.availableRobots.get(0), "");
+    }
     ArrayList<ArrayList<String>> missionsList = new ArrayList<ArrayList<String>>();
     ArrayList<String> missions = new ArrayList<String>();
     StringConcatenation _builder = new StringConcatenation();
@@ -125,8 +130,8 @@ public class PromiseGenerator extends AbstractGenerator {
       ExclusiveRange _doubleDotLessThan_1 = new ExclusiveRange(0, _length_1, true);
       for(final Integer j : _doubleDotLessThan_1) {
         _builder.append("{");
-        String _get_1 = this.stoppingEvents.get((j).intValue());
-        _builder.append(_get_1);
+        String _get_2 = this.stoppingEvents.get((j).intValue());
+        _builder.append(_get_2);
         _builder.append("}");
       }
     }
@@ -134,56 +139,60 @@ public class PromiseGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     fsa.generateFile("mission_data.ms", _builder);
-    for (int i_1 = 0; (i_1 < ((Object[])Conversions.unwrapArray(this.availableRobots, Object.class)).length); i_1++) {
-      {
-        String _get_2 = this.availableRobots.get(i_1);
-        String _plus = ("mission_" + _get_2);
-        String _plus_1 = (_plus + ".ms");
-        StringConcatenation _builder_1 = new StringConcatenation();
+    int _size_1 = this.robotsList.size();
+    boolean _greaterThan_1 = (_size_1 > 0);
+    if (_greaterThan_1) {
+      for (int i_1 = 0; (i_1 < ((Object[])Conversions.unwrapArray(this.availableRobots, Object.class)).length); i_1++) {
         {
-          int _length_2 = ((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length;
-          ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_2, true);
-          for(final Integer j_1 : _doubleDotLessThan_2) {
-            {
-              if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 0)) {
-                _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name);
-                _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList);
-                _builder_1.newLineIfNotEmpty();
-              } else {
-                if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 1)) {
-                  _builder_1.newLine();
-                  _builder_1.append("\t");
-                  _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t");
-                  _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t");
+          String _get_3 = this.availableRobots.get(i_1);
+          String _plus = ("mission_" + _get_3);
+          String _plus_1 = (_plus + ".ms");
+          StringConcatenation _builder_1 = new StringConcatenation();
+          {
+            int _length_2 = ((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length;
+            ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_2, true);
+            for(final Integer j_1 : _doubleDotLessThan_2) {
+              {
+                if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 0)) {
+                  _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name);
+                  _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList);
                   _builder_1.newLineIfNotEmpty();
                 } else {
-                  if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 2)) {
+                  if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 1)) {
                     _builder_1.newLine();
-                    _builder_1.append("\t\t");
-                    _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t");
-                    _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t");
+                    _builder_1.append("\t");
+                    _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t");
+                    _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t");
                     _builder_1.newLineIfNotEmpty();
                   } else {
-                    if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 3)) {
+                    if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 2)) {
                       _builder_1.newLine();
-                      _builder_1.append("\t\t\t");
-                      _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t");
-                      _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t");
+                      _builder_1.append("\t\t");
+                      _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t");
+                      _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t");
                       _builder_1.newLineIfNotEmpty();
                     } else {
-                      if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 4)) {
+                      if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 3)) {
                         _builder_1.newLine();
-                        _builder_1.append("\t\t\t\t");
-                        _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t\t");
-                        _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t\t");
+                        _builder_1.append("\t\t\t");
+                        _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t");
+                        _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t");
                         _builder_1.newLineIfNotEmpty();
                       } else {
-                        if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 5)) {
+                        if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 4)) {
                           _builder_1.newLine();
-                          _builder_1.append("\t\t\t\t\t");
-                          _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t\t\t");
-                          _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t\t\t");
+                          _builder_1.append("\t\t\t\t");
+                          _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t\t");
+                          _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t\t");
                           _builder_1.newLineIfNotEmpty();
+                        } else {
+                          if ((this.robotsList.get(i_1).get((j_1).intValue()).indentation == 5)) {
+                            _builder_1.newLine();
+                            _builder_1.append("\t\t\t\t\t");
+                            _builder_1.append(this.robotsList.get(i_1).get((j_1).intValue()).name, "\t\t\t\t\t");
+                            _builder_1.append(missions = this.robotsList.get(i_1).get((j_1).intValue()).missionList, "\t\t\t\t\t");
+                            _builder_1.newLineIfNotEmpty();
+                          }
                         }
                       }
                     }
@@ -192,20 +201,18 @@ public class PromiseGenerator extends AbstractGenerator {
               }
             }
           }
-        }
-        fsa.generateFile(_plus_1, _builder_1);
-        int _length_3 = ((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length;
-        boolean _greaterThan = (_length_3 > 0);
-        if (_greaterThan) {
-          String _get_3 = this.availableRobots.get(i_1);
-          String _plus_2 = ("readme_mission_" + _get_3);
-          String _plus_3 = (_plus_2 + ".txt");
-          StringConcatenation _builder_2 = new StringConcatenation();
-          String _get_4 = this.textarray.get(i_1);
-          _builder_2.append(_get_4);
-          _builder_2.newLineIfNotEmpty();
-          fsa.generateFile(_plus_3, _builder_2);
-          InputOutput.<String>println(this.textarray.get(i_1));
+          fsa.generateFile(_plus_1, _builder_1);
+          if (((((Object[])Conversions.unwrapArray(this.robotsList.get(i_1), Object.class)).length > 0) && (((Object[])Conversions.unwrapArray(this.textarray, Object.class)).length > 0))) {
+            String _get_4 = this.availableRobots.get(i_1);
+            String _plus_2 = ("readme_mission_" + _get_4);
+            String _plus_3 = (_plus_2 + ".txt");
+            StringConcatenation _builder_2 = new StringConcatenation();
+            String _get_5 = this.textarray.get(i_1);
+            _builder_2.append(_get_5);
+            _builder_2.newLineIfNotEmpty();
+            fsa.generateFile(_plus_3, _builder_2);
+            InputOutput.<String>println(this.textarray.get(i_1));
+          }
         }
       }
     }

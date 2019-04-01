@@ -76,7 +76,10 @@ class PromiseGenerator extends AbstractGenerator {
 			
 
 			robotsList.get(0).add(new robotClass(resource.allContents.filter(Robot).toIterable.get(0).name, new ArrayList<String>, 0))
-			doLogic(resource.allContents.filter(Operator).toIterable.get(0), 0, 0, 0, availableRobots.get(0), "") //perform the mission starting from the first robot and the first instantiation of robotClass
+			
+			if((resource.allContents.filter(Operator).toIterable.get(0) as CompositionOperator).inputOperators.size > 0){
+				doLogic(resource.allContents.filter(Operator).toIterable.get(0), 0, 0, 0, availableRobots.get(0), "") //perform the mission starting from the first robot and the first instantiation of robotClass
+			}
 			var missionsList=new ArrayList<ArrayList<String>> //list of all the missions within the global mission
 			var missions=new ArrayList<String> //list of each missions within the global mission
 			
@@ -88,36 +91,38 @@ class PromiseGenerator extends AbstractGenerator {
 
 			''')
 		
-		for (var i=0; i < availableRobots.length; i++){
-			
-			fsa.generateFile('mission_'+availableRobots.get(i)+'.ms', '''
-			«FOR j:0..<robotsList.get(i).length»
-				«IF robotsList.get(i).get(j).indentation == 0»
-					«robotsList.get(i).get(j).name»«missions=robotsList.get(i).get(j).missionList»
-				«ELSEIF robotsList.get(i).get(j).indentation == 1»
+		if (robotsList.size > 0){
+			for (var i=0; i < availableRobots.length; i++){
 				
-					«robotsList.get(i).get(j).name»«missions=robotsList.get(i).get(j).missionList»
-				«ELSEIF robotsList.get(i).get(j).indentation == 2»
-				
+				fsa.generateFile('mission_'+availableRobots.get(i)+'.ms', '''
+				«FOR j:0..<robotsList.get(i).length»
+					«IF robotsList.get(i).get(j).indentation == 0»
 						«robotsList.get(i).get(j).name»«missions=robotsList.get(i).get(j).missionList»
-				«ELSEIF robotsList.get(i).get(j).indentation == 3»
-				
+					«ELSEIF robotsList.get(i).get(j).indentation == 1»
+					
+						«robotsList.get(i).get(j).name»«missions=robotsList.get(i).get(j).missionList»
+					«ELSEIF robotsList.get(i).get(j).indentation == 2»
+					
 							«robotsList.get(i).get(j).name»«missions=robotsList.get(i).get(j).missionList»
-				«ELSEIF robotsList.get(i).get(j).indentation == 4»
-				
+					«ELSEIF robotsList.get(i).get(j).indentation == 3»
+					
 								«robotsList.get(i).get(j).name»«missions=robotsList.get(i).get(j).missionList»
-				«ELSEIF robotsList.get(i).get(j).indentation == 5»
-				
+					«ELSEIF robotsList.get(i).get(j).indentation == 4»
+					
 									«robotsList.get(i).get(j).name»«missions=robotsList.get(i).get(j).missionList»
-				«ENDIF»
-			«ENDFOR»
-		''')
-		
-			if(robotsList.get(i).length > 0){
-				fsa.generateFile('readme_mission_'+availableRobots.get(i)+'.txt', '''
-					«textarray.get(i)»
-					''')
-				println(textarray.get(i))
+					«ELSEIF robotsList.get(i).get(j).indentation == 5»
+					
+										«robotsList.get(i).get(j).name»«missions=robotsList.get(i).get(j).missionList»
+					«ENDIF»
+				«ENDFOR»
+			''')
+			
+				if((robotsList.get(i).length > 0) && (textarray.length > 0)){
+					fsa.generateFile('readme_mission_'+availableRobots.get(i)+'.txt', '''
+						«textarray.get(i)»
+						''')
+					println(textarray.get(i))
+				}
 			}
 		}
 
