@@ -5,7 +5,8 @@ mission{
 		 found_object: "object detected",
 		 help_requested: "r1 requests help",
 		 r1_low_battery: "r1 low battery",
-		 r2_low_battery: "r2 low battery"
+		 r2_low_battery: "r2 low battery",
+		 finish: "the robot is requested to stop"
 		actions
  		raise_alarm: "raise the alarm!",
 		 request_help: "request help from r2",
@@ -14,22 +15,24 @@ mission{
 		 charge_battery: "charge the battery"
 	}   
 	robots r1, r2 
-	locations l1, l2, l3, l4, l5, chargingdock
+	locations l1, l2, l3, l4, office1, office2, chargingdock
 	operators{ parallel{ 
 		r1(eventHandler(
-			default(delegate ( SequencedPatrolling locations l1, l2, l3 )) 
+			default(delegate ( SequencedPatrolling locations l1, l2, l3 
+				stoppingEvents finish)) 
 			except intruder (delegate (SimpleAction actions raise_alarm)) 
 			except found_object (delegate (SimpleAction actions request_help)) 
 			except r1_low_battery (sequence(
-				delegate(Visit locations chargingdock) , 
+				delegate(Visit locations chargingdock), 
 				delegate(SimpleAction actions charge_battery))))), 
 		r2(eventHandler(
 			default(delegate(Wait locations l4)) 
-			except help_requested(sequence(
-				delegate(Visit locations l2),
+			except help_requested( sequence(
+				delegate(Visit locations l2), 
 				delegate(SimpleAction actions grasp_object), 
-				delegate(Visit locations l5), 
-				delegate(SimpleAction actions release_object))) 
+				fallback ( 
+					delegate(Visit locations office1), 
+					delegate(Visit locations office2)))) 
 			except r2_low_battery(sequence( 
 				delegate(Visit locations chargingdock), 
 				delegate (SimpleAction actions charge_battery))))) 
