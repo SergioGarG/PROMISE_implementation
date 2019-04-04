@@ -1,1 +1,0 @@
-Robot r2 does by default wait in location l2, and if event help_requested occurs, it will  visit (without any specific order) locations l2 and  perform action grasp_object and  visit (without any specific order) locations l5 and  perform action release_object
