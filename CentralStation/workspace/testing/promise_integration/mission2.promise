@@ -18,6 +18,6 @@ mission{
 	locations l1, l2, l3, l4, l5, chargingdock
 	operators{ parallel{ 
 		// Your operators come here
-		}
+		r2 ( delegate ( SimpleAction actions raise_alarm ) ) }
 	}
 }
