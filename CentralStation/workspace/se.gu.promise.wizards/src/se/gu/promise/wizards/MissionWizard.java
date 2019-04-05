@@ -83,8 +83,7 @@ public class MissionWizard extends Wizard implements INewWizard
 	public boolean performFinish() 
 	{
 		String summary = model.toString();
-		MessageDialog.openInformation(workbench.getActiveWorkbenchWindow().getShell(), 
-			"Mission info", summary);
+		//MessageDialog.openInformation(workbench.getActiveWorkbenchWindow().getShell(), "Mission info", summary);
 		return true;
 	}
 }

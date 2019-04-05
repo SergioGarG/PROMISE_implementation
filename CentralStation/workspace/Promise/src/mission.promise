@@ -1,18 +1,8 @@
 mission{ 
-	conditions{ 
-		events
- 		e0: "description of event e0",
-		 e1: "description of event  e1",
-		 e2: "description of event  e2",
-		 e3: "description of event  e3"
-		 actions
-		 grab_coffee: "a"
-
-	} 
 	robots r1
-	locations l1, l2, l3, l4
+	locations asd
 	operators{ parallel{ 
 		// Your operators come here
-		r1 ( eventHandler ( default ( delegate ( OrderedPatrolling locations l1 , l2 , l3 ) ) except e0 ( delegate ( Visit locations l2 ) ) ) ) }
+		}
 	}
-}   
+}
