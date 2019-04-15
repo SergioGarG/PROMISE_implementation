@@ -4,52 +4,52 @@ package promise.tests;
 
 import junit.framework.TestCase;
 
-import promise.Pattern;
+import promise.Tasks;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Pattern</b></em>'.
+ * A test case for the model object '<em><b>Tasks</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class PatternTest extends TestCase {
+public abstract class TasksTest extends TestCase {
 
 	/**
-	 * The fixture for this Pattern test case.
+	 * The fixture for this Tasks test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Pattern fixture = null;
+	protected Tasks fixture = null;
 
 	/**
-	 * Constructs a new Pattern test case with the given name.
+	 * Constructs a new Tasks test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PatternTest(String name) {
+	public TasksTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Pattern test case.
+	 * Sets the fixture for this Tasks test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(Pattern fixture) {
+	protected void setFixture(Tasks fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Pattern test case.
+	 * Returns the fixture for this Tasks test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Pattern getFixture() {
+	protected Tasks getFixture() {
 		return fixture;
 	}
 
-} //PatternTest
+} //TasksTest

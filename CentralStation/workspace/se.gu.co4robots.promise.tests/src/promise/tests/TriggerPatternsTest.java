@@ -10,7 +10,7 @@ import promise.TriggerPatterns;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class TriggerPatternsTest extends PatternTest {
+public abstract class TriggerPatternsTest extends TasksTest {
 
 	/**
 	 * Constructs a new Trigger Patterns test case with the given name.

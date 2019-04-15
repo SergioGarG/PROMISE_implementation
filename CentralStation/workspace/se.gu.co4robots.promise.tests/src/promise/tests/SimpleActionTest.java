@@ -13,7 +13,7 @@ import promise.SimpleAction;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SimpleActionTest extends PatternTest {
+public class SimpleActionTest extends TasksTest {
 
 	/**
 	 * <!-- begin-user-doc -->

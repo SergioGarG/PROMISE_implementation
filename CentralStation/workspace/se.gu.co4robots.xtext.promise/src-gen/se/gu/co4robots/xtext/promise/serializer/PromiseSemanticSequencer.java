@@ -14,7 +14,6 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import promise.ANDOp;
 import promise.ConditionOp;
 import promise.DelayedReaction;
 import promise.DelegateOp;
@@ -31,7 +30,6 @@ import promise.InstantReaction;
 import promise.Location;
 import promise.LowerRestrictedAvoidance;
 import promise.Mission;
-import promise.OROp;
 import promise.OrderderVisit;
 import promise.OrderedPatrolling;
 import promise.ParallelOp;
@@ -45,6 +43,7 @@ import promise.SequencedVisit;
 import promise.SimpleAction;
 import promise.StrictOrderedVisit;
 import promise.StrictOreredPatrolling;
+import promise.TaskCombinationOp;
 import promise.UpperRestrictedAvoidance;
 import promise.Visit;
 import promise.Wait;
@@ -64,9 +63,6 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == PromisePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case PromisePackage.AND_OP:
-				sequence_ANDOp(context, (ANDOp) semanticObject); 
-				return; 
 			case PromisePackage.ACTION:
 				sequence_Action(context, (promise.Action) semanticObject); 
 				return; 
@@ -118,9 +114,6 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case PromisePackage.MISSION:
 				sequence_Mission(context, (Mission) semanticObject); 
 				return; 
-			case PromisePackage.OR_OP:
-				sequence_OROp(context, (OROp) semanticObject); 
-				return; 
 			case PromisePackage.ORDERDER_VISIT:
 				sequence_OrderderVisit(context, (OrderderVisit) semanticObject); 
 				return; 
@@ -157,6 +150,9 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case PromisePackage.STRICT_ORERED_PATROLLING:
 				sequence_StrictOreredPatrolling(context, (StrictOreredPatrolling) semanticObject); 
 				return; 
+			case PromisePackage.TASK_COMBINATION_OP:
+				sequence_TaskCombinationOp(context, (TaskCombinationOp) semanticObject); 
+				return; 
 			case PromisePackage.UPPER_RESTRICTED_AVOIDANCE:
 				sequence_UpperRestrictedAvoidance(context, (UpperRestrictedAvoidance) semanticObject); 
 				return; 
@@ -170,19 +166,6 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     Operator returns ANDOp
-	 *     ANDOp returns ANDOp
-	 *
-	 * Constraint:
-	 *     (inputOperators+=Operator inputOperators+=Operator)
-	 */
-	protected void sequence_ANDOp(ISerializationContext context, ANDOp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -220,7 +203,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns DelayedReaction
+	 *     Tasks returns DelayedReaction
 	 *     DelayedReaction returns DelayedReaction
 	 *
 	 * Constraint:
@@ -238,7 +221,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *
 	 * Constraint:
 	 *     (
-	 *         pattern=Pattern 
+	 *         task=Tasks 
 	 *         (inputLocations+=[Location|EString] inputLocations+=[Location|EString]*)? 
 	 *         (inputAction+=[Action|EString] inputAction+=[Action|EString]*)? 
 	 *         (stoppingEvent+=[Event|EString] stoppingEvent+=[Event|EString]*)?
@@ -306,7 +289,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns ExactRestrictedAvoidance
+	 *     Tasks returns ExactRestrictedAvoidance
 	 *     ExactRestrictedAvoidance returns ExactRestrictedAvoidance
 	 *
 	 * Constraint:
@@ -319,7 +302,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns FairPatrolling
+	 *     Tasks returns FairPatrolling
 	 *     FairPatrolling returns FairPatrolling
 	 *
 	 * Constraint:
@@ -332,7 +315,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns FairVisit
+	 *     Tasks returns FairVisit
 	 *     FairVisit returns FairVisit
 	 *
 	 * Constraint:
@@ -358,7 +341,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns FutureAvoidance
+	 *     Tasks returns FutureAvoidance
 	 *     FutureAvoidance returns FutureAvoidance
 	 *
 	 * Constraint:
@@ -371,7 +354,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns GlobalAvoidance
+	 *     Tasks returns GlobalAvoidance
 	 *     GlobalAvoidance returns GlobalAvoidance
 	 *
 	 * Constraint:
@@ -384,7 +367,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns InstantReaction
+	 *     Tasks returns InstantReaction
 	 *     InstantReaction returns InstantReaction
 	 *
 	 * Constraint:
@@ -415,7 +398,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns LowerRestrictedAvoidance
+	 *     Tasks returns LowerRestrictedAvoidance
 	 *     LowerRestrictedAvoidance returns LowerRestrictedAvoidance
 	 *
 	 * Constraint:
@@ -448,20 +431,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Operator returns OROp
-	 *     OROp returns OROp
-	 *
-	 * Constraint:
-	 *     (inputOperators+=Operator inputOperators+=Operator)
-	 */
-	protected void sequence_OROp(ISerializationContext context, OROp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Pattern returns OrderderVisit
+	 *     Tasks returns OrderderVisit
 	 *     OrderderVisit returns OrderderVisit
 	 *
 	 * Constraint:
@@ -474,7 +444,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns OrderedPatrolling
+	 *     Tasks returns OrderedPatrolling
 	 *     OrderedPatrolling returns OrderedPatrolling
 	 *
 	 * Constraint:
@@ -500,7 +470,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns PastAvoidance
+	 *     Tasks returns PastAvoidance
 	 *     PastAvoidance returns PastAvoidance
 	 *
 	 * Constraint:
@@ -513,7 +483,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns Patrolling
+	 *     Tasks returns Patrolling
 	 *     Patrolling returns Patrolling
 	 *
 	 * Constraint:
@@ -557,7 +527,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns SequencedPatrolling
+	 *     Tasks returns SequencedPatrolling
 	 *     SequencedPatrolling returns SequencedPatrolling
 	 *
 	 * Constraint:
@@ -570,7 +540,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns SequencedVisit
+	 *     Tasks returns SequencedVisit
 	 *     SequencedVisit returns SequencedVisit
 	 *
 	 * Constraint:
@@ -583,7 +553,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns SimpleAction
+	 *     Tasks returns SimpleAction
 	 *     SimpleAction returns SimpleAction
 	 *
 	 * Constraint:
@@ -596,7 +566,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns StrictOrderedVisit
+	 *     Tasks returns StrictOrderedVisit
 	 *     StrictOrderedVisit returns StrictOrderedVisit
 	 *
 	 * Constraint:
@@ -609,7 +579,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns StrictOreredPatrolling
+	 *     Tasks returns StrictOreredPatrolling
 	 *     StrictOreredPatrolling returns StrictOreredPatrolling
 	 *
 	 * Constraint:
@@ -622,7 +592,20 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns UpperRestrictedAvoidance
+	 *     Operator returns TaskCombinationOp
+	 *     TaskCombinationOp returns TaskCombinationOp
+	 *
+	 * Constraint:
+	 *     (inputOperators+=Operator inputOperators+=Operator+)
+	 */
+	protected void sequence_TaskCombinationOp(ISerializationContext context, TaskCombinationOp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tasks returns UpperRestrictedAvoidance
 	 *     UpperRestrictedAvoidance returns UpperRestrictedAvoidance
 	 *
 	 * Constraint:
@@ -635,7 +618,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns Visit
+	 *     Tasks returns Visit
 	 *     Visit returns Visit
 	 *
 	 * Constraint:
@@ -648,7 +631,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Pattern returns Wait
+	 *     Tasks returns Wait
 	 *     Wait returns Wait
 	 *
 	 * Constraint:

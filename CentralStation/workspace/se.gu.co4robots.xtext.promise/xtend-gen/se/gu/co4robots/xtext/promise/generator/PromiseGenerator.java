@@ -16,7 +16,6 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import promise.ANDOp;
 import promise.Action;
 import promise.CompositionOperator;
 import promise.ConditionOp;
@@ -25,11 +24,11 @@ import promise.Event;
 import promise.EventAssignment;
 import promise.EventHandlerOp;
 import promise.FallBackOp;
-import promise.OROp;
 import promise.Operator;
 import promise.ParallelOp;
 import promise.Robot;
 import promise.SequenceOp;
+import promise.TaskCombinationOp;
 import se.gu.co4robots.xtext.promise.generator.robotClass;
 
 @SuppressWarnings("all")
@@ -237,7 +236,7 @@ public class PromiseGenerator extends AbstractGenerator {
     for (final Integer i : _doubleDotLessThan) {
       {
         if (((i).intValue() > 0)) {
-          this.text = (this.text + " and ");
+          this.text = (this.text + " and then ");
         }
         this.nestedMethod(in, index, (i).intValue(), robot, indentation, parent);
       }
@@ -338,7 +337,7 @@ public class PromiseGenerator extends AbstractGenerator {
         robotClass _robotClass = new robotClass(("fb_" + Integer.valueOf(i)), _arrayList, (indentation + 1));
         _get.add(_robotClass);
         if ((i > 1)) {
-          this.text = (this.text + "if it fails, it tries to ");
+          this.text = (this.text + " if it fails, it tries to ");
         }
         int _plusPlus = counter++;
         this.nestedMethod(in, _plusPlus, (i - 1), robot, (indentation + 1), ("fb_" + Integer.valueOf(i)));
@@ -360,7 +359,7 @@ public class PromiseGenerator extends AbstractGenerator {
         robotClass _robotClass = new robotClass(_plus, _arrayList, (indentation + 1));
         _get.add(_robotClass);
         String _name_1 = in.getInputEvents().get(i).getInputEvent().getName();
-        String _plus_1 = ((this.text + "if event ") + _name_1);
+        String _plus_1 = ((this.text + " if event ") + _name_1);
         String _plus_2 = (_plus_1 + " holds, ");
         this.text = _plus_2;
         Operator _inputOperators = in.getInputEvents().get(i).getInputOperators();
@@ -372,30 +371,21 @@ public class PromiseGenerator extends AbstractGenerator {
     return null;
   }
   
-  protected Object _doLogic(final ANDOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
-    Object _xblockexpression = null;
-    {
-      this.doLogic(in.getInputOperators().get(0), index, robot, indentation, parent, "and_left");
-      this.text = (this.text + " and ");
-      _xblockexpression = this.doLogic(in.getInputOperators().get(1), index, robot, indentation, parent, "right");
+  protected Object _doLogic(final TaskCombinationOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
+    this.doLogic(in.getInputOperators().get(0), index, robot, indentation, parent, "left");
+    for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputOperators(), Object.class)).length); i++) {
+      {
+        this.text = (this.text + " and ");
+        this.doLogic(in.getInputOperators().get(i), index, robot, indentation, parent, "middle");
+      }
     }
-    return _xblockexpression;
-  }
-  
-  protected Object _doLogic(final OROp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
-    Object _xblockexpression = null;
-    {
-      this.doLogic(in.getInputOperators().get(0), index, robot, indentation, parent, "or_left");
-      this.text = (this.text + " or ");
-      _xblockexpression = this.doLogic(in.getInputOperators().get(1), index, robot, indentation, parent, "right");
-    }
-    return _xblockexpression;
+    return null;
   }
   
   protected Object _doLogic(final DelegateOp in, final int index, final int robot, final int indentation, final String parent, final String hybrid) {
     Object _xblockexpression = null;
     {
-      String _name = in.getPattern().eClass().getName();
+      String _name = in.getTask().eClass().getName();
       boolean _equals = Objects.equal(_name, "Visit");
       if (_equals) {
         String _name_1 = in.getInputLocations().get(0).getName();
@@ -403,7 +393,7 @@ public class PromiseGenerator extends AbstractGenerator {
         String _plus_1 = (_plus + ")");
         this.template = _plus_1;
         String _name_2 = in.getInputLocations().get(0).getName();
-        String _plus_2 = ((this.text + " visit (without any specific order) locations ") + _name_2);
+        String _plus_2 = ((this.text + " visit (without any specific order) location(s) ") + _name_2);
         this.text = _plus_2;
         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
           {
@@ -417,14 +407,14 @@ public class PromiseGenerator extends AbstractGenerator {
           }
         }
       } else {
-        String _name_3 = in.getPattern().eClass().getName();
+        String _name_3 = in.getTask().eClass().getName();
         boolean _equals_1 = Objects.equal(_name_3, "FairVisit");
         if (_equals_1) {
           String _name_4 = in.getInputLocations().get(0).getName();
           String _plus_3 = ("<> (" + _name_4);
           String _plus_4 = (_plus_3 + ")");
           this.template = _plus_4;
-          this.text = (this.text + "visit (without any specific order) locations ");
+          this.text = (this.text + "visit (without any specific order) location(s) ");
           for (int j = 0; (j < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); j++) {
             if ((j == 0)) {
               for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
@@ -496,14 +486,14 @@ public class PromiseGenerator extends AbstractGenerator {
           }
           this.text = (this.text + "the same number of times");
         } else {
-          String _name_5 = in.getPattern().eClass().getName();
+          String _name_5 = in.getTask().eClass().getName();
           boolean _equals_2 = Objects.equal(_name_5, "OrderderVisit");
           if (_equals_2) {
             String _name_6 = in.getInputLocations().get(0).getName();
             String _plus_5 = ("(<> (" + _name_6);
             String _plus_6 = (_plus_5 + ")");
             this.template = _plus_6;
-            this.text = (this.text + "visit (with a specific order) locations ");
+            this.text = (this.text + "visit (with a specific order) location(s) ");
             for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
               String _name_7 = in.getInputLocations().get(i).getName();
               String _plus_7 = ((this.template + " && ((<> ") + _name_7);
@@ -531,14 +521,14 @@ public class PromiseGenerator extends AbstractGenerator {
               }
             }
           } else {
-            String _name_7 = in.getPattern().eClass().getName();
+            String _name_7 = in.getTask().eClass().getName();
             boolean _equals_3 = Objects.equal(_name_7, "SequencedVisit");
             if (_equals_3) {
               String _name_8 = in.getInputLocations().get(0).getName();
               String _plus_7 = ("<> ((" + _name_8);
               String _plus_8 = (_plus_7 + ")");
               this.template = _plus_8;
-              this.text = (this.text + "visit in sequence locations ");
+              this.text = (this.text + "visit in sequence location(s) ");
               for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                 String _name_9 = in.getInputLocations().get(i).getName();
                 String _plus_9 = ((this.template + " && (<> (") + _name_9);
@@ -555,14 +545,14 @@ public class PromiseGenerator extends AbstractGenerator {
                 }
               }
             } else {
-              String _name_9 = in.getPattern().eClass().getName();
+              String _name_9 = in.getTask().eClass().getName();
               boolean _equals_4 = Objects.equal(_name_9, "StrictOrderedVisit");
               if (_equals_4) {
                 String _name_10 = in.getInputLocations().get(0).getName();
                 String _plus_9 = ("(<> (" + _name_10);
                 String _plus_10 = (_plus_9 + ")");
                 this.template = _plus_10;
-                this.text = (this.text + "visit (with a strict order) locations ");
+                this.text = (this.text + "visit (with a strict order) location(s) ");
                 for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                   String _name_11 = in.getInputLocations().get(i).getName();
                   String _plus_11 = ((this.template + " && ((<> ") + _name_11);
@@ -609,7 +599,7 @@ public class PromiseGenerator extends AbstractGenerator {
                   }
                 }
               } else {
-                String _name_11 = in.getPattern().eClass().getName();
+                String _name_11 = in.getTask().eClass().getName();
                 boolean _equals_5 = Objects.equal(_name_11, "Patrolling");
                 if (_equals_5) {
                   String _name_12 = in.getInputLocations().get(0).getName();
@@ -617,7 +607,7 @@ public class PromiseGenerator extends AbstractGenerator {
                   String _plus_12 = (_plus_11 + ")");
                   this.template = _plus_12;
                   String _name_13 = in.getInputLocations().get(0).getName();
-                  String _plus_13 = ((this.text + "patrol locations ") + _name_13);
+                  String _plus_13 = ((this.text + "patrol location(s) ") + _name_13);
                   this.text = _plus_13;
                   for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                     {
@@ -632,14 +622,14 @@ public class PromiseGenerator extends AbstractGenerator {
                   }
                   this.template = (this.template + ")");
                 } else {
-                  String _name_14 = in.getPattern().eClass().getName();
+                  String _name_14 = in.getTask().eClass().getName();
                   boolean _equals_6 = Objects.equal(_name_14, "FairPatrolling");
                   if (_equals_6) {
                     String _name_15 = in.getInputLocations().get(0).getName();
                     String _plus_14 = ("[] (<> (" + _name_15);
                     String _plus_15 = (_plus_14 + ")");
                     this.template = _plus_15;
-                    this.text = (this.text + " patrol (without any specific order) locations ");
+                    this.text = (this.text + "patrol (without any specific order) location(s) ");
                     for (int j = 0; (j < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); j++) {
                       if ((j == 0)) {
                         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
@@ -712,14 +702,14 @@ public class PromiseGenerator extends AbstractGenerator {
                     this.template = (this.template + ")");
                     this.text = (this.text + "the same number of times");
                   } else {
-                    String _name_16 = in.getPattern().eClass().getName();
+                    String _name_16 = in.getTask().eClass().getName();
                     boolean _equals_7 = Objects.equal(_name_16, "OrderedPatrolling");
                     if (_equals_7) {
                       String _name_17 = in.getInputLocations().get(0).getName();
                       String _plus_16 = ("[] (<> ((" + _name_17);
                       String _plus_17 = (_plus_16 + ")");
                       this.template = _plus_17;
-                      this.text = (this.text + "patrol (with a specific order) locations ");
+                      this.text = (this.text + "patrol (with a specific order) location(s) ");
                       for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                         String _name_18 = in.getInputLocations().get(i).getName();
                         String _plus_18 = ((this.template + " && <> (") + _name_18);
@@ -761,7 +751,7 @@ public class PromiseGenerator extends AbstractGenerator {
                         }
                       }
                     } else {
-                      String _name_18 = in.getPattern().eClass().getName();
+                      String _name_18 = in.getTask().eClass().getName();
                       boolean _equals_8 = Objects.equal(_name_18, "StrictOreredPatrolling");
                       if (_equals_8) {
                         String _name_19 = in.getInputLocations().get(0).getName();
@@ -769,7 +759,7 @@ public class PromiseGenerator extends AbstractGenerator {
                         String _plus_19 = (_plus_18 + ")");
                         this.template = _plus_19;
                         String _name_20 = in.getInputLocations().get(0).getName();
-                        String _plus_20 = ((this.text + "patrol (with a strict order) locations ") + _name_20);
+                        String _plus_20 = ((this.text + "patrol (with a strict order) location(s) ") + _name_20);
                         this.text = _plus_20;
                         for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                           {
@@ -829,7 +819,7 @@ public class PromiseGenerator extends AbstractGenerator {
                           }
                         }
                       } else {
-                        String _name_21 = in.getPattern().eClass().getName();
+                        String _name_21 = in.getTask().eClass().getName();
                         boolean _equals_9 = Objects.equal(_name_21, "SequencedPatrolling");
                         if (_equals_9) {
                           String _name_22 = in.getInputLocations().get(0).getName();
@@ -837,7 +827,7 @@ public class PromiseGenerator extends AbstractGenerator {
                           String _plus_22 = (_plus_21 + ")");
                           this.template = _plus_22;
                           String _name_23 = in.getInputLocations().get(0).getName();
-                          String _plus_23 = ((this.text + "patrol in sequence locations ") + _name_23);
+                          String _plus_23 = ((this.text + "patrol in sequence location(s) ") + _name_23);
                           this.text = _plus_23;
                           for (int i = 1; (i < ((Object[])Conversions.unwrapArray(in.getInputLocations(), Object.class)).length); i++) {
                             {
@@ -854,7 +844,7 @@ public class PromiseGenerator extends AbstractGenerator {
                             this.template = (this.template + ")");
                           }
                         } else {
-                          String _name_24 = in.getPattern().eClass().getName();
+                          String _name_24 = in.getTask().eClass().getName();
                           boolean _equals_10 = Objects.equal(_name_24, "ExactRestrictedAvoidance");
                           if (_equals_10) {
                             boolean _isEmpty = in.getInputAction().isEmpty();
@@ -917,7 +907,7 @@ public class PromiseGenerator extends AbstractGenerator {
                               }
                             }
                           } else {
-                            String _name_41 = in.getPattern().eClass().getName();
+                            String _name_41 = in.getTask().eClass().getName();
                             boolean _equals_11 = Objects.equal(_name_41, "FutureAvoidance");
                             if (_equals_11) {
                               boolean _isEmpty_2 = in.getInputAction().isEmpty();
@@ -956,7 +946,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                 }
                               }
                             } else {
-                              String _name_46 = in.getPattern().eClass().getName();
+                              String _name_46 = in.getTask().eClass().getName();
                               boolean _equals_12 = Objects.equal(_name_46, "GlobalAvoidance");
                               if (_equals_12) {
                                 boolean _isEmpty_4 = in.getInputAction().isEmpty();
@@ -981,7 +971,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                   }
                                 }
                               } else {
-                                String _name_51 = in.getPattern().eClass().getName();
+                                String _name_51 = in.getTask().eClass().getName();
                                 boolean _equals_13 = Objects.equal(_name_51, "LowerRestricedAvoidance");
                                 if (_equals_13) {
                                   boolean _isEmpty_6 = in.getInputAction().isEmpty();
@@ -1020,7 +1010,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                     }
                                   }
                                 } else {
-                                  String _name_60 = in.getPattern().eClass().getName();
+                                  String _name_60 = in.getTask().eClass().getName();
                                   boolean _equals_14 = Objects.equal(_name_60, "PastAvoidance");
                                   if (_equals_14) {
                                     boolean _isEmpty_8 = in.getInputAction().isEmpty();
@@ -1059,7 +1049,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                       }
                                     }
                                   } else {
-                                    String _name_65 = in.getPattern().eClass().getName();
+                                    String _name_65 = in.getTask().eClass().getName();
                                     boolean _equals_15 = Objects.equal(_name_65, "UpperRestricedAvoidance");
                                     if (_equals_15) {
                                       boolean _isEmpty_10 = in.getInputAction().isEmpty();
@@ -1098,7 +1088,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                         }
                                       }
                                     } else {
-                                      String _name_74 = in.getPattern().eClass().getName();
+                                      String _name_74 = in.getTask().eClass().getName();
                                       boolean _equals_16 = Objects.equal(_name_74, "InstantReaction");
                                       if (_equals_16) {
                                         boolean _isEmpty_12 = in.getInputAction().isEmpty();
@@ -1137,7 +1127,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                           }
                                         }
                                       } else {
-                                        String _name_79 = in.getPattern().eClass().getName();
+                                        String _name_79 = in.getTask().eClass().getName();
                                         boolean _equals_17 = Objects.equal(_name_79, "DelayedReaction");
                                         if (_equals_17) {
                                           boolean _isEmpty_14 = in.getInputAction().isEmpty();
@@ -1176,7 +1166,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                             }
                                           }
                                         } else {
-                                          String _name_84 = in.getPattern().eClass().getName();
+                                          String _name_84 = in.getTask().eClass().getName();
                                           boolean _equals_18 = Objects.equal(_name_84, "Wait");
                                           if (_equals_18) {
                                             String _name_85 = in.getInputLocations().get(0).getName();
@@ -1187,7 +1177,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                             String _plus_160 = ((this.text + "wait in location ") + _name_86);
                                             this.text = _plus_160;
                                           } else {
-                                            String _name_87 = in.getPattern().eClass().getName();
+                                            String _name_87 = in.getTask().eClass().getName();
                                             boolean _equals_19 = Objects.equal(_name_87, "SimpleAction");
                                             if (_equals_19) {
                                               String _name_88 = in.getInputAction().get(0).getName();
@@ -1198,7 +1188,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                               String _plus_163 = ((this.text + " perform action ") + _name_89);
                                               this.text = _plus_163;
                                             } else {
-                                              this.template = "Pattern not recognized";
+                                              this.template = "Task not recognized";
                                             }
                                           }
                                         }
@@ -1238,29 +1228,36 @@ public class PromiseGenerator extends AbstractGenerator {
         _xifexpression = Boolean.valueOf(this.robotsList.get(robot).get(index).missionList.add(this.template));
       } else {
         Object _xifexpression_1 = null;
-        boolean _equals_21 = Objects.equal(hybrid, "and_left");
+        boolean _equals_21 = Objects.equal(hybrid, "left");
         if (_equals_21) {
-          _xifexpression_1 = Boolean.valueOf(this.robotsList.get(robot).get(index).missionList.add((this.template + " && ")));
+          _xifexpression_1 = Boolean.valueOf(this.robotsList.get(robot).get(index).missionList.add(this.template));
         } else {
-          Object _xifexpression_2 = null;
-          boolean _equals_22 = Objects.equal(hybrid, "or_left");
+          String _xifexpression_2 = null;
+          boolean _equals_22 = Objects.equal(hybrid, "middle");
           if (_equals_22) {
-            _xifexpression_2 = Boolean.valueOf(this.robotsList.get(robot).get(index).missionList.add((this.template + " || ")));
+            int _size_1 = this.robotsList.get(robot).get(index).missionList.size();
+            int _minus = (_size_1 - 1);
+            int _size_2 = this.robotsList.get(robot).get(index).missionList.size();
+            int _minus_1 = (_size_2 - 1);
+            String _get = this.robotsList.get(robot).get(index).missionList.get(_minus_1);
+            String _plus_164 = (_get + " && ");
+            String _plus_165 = (_plus_164 + this.template);
+            _xifexpression_2 = this.robotsList.get(robot).get(index).missionList.set(_minus, _plus_165);
           } else {
             String _xifexpression_3 = null;
             boolean _equals_23 = Objects.equal(hybrid, "right");
             if (_equals_23) {
-              int _size_1 = this.robotsList.get(robot).get(index).missionList.size();
-              int _minus = (_size_1 - 1);
-              int _size_2 = this.robotsList.get(robot).get(index).missionList.size();
-              int _minus_1 = (_size_2 - 1);
-              String _get = this.robotsList.get(robot).get(index).missionList.get(_minus_1);
-              String _plus_164 = (_get + this.template);
-              _xifexpression_3 = this.robotsList.get(robot).get(index).missionList.set(_minus, _plus_164);
+              int _size_3 = this.robotsList.get(robot).get(index).missionList.size();
+              int _minus_2 = (_size_3 - 1);
+              int _size_4 = this.robotsList.get(robot).get(index).missionList.size();
+              int _minus_3 = (_size_4 - 1);
+              String _get_1 = this.robotsList.get(robot).get(index).missionList.get(_minus_3);
+              String _plus_166 = (_get_1 + this.template);
+              _xifexpression_3 = this.robotsList.get(robot).get(index).missionList.set(_minus_2, _plus_166);
             }
             _xifexpression_2 = _xifexpression_3;
           }
-          _xifexpression_1 = ((Object)_xifexpression_2);
+          _xifexpression_1 = _xifexpression_2;
         }
         _xifexpression = ((Object)_xifexpression_1);
       }
@@ -1274,16 +1271,14 @@ public class PromiseGenerator extends AbstractGenerator {
       return _doLogic((ConditionOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof EventHandlerOp) {
       return _doLogic((EventHandlerOp)in, index, robot, indentation, parent, hybrid);
-    } else if (in instanceof ANDOp) {
-      return _doLogic((ANDOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof FallBackOp) {
       return _doLogic((FallBackOp)in, index, robot, indentation, parent, hybrid);
-    } else if (in instanceof OROp) {
-      return _doLogic((OROp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof ParallelOp) {
       return _doLogic((ParallelOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof SequenceOp) {
       return _doLogic((SequenceOp)in, index, robot, indentation, parent, hybrid);
+    } else if (in instanceof TaskCombinationOp) {
+      return _doLogic((TaskCombinationOp)in, index, robot, indentation, parent, hybrid);
     } else if (in instanceof DelegateOp) {
       return _doLogic((DelegateOp)in, index, robot, indentation, parent, hybrid);
     } else {

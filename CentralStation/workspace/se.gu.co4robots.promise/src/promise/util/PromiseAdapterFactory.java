@@ -96,8 +96,8 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 				return createMissionAdapter();
 			}
 			@Override
-			public Adapter casePattern(Pattern object) {
-				return createPatternAdapter();
+			public Adapter caseTasks(Tasks object) {
+				return createTasksAdapter();
 			}
 			@Override
 			public Adapter caseCompositionOperator(CompositionOperator object) {
@@ -220,12 +220,8 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 				return createSimpleActionAdapter();
 			}
 			@Override
-			public Adapter caseANDOp(ANDOp object) {
-				return createANDOpAdapter();
-			}
-			@Override
-			public Adapter caseOROp(OROp object) {
-				return createOROpAdapter();
+			public Adapter caseTaskCombinationOp(TaskCombinationOp object) {
+				return createTaskCombinationOpAdapter();
 			}
 			@Override
 			public Adapter caseEventAssignment(EventAssignment object) {
@@ -354,16 +350,16 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link promise.Pattern <em>Pattern</em>}'.
+	 * Creates a new adapter for an object of class '{@link promise.Tasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see promise.Pattern
+	 * @see promise.Tasks
 	 * @generated
 	 */
-	public Adapter createPatternAdapter() {
+	public Adapter createTasksAdapter() {
 		return null;
 	}
 
@@ -788,30 +784,16 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link promise.ANDOp <em>AND Op</em>}'.
+	 * Creates a new adapter for an object of class '{@link promise.TaskCombinationOp <em>Task Combination Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see promise.ANDOp
+	 * @see promise.TaskCombinationOp
 	 * @generated
 	 */
-	public Adapter createANDOpAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link promise.OROp <em>OR Op</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see promise.OROp
-	 * @generated
-	 */
-	public Adapter createOROpAdapter() {
+	public Adapter createTaskCombinationOpAdapter() {
 		return null;
 	}
 

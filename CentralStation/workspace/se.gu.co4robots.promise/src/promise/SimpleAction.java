@@ -13,5 +13,5 @@ package promise;
  * @model
  * @generated
  */
-public interface SimpleAction extends Pattern {
+public interface SimpleAction extends Tasks {
 } // SimpleAction

@@ -4,7 +4,13 @@ mission{
 	operators{ parallel{ 
 		// Your operators come here
 		
-		r1 ( delegate ( Patrolling locations l1 ) ) , 
+		r1 ( 
+			combination(
+				delegate ( Patrolling locations l1, l2 ) &
+				delegate ( Patrolling locations l2, l3 ) &
+				delegate ( Patrolling locations l3, l1 )
+			)
+		) , 
 		r2 ( delegate ( FairVisit locations l2 , l1 ) ) }
 	}
 } 

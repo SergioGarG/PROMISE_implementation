@@ -6,13 +6,13 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Pattern</b></em>'.
+ * A representation of the model object '<em><b>Tasks</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see promise.PromisePackage#getPattern()
+ * @see promise.PromisePackage#getTasks()
  * @model abstract="true"
  * @generated
  */
-public interface Pattern extends EObject {
-} // Pattern
+public interface Tasks extends EObject {
+} // Tasks

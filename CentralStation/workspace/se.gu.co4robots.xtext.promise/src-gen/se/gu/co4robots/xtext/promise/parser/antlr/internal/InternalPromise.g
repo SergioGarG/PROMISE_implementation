@@ -430,34 +430,25 @@ ruleOperator returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getOperatorAccess().getANDOpParserRuleCall_6());
+			newCompositeNode(grammarAccess.getOperatorAccess().getTaskCombinationOpParserRuleCall_6());
 		}
-		this_ANDOp_6=ruleANDOp
+		this_TaskCombinationOp_6=ruleTaskCombinationOp
 		{
-			$current = $this_ANDOp_6.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getOperatorAccess().getOROpParserRuleCall_7());
-		}
-		this_OROp_7=ruleOROp
-		{
-			$current = $this_OROp_7.current;
+			$current = $this_TaskCombinationOp_6.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
 ;
 
-// Entry rule entryRulePattern
-entryRulePattern returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPatternRule()); }
-	iv_rulePattern=rulePattern
-	{ $current=$iv_rulePattern.current; }
+// Entry rule entryRuleTasks
+entryRuleTasks returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTasksRule()); }
+	iv_ruleTasks=ruleTasks
+	{ $current=$iv_ruleTasks.current; }
 	EOF;
 
-// Rule Pattern
-rulePattern returns [EObject current=null]
+// Rule Tasks
+ruleTasks returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -466,7 +457,7 @@ rulePattern returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getSimpleActionParserRuleCall_0());
+			newCompositeNode(grammarAccess.getTasksAccess().getSimpleActionParserRuleCall_0());
 		}
 		this_SimpleAction_0=ruleSimpleAction
 		{
@@ -475,7 +466,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getVisitParserRuleCall_1());
+			newCompositeNode(grammarAccess.getTasksAccess().getVisitParserRuleCall_1());
 		}
 		this_Visit_1=ruleVisit
 		{
@@ -484,7 +475,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getSequencedVisitParserRuleCall_2());
+			newCompositeNode(grammarAccess.getTasksAccess().getSequencedVisitParserRuleCall_2());
 		}
 		this_SequencedVisit_2=ruleSequencedVisit
 		{
@@ -493,7 +484,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getOrderderVisitParserRuleCall_3());
+			newCompositeNode(grammarAccess.getTasksAccess().getOrderderVisitParserRuleCall_3());
 		}
 		this_OrderderVisit_3=ruleOrderderVisit
 		{
@@ -502,7 +493,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getStrictOrderedVisitParserRuleCall_4());
+			newCompositeNode(grammarAccess.getTasksAccess().getStrictOrderedVisitParserRuleCall_4());
 		}
 		this_StrictOrderedVisit_4=ruleStrictOrderedVisit
 		{
@@ -511,7 +502,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getFairVisitParserRuleCall_5());
+			newCompositeNode(grammarAccess.getTasksAccess().getFairVisitParserRuleCall_5());
 		}
 		this_FairVisit_5=ruleFairVisit
 		{
@@ -520,7 +511,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getPatrollingParserRuleCall_6());
+			newCompositeNode(grammarAccess.getTasksAccess().getPatrollingParserRuleCall_6());
 		}
 		this_Patrolling_6=rulePatrolling
 		{
@@ -529,7 +520,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getSequencedPatrollingParserRuleCall_7());
+			newCompositeNode(grammarAccess.getTasksAccess().getSequencedPatrollingParserRuleCall_7());
 		}
 		this_SequencedPatrolling_7=ruleSequencedPatrolling
 		{
@@ -538,7 +529,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getOrderedPatrollingParserRuleCall_8());
+			newCompositeNode(grammarAccess.getTasksAccess().getOrderedPatrollingParserRuleCall_8());
 		}
 		this_OrderedPatrolling_8=ruleOrderedPatrolling
 		{
@@ -547,7 +538,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getStrictOreredPatrollingParserRuleCall_9());
+			newCompositeNode(grammarAccess.getTasksAccess().getStrictOreredPatrollingParserRuleCall_9());
 		}
 		this_StrictOreredPatrolling_9=ruleStrictOreredPatrolling
 		{
@@ -556,7 +547,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getFairPatrollingParserRuleCall_10());
+			newCompositeNode(grammarAccess.getTasksAccess().getFairPatrollingParserRuleCall_10());
 		}
 		this_FairPatrolling_10=ruleFairPatrolling
 		{
@@ -565,7 +556,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getUpperRestrictedAvoidanceParserRuleCall_11());
+			newCompositeNode(grammarAccess.getTasksAccess().getUpperRestrictedAvoidanceParserRuleCall_11());
 		}
 		this_UpperRestrictedAvoidance_11=ruleUpperRestrictedAvoidance
 		{
@@ -574,7 +565,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getExactRestrictedAvoidanceParserRuleCall_12());
+			newCompositeNode(grammarAccess.getTasksAccess().getExactRestrictedAvoidanceParserRuleCall_12());
 		}
 		this_ExactRestrictedAvoidance_12=ruleExactRestrictedAvoidance
 		{
@@ -583,7 +574,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getLowerRestrictedAvoidanceParserRuleCall_13());
+			newCompositeNode(grammarAccess.getTasksAccess().getLowerRestrictedAvoidanceParserRuleCall_13());
 		}
 		this_LowerRestrictedAvoidance_13=ruleLowerRestrictedAvoidance
 		{
@@ -592,7 +583,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getFutureAvoidanceParserRuleCall_14());
+			newCompositeNode(grammarAccess.getTasksAccess().getFutureAvoidanceParserRuleCall_14());
 		}
 		this_FutureAvoidance_14=ruleFutureAvoidance
 		{
@@ -601,7 +592,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getGlobalAvoidanceParserRuleCall_15());
+			newCompositeNode(grammarAccess.getTasksAccess().getGlobalAvoidanceParserRuleCall_15());
 		}
 		this_GlobalAvoidance_15=ruleGlobalAvoidance
 		{
@@ -610,7 +601,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getPastAvoidanceParserRuleCall_16());
+			newCompositeNode(grammarAccess.getTasksAccess().getPastAvoidanceParserRuleCall_16());
 		}
 		this_PastAvoidance_16=rulePastAvoidance
 		{
@@ -619,7 +610,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getWaitParserRuleCall_17());
+			newCompositeNode(grammarAccess.getTasksAccess().getWaitParserRuleCall_17());
 		}
 		this_Wait_17=ruleWait
 		{
@@ -628,7 +619,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getDelayedReactionParserRuleCall_18());
+			newCompositeNode(grammarAccess.getTasksAccess().getDelayedReactionParserRuleCall_18());
 		}
 		this_DelayedReaction_18=ruleDelayedReaction
 		{
@@ -637,7 +628,7 @@ rulePattern returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPatternAccess().getInstantReactionParserRuleCall_19());
+			newCompositeNode(grammarAccess.getTasksAccess().getInstantReactionParserRuleCall_19());
 		}
 		this_InstantReaction_19=ruleInstantReaction
 		{
@@ -1291,18 +1282,18 @@ ruleDelegateOp returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDelegateOpAccess().getPatternPatternParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDelegateOpAccess().getTaskTasksParserRuleCall_2_0());
 				}
-				lv_pattern_2_0=rulePattern
+				lv_task_2_0=ruleTasks
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDelegateOpRule());
 					}
 					set(
 						$current,
-						"pattern",
-						lv_pattern_2_0,
-						"se.gu.co4robots.xtext.promise.Promise.Pattern");
+						"task",
+						lv_task_2_0,
+						"se.gu.co4robots.xtext.promise.Promise.Tasks");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1446,15 +1437,15 @@ ruleDelegateOp returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleANDOp
-entryRuleANDOp returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getANDOpRule()); }
-	iv_ruleANDOp=ruleANDOp
-	{ $current=$iv_ruleANDOp.current; }
+// Entry rule entryRuleTaskCombinationOp
+entryRuleTaskCombinationOp returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTaskCombinationOpRule()); }
+	iv_ruleTaskCombinationOp=ruleTaskCombinationOp
+	{ $current=$iv_ruleTaskCombinationOp.current; }
 	EOF;
 
-// Rule ANDOp
-ruleANDOp returns [EObject current=null]
+// Rule TaskCombinationOp
+ruleTaskCombinationOp returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1462,23 +1453,23 @@ ruleANDOp returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='and'
+		otherlv_0='combination'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getANDOpAccess().getAndKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getTaskCombinationOpAccess().getCombinationKeyword_0());
 		}
 		otherlv_1='('
 		{
-			newLeafNode(otherlv_1, grammarAccess.getANDOpAccess().getLeftParenthesisKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getTaskCombinationOpAccess().getLeftParenthesisKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getANDOpAccess().getInputOperatorsOperatorParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_2_0());
 				}
 				lv_inputOperators_2_0=ruleOperator
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getANDOpRule());
+						$current = createModelElementForParent(grammarAccess.getTaskCombinationOpRule());
 					}
 					add(
 						$current,
@@ -1490,128 +1481,45 @@ ruleANDOp returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_3='&'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getANDOpAccess().getAmpersandKeyword_3_0());
-			}
-			    |
-			otherlv_4='AND'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getANDOpAccess().getANDKeyword_3_1());
-			}
-			    |
-			otherlv_5='and'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getANDOpAccess().getAndKeyword_3_2());
-			}
-		)
-		(
 			(
+				otherlv_3='&'
 				{
-					newCompositeNode(grammarAccess.getANDOpAccess().getInputOperatorsOperatorParserRuleCall_4_0());
+					newLeafNode(otherlv_3, grammarAccess.getTaskCombinationOpAccess().getAmpersandKeyword_3_0_0());
 				}
-				lv_inputOperators_6_0=ruleOperator
+				    |
+				otherlv_4='AND'
 				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getANDOpRule());
-					}
-					add(
-						$current,
-						"inputOperators",
-						lv_inputOperators_6_0,
-						"se.gu.co4robots.xtext.promise.Promise.Operator");
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_4, grammarAccess.getTaskCombinationOpAccess().getANDKeyword_3_0_1());
+				}
+				    |
+				otherlv_5='and'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getTaskCombinationOpAccess().getAndKeyword_3_0_2());
 				}
 			)
-		)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_3_1_0());
+					}
+					lv_inputOperators_6_0=ruleOperator
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTaskCombinationOpRule());
+						}
+						add(
+							$current,
+							"inputOperators",
+							lv_inputOperators_6_0,
+							"se.gu.co4robots.xtext.promise.Promise.Operator");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)+
 		otherlv_7=')'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getANDOpAccess().getRightParenthesisKeyword_5());
-		}
-	)
-;
-
-// Entry rule entryRuleOROp
-entryRuleOROp returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getOROpRule()); }
-	iv_ruleOROp=ruleOROp
-	{ $current=$iv_ruleOROp.current; }
-	EOF;
-
-// Rule OROp
-ruleOROp returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='or'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getOROpAccess().getOrKeyword_0());
-		}
-		otherlv_1='('
-		{
-			newLeafNode(otherlv_1, grammarAccess.getOROpAccess().getLeftParenthesisKeyword_1());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getOROpAccess().getInputOperatorsOperatorParserRuleCall_2_0());
-				}
-				lv_inputOperators_2_0=ruleOperator
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getOROpRule());
-					}
-					add(
-						$current,
-						"inputOperators",
-						lv_inputOperators_2_0,
-						"se.gu.co4robots.xtext.promise.Promise.Operator");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_3='|'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getOROpAccess().getVerticalLineKeyword_3_0());
-			}
-			    |
-			otherlv_4='OR'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getOROpAccess().getORKeyword_3_1());
-			}
-			    |
-			otherlv_5='or'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getOROpAccess().getOrKeyword_3_2());
-			}
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getOROpAccess().getInputOperatorsOperatorParserRuleCall_4_0());
-				}
-				lv_inputOperators_6_0=ruleOperator
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getOROpRule());
-					}
-					add(
-						$current,
-						"inputOperators",
-						lv_inputOperators_6_0,
-						"se.gu.co4robots.xtext.promise.Promise.Operator");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_7=')'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getOROpAccess().getRightParenthesisKeyword_5());
+			newLeafNode(otherlv_7, grammarAccess.getTaskCombinationOpAccess().getRightParenthesisKeyword_4());
 		}
 	)
 ;

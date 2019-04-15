@@ -13,5 +13,5 @@ package promise;
  * @model abstract="true"
  * @generated
  */
-public interface MovementPatterns extends Pattern {
+public interface MovementPatterns extends Tasks {
 } // MovementPatterns

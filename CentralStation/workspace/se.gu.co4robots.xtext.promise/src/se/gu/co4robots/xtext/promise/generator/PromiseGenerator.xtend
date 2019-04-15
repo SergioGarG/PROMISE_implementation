@@ -10,8 +10,6 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 
-import promise.Mission
-import promise.Location
 import promise.Robot
 import promise.Operator
 import promise.Event
@@ -23,17 +21,10 @@ import promise.SequenceOp
 import promise.EventHandlerOp
 import promise.ParallelOp
 import promise.ConditionOp
-import promise.ANDOp
-import promise.OROp
-import promise.Visit
-import promise.Patrolling
-import promise.InstantReaction
-import promise.SimpleAction
+import promise.TaskCombinationOp
 
 import java.util.Iterator
 
-
- 
 ///////Robot class//////
 public class robotClass{
 	public var String name
@@ -135,8 +126,6 @@ class PromiseGenerator extends AbstractGenerator {
 			doLogic(in.inputOperators.get(suboperator), index, robot, indentation, parent, "")		
 		}
 		
-
-		
 		///////////////Composition operators
 		
 		def dispatch doLogic(SequenceOp in, int index, int robot, int indentation, String parent, String hybrid){ 
@@ -146,7 +135,7 @@ class PromiseGenerator extends AbstractGenerator {
 				for(counter = 0; counter<(robotsList.get(robot).length);counter++) names.add(robotsList.get(robot).get(counter).name)
 			}
 			for (i : 0..<(in.inputOperators.toArray.length)) {
-				if (i>0) text=text+" and "
+				if (i>0) text=text+" and then "
 					nestedMethod(in, index, i, robot, indentation, parent) 
 				}
 		}
@@ -175,36 +164,6 @@ class PromiseGenerator extends AbstractGenerator {
 					textarray.add(text)
 				}}
 		}
-		
-		//First version
-//		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent, String hybrid){
-//			text= text+"by default "
-//			robotsList.get(robot).get(index).missionList.add("eh")
-//			var int counter = robotsList.get(robot).length
-//			robotsList.get(robot).add(new robotClass("eh_default", new ArrayList<String>, indentation+1))
-//			nestedMethod(in, counter, 0, robot, indentation+1, "eh_default") //always execute the first operator, the following ones are the associated with events
-//			for(var i=1; i<(in.inputOperators.length); i++) {
-//				counter = robotsList.get(robot).length
-//				robotsList.get(robot).add(new robotClass("eh_"+in.inputObservedEvents.get(i-1).name, new ArrayList<String>, indentation+1))
-//				text= text+", and if event "+in.inputObservedEvents.get(i-1).name+" occurs, it will "
-//				nestedMethod(in, counter, i, robot, indentation+1, "eh_"+in.inputObservedEvents.get(i-1).name)
-//			}
-//		}
-
-		//Attempting to simplify the events arguments
-//		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent, String hybrid){
-//			text= text+"by default "
-//			robotsList.get(robot).get(index).missionList.add("eh")
-//			var int counter = robotsList.get(robot).length
-//			robotsList.get(robot).add(new robotClass("eh_default", new ArrayList<String>, indentation+1))
-//			nestedMethod(in, counter, 0, robot, indentation+1, "eh_default") //always execute the first operator, the following ones are the associated with events
-//			for(var i=1; i<(in.inputOperators.length); i++) {
-//				counter = robotsList.get(robot).length
-//				robotsList.get(robot).add(new robotClass("eh_"+in.inputOperators.get(i).affectingEvent.get(0).name, new ArrayList<String>, indentation+1))
-//				text= text+", and if event "+in.inputOperators.get(i).affectingEvent.get(0).name+" occurs, it will "
-//				nestedMethod(in, counter, i, robot, indentation+1, "eh_"+in.inputOperators.get(i).affectingEvent.get(0).name)
-//			}
-//		}
 
 		//Third to simplify the events arguments
 		def dispatch doLogic(EventHandlerOp in, int index, int robot, int indentation, String parent, String hybrid){
@@ -227,35 +186,11 @@ class PromiseGenerator extends AbstractGenerator {
 			for(var i=1; i<=(in.inputOperators.length); i++) {
 				counter = robotsList.get(robot).length
 				robotsList.get(robot).add(new robotClass("fb_"+i, new ArrayList<String>, indentation+1))
-				if (i>1) text= text+"if it fails, it tries to "
+				if (i>1) text= text+" if it fails, it tries to "
 				nestedMethod(in, counter++, i-1, robot, indentation+1, "fb_"+i)
 			}	
 		}
 		
-		//First version
-//		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent, String hybrid){
-//			robotsList.get(robot).get(index).missionList.add("cond")
-//			var int counter = robotsList.get(robot).length
-//			for(var i=1; i<=(in.inputOperators.length); i++) {
-//				counter = robotsList.get(robot).length
-//				robotsList.get(robot).add(new robotClass("cond_"+in.inputEvents.get(i-1).name, new ArrayList<String>, indentation+1))
-//				text= text+"if event"+in.inputEvents.get(i-1).name+" holds, it will "
-//				nestedMethod(in, counter, i-1, robot, indentation+1, "cond_"+in.inputEvents.get(i-1).name)
-//			}
-//		}
-		
-//		//Attempting to simplify the events arguments
-//		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent, String hybrid){
-//			robotsList.get(robot).get(index).missionList.add("cond")
-//			var int counter = robotsList.get(robot).length
-//			for(var i=1; i<=(in.inputOperators.length); i++) {
-//				counter = robotsList.get(robot).length
-//				robotsList.get(robot).add(new robotClass("cond_"+in.inputOperators.get(i).affectingEvent.get(0).name, new ArrayList<String>, indentation+1))
-//				text= text+"if event"+in.inputOperators.get(i).affectingEvent.get(0).name+" holds, it will "
-//				nestedMethod(in, counter, i-1, robot, indentation+1, "cond_"+in.inputOperators.get(i).affectingEvent.get(0).name)
-//			}
-//		}
-
 		//Third attempt to simplify the events arguments
 		def dispatch doLogic(ConditionOp in, int index, int robot, int indentation, String parent, String hybrid){
 			robotsList.get(robot).get(index).missionList.add("cond")
@@ -263,22 +198,20 @@ class PromiseGenerator extends AbstractGenerator {
 			for(var i=0; i<(in.inputEvents.length); i++) {
 				counter = robotsList.get(robot).length
 				robotsList.get(robot).add(new robotClass("cond_"+in.inputEvents.get(i).inputEvent.name, new ArrayList<String>, indentation+1))
-				text= text+"if event "+in.inputEvents.get(i).inputEvent.name+" holds, "
+				text= text+" if event "+in.inputEvents.get(i).inputEvent.name+" holds, "
 				doLogic(in.inputEvents.get(i).inputOperators, counter, robot, indentation+1, "cond_"+in.inputEvents.get(i).inputEvent.name, "")
 			}
 		}
 		
-		def dispatch doLogic(ANDOp in, int index, int robot, int indentation, String parent, String hybrid){	 
-			doLogic(in.inputOperators.get(0), index, robot, indentation, parent, "and_left")		
-			text=text+" and "	
-			doLogic(in.inputOperators.get(1), index, robot, indentation, parent, "right")		
+		def dispatch doLogic(TaskCombinationOp in, int index, int robot, int indentation, String parent, String hybrid){	 
+			doLogic(in.inputOperators.get(0), index, robot, indentation, parent, "left")		
+			for(var i=1; i<(in.inputOperators.length); i++) {
+				text=text+" and "	
+				doLogic(in.inputOperators.get(i), index, robot, indentation, parent, "middle")		
+			}
 		}
 		
-		def dispatch doLogic(OROp in, int index, int robot, int indentation, String parent, String hybrid){
-			doLogic(in.inputOperators.get(0), index, robot, indentation, parent, "or_left")		
-			text=text+" or "	
-			doLogic(in.inputOperators.get(1), index, robot, indentation, parent, "right")		
-		}
+
 		
 		/////////////////Delegate operators
 
@@ -287,18 +220,18 @@ class PromiseGenerator extends AbstractGenerator {
 ////////////////Passing an LTL formula
 			
 			////Core Movement Patterns
-			if(in.pattern.eClass.name == "Visit") {
+			if(in.task.eClass.name == "Visit") {
 				template="<> ("+in.inputLocations.get(0).name+")"
-				text= text+" visit (without any specific order) locations "+in.inputLocations.get(0).name
+				text= text+" visit (without any specific order) location(s) "+in.inputLocations.get(0).name
 				for(var i=1; i<in.inputLocations.length; i++){
 					template=template+" && <> ("+in.inputLocations.get(i).name+")"
 					text= text+", "+in.inputLocations.get(i).name
 				} 	
 				
 			}
-			else if(in.pattern.eClass.name == "FairVisit") {
+			else if(in.task.eClass.name == "FairVisit") {
 				template="<> ("+in.inputLocations.get(0).name+")"
-				text= text+"visit (without any specific order) locations "
+				text= text+"visit (without any specific order) location(s) "
 				for(var j=0; j<in.inputLocations.length; j++) {
 					if (j==0) {
 						for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
@@ -314,9 +247,9 @@ class PromiseGenerator extends AbstractGenerator {
 				}
 				text= text+"the same number of times"
 			}
-			else if(in.pattern.eClass.name == "OrderderVisit") {
+			else if(in.task.eClass.name == "OrderderVisit") {
 				template="(<> ("+in.inputLocations.get(0).name+")"
-				text= text+"visit (with a specific order) locations "
+				text= text+"visit (with a specific order) location(s) "
 				for(var i=1; i<in.inputLocations.length; i++) template=template+" && ((<> "+in.inputLocations.get(i).name+")" //sets the first line
 				for(var i=0; i<in.inputLocations.length; i++) {
 					template=template+")"
@@ -327,18 +260,18 @@ class PromiseGenerator extends AbstractGenerator {
 				}
 				
 			}	
-			else if(in.pattern.eClass.name == "SequencedVisit") {
+			else if(in.task.eClass.name == "SequencedVisit") {
 				template="<> (("+in.inputLocations.get(0).name+")"
-				text= text+"visit in sequence locations "
+				text= text+"visit in sequence location(s) "
 				for(var i=1; i<in.inputLocations.length; i++) template=template+" && (<> ("+in.inputLocations.get(i).name+")" 
 				for(var i=0; i<in.inputLocations.length; i++) {
 						template=template+")"
 						text= text+in.inputLocations.get(i).name+", "
 					}
 			}	
-			else if(in.pattern.eClass.name == "StrictOrderedVisit") {
+			else if(in.task.eClass.name == "StrictOrderedVisit") {
 				template="(<> ("+in.inputLocations.get(0).name+")"
-				text= text+"visit (with a strict order) locations "
+				text= text+"visit (with a strict order) location(s) "
 				for(var i=1; i<in.inputLocations.length; i++) template=template+" && ((<> "+in.inputLocations.get(i).name+")" //sets the first line
 				for(var i=0; i<in.inputLocations.length; i++) {
 					template=template+")"
@@ -353,18 +286,18 @@ class PromiseGenerator extends AbstractGenerator {
 					}
 				}
 			}
-			else if(in.pattern.eClass.name == "Patrolling") {
+			else if(in.task.eClass.name == "Patrolling") {
 				template="[] (<> ("+in.inputLocations.get(0).name+")"
-				text= text+"patrol locations "+in.inputLocations.get(0).name
+				text= text+"patrol location(s) "+in.inputLocations.get(0).name
 				for(var i=1; i<in.inputLocations.length; i++) 	{
 					template=template+" && <> ("+in.inputLocations.get(i).name+")"
 					text= text+", "+in.inputLocations.get(i).name
 				}
 				template=template+")"
 			}
-			else if(in.pattern.eClass.name == "FairPatrolling") {
+			else if(in.task.eClass.name == "FairPatrolling") {
 				template="[] (<> ("+in.inputLocations.get(0).name+")"
-				text= text+" patrol (without any specific order) locations "
+				text= text+"patrol (without any specific order) location(s) "
 				for(var j=0; j<in.inputLocations.length; j++) {
 					if (j==0) {
 						for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
@@ -381,9 +314,9 @@ class PromiseGenerator extends AbstractGenerator {
 				template=template+")"
 				text= text+"the same number of times"
 			}
-			else if(in.pattern.eClass.name == "OrderedPatrolling") {
+			else if(in.task.eClass.name == "OrderedPatrolling") {
 				template="[] (<> (("+in.inputLocations.get(0).name+")"
-				text= text+"patrol (with a specific order) locations "
+				text= text+"patrol (with a specific order) location(s) "
 				for(var i=1; i<in.inputLocations.length; i++) template=template+" && <> ("+in.inputLocations.get(i).name+")" //sets the first line
 				for(var i=0; i<in.inputLocations.length; i++){
 					template=template+")"
@@ -396,9 +329,9 @@ class PromiseGenerator extends AbstractGenerator {
 					for(var i=j-1; i>=0; i--) template=template+" && [] ("+in.inputLocations.get(j).name+" -> X((! "+in.inputLocations.get(j).name+") U "+in.inputLocations.get(i).name+"))"
 				}
 			}	
-			else if(in.pattern.eClass.name == "StrictOreredPatrolling") {
+			else if(in.task.eClass.name == "StrictOreredPatrolling") {
 				template="[] (<> ("+in.inputLocations.get(0).name+")"
-				text= text+"patrol (with a strict order) locations "+in.inputLocations.get(0).name
+				text= text+"patrol (with a strict order) location(s) "+in.inputLocations.get(0).name
 				for(var i=1; i<in.inputLocations.length; i++){
 					template=template+" && <> (("+in.inputLocations.get(i).name+")" //sets the first line
 					text= text+", "+in.inputLocations.get(i).name
@@ -418,9 +351,9 @@ class PromiseGenerator extends AbstractGenerator {
 					}
 				}
 			}		
-			else if(in.pattern.eClass.name == "SequencedPatrolling") {
+			else if(in.task.eClass.name == "SequencedPatrolling") {
 				template="[] (<> (("+in.inputLocations.get(0).name+")"
-				text= text+"patrol in sequence locations "+in.inputLocations.get(0).name
+				text= text+"patrol in sequence location(s) "+in.inputLocations.get(0).name
 				for(var i=1; i<in.inputLocations.length; i++){
 					template=template+" && <> (("+in.inputLocations.get(i).name+")" 
 					text= text+", "+in.inputLocations.get(i).name
@@ -428,9 +361,9 @@ class PromiseGenerator extends AbstractGenerator {
 				for(var i=0; i<in.inputLocations.length*2-1; i++) template=template+")"
 			}		
 			
-			////Avoidance patterns
+			////Avoidance tasks
 			// ExactRestrictedAvoidance needs to be revised, should have as input an integer containing the number of times the location must be visited
-			else if(in.pattern.eClass.name == "ExactRestrictedAvoidance"){
+			else if(in.task.eClass.name == "ExactRestrictedAvoidance"){
 				//template="(! ("+in.inputAction.get(0).name+")) U ("+in.inputAction.get(0).name+" && (X ((! "+in.inputAction.get(0).name+") U ("+in.inputAction.get(0).name+" && (X ((! "+in.inputAction.get(0).name+") U ("+in.inputAction.get(0).name+" && (X ([] (!  "+in.inputAction.get(0).name+"))))))))))"
 				if (in.inputAction.isEmpty){
 					template="(! ("+in.inputLocations.get(0).name+")) U ("+in.inputLocations.get(0).name+" && (X ((! "+in.inputLocations.get(0).name+") U ("+in.inputLocations.get(0).name+" && (X ((! "+in.inputLocations.get(0).name+") U ("+in.inputLocations.get(0).name+" && (X ([] (!  "+in.inputLocations.get(0).name+"))))))))))"
@@ -441,7 +374,7 @@ class PromiseGenerator extends AbstractGenerator {
 					text=text+"perform "+in.inputAction.get(0).name+" an exact number of times"
 				}
 			} 
-			else if(in.pattern.eClass.name == "FutureAvoidance") {
+			else if(in.task.eClass.name == "FutureAvoidance") {
 				if (in.inputAction.isEmpty){
 					template="[] (("+in.eventAssigned+ "-> ([] ! ("+in.inputLocations.get(0).name+"))"
 					text=text+"avoid location "+in.inputLocations.get(0).name+" if "+in.eventAssigned+" occurs"
@@ -451,7 +384,7 @@ class PromiseGenerator extends AbstractGenerator {
 					text=text+"avoid action "+in.inputAction.get(0).name+" if "+in.eventAssigned+" occurs"
 				}
 			}
-			else if(in.pattern.eClass.name == "GlobalAvoidance") {
+			else if(in.task.eClass.name == "GlobalAvoidance") {
 				if (in.inputAction.isEmpty){
 					template="[] (! ("+in.inputLocations.get(0).name+"))"
 					text=text+"avoid location "+in.inputLocations.get(0).name
@@ -462,7 +395,7 @@ class PromiseGenerator extends AbstractGenerator {
 				}				
 			}
 			// LowerRestricedAvoidance needs to be revised, should have as input an integer containing the number of times the location must be visited
-			else if(in.pattern.eClass.name == "LowerRestricedAvoidance") {
+			else if(in.task.eClass.name == "LowerRestricedAvoidance") {
 				if (in.inputAction.isEmpty){
 					template="<> (("+in.inputLocations.get(0).name+ ") && X (<>(("+in.inputLocations.get(0).name+") && X <>( ("+in.inputLocations.get(0).name+")))))"
 					text=text+"visit location "+in.inputLocations.get(0).name+" at least N times"
@@ -473,7 +406,7 @@ class PromiseGenerator extends AbstractGenerator {
 				}
 				
 			}
-			else if(in.pattern.eClass.name == "PastAvoidance") {
+			else if(in.task.eClass.name == "PastAvoidance") {
 				if (in.inputAction.isEmpty){
 					template="((! ("+in.inputLocations.get(0).name+")) U "+in.eventAssigned+")"
 					text=text+"avoid location "+in.inputLocations.get(0).name+" until "+in.eventAssigned+" occurs"
@@ -484,7 +417,7 @@ class PromiseGenerator extends AbstractGenerator {
 				}
 			}
 			// UpperRestricedAvoidance needs to be revised, should have as input an integer containing the number of times the location must be visited
-			else if(in.pattern.eClass.name == "UpperRestricedAvoidance") {
+			else if(in.task.eClass.name == "UpperRestricedAvoidance") {
 				if (in.inputAction.isEmpty){
 					template="! <> (("+in.inputLocations.get(0).name+ ") && X (<>(("+in.inputLocations.get(0).name+") && X <>( ("+in.inputLocations.get(0).name+")))))"
 					text=text+"visit location "+in.inputLocations.get(0).name+" at most N times"
@@ -496,7 +429,7 @@ class PromiseGenerator extends AbstractGenerator {
 			}
 		
 			////Triggers
-			else if(in.pattern.eClass.name == "InstantReaction"){
+			else if(in.task.eClass.name == "InstantReaction"){
 				if (in.inputAction.isEmpty){
 					template="[] ("+in.eventAssigned+" -> "+in.inputLocations.get(0).name+")" 
 					text=text+"visit "+in.inputLocations.get(0).name+" every time "+in.eventAssigned+" occurs"
@@ -506,7 +439,7 @@ class PromiseGenerator extends AbstractGenerator {
 					text=text+"perform "+in.inputAction.get(0).name+" every time "+in.eventAssigned+" occurs"
 				}
 			} 
-			else if(in.pattern.eClass.name == "DelayedReaction") {
+			else if(in.task.eClass.name == "DelayedReaction") {
 				if (in.inputAction.isEmpty){
 						template="[] ("+in.eventAssigned+" -> (<>("+in.inputLocations.get(0).name+")))" 
 						text=text+"visit at some point later "+in.inputLocations.get(0).name+" every time "+in.eventAssigned+" occurs"
@@ -516,7 +449,7 @@ class PromiseGenerator extends AbstractGenerator {
 						text=text+"perform  at some point later "+in.inputAction.get(0).name+" every time "+in.eventAssigned+" occurs"
 				}
 			}
-			else if(in.pattern.eClass.name == "Wait") {
+			else if(in.task.eClass.name == "Wait") {
 				//Correct implementation, waiting for Claudio's input
 //				if (in.inputAction.isEmpty) template="("+in.inputLocations.get(0).name+") U (true)"
 //				else if (in.inputLocations.isEmpty) template="("+in.inputAction.get(0).name+") U (true)"
@@ -524,12 +457,12 @@ class PromiseGenerator extends AbstractGenerator {
 				template="[] (<> ("+in.inputLocations.get(0).name+"))"
 				text=text+"wait in location "+in.inputLocations.get(0).name
 			}
-			else if(in.pattern.eClass.name == "SimpleAction"){
+			else if(in.task.eClass.name == "SimpleAction"){
 				template="(X "+in.inputAction.get(0).name+")"
 				text=text+" perform action "+in.inputAction.get(0).name
 			} 
 		
-			else template="Pattern not recognized"
+			else template="Task not recognized"
 			//println(template)
 			
 			if(in.stoppingEvent.size() > 0){
@@ -539,8 +472,8 @@ class PromiseGenerator extends AbstractGenerator {
 			}
 			
 			if(hybrid == "") robotsList.get(robot).get(index).missionList.add(template)
-			else if(hybrid == "and_left") robotsList.get(robot).get(index).missionList.add(template+' && ')
-			else if(hybrid == "or_left") robotsList.get(robot).get(index).missionList.add(template+' || ')
+			else if(hybrid == "left") robotsList.get(robot).get(index).missionList.add(template)
+			else if(hybrid == "middle") robotsList.get(robot).get(index).missionList.set(robotsList.get(robot).get(index).missionList.size-1, robotsList.get(robot).get(index).missionList.get(robotsList.get(robot).get(index).missionList.size-1)+' && '+template)
 			else if(hybrid == "right") {
 				robotsList.get(robot).get(index).missionList.set(robotsList.get(robot).get(index).missionList.size-1, robotsList.get(robot).get(index).missionList.get(robotsList.get(robot).get(index).missionList.size-1)+template)
 			}

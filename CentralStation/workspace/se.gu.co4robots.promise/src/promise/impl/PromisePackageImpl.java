@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import promise.ANDOp;
 import promise.Action;
 import promise.AvoidancePatterns;
 import promise.CompositionOperator;
@@ -32,14 +31,12 @@ import promise.LowerRestrictedAvoidance;
 import promise.Mission;
 import promise.MovementPatterns;
 import promise.NamedElement;
-import promise.OROp;
 import promise.Operator;
 import promise.OrderderVisit;
 import promise.OrderedPatrolling;
 import promise.ParallelOp;
 import promise.PastAvoidance;
 import promise.Patrolling;
-import promise.Pattern;
 import promise.PromiseFactory;
 import promise.PromisePackage;
 import promise.Robot;
@@ -49,6 +46,8 @@ import promise.SequencedVisit;
 import promise.SimpleAction;
 import promise.StrictOrderedVisit;
 import promise.StrictOreredPatrolling;
+import promise.TaskCombinationOp;
+import promise.Tasks;
 import promise.TriggerPatterns;
 import promise.UpperRestrictedAvoidance;
 import promise.Visit;
@@ -115,7 +114,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass patternEClass = null;
+	private EClass tasksEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -332,14 +331,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass andOpEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass orOpEClass = null;
+	private EClass taskCombinationOpEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -565,8 +557,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPattern() {
-		return patternEClass;
+	public EClass getTasks() {
+		return tasksEClass;
 	}
 
 	/**
@@ -646,7 +638,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDelegateOp_Pattern() {
+	public EReference getDelegateOp_Task() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -943,17 +935,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getANDOp() {
-		return andOpEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOROp() {
-		return orOpEClass;
+	public EClass getTaskCombinationOp() {
+		return taskCombinationOpEClass;
 	}
 
 	/**
@@ -1061,7 +1044,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		createEReference(missionEClass, MISSION__LOCATIONS);
 		createEReference(missionEClass, MISSION__EVENTASSIGNMENT);
 
-		patternEClass = createEClass(PATTERN);
+		tasksEClass = createEClass(TASKS);
 
 		compositionOperatorEClass = createEClass(COMPOSITION_OPERATOR);
 		createEReference(compositionOperatorEClass, COMPOSITION_OPERATOR__INPUT_OPERATORS);
@@ -1075,7 +1058,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		createEAttribute(eventEClass, EVENT__DESCRIPTION);
 
 		delegateOpEClass = createEClass(DELEGATE_OP);
-		createEReference(delegateOpEClass, DELEGATE_OP__PATTERN);
+		createEReference(delegateOpEClass, DELEGATE_OP__TASK);
 		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_ACTION);
 		createEReference(delegateOpEClass, DELEGATE_OP__STOPPING_EVENT);
 		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_LOCATIONS);
@@ -1134,9 +1117,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 
 		simpleActionEClass = createEClass(SIMPLE_ACTION);
 
-		andOpEClass = createEClass(AND_OP);
-
-		orOpEClass = createEClass(OR_OP);
+		taskCombinationOpEClass = createEClass(TASK_COMBINATION_OP);
 
 		eventAssignmentEClass = createEClass(EVENT_ASSIGNMENT);
 		createEReference(eventAssignmentEClass, EVENT_ASSIGNMENT__INPUT_EVENT);
@@ -1185,7 +1166,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		eventEClass.getESuperTypes().add(this.getNamedElement());
 		delegateOpEClass.getESuperTypes().add(this.getOperator());
 		actionEClass.getESuperTypes().add(this.getNamedElement());
-		movementPatternsEClass.getESuperTypes().add(this.getPattern());
+		movementPatternsEClass.getESuperTypes().add(this.getTasks());
 		visitEClass.getESuperTypes().add(this.getMovementPatterns());
 		sequencedVisitEClass.getESuperTypes().add(this.getMovementPatterns());
 		orderderVisitEClass.getESuperTypes().add(this.getMovementPatterns());
@@ -1196,21 +1177,20 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		orderedPatrollingEClass.getESuperTypes().add(this.getMovementPatterns());
 		strictOreredPatrollingEClass.getESuperTypes().add(this.getMovementPatterns());
 		fairPatrollingEClass.getESuperTypes().add(this.getMovementPatterns());
-		avoidancePatternsEClass.getESuperTypes().add(this.getPattern());
+		avoidancePatternsEClass.getESuperTypes().add(this.getTasks());
 		upperRestrictedAvoidanceEClass.getESuperTypes().add(this.getAvoidancePatterns());
 		exactRestrictedAvoidanceEClass.getESuperTypes().add(this.getAvoidancePatterns());
 		lowerRestrictedAvoidanceEClass.getESuperTypes().add(this.getAvoidancePatterns());
 		futureAvoidanceEClass.getESuperTypes().add(this.getAvoidancePatterns());
 		globalAvoidanceEClass.getESuperTypes().add(this.getAvoidancePatterns());
 		pastAvoidanceEClass.getESuperTypes().add(this.getAvoidancePatterns());
-		triggerPatternsEClass.getESuperTypes().add(this.getPattern());
+		triggerPatternsEClass.getESuperTypes().add(this.getTasks());
 		waitEClass.getESuperTypes().add(this.getTriggerPatterns());
 		delayedReactionEClass.getESuperTypes().add(this.getTriggerPatterns());
 		instantReactionEClass.getESuperTypes().add(this.getTriggerPatterns());
 		locationEClass.getESuperTypes().add(this.getNamedElement());
-		simpleActionEClass.getESuperTypes().add(this.getPattern());
-		andOpEClass.getESuperTypes().add(this.getCompositionOperator());
-		orOpEClass.getESuperTypes().add(this.getCompositionOperator());
+		simpleActionEClass.getESuperTypes().add(this.getTasks());
+		taskCombinationOpEClass.getESuperTypes().add(this.getCompositionOperator());
 		eventBasedOperatorEClass.getESuperTypes().add(this.getCompositionOperator());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1237,7 +1217,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEReference(getMission_Locations(), this.getLocation(), null, "locations", null, 0, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMission_Eventassignment(), this.getEventAssignment(), null, "eventassignment", null, 0, -1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(patternEClass, Pattern.class, "Pattern", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(tasksEClass, Tasks.class, "Tasks", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(compositionOperatorEClass, CompositionOperator.class, "CompositionOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompositionOperator_InputOperators(), this.getOperator(), this.getOperator_Parent(), "inputOperators", null, 0, -1, CompositionOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1251,7 +1231,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEAttribute(getEvent_Description(), ecorePackage.getEString(), "description", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(delegateOpEClass, DelegateOp.class, "DelegateOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDelegateOp_Pattern(), this.getPattern(), null, "pattern", null, 1, 1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDelegateOp_Task(), this.getTasks(), null, "task", null, 1, 1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_InputAction(), this.getAction(), null, "inputAction", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_StoppingEvent(), this.getEvent(), null, "stoppingEvent", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_InputLocations(), this.getLocation(), null, "inputLocations", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1310,9 +1290,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 
 		initEClass(simpleActionEClass, SimpleAction.class, "SimpleAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(andOpEClass, ANDOp.class, "ANDOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(orOpEClass, OROp.class, "OROp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(taskCombinationOpEClass, TaskCombinationOp.class, "TaskCombinationOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(eventAssignmentEClass, EventAssignment.class, "EventAssignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventAssignment_InputEvent(), this.getEvent(), null, "inputEvent", null, 0, 1, EventAssignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

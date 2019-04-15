@@ -20,8 +20,8 @@ import promise.Action;
 import promise.DelegateOp;
 import promise.Event;
 import promise.Location;
-import promise.Pattern;
 import promise.PromisePackage;
+import promise.Tasks;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +31,7 @@ import promise.PromisePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link promise.impl.DelegateOpImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link promise.impl.DelegateOpImpl#getTask <em>Task</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getInputAction <em>Input Action</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getStoppingEvent <em>Stopping Event</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getInputLocations <em>Input Locations</em>}</li>
@@ -41,14 +41,14 @@ import promise.PromisePackage;
  */
 public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	/**
-	 * The cached value of the '{@link #getPattern() <em>Pattern</em>}' containment reference.
+	 * The cached value of the '{@link #getTask() <em>Task</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPattern()
+	 * @see #getTask()
 	 * @generated
 	 * @ordered
 	 */
-	protected Pattern pattern;
+	protected Tasks task;
 
 	/**
 	 * The cached value of the '{@link #getInputAction() <em>Input Action</em>}' reference list.
@@ -104,8 +104,8 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Pattern getPattern() {
-		return pattern;
+	public Tasks getTask() {
+		return task;
 	}
 
 	/**
@@ -113,11 +113,11 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-		Pattern oldPattern = pattern;
-		pattern = newPattern;
+	public NotificationChain basicSetTask(Tasks newTask, NotificationChain msgs) {
+		Tasks oldTask = task;
+		task = newTask;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PromisePackage.DELEGATE_OP__PATTERN, oldPattern, newPattern);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PromisePackage.DELEGATE_OP__TASK, oldTask, newTask);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -128,18 +128,18 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPattern(Pattern newPattern) {
-		if (newPattern != pattern) {
+	public void setTask(Tasks newTask) {
+		if (newTask != task) {
 			NotificationChain msgs = null;
-			if (pattern != null)
-				msgs = ((InternalEObject)pattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PromisePackage.DELEGATE_OP__PATTERN, null, msgs);
-			if (newPattern != null)
-				msgs = ((InternalEObject)newPattern).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PromisePackage.DELEGATE_OP__PATTERN, null, msgs);
-			msgs = basicSetPattern(newPattern, msgs);
+			if (task != null)
+				msgs = ((InternalEObject)task).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PromisePackage.DELEGATE_OP__TASK, null, msgs);
+			if (newTask != null)
+				msgs = ((InternalEObject)newTask).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PromisePackage.DELEGATE_OP__TASK, null, msgs);
+			msgs = basicSetTask(newTask, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PromisePackage.DELEGATE_OP__PATTERN, newPattern, newPattern));
+			eNotify(new ENotificationImpl(this, Notification.SET, PromisePackage.DELEGATE_OP__TASK, newTask, newTask));
 	}
 
 	/**
@@ -186,8 +186,8 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__PATTERN:
-				return basicSetPattern(null, msgs);
+			case PromisePackage.DELEGATE_OP__TASK:
+				return basicSetTask(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -200,8 +200,8 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__PATTERN:
-				return getPattern();
+			case PromisePackage.DELEGATE_OP__TASK:
+				return getTask();
 			case PromisePackage.DELEGATE_OP__INPUT_ACTION:
 				return getInputAction();
 			case PromisePackage.DELEGATE_OP__STOPPING_EVENT:
@@ -221,8 +221,8 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__PATTERN:
-				setPattern((Pattern)newValue);
+			case PromisePackage.DELEGATE_OP__TASK:
+				setTask((Tasks)newValue);
 				return;
 			case PromisePackage.DELEGATE_OP__INPUT_ACTION:
 				getInputAction().clear();
@@ -248,8 +248,8 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__PATTERN:
-				setPattern((Pattern)null);
+			case PromisePackage.DELEGATE_OP__TASK:
+				setTask((Tasks)null);
 				return;
 			case PromisePackage.DELEGATE_OP__INPUT_ACTION:
 				getInputAction().clear();
@@ -272,8 +272,8 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PromisePackage.DELEGATE_OP__PATTERN:
-				return pattern != null;
+			case PromisePackage.DELEGATE_OP__TASK:
+				return task != null;
 			case PromisePackage.DELEGATE_OP__INPUT_ACTION:
 				return inputAction != null && !inputAction.isEmpty();
 			case PromisePackage.DELEGATE_OP__STOPPING_EVENT:

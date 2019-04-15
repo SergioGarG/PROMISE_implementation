@@ -1,1 +1,1 @@
-Robot r2 does by default wait in location l4, and if event help_requested occurs, it will  visit (without any specific order) locations l2 and  perform action grasp_object and  visit (without any specific order) locations office1if it fails, it tries to  visit (without any specific order) locations office2, and if event r2_low_battery occurs, it will  visit (without any specific order) locations chargingdock and  perform action charge_battery
+Robot r2 does visit (without any specific order) location(s) l2, l1the same number of times

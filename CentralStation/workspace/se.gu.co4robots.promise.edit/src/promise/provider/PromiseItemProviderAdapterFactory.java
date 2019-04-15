@@ -785,49 +785,26 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link promise.ANDOp} instances.
+	 * This keeps track of the one adapter used for all {@link promise.TaskCombinationOp} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ANDOpItemProvider andOpItemProvider;
+	protected TaskCombinationOpItemProvider taskCombinationOpItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link promise.ANDOp}.
+	 * This creates an adapter for a {@link promise.TaskCombinationOp}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createANDOpAdapter() {
-		if (andOpItemProvider == null) {
-			andOpItemProvider = new ANDOpItemProvider(this);
+	public Adapter createTaskCombinationOpAdapter() {
+		if (taskCombinationOpItemProvider == null) {
+			taskCombinationOpItemProvider = new TaskCombinationOpItemProvider(this);
 		}
 
-		return andOpItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link promise.OROp} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OROpItemProvider orOpItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link promise.OROp}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOROpAdapter() {
-		if (orOpItemProvider == null) {
-			orOpItemProvider = new OROpItemProvider(this);
-		}
-
-		return orOpItemProvider;
+		return taskCombinationOpItemProvider;
 	}
 
 	/**
@@ -983,8 +960,7 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 		if (instantReactionItemProvider != null) instantReactionItemProvider.dispose();
 		if (locationItemProvider != null) locationItemProvider.dispose();
 		if (simpleActionItemProvider != null) simpleActionItemProvider.dispose();
-		if (andOpItemProvider != null) andOpItemProvider.dispose();
-		if (orOpItemProvider != null) orOpItemProvider.dispose();
+		if (taskCombinationOpItemProvider != null) taskCombinationOpItemProvider.dispose();
 		if (eventAssignmentItemProvider != null) eventAssignmentItemProvider.dispose();
 	}
 

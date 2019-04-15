@@ -1,1 +1,1 @@
-Robot r1 does by default patrol in sequence locations l1, l2, l3, and if event intruder occurs, it will  perform action raise_alarm, and if event found_object occurs, it will  perform action request_help, and if event r1_low_battery occurs, it will  visit (without any specific order) locations chargingdock and  perform action charge_battery
+Robot r1 does patrol location(s) l1, l2 and patrol location(s) l2, l3 and patrol location(s) l3, l1

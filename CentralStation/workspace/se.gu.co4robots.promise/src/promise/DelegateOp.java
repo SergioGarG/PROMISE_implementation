@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link promise.DelegateOp#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link promise.DelegateOp#getTask <em>Task</em>}</li>
  *   <li>{@link promise.DelegateOp#getInputAction <em>Input Action</em>}</li>
  *   <li>{@link promise.DelegateOp#getStoppingEvent <em>Stopping Event</em>}</li>
  *   <li>{@link promise.DelegateOp#getInputLocations <em>Input Locations</em>}</li>
@@ -25,30 +25,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DelegateOp extends Operator {
 	/**
-	 * Returns the value of the '<em><b>Pattern</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Task</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Pattern</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Task</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pattern</em>' containment reference.
-	 * @see #setPattern(Pattern)
-	 * @see promise.PromisePackage#getDelegateOp_Pattern()
+	 * @return the value of the '<em>Task</em>' containment reference.
+	 * @see #setTask(Tasks)
+	 * @see promise.PromisePackage#getDelegateOp_Task()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Pattern getPattern();
+	Tasks getTask();
 
 	/**
-	 * Sets the value of the '{@link promise.DelegateOp#getPattern <em>Pattern</em>}' containment reference.
+	 * Sets the value of the '{@link promise.DelegateOp#getTask <em>Task</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pattern</em>' containment reference.
-	 * @see #getPattern()
+	 * @param value the new value of the '<em>Task</em>' containment reference.
+	 * @see #getTask()
 	 * @generated
 	 */
-	void setPattern(Pattern value);
+	void setTask(Tasks value);
 
 	/**
 	 * Returns the value of the '<em><b>Input Action</b></em>' reference list.

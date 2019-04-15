@@ -120,9 +120,9 @@ public class PromiseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PromisePackage.PATTERN: {
-				Pattern pattern = (Pattern)theEObject;
-				T result = casePattern(pattern);
+			case PromisePackage.TASKS: {
+				Tasks tasks = (Tasks)theEObject;
+				T result = caseTasks(tasks);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -170,7 +170,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 			case PromisePackage.MOVEMENT_PATTERNS: {
 				MovementPatterns movementPatterns = (MovementPatterns)theEObject;
 				T result = caseMovementPatterns(movementPatterns);
-				if (result == null) result = casePattern(movementPatterns);
+				if (result == null) result = caseTasks(movementPatterns);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -178,7 +178,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				Visit visit = (Visit)theEObject;
 				T result = caseVisit(visit);
 				if (result == null) result = caseMovementPatterns(visit);
-				if (result == null) result = casePattern(visit);
+				if (result == null) result = caseTasks(visit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -186,7 +186,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				SequencedVisit sequencedVisit = (SequencedVisit)theEObject;
 				T result = caseSequencedVisit(sequencedVisit);
 				if (result == null) result = caseMovementPatterns(sequencedVisit);
-				if (result == null) result = casePattern(sequencedVisit);
+				if (result == null) result = caseTasks(sequencedVisit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -194,7 +194,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				OrderderVisit orderderVisit = (OrderderVisit)theEObject;
 				T result = caseOrderderVisit(orderderVisit);
 				if (result == null) result = caseMovementPatterns(orderderVisit);
-				if (result == null) result = casePattern(orderderVisit);
+				if (result == null) result = caseTasks(orderderVisit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -202,7 +202,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				StrictOrderedVisit strictOrderedVisit = (StrictOrderedVisit)theEObject;
 				T result = caseStrictOrderedVisit(strictOrderedVisit);
 				if (result == null) result = caseMovementPatterns(strictOrderedVisit);
-				if (result == null) result = casePattern(strictOrderedVisit);
+				if (result == null) result = caseTasks(strictOrderedVisit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -210,7 +210,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				FairVisit fairVisit = (FairVisit)theEObject;
 				T result = caseFairVisit(fairVisit);
 				if (result == null) result = caseMovementPatterns(fairVisit);
-				if (result == null) result = casePattern(fairVisit);
+				if (result == null) result = caseTasks(fairVisit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -218,7 +218,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				Patrolling patrolling = (Patrolling)theEObject;
 				T result = casePatrolling(patrolling);
 				if (result == null) result = caseMovementPatterns(patrolling);
-				if (result == null) result = casePattern(patrolling);
+				if (result == null) result = caseTasks(patrolling);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -226,7 +226,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				SequencedPatrolling sequencedPatrolling = (SequencedPatrolling)theEObject;
 				T result = caseSequencedPatrolling(sequencedPatrolling);
 				if (result == null) result = caseMovementPatterns(sequencedPatrolling);
-				if (result == null) result = casePattern(sequencedPatrolling);
+				if (result == null) result = caseTasks(sequencedPatrolling);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -234,7 +234,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				OrderedPatrolling orderedPatrolling = (OrderedPatrolling)theEObject;
 				T result = caseOrderedPatrolling(orderedPatrolling);
 				if (result == null) result = caseMovementPatterns(orderedPatrolling);
-				if (result == null) result = casePattern(orderedPatrolling);
+				if (result == null) result = caseTasks(orderedPatrolling);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -242,7 +242,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				StrictOreredPatrolling strictOreredPatrolling = (StrictOreredPatrolling)theEObject;
 				T result = caseStrictOreredPatrolling(strictOreredPatrolling);
 				if (result == null) result = caseMovementPatterns(strictOreredPatrolling);
-				if (result == null) result = casePattern(strictOreredPatrolling);
+				if (result == null) result = caseTasks(strictOreredPatrolling);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -250,14 +250,14 @@ public class PromiseSwitch<T> extends Switch<T> {
 				FairPatrolling fairPatrolling = (FairPatrolling)theEObject;
 				T result = caseFairPatrolling(fairPatrolling);
 				if (result == null) result = caseMovementPatterns(fairPatrolling);
-				if (result == null) result = casePattern(fairPatrolling);
+				if (result == null) result = caseTasks(fairPatrolling);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case PromisePackage.AVOIDANCE_PATTERNS: {
 				AvoidancePatterns avoidancePatterns = (AvoidancePatterns)theEObject;
 				T result = caseAvoidancePatterns(avoidancePatterns);
-				if (result == null) result = casePattern(avoidancePatterns);
+				if (result == null) result = caseTasks(avoidancePatterns);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -265,7 +265,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				UpperRestrictedAvoidance upperRestrictedAvoidance = (UpperRestrictedAvoidance)theEObject;
 				T result = caseUpperRestrictedAvoidance(upperRestrictedAvoidance);
 				if (result == null) result = caseAvoidancePatterns(upperRestrictedAvoidance);
-				if (result == null) result = casePattern(upperRestrictedAvoidance);
+				if (result == null) result = caseTasks(upperRestrictedAvoidance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -273,7 +273,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				ExactRestrictedAvoidance exactRestrictedAvoidance = (ExactRestrictedAvoidance)theEObject;
 				T result = caseExactRestrictedAvoidance(exactRestrictedAvoidance);
 				if (result == null) result = caseAvoidancePatterns(exactRestrictedAvoidance);
-				if (result == null) result = casePattern(exactRestrictedAvoidance);
+				if (result == null) result = caseTasks(exactRestrictedAvoidance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -281,7 +281,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				LowerRestrictedAvoidance lowerRestrictedAvoidance = (LowerRestrictedAvoidance)theEObject;
 				T result = caseLowerRestrictedAvoidance(lowerRestrictedAvoidance);
 				if (result == null) result = caseAvoidancePatterns(lowerRestrictedAvoidance);
-				if (result == null) result = casePattern(lowerRestrictedAvoidance);
+				if (result == null) result = caseTasks(lowerRestrictedAvoidance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -289,7 +289,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				FutureAvoidance futureAvoidance = (FutureAvoidance)theEObject;
 				T result = caseFutureAvoidance(futureAvoidance);
 				if (result == null) result = caseAvoidancePatterns(futureAvoidance);
-				if (result == null) result = casePattern(futureAvoidance);
+				if (result == null) result = caseTasks(futureAvoidance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -297,7 +297,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				GlobalAvoidance globalAvoidance = (GlobalAvoidance)theEObject;
 				T result = caseGlobalAvoidance(globalAvoidance);
 				if (result == null) result = caseAvoidancePatterns(globalAvoidance);
-				if (result == null) result = casePattern(globalAvoidance);
+				if (result == null) result = caseTasks(globalAvoidance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -305,14 +305,14 @@ public class PromiseSwitch<T> extends Switch<T> {
 				PastAvoidance pastAvoidance = (PastAvoidance)theEObject;
 				T result = casePastAvoidance(pastAvoidance);
 				if (result == null) result = caseAvoidancePatterns(pastAvoidance);
-				if (result == null) result = casePattern(pastAvoidance);
+				if (result == null) result = caseTasks(pastAvoidance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case PromisePackage.TRIGGER_PATTERNS: {
 				TriggerPatterns triggerPatterns = (TriggerPatterns)theEObject;
 				T result = caseTriggerPatterns(triggerPatterns);
-				if (result == null) result = casePattern(triggerPatterns);
+				if (result == null) result = caseTasks(triggerPatterns);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -320,7 +320,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				Wait wait = (Wait)theEObject;
 				T result = caseWait(wait);
 				if (result == null) result = caseTriggerPatterns(wait);
-				if (result == null) result = casePattern(wait);
+				if (result == null) result = caseTasks(wait);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -328,7 +328,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				DelayedReaction delayedReaction = (DelayedReaction)theEObject;
 				T result = caseDelayedReaction(delayedReaction);
 				if (result == null) result = caseTriggerPatterns(delayedReaction);
-				if (result == null) result = casePattern(delayedReaction);
+				if (result == null) result = caseTasks(delayedReaction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -336,7 +336,7 @@ public class PromiseSwitch<T> extends Switch<T> {
 				InstantReaction instantReaction = (InstantReaction)theEObject;
 				T result = caseInstantReaction(instantReaction);
 				if (result == null) result = caseTriggerPatterns(instantReaction);
-				if (result == null) result = casePattern(instantReaction);
+				if (result == null) result = caseTasks(instantReaction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -350,23 +350,15 @@ public class PromiseSwitch<T> extends Switch<T> {
 			case PromisePackage.SIMPLE_ACTION: {
 				SimpleAction simpleAction = (SimpleAction)theEObject;
 				T result = caseSimpleAction(simpleAction);
-				if (result == null) result = casePattern(simpleAction);
+				if (result == null) result = caseTasks(simpleAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PromisePackage.AND_OP: {
-				ANDOp andOp = (ANDOp)theEObject;
-				T result = caseANDOp(andOp);
-				if (result == null) result = caseCompositionOperator(andOp);
-				if (result == null) result = caseOperator(andOp);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PromisePackage.OR_OP: {
-				OROp orOp = (OROp)theEObject;
-				T result = caseOROp(orOp);
-				if (result == null) result = caseCompositionOperator(orOp);
-				if (result == null) result = caseOperator(orOp);
+			case PromisePackage.TASK_COMBINATION_OP: {
+				TaskCombinationOp taskCombinationOp = (TaskCombinationOp)theEObject;
+				T result = caseTaskCombinationOp(taskCombinationOp);
+				if (result == null) result = caseCompositionOperator(taskCombinationOp);
+				if (result == null) result = caseOperator(taskCombinationOp);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -494,17 +486,17 @@ public class PromiseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pattern</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Tasks</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pattern</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Tasks</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePattern(Pattern object) {
+	public T caseTasks(Tasks object) {
 		return null;
 	}
 
@@ -959,32 +951,17 @@ public class PromiseSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>AND Op</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Task Combination Op</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>AND Op</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Task Combination Op</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseANDOp(ANDOp object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>OR Op</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>OR Op</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOROp(OROp object) {
+	public T caseTaskCombinationOp(TaskCombinationOp object) {
 		return null;
 	}
 

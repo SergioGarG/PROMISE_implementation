@@ -4,7 +4,6 @@ package promise;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parallel Op</b></em>'.
@@ -22,13 +21,12 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface ParallelOp extends CompositionOperator {
-
 	/**
 	 * Returns the value of the '<em><b>Input Robots</b></em>' reference list.
 	 * The list contents are of type {@link promise.Robot}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Input Robots</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Input Robots</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -38,4 +36,5 @@ public interface ParallelOp extends CompositionOperator {
 	 * @generated
 	 */
 	EList<Robot> getInputRobots();
+
 } // ParallelOp

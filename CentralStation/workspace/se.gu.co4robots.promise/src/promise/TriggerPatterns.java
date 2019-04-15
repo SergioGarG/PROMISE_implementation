@@ -13,5 +13,5 @@ package promise;
  * @model abstract="true"
  * @generated
  */
-public interface TriggerPatterns extends Pattern {
+public interface TriggerPatterns extends Tasks {
 } // TriggerPatterns

@@ -132,7 +132,7 @@ public class DelegateOpItemProvider extends OperatorItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PromisePackage.Literals.DELEGATE_OP__PATTERN);
+			childrenFeatures.add(PromisePackage.Literals.DELEGATE_OP__TASK);
 		}
 		return childrenFeatures;
 	}
@@ -185,7 +185,7 @@ public class DelegateOpItemProvider extends OperatorItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DelegateOp.class)) {
-			case PromisePackage.DELEGATE_OP__PATTERN:
+			case PromisePackage.DELEGATE_OP__TASK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -205,102 +205,102 @@ public class DelegateOpItemProvider extends OperatorItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createVisit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createSequencedVisit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createOrderderVisit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createStrictOrderedVisit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createFairVisit()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createPatrolling()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createSequencedPatrolling()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createOrderedPatrolling()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createStrictOreredPatrolling()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createFairPatrolling()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createUpperRestrictedAvoidance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createExactRestrictedAvoidance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createLowerRestrictedAvoidance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createFutureAvoidance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createGlobalAvoidance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createPastAvoidance()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createWait()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createDelayedReaction()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createInstantReaction()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PromisePackage.Literals.DELEGATE_OP__PATTERN,
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createSimpleAction()));
 	}
 

@@ -32,9 +32,8 @@ public class PromiseParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
-					put(grammarAccess.getPatternAccess().getAlternatives(), "rule__Pattern__Alternatives");
-					put(grammarAccess.getANDOpAccess().getAlternatives_3(), "rule__ANDOp__Alternatives_3");
-					put(grammarAccess.getOROpAccess().getAlternatives_3(), "rule__OROp__Alternatives_3");
+					put(grammarAccess.getTasksAccess().getAlternatives(), "rule__Tasks__Alternatives");
+					put(grammarAccess.getTaskCombinationOpAccess().getAlternatives_3_0(), "rule__TaskCombinationOp__Alternatives_3_0");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getMissionAccess().getGroup(), "rule__Mission__Group__0");
 					put(grammarAccess.getMissionAccess().getGroup_2(), "rule__Mission__Group_2__0");
@@ -66,8 +65,8 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDelegateOpAccess().getGroup_4_2(), "rule__DelegateOp__Group_4_2__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup_5(), "rule__DelegateOp__Group_5__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup_5_2(), "rule__DelegateOp__Group_5_2__0");
-					put(grammarAccess.getANDOpAccess().getGroup(), "rule__ANDOp__Group__0");
-					put(grammarAccess.getOROpAccess().getGroup(), "rule__OROp__Group__0");
+					put(grammarAccess.getTaskCombinationOpAccess().getGroup(), "rule__TaskCombinationOp__Group__0");
+					put(grammarAccess.getTaskCombinationOpAccess().getGroup_3(), "rule__TaskCombinationOp__Group_3__0");
 					put(grammarAccess.getEventAssignmentAccess().getGroup(), "rule__EventAssignment__Group__0");
 					put(grammarAccess.getSimpleActionAccess().getGroup(), "rule__SimpleAction__Group__0");
 					put(grammarAccess.getVisitAccess().getGroup(), "rule__Visit__Group__0");
@@ -116,17 +115,15 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEventHandlerOpAccess().getInputOperatorsAssignment_4(), "rule__EventHandlerOp__InputOperatorsAssignment_4");
 					put(grammarAccess.getEventHandlerOpAccess().getInputEventsAssignment_6_1(), "rule__EventHandlerOp__InputEventsAssignment_6_1");
 					put(grammarAccess.getConditionOpAccess().getInputEventsAssignment_2_1(), "rule__ConditionOp__InputEventsAssignment_2_1");
-					put(grammarAccess.getDelegateOpAccess().getPatternAssignment_2(), "rule__DelegateOp__PatternAssignment_2");
+					put(grammarAccess.getDelegateOpAccess().getTaskAssignment_2(), "rule__DelegateOp__TaskAssignment_2");
 					put(grammarAccess.getDelegateOpAccess().getInputLocationsAssignment_3_1(), "rule__DelegateOp__InputLocationsAssignment_3_1");
 					put(grammarAccess.getDelegateOpAccess().getInputLocationsAssignment_3_2_1(), "rule__DelegateOp__InputLocationsAssignment_3_2_1");
 					put(grammarAccess.getDelegateOpAccess().getInputActionAssignment_4_1(), "rule__DelegateOp__InputActionAssignment_4_1");
 					put(grammarAccess.getDelegateOpAccess().getInputActionAssignment_4_2_1(), "rule__DelegateOp__InputActionAssignment_4_2_1");
 					put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_5_1(), "rule__DelegateOp__StoppingEventAssignment_5_1");
 					put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_5_2_1(), "rule__DelegateOp__StoppingEventAssignment_5_2_1");
-					put(grammarAccess.getANDOpAccess().getInputOperatorsAssignment_2(), "rule__ANDOp__InputOperatorsAssignment_2");
-					put(grammarAccess.getANDOpAccess().getInputOperatorsAssignment_4(), "rule__ANDOp__InputOperatorsAssignment_4");
-					put(grammarAccess.getOROpAccess().getInputOperatorsAssignment_2(), "rule__OROp__InputOperatorsAssignment_2");
-					put(grammarAccess.getOROpAccess().getInputOperatorsAssignment_4(), "rule__OROp__InputOperatorsAssignment_4");
+					put(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_2(), "rule__TaskCombinationOp__InputOperatorsAssignment_2");
+					put(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_3_1(), "rule__TaskCombinationOp__InputOperatorsAssignment_3_1");
 					put(grammarAccess.getEventAssignmentAccess().getInputEventAssignment_0(), "rule__EventAssignment__InputEventAssignment_0");
 					put(grammarAccess.getEventAssignmentAccess().getInputOperatorsAssignment_2(), "rule__EventAssignment__InputOperatorsAssignment_2");
 				}

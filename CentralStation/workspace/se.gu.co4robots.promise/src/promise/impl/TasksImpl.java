@@ -4,23 +4,25 @@ package promise.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import promise.ANDOp;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import promise.PromisePackage;
+import promise.Tasks;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>AND Op</b></em>'.
+ * An implementation of the model object '<em><b>Tasks</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ANDOpImpl extends CompositionOperatorImpl implements ANDOp {
+public abstract class TasksImpl extends MinimalEObjectImpl.Container implements Tasks {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ANDOpImpl() {
+	protected TasksImpl() {
 		super();
 	}
 
@@ -31,7 +33,7 @@ public class ANDOpImpl extends CompositionOperatorImpl implements ANDOp {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PromisePackage.Literals.AND_OP;
+		return PromisePackage.Literals.TASKS;
 	}
 
-} //ANDOpImpl
+} //TasksImpl

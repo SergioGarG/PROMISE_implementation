@@ -14,7 +14,7 @@ import promise.PromisePackage;
  *
  * @generated
  */
-public abstract class AvoidancePatternsImpl extends PatternImpl implements AvoidancePatterns {
+public abstract class AvoidancePatternsImpl extends TasksImpl implements AvoidancePatterns {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

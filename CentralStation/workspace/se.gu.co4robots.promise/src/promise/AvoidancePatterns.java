@@ -13,5 +13,5 @@ package promise;
  * @model abstract="true"
  * @generated
  */
-public interface AvoidancePatterns extends Pattern {
+public interface AvoidancePatterns extends Tasks {
 } // AvoidancePatterns

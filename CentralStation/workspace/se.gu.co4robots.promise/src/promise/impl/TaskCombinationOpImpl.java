@@ -4,23 +4,23 @@ package promise.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import promise.OROp;
 import promise.PromisePackage;
+import promise.TaskCombinationOp;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>OR Op</b></em>'.
+ * An implementation of the model object '<em><b>Task Combination Op</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class OROpImpl extends CompositionOperatorImpl implements OROp {
+public class TaskCombinationOpImpl extends CompositionOperatorImpl implements TaskCombinationOp {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OROpImpl() {
+	protected TaskCombinationOpImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public class OROpImpl extends CompositionOperatorImpl implements OROp {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PromisePackage.Literals.OR_OP;
+		return PromisePackage.Literals.TASK_COMBINATION_OP;
 	}
 
-} //OROpImpl
+} //TaskCombinationOpImpl

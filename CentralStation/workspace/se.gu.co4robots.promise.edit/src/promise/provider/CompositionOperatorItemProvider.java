@@ -155,12 +155,7 @@ public class CompositionOperatorItemProvider extends OperatorItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PromisePackage.Literals.COMPOSITION_OPERATOR__INPUT_OPERATORS,
-				 PromiseFactory.eINSTANCE.createANDOp()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PromisePackage.Literals.COMPOSITION_OPERATOR__INPUT_OPERATORS,
-				 PromiseFactory.eINSTANCE.createOROp()));
+				 PromiseFactory.eINSTANCE.createTaskCombinationOp()));
 	}
 
 }

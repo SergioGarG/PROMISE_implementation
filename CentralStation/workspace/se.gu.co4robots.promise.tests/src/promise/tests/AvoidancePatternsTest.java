@@ -10,7 +10,7 @@ import promise.AvoidancePatterns;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class AvoidancePatternsTest extends PatternTest {
+public abstract class AvoidancePatternsTest extends TasksTest {
 
 	/**
 	 * Constructs a new Avoidance Patterns test case with the given name.

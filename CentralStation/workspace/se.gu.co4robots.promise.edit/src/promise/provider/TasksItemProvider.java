@@ -20,12 +20,12 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link promise.Pattern} object.
+ * This is the item provider adapter for a {@link promise.Tasks} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PatternItemProvider 
+public class TasksItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -39,7 +39,7 @@ public class PatternItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PatternItemProvider(AdapterFactory adapterFactory) {
+	public TasksItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,7 +66,7 @@ public class PatternItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Pattern_type");
+		return getString("_UI_Tasks_type");
 	}
 	
 

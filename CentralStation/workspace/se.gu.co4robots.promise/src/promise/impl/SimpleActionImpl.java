@@ -14,7 +14,7 @@ import promise.SimpleAction;
  *
  * @generated
  */
-public class SimpleActionImpl extends PatternImpl implements SimpleAction {
+public class SimpleActionImpl extends TasksImpl implements SimpleAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

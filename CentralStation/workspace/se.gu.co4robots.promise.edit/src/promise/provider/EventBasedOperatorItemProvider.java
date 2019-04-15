@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -47,31 +46,8 @@ public class EventBasedOperatorItemProvider extends CompositionOperatorItemProvi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInputEventsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Input Events feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInputEventsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EventBasedOperator_inputEvents_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EventBasedOperator_inputEvents_feature", "_UI_EventBasedOperator_type"),
-				 PromisePackage.Literals.EVENT_BASED_OPERATOR__INPUT_EVENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -102,17 +78,6 @@ public class EventBasedOperatorItemProvider extends CompositionOperatorItemProvi
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns EventBasedOperator.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EventBasedOperator"));
 	}
 
 	/**

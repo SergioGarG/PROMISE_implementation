@@ -339,7 +339,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getEventBasedOperator()
 	 * @generated
 	 */
-	int EVENT_BASED_OPERATOR = 41;
+	int EVENT_BASED_OPERATOR = 40;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -606,32 +606,32 @@ public interface PromisePackage extends EPackage {
 	int MISSION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link promise.impl.PatternImpl <em>Pattern</em>}' class.
+	 * The meta object id for the '{@link promise.impl.TasksImpl <em>Tasks</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see promise.impl.PatternImpl
-	 * @see promise.impl.PromisePackageImpl#getPattern()
+	 * @see promise.impl.TasksImpl
+	 * @see promise.impl.PromisePackageImpl#getTasks()
 	 * @generated
 	 */
-	int PATTERN = 7;
+	int TASKS = 7;
 
 	/**
-	 * The number of structural features of the '<em>Pattern</em>' class.
+	 * The number of structural features of the '<em>Tasks</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_FEATURE_COUNT = 0;
+	int TASKS_FEATURE_COUNT = 0;
 
 	/**
-	 * The number of operations of the '<em>Pattern</em>' class.
+	 * The number of operations of the '<em>Tasks</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_OPERATION_COUNT = 0;
+	int TASKS_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link promise.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -782,13 +782,13 @@ public interface PromisePackage extends EPackage {
 	int DELEGATE_OP__EVENT_ASSIGNED = OPERATOR__EVENT_ASSIGNED;
 
 	/**
-	 * The feature id for the '<em><b>Pattern</b></em>' containment reference.
+	 * The feature id for the '<em><b>Task</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP__PATTERN = OPERATOR_FEATURE_COUNT + 0;
+	int DELEGATE_OP__TASK = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Input Action</b></em>' reference list.
@@ -898,7 +898,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVEMENT_PATTERNS_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 0;
+	int MOVEMENT_PATTERNS_FEATURE_COUNT = TASKS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Movement Patterns</em>' class.
@@ -907,7 +907,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MOVEMENT_PATTERNS_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 0;
+	int MOVEMENT_PATTERNS_OPERATION_COUNT = TASKS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link promise.impl.VisitImpl <em>Visit</em>}' class.
@@ -1206,7 +1206,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVOIDANCE_PATTERNS_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 0;
+	int AVOIDANCE_PATTERNS_FEATURE_COUNT = TASKS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Avoidance Patterns</em>' class.
@@ -1215,7 +1215,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVOIDANCE_PATTERNS_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 0;
+	int AVOIDANCE_PATTERNS_OPERATION_COUNT = TASKS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link promise.impl.UpperRestrictedAvoidanceImpl <em>Upper Restricted Avoidance</em>}' class.
@@ -1402,7 +1402,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER_PATTERNS_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 0;
+	int TRIGGER_PATTERNS_FEATURE_COUNT = TASKS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Trigger Patterns</em>' class.
@@ -1411,7 +1411,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRIGGER_PATTERNS_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 0;
+	int TRIGGER_PATTERNS_OPERATION_COUNT = TASKS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link promise.impl.WaitImpl <em>Wait</em>}' class.
@@ -1578,7 +1578,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_ACTION_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 0;
+	int SIMPLE_ACTION_FEATURE_COUNT = TASKS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Simple Action</em>' class.
@@ -1587,72 +1587,17 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_ACTION_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 0;
+	int SIMPLE_ACTION_OPERATION_COUNT = TASKS_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link promise.impl.ANDOpImpl <em>AND Op</em>}' class.
+	 * The meta object id for the '{@link promise.impl.TaskCombinationOpImpl <em>Task Combination Op</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see promise.impl.ANDOpImpl
-	 * @see promise.impl.PromisePackageImpl#getANDOp()
+	 * @see promise.impl.TaskCombinationOpImpl
+	 * @see promise.impl.PromisePackageImpl#getTaskCombinationOp()
 	 * @generated
 	 */
-	int AND_OP = 38;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND_OP__EVENT_ASSIGNED = COMPOSITION_OPERATOR__EVENT_ASSIGNED;
-
-	/**
-	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND_OP__INPUT_OPERATORS = COMPOSITION_OPERATOR__INPUT_OPERATORS;
-
-	/**
-	 * The number of structural features of the '<em>AND Op</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND_OP_FEATURE_COUNT = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>AND Op</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND_OP_OPERATION_COUNT = COMPOSITION_OPERATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link promise.impl.OROpImpl <em>OR Op</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see promise.impl.OROpImpl
-	 * @see promise.impl.PromisePackageImpl#getOROp()
-	 * @generated
-	 */
-	int OR_OP = 39;
+	int TASK_COMBINATION_OP = 38;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -1661,7 +1606,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OR_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
+	int TASK_COMBINATION_OP__PARENT = COMPOSITION_OPERATOR__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Assigned</b></em>' container reference.
@@ -1670,7 +1615,7 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OR_OP__EVENT_ASSIGNED = COMPOSITION_OPERATOR__EVENT_ASSIGNED;
+	int TASK_COMBINATION_OP__EVENT_ASSIGNED = COMPOSITION_OPERATOR__EVENT_ASSIGNED;
 
 	/**
 	 * The feature id for the '<em><b>Input Operators</b></em>' containment reference list.
@@ -1679,25 +1624,25 @@ public interface PromisePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OR_OP__INPUT_OPERATORS = COMPOSITION_OPERATOR__INPUT_OPERATORS;
+	int TASK_COMBINATION_OP__INPUT_OPERATORS = COMPOSITION_OPERATOR__INPUT_OPERATORS;
 
 	/**
-	 * The number of structural features of the '<em>OR Op</em>' class.
+	 * The number of structural features of the '<em>Task Combination Op</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OR_OP_FEATURE_COUNT = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
+	int TASK_COMBINATION_OP_FEATURE_COUNT = COMPOSITION_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>OR Op</em>' class.
+	 * The number of operations of the '<em>Task Combination Op</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OR_OP_OPERATION_COUNT = COMPOSITION_OPERATOR_OPERATION_COUNT + 0;
+	int TASK_COMBINATION_OP_OPERATION_COUNT = COMPOSITION_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link promise.impl.EventAssignmentImpl <em>Event Assignment</em>}' class.
@@ -1707,7 +1652,7 @@ public interface PromisePackage extends EPackage {
 	 * @see promise.impl.PromisePackageImpl#getEventAssignment()
 	 * @generated
 	 */
-	int EVENT_ASSIGNMENT = 40;
+	int EVENT_ASSIGNMENT = 39;
 
 	/**
 	 * The feature id for the '<em><b>Input Event</b></em>' reference.
@@ -1925,14 +1870,14 @@ public interface PromisePackage extends EPackage {
 	EReference getMission_Eventassignment();
 
 	/**
-	 * Returns the meta object for class '{@link promise.Pattern <em>Pattern</em>}'.
+	 * Returns the meta object for class '{@link promise.Tasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Pattern</em>'.
-	 * @see promise.Pattern
+	 * @return the meta object for class '<em>Tasks</em>'.
+	 * @see promise.Tasks
 	 * @generated
 	 */
-	EClass getPattern();
+	EClass getTasks();
 
 	/**
 	 * Returns the meta object for class '{@link promise.CompositionOperator <em>Composition Operator</em>}'.
@@ -2018,15 +1963,15 @@ public interface PromisePackage extends EPackage {
 	EClass getDelegateOp();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link promise.DelegateOp#getPattern <em>Pattern</em>}'.
+	 * Returns the meta object for the containment reference '{@link promise.DelegateOp#getTask <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Pattern</em>'.
-	 * @see promise.DelegateOp#getPattern()
+	 * @return the meta object for the containment reference '<em>Task</em>'.
+	 * @see promise.DelegateOp#getTask()
 	 * @see #getDelegateOp()
 	 * @generated
 	 */
-	EReference getDelegateOp_Pattern();
+	EReference getDelegateOp_Task();
 
 	/**
 	 * Returns the meta object for the reference list '{@link promise.DelegateOp#getInputAction <em>Input Action</em>}'.
@@ -2356,24 +2301,14 @@ public interface PromisePackage extends EPackage {
 	EClass getSimpleAction();
 
 	/**
-	 * Returns the meta object for class '{@link promise.ANDOp <em>AND Op</em>}'.
+	 * Returns the meta object for class '{@link promise.TaskCombinationOp <em>Task Combination Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>AND Op</em>'.
-	 * @see promise.ANDOp
+	 * @return the meta object for class '<em>Task Combination Op</em>'.
+	 * @see promise.TaskCombinationOp
 	 * @generated
 	 */
-	EClass getANDOp();
-
-	/**
-	 * Returns the meta object for class '{@link promise.OROp <em>OR Op</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>OR Op</em>'.
-	 * @see promise.OROp
-	 * @generated
-	 */
-	EClass getOROp();
+	EClass getTaskCombinationOp();
 
 	/**
 	 * Returns the meta object for class '{@link promise.EventAssignment <em>Event Assignment</em>}'.
@@ -2605,14 +2540,14 @@ public interface PromisePackage extends EPackage {
 		EReference MISSION__EVENTASSIGNMENT = eINSTANCE.getMission_Eventassignment();
 
 		/**
-		 * The meta object literal for the '{@link promise.impl.PatternImpl <em>Pattern</em>}' class.
+		 * The meta object literal for the '{@link promise.impl.TasksImpl <em>Tasks</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see promise.impl.PatternImpl
-		 * @see promise.impl.PromisePackageImpl#getPattern()
+		 * @see promise.impl.TasksImpl
+		 * @see promise.impl.PromisePackageImpl#getTasks()
 		 * @generated
 		 */
-		EClass PATTERN = eINSTANCE.getPattern();
+		EClass TASKS = eINSTANCE.getTasks();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.CompositionOperatorImpl <em>Composition Operator</em>}' class.
@@ -2689,12 +2624,12 @@ public interface PromisePackage extends EPackage {
 		EClass DELEGATE_OP = eINSTANCE.getDelegateOp();
 
 		/**
-		 * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Task</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DELEGATE_OP__PATTERN = eINSTANCE.getDelegateOp_Pattern();
+		EReference DELEGATE_OP__TASK = eINSTANCE.getDelegateOp_Task();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Action</b></em>' reference list feature.
@@ -3003,24 +2938,14 @@ public interface PromisePackage extends EPackage {
 		EClass SIMPLE_ACTION = eINSTANCE.getSimpleAction();
 
 		/**
-		 * The meta object literal for the '{@link promise.impl.ANDOpImpl <em>AND Op</em>}' class.
+		 * The meta object literal for the '{@link promise.impl.TaskCombinationOpImpl <em>Task Combination Op</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see promise.impl.ANDOpImpl
-		 * @see promise.impl.PromisePackageImpl#getANDOp()
+		 * @see promise.impl.TaskCombinationOpImpl
+		 * @see promise.impl.PromisePackageImpl#getTaskCombinationOp()
 		 * @generated
 		 */
-		EClass AND_OP = eINSTANCE.getANDOp();
-
-		/**
-		 * The meta object literal for the '{@link promise.impl.OROpImpl <em>OR Op</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see promise.impl.OROpImpl
-		 * @see promise.impl.PromisePackageImpl#getOROp()
-		 * @generated
-		 */
-		EClass OR_OP = eINSTANCE.getOROp();
+		EClass TASK_COMBINATION_OP = eINSTANCE.getTaskCombinationOp();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.EventAssignmentImpl <em>Event Assignment</em>}' class.

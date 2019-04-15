@@ -12,19 +12,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link promise.ANDOp} object.
+ * This is the item provider adapter for a {@link promise.TaskCombinationOp} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ANDOpItemProvider extends CompositionOperatorItemProvider {
+public class TaskCombinationOpItemProvider extends CompositionOperatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ANDOpItemProvider(AdapterFactory adapterFactory) {
+	public TaskCombinationOpItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +44,14 @@ public class ANDOpItemProvider extends CompositionOperatorItemProvider {
 	}
 
 	/**
-	 * This returns ANDOp.gif.
+	 * This returns TaskCombinationOp.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ANDOp"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TaskCombinationOp"));
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class ANDOpItemProvider extends CompositionOperatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ANDOp_type");
+		return getString("_UI_TaskCombinationOp_type");
 	}
 	
 

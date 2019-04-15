@@ -39,15 +39,8 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ANDOpNode" domainClass="promise::ANDOp">
+        <nodeMappings name="TaskCombinationOpNode" domainClass="promise::TaskCombinationOp">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="[if(self.parent->isEmpty()) then if(self.eventAssigned->isEmpty()) then 'This operator has no parent' else 'Event Op '+self.eventAssigned.parent_event.inputEvents->indexOf(self.eventAssigned) endif else if(self.parent.oclIsTypeOf(EventHandlerOp)) then 'Default' else 'Op '+self.parent.inputOperators->indexOf(self) endif endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/and.png">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelFormat>bold</labelFormat>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="OROpNode" domainClass="promise::OROp">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="[if(self.parent->isEmpty()) then if(self.eventAssigned->isEmpty()) then 'This operator has no parent' else 'Event Op '+self.eventAssigned.parent_event.inputEvents->indexOf(self.eventAssigned) endif else if(self.parent.oclIsTypeOf(EventHandlerOp)) then 'Default' else 'Op '+self.parent.inputOperators->indexOf(self) endif endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/or.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -62,147 +55,147 @@
           </style>
         </nodeMappings>
         <nodeMappings name="DelegateOpNode" domainClass="promise::DelegateOp">
-          <borderedNodeMappings name="VisitNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::Visit">
+          <borderedNodeMappings name="VisitNode" semanticCandidatesExpression="feature:task" domainClass="promise::Visit">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="Visit" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="PatrollingNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::Patrolling">
+          <borderedNodeMappings name="PatrollingNode" semanticCandidatesExpression="feature:task" domainClass="promise::Patrolling">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="Patrolling" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="DelayedReactionNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::DelayedReaction">
+          <borderedNodeMappings name="DelayedReactionNode" semanticCandidatesExpression="feature:task" domainClass="promise::DelayedReaction">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="DelayedReaction" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="SequencedVisitNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::SequencedVisit">
+          <borderedNodeMappings name="SequencedVisitNode" semanticCandidatesExpression="feature:task" domainClass="promise::SequencedVisit">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="SequencedVisit" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="OrderedVisitNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::OrderderVisit">
+          <borderedNodeMappings name="OrderedVisitNode" semanticCandidatesExpression="feature:task" domainClass="promise::OrderderVisit">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="OrderedVisit" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="StrictOrderedVisitNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::StrictOrderedVisit">
+          <borderedNodeMappings name="StrictOrderedVisitNode" semanticCandidatesExpression="feature:task" domainClass="promise::StrictOrderedVisit">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="StrictOrderedVisit" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="FirstVisitNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::FairVisit">
+          <borderedNodeMappings name="FirstVisitNode" semanticCandidatesExpression="feature:task" domainClass="promise::FairVisit">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="FairVisit" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="PatrollingNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::Patrolling">
+          <borderedNodeMappings name="PatrollingNode" semanticCandidatesExpression="feature:task" domainClass="promise::Patrolling">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="Patrolling" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="SequencedPatrollingNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::SequencedPatrolling">
+          <borderedNodeMappings name="SequencedPatrollingNode" semanticCandidatesExpression="feature:task" domainClass="promise::SequencedPatrolling">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="SequencedPatrolling" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="OrderedPatrollingNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::OrderedPatrolling">
+          <borderedNodeMappings name="OrderedPatrollingNode" semanticCandidatesExpression="feature:task" domainClass="promise::OrderedPatrolling">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="OrderedPatrolling" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="StrictOrderedPatrollingNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::StrictOreredPatrolling">
+          <borderedNodeMappings name="StrictOrderedPatrollingNode" semanticCandidatesExpression="feature:task" domainClass="promise::StrictOreredPatrolling">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="StrictOrderedPatrolling" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="FairPatrollingNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::FairPatrolling">
+          <borderedNodeMappings name="FairPatrollingNode" semanticCandidatesExpression="feature:task" domainClass="promise::FairPatrolling">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="FairPatrolling" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="PastAvoidanceNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::PastAvoidance">
+          <borderedNodeMappings name="PastAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::PastAvoidance">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="PastAvoidance" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="GlobalAvoidanceNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::GlobalAvoidance">
+          <borderedNodeMappings name="GlobalAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::GlobalAvoidance">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="GlobalAvoidance" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="FutureAvoidanceNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::FutureAvoidance">
+          <borderedNodeMappings name="FutureAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::FutureAvoidance">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="FutureAvoidance" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="LowerRestrictedAvoidanceNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::LowerRestrictedAvoidance">
+          <borderedNodeMappings name="LowerRestrictedAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::LowerRestrictedAvoidance">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="LowerRestrictedAvoidance" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="ExactRestrictedAvoidanceNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::ExactRestrictedAvoidance">
+          <borderedNodeMappings name="ExactRestrictedAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::ExactRestrictedAvoidance">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="ExactRestrictedAvoidance" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="UpperRestrictedAvoidanceNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::UpperRestrictedAvoidance">
+          <borderedNodeMappings name="UpperRestrictedAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::UpperRestrictedAvoidance">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="UpperRestrictedAvoidance" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="WaitNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::Wait">
+          <borderedNodeMappings name="WaitNode" semanticCandidatesExpression="feature:task" domainClass="promise::Wait">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="Wait" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="InstantReactionNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::InstantReaction">
+          <borderedNodeMappings name="InstantReactionNode" semanticCandidatesExpression="feature:task" domainClass="promise::InstantReaction">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="InstantReaction" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="SimpleActionNode" semanticCandidatesExpression="feature:pattern" domainClass="promise::SimpleAction">
+          <borderedNodeMappings name="SimpleActionNode" semanticCandidatesExpression="feature:task" domainClass="promise::SimpleAction">
             <style xsi:type="style:DotDescription" showIcon="false" labelExpression="SimpleAction" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -215,7 +208,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="inputOperator" deletionDescription="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='deleteEdge']" sourceMapping="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventHandlerOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='FallbackOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ParallelOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='OROpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ANDOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventAssignment']" targetMapping="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ConditionOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='FallbackOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventHandlerOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='OROpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ANDOpNode']" targetFinderExpression="feature:inputOperators" reconnections="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='reconnect']">
+        <edgeMappings name="inputOperator" deletionDescription="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='deleteEdge']" sourceMapping="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventHandlerOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='FallbackOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ParallelOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='TaskCombinationOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventAssignment']" targetMapping="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ConditionOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='FallbackOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='SequenceOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='EventHandlerOpNode'] //@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='TaskCombinationOpNode']" targetFinderExpression="feature:inputOperators" reconnections="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='reconnect']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12" labelExpression="[if(self.oclIsTypeOf(ParallelOp)) then if(self.oclAsType(ParallelOp).inputRobots->isEmpty()) then 'Select the robot in the operator Parallel' else self.oclAsType(ParallelOp).inputRobots->at(self.oclAsType(ParallelOp).inputOperators->indexOf(view.targetNode.oclAsType(viewpoint::DSemanticDecorator).target)).name endif else '' endif/]" iconPath="/se.gu.co4robots.promise/icons/robot_p5.jpg">
@@ -287,21 +280,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createANDOp" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='ANDOpNode']" iconPath="/se.gu.co4robots.promise/icons/and_p.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createTaskCombinationOp" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='TaskCombinationOpNode']" iconPath="/se.gu.co4robots.promise/icons/and_p.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::ANDOp" referenceName="operator"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createOROp" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='OROpNode']" iconPath="/se.gu.co4robots.promise/icons/or_p.png">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::OROp" referenceName="operator"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::TaskCombinationOp" referenceName="operator"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -369,7 +353,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Visit" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Visit" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -378,7 +362,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::SequencedVisit" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::SequencedVisit" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -387,7 +371,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::OrderderVisit" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::OrderderVisit" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -396,7 +380,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::StrictOrderedVisit" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::StrictOrderedVisit" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -405,7 +389,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::FairVisit" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::FairVisit" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -414,7 +398,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Patrolling" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Patrolling" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -423,7 +407,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::SequencedPatrolling" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::SequencedPatrolling" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -432,7 +416,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::OrderedPatrolling" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::OrderedPatrolling" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -441,7 +425,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::StrictOreredPatrolling" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::StrictOreredPatrolling" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -450,7 +434,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::FairPatrolling" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::FairPatrolling" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -461,7 +445,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::DelayedReaction" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::DelayedReaction" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -470,7 +454,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::InstantReaction" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::InstantReaction" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -479,7 +463,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Wait" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Wait" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -488,7 +472,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::SimpleAction" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::SimpleAction" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -499,7 +483,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::PastAvoidance" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::PastAvoidance" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -508,7 +492,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::GlobalAvoidance" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::GlobalAvoidance" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -517,7 +501,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::FutureAvoidance" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::FutureAvoidance" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -526,7 +510,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::LowerRestrictedAvoidance" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::LowerRestrictedAvoidance" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -535,7 +519,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::ExactRestrictedAvoidance" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::ExactRestrictedAvoidance" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -544,7 +528,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::UpperRestrictedAvoidance" referenceName="pattern"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::UpperRestrictedAvoidance" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

@@ -14,7 +14,7 @@ import promise.TriggerPatterns;
  *
  * @generated
  */
-public abstract class TriggerPatternsImpl extends PatternImpl implements TriggerPatterns {
+public abstract class TriggerPatternsImpl extends TasksImpl implements TriggerPatterns {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

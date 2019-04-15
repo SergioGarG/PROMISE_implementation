@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MovementPatternsItemProvider extends PatternItemProvider {
+public class MovementPatternsItemProvider extends TasksItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

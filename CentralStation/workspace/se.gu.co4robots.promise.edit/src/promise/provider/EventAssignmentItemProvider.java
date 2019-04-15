@@ -63,8 +63,6 @@ public class EventAssignmentItemProvider
 			super.getPropertyDescriptors(object);
 
 			addInputEventPropertyDescriptor(object);
-			addInputOperatorsPropertyDescriptor(object);
-			addParent_eventPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,50 +81,6 @@ public class EventAssignmentItemProvider
 				 getString("_UI_EventAssignment_inputEvent_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EventAssignment_inputEvent_feature", "_UI_EventAssignment_type"),
 				 PromisePackage.Literals.EVENT_ASSIGNMENT__INPUT_EVENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Input Operators feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInputOperatorsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EventAssignment_inputOperators_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EventAssignment_inputOperators_feature", "_UI_EventAssignment_type"),
-				 PromisePackage.Literals.EVENT_ASSIGNMENT__INPUT_OPERATORS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Parent event feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParent_eventPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EventAssignment_parent_event_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EventAssignment_parent_event_feature", "_UI_EventAssignment_type"),
-				 PromisePackage.Literals.EVENT_ASSIGNMENT__PARENT_EVENT,
 				 true,
 				 false,
 				 true,
@@ -251,12 +205,7 @@ public class EventAssignmentItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(PromisePackage.Literals.EVENT_ASSIGNMENT__INPUT_OPERATORS,
-				 PromiseFactory.eINSTANCE.createANDOp()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PromisePackage.Literals.EVENT_ASSIGNMENT__INPUT_OPERATORS,
-				 PromiseFactory.eINSTANCE.createOROp()));
+				 PromiseFactory.eINSTANCE.createTaskCombinationOp()));
 	}
 
 	/**

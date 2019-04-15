@@ -29,7 +29,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="eventassignment" upperBound="-1"
         eType="#//EventAssignment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pattern" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tasks" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="CompositionOperator" abstract="true"
       eSuperTypes="#//Operator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputOperators" upperBound="-1"
@@ -43,8 +43,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DelegateOp" eSuperTypes="#//Operator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
-        eType="#//Pattern" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//Tasks"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputAction" upperBound="-1"
         eType="#//Action"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stoppingEvent" upperBound="-1"
@@ -55,7 +55,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MovementPatterns" abstract="true" eSuperTypes="#//Pattern"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MovementPatterns" abstract="true" eSuperTypes="#//Tasks"/>
   <eClassifiers xsi:type="ecore:EClass" name="Visit" eSuperTypes="#//MovementPatterns"/>
   <eClassifiers xsi:type="ecore:EClass" name="SequencedVisit" eSuperTypes="#//MovementPatterns"/>
   <eClassifiers xsi:type="ecore:EClass" name="OrderderVisit" eSuperTypes="#//MovementPatterns"/>
@@ -66,14 +66,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="OrderedPatrolling" eSuperTypes="#//MovementPatterns"/>
   <eClassifiers xsi:type="ecore:EClass" name="StrictOreredPatrolling" eSuperTypes="#//MovementPatterns"/>
   <eClassifiers xsi:type="ecore:EClass" name="FairPatrolling" eSuperTypes="#//MovementPatterns"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AvoidancePatterns" abstract="true" eSuperTypes="#//Pattern"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AvoidancePatterns" abstract="true" eSuperTypes="#//Tasks"/>
   <eClassifiers xsi:type="ecore:EClass" name="UpperRestrictedAvoidance" eSuperTypes="#//AvoidancePatterns"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExactRestrictedAvoidance" eSuperTypes="#//AvoidancePatterns"/>
   <eClassifiers xsi:type="ecore:EClass" name="LowerRestrictedAvoidance" eSuperTypes="#//AvoidancePatterns"/>
   <eClassifiers xsi:type="ecore:EClass" name="FutureAvoidance" eSuperTypes="#//AvoidancePatterns"/>
   <eClassifiers xsi:type="ecore:EClass" name="GlobalAvoidance" eSuperTypes="#//AvoidancePatterns"/>
   <eClassifiers xsi:type="ecore:EClass" name="PastAvoidance" eSuperTypes="#//AvoidancePatterns"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TriggerPatterns" abstract="true" eSuperTypes="#//Pattern"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TriggerPatterns" abstract="true" eSuperTypes="#//Tasks"/>
   <eClassifiers xsi:type="ecore:EClass" name="Wait" eSuperTypes="#//TriggerPatterns">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -84,9 +84,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Location" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleAction" eSuperTypes="#//Pattern"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ANDOp" eSuperTypes="#//CompositionOperator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OROp" eSuperTypes="#//CompositionOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleAction" eSuperTypes="#//Tasks"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskCombinationOp" eSuperTypes="#//CompositionOperator"/>
   <eClassifiers xsi:type="ecore:EClass" name="EventAssignment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputEvent" eType="#//Event"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputOperators" eType="#//Operator"

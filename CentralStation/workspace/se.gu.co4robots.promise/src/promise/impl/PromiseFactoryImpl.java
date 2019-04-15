@@ -87,8 +87,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 			case PromisePackage.INSTANT_REACTION: return createInstantReaction();
 			case PromisePackage.LOCATION: return createLocation();
 			case PromisePackage.SIMPLE_ACTION: return createSimpleAction();
-			case PromisePackage.AND_OP: return createANDOp();
-			case PromisePackage.OR_OP: return createOROp();
+			case PromisePackage.TASK_COMBINATION_OP: return createTaskCombinationOp();
 			case PromisePackage.EVENT_ASSIGNMENT: return createEventAssignment();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -410,19 +409,9 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ANDOp createANDOp() {
-		ANDOpImpl andOp = new ANDOpImpl();
-		return andOp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OROp createOROp() {
-		OROpImpl orOp = new OROpImpl();
-		return orOp;
+	public TaskCombinationOp createTaskCombinationOp() {
+		TaskCombinationOpImpl taskCombinationOp = new TaskCombinationOpImpl();
+		return taskCombinationOp;
 	}
 
 	/**

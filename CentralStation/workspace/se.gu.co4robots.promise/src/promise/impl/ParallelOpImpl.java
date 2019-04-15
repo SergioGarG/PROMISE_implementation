@@ -3,9 +3,13 @@
 package promise.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import promise.ParallelOp;
 import promise.PromisePackage;
 import promise.Robot;

@@ -17,7 +17,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AvoidancePatternsItemProvider extends PatternItemProvider {
+public class AvoidancePatternsItemProvider extends TasksItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

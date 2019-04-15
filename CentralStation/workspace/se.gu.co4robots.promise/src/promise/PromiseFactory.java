@@ -301,22 +301,13 @@ public interface PromiseFactory extends EFactory {
 	SimpleAction createSimpleAction();
 
 	/**
-	 * Returns a new object of class '<em>AND Op</em>'.
+	 * Returns a new object of class '<em>Task Combination Op</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>AND Op</em>'.
+	 * @return a new object of class '<em>Task Combination Op</em>'.
 	 * @generated
 	 */
-	ANDOp createANDOp();
-
-	/**
-	 * Returns a new object of class '<em>OR Op</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>OR Op</em>'.
-	 * @generated
-	 */
-	OROp createOROp();
+	TaskCombinationOp createTaskCombinationOp();
 
 	/**
 	 * Returns a new object of class '<em>Event Assignment</em>'.

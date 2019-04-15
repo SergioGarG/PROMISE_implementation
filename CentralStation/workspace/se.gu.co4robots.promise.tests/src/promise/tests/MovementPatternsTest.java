@@ -10,7 +10,7 @@ import promise.MovementPatterns;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class MovementPatternsTest extends PatternTest {
+public abstract class MovementPatternsTest extends TasksTest {
 
 	/**
 	 * Constructs a new Movement Patterns test case with the given name.

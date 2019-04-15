@@ -14,7 +14,7 @@ import promise.PromisePackage;
  *
  * @generated
  */
-public abstract class MovementPatternsImpl extends PatternImpl implements MovementPatterns {
+public abstract class MovementPatternsImpl extends TasksImpl implements MovementPatterns {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
