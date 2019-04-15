@@ -54,20 +54,6 @@ public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-<<<<<<< HEAD
-=======
-	 *     '&' | 'and' | 'AND'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     inputOperators+=Operator (ambiguity) inputOperators+=Operator
-	 */
-	protected void emit_ANDOp_ANDKeyword_3_1_or_AmpersandKeyword_3_0_or_AndKeyword_3_2(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
->>>>>>> b531b88a86b3922a25126eca59c597ece2f172d7
 	 *     ('conditions' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
@@ -79,11 +65,7 @@ public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-<<<<<<< HEAD
 	 *     '&' | 'AND' | 'and'
-=======
-	 *     'or' | 'OR' | '|'
->>>>>>> b531b88a86b3922a25126eca59c597ece2f172d7
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     inputOperators+=Operator (ambiguity) inputOperators+=Operator

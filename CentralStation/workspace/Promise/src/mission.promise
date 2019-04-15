@@ -1,9 +1,15 @@
 mission{ 
 	robots r1
-	locations asd
+	locations l1, l2, l3
 	operators{ parallel{ 
 		// Your operators come here
-
+			r1(
+				combination(
+					delegate(Visit locations l1) &
+					delegate(Visit locations l2) &
+					delegate(Visit locations l3)
+				)
+			)
 		}
 	}
 }
