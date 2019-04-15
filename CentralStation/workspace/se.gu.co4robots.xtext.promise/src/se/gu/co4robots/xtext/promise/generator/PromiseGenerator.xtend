@@ -314,6 +314,7 @@ class PromiseGenerator extends AbstractGenerator {
 				template=template+")"
 				text= text+"the same number of times"
 			}
+<<<<<<< HEAD
 			else if(in.task.eClass.name == "OrderedPatrolling") {
 				template="[] (<> (("+in.inputLocations.get(0).name+")"
 				text= text+"patrol (with a specific order) location(s) "
@@ -321,12 +322,23 @@ class PromiseGenerator extends AbstractGenerator {
 				for(var i=0; i<in.inputLocations.length; i++){
 					template=template+")"
 					text= text+in.inputLocations.get(i).name+", "
+=======
+			else if(in.pattern.eClass.name == "OrderedPatrolling") {
+				template="[] (<> ("+in.inputLocations.get(0).name+")"
+				text= text+"patrol (with a specific order) locations "+in.inputLocations.get(0).name
+				for(var i=1; i<in.inputLocations.length; i++){
+					template=template+" && <> (("+in.inputLocations.get(i).name+")" //sets the first line
+					text= text+", "+in.inputLocations.get(i).name
+>>>>>>> b531b88a86b3922a25126eca59c597ece2f172d7
 				} 
-				for(var j=in.inputLocations.length-1; j>0; j--){
-					for(var i=j-1; i>=0; i--) template=template+" && (! ("+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"
+				for(var i=0; i<in.inputLocations.length; i++) template=template+")"
+				for(var j=in.inputLocations.length-1; j>=0; j--){
+					for(var i=j-1; i>=0; i--) template=template+" && ((!"+in.inputLocations.get(j).name+") U ("+in.inputLocations.get(i).name+"))"
 				}
 				for(var j=in.inputLocations.length-1; j>0; j--){
-					for(var i=j-1; i>=0; i--) template=template+" && [] ("+in.inputLocations.get(j).name+" -> X((! "+in.inputLocations.get(j).name+") U "+in.inputLocations.get(i).name+"))"
+					for(var i=j-1; i>=0; i--) {
+						if (i != j) template=template+" && [] ("+in.inputLocations.get(j).name+" -> X((! "+in.inputLocations.get(j).name+") U "+in.inputLocations.get(i).name+"))"
+					}
 				}
 			}	
 			else if(in.task.eClass.name == "StrictOreredPatrolling") {

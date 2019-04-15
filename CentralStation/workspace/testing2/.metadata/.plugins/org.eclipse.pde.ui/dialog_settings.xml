@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="dependenciesView">
+	</section>
+	<section name="PDEFormActionManager">
+	</section>
+	<section name="PluginExportWizard">
+		<item value="/Users/gsergio/Documents/PROMISE_implementation/CentralStation/workspace" key="destination0"/>
+		<item value="/Users/gsergio/Documents/PROMISE_implementation/CentralStation/workspace" key="destination1"/>
+		<item value="Generate source bundles" key="exportSourceFormat"/>
+		<item value="false" key="signJAR"/>
+		<item value="/Users/gsergio/Documents/PROMISE_implementation/CentralStation/workspace/testing2" key="destination2"/>
+		<item value="true" key="exportUpdate"/>
+		<item value="false" key="saveAsAnt"/>
+		<item value="false" key="exportSource"/>
+		<item value="true" key="allowBinaryCycles"/>
+		<item value="201903221136" key="qualifierName"/>
+		<item value="false" key="useWorkspaceCompiledClasses"/>
+		<item value="1" key="exportType"/>
+		<item value="false" key="qualifier"/>
+	</section>
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="editBundleContainerWizard">
+		<item value="/Users/gsergio/Documents/PROMISE_implementation/CentralStation/workspace/.metadata/.plugins/org.eclipse.pde.core/Runtime_Promise_TourGuide/" key="config2"/>
+		<item value="/Users/gsergio/Documents/PROMISE_implementation/CentralStation/workspace/.metadata/.plugins/org.eclipse.pde.core/testing2/" key="config1"/>
+	</section>
+	<section name="pluginsView">
+	</section>
+</section>

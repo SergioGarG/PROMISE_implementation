@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ShowViewDialog">
+		<item value="328" key="DIALOG_WIDTH"/>
+		<item value="1|.SF NS Text|13.0|0|COCOA|1|.SFNSText" key="DIALOG_FONT_NAME"/>
+		<item value="org.eclipse.pde.ui.PluginsView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
+		<item value="434" key="DIALOG_HEIGHT"/>
+		<item value="1093" key="DIALOG_X_ORIGIN"/>
+		<item value="349" key="DIALOG_Y_ORIGIN"/>
+		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="Plug-in Development"/>
+		</list>
+	</section>
+</section>

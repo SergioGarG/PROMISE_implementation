@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis xmi:id="_8PTssLXIEei73dAwlH3Y6Q" selectedViews="_8RHqkLXIEei73dAwlH3Y6Q _x5Xm8FE0EemUyKWnbVbhtQ _x5x2oFE0EemUyKWnbVbhtQ _x-NDoFE0EemUyKWnbVbhtQ" version="12.1.0.201708031200">
+  <viewpoint:DAnalysis xmi:id="_8PTssLXIEei73dAwlH3Y6Q" selectedViews="_8RHqkLXIEei73dAwlH3Y6Q _x5Xm8FE0EemUyKWnbVbhtQ _x5x2oFE0EemUyKWnbVbhtQ _x-NDoFE0EemUyKWnbVbhtQ" version="13.0.0.201804031646">
     <semanticResources>promise.ecore</semanticResources>
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
     <semanticResources>promise.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_8RHqkLXIEei73dAwlH3Y6Q">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_2av3oLXJEei73dAwlH3Y6Q" name="promise class diagram" repPath="#_2akRcLXJEei73dAwlH3Y6Q">
-        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
-        <target xmi:type="ecore:EPackage" href="promise.ecore#/"/>
-      </ownedRepresentationDescriptors>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_yeshkFE0EemUyKWnbVbhtQ" name="promise class diagram" repPath="#_yea0wFE0EemUyKWnbVbhtQ">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="promise.ecore#/"/>
@@ -25,6 +21,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
+<<<<<<< HEAD
   <diagram:DSemanticDiagram xmi:id="_2avQkLXJEei73dAwlH3Y6Q" name="promise class diagram" uid="_2akRcLXJEei73dAwlH3Y6Q">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_2avQkbXJEei73dAwlH3Y6Q" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_2avQkrXJEei73dAwlH3Y6Q">
@@ -2299,6 +2296,8 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']/@ownedRepresentationExtensions[name='Entities%20With%20Archetypes']/@layers[name='Archetypes']"/>
     <target xmi:type="ecore:EPackage" href="promise.ecore#/"/>
   </diagram:DSemanticDiagram>
+=======
+>>>>>>> b531b88a86b3922a25126eca59c597ece2f172d7
   <diagram:DSemanticDiagram xmi:id="_yeqsYFE0EemUyKWnbVbhtQ" name="promise class diagram" uid="_yea0wFE0EemUyKWnbVbhtQ">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_yeqsYVE0EemUyKWnbVbhtQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_yeqsYlE0EemUyKWnbVbhtQ">

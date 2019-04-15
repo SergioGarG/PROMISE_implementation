@@ -1,0 +1,84 @@
+<<<<<<< HEAD
+mission{ 
+	conditions{
+		events
+			e0: "starting_signal_received",
+			e1: "people_follow",
+			e2: "people_donot_follows",
+			e3: "people_donot_follows",
+			e4: "people_donot_follows"
+	   	actions
+	   		a0: "request_attention",
+	   		a1: "detect_and_approach_requesting_person",
+	   		a2: "detect_and_approach_large_group",
+	   		a3: "detect_and_approach_small_group",
+			a4: "introduction",
+			a5: "greet_guest",
+			a6:	"ask_follow",
+			a7: "ask_sit",   
+			a8: "explain_league",
+			a9: "QA_session"}               
+	robots robot1, r2       
+	locations ldef, l0, l1, l2, l3, l4, l5
+	operators {
+		parallel( 
+			eventHandler(
+				default(delegate(Visit locations ldef))
+				except e0( sequence ( condition ( if e1 ( delegate ( Visit locations l0 ) ) if e4 ( delegate ( Patrolling locations l5 ) ) ) ) )
+				except e1(delegate(Visit locations l1))
+				
+				except e2 ( sequence(
+					delegate ( Visit locations l2 ),
+					eventHandler(
+						default(delegate(Visit locations ldef))
+						except e1( sequence ( delegate ( Visit locations l3 ) , delegate ( Visit locations l2 , l5 ) ) ) )) )  
+				except e3 ( delegate ( Patrolling locations l5 ) ) 
+				)
+				 
+				   
+				
+		  
+		 , condition ( if e4( sequence ( delegate ( Visit locations l3 ) , delegate ( Visit locations l2 ) ) ) if e0 ( delegate ( Visit locations l2 ) ) if e1 ( eventHandler ( default ( delegate ( Visit locations l2 ) ) except e2 ( delegate ( Visit locations l3 ) ) ) ) if e3 ( condition ( if e1 ( delegate ( Visit locations l0 ) ) if e4 ( delegate ( Patrolling locations l5 ) ) ) ) if e4 ( delegate ( Visit locations l3 ) ) ) )   
+		  
+      
+					 
+ 
+	, delegate ( Patrolling locations l5 ) } }
+=======
+mission { 
+	conditions { 
+		events 
+			obj_recognized : "obj_recognized",
+			intruder : "obj_recognized",
+			help_requested: "",
+			out_of_battery: ""
+		actions 
+			raise_alarm : "description of action a1",
+			call_r2 : "description of action a1",
+			raise_alarm : "description of action a1",
+			grasp_object : "description of action a1",
+			release_object : "description of action a1",
+			charge_battery : "description of action a1"
+	} 
+	robots r1, r2
+	locations l1 , l2 , l3 , l4, l5, chargingDock
+	operators { parallel ( 
+		eventHandler ( 
+			default ( delegate ( Patrolling locations l1 , l2 , l3 ) )
+			except intruder ( delegate ( SimpleAction actions raise_alarm ) )
+		except obj_recognized ( delegate ( SimpleAction actions call_r2 ) ) 
+		except out_of_battery ( sequence ( 
+			delegate ( Visit locations chargingDock ) , 
+			delegate ( SimpleAction actions charge_battery )
+		) ) )
+	, eventHandler ( 
+		default ( delegate ( Wait ) ) 
+		except help_requested ( sequence ( 
+			delegate ( Visit locations l2 ) , 
+			delegate ( SimpleAction actions grasp_object ) , 
+			delegate ( Visit locations l5 ) , 
+			delegate ( SimpleAction actions release_object )
+		) )
+	) ) } 
+}   
+>>>>>>> b3d5ecc76e4bddd153e569f85718dabc34871943

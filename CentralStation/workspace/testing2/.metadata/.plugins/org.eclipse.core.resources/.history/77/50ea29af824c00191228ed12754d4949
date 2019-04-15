@@ -1,0 +1,11 @@
+robot1[eh, <> (l0), <> (l0), <> (l0), <> (l0)]
+
+	eh_default[<> (l0)]
+
+	eh_promise.impl.EventImpl@1fdee697 (name: e0) (description: starting_signal_received)[]
+
+	eh_promise.impl.EventImpl@583f2ad5 (name: e1) (description: people_follow)[]
+
+	eh_promise.impl.EventImpl@3a15e1a9 (name: e2) (description: people_donot_follows)[]
+
+	eh_promise.impl.EventImpl@1e70c578 (name: e3) (description: people_donot_follows)[]

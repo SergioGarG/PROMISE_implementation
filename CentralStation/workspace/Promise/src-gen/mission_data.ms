@@ -1,4 +1,4 @@
-Robots [ r1,r2, ]
+Robots [ r1, ]
 Events [  ]
 Actions [  ]
 StoppingEvents [  ]

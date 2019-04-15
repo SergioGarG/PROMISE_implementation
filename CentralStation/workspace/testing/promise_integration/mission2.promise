@@ -1,22 +1,18 @@
 mission{ 
 	conditions{ 
 		events
- 		intruder: "description of event intruder",
-		 found_object: "description of event  found_object",
-		 help_requested: "description of event  help_requested",
-		 r1_low_battery: "description of event  r1_low_battery",
-		 r2_low_battery: "description of event  r2_low_battery"
-		actions
- 		raise_alarm: "description of action raise_alarm",
-		 request_help: "description of action  request_help",
-		 grasp_object: "description of action  grasp_object",
-		 release_object: "description of action  release_object",
-		 charge_battery: "description of action  charge_battery"
-  
-	}      
-	robots r1, r2 
-	locations l1, l2, l3, l4, l5, chargingdock
+ 		e0: "description of event e0",
+		 e1: "description of event  e1",
+		 e2: "description of event  e2",
+		 e3: "description of event  e3"
+		 actions
+		 grab_coffee: "a" 
+
+	}   
+	robots r1 
+	locations l1, l2, l3, l4
 	operators{ parallel{ 
+<<<<<<< HEAD
 		r1(
 			combination(
 				delegate(Visit locations l1) &
@@ -27,3 +23,9 @@ mission{
 		r2 ( delegate ( SimpleAction actions raise_alarm ) ) }
 	}
 }   
+=======
+		// Your operators come here
+		r1 ( eventHandler ( default ( delegate ( OrderedPatrolling locations l1 , l2 , l3 ) ) except e0 ( delegate ( Visit locations l2 ) ) ) ) }
+	}
+}  
+>>>>>>> b531b88a86b3922a25126eca59c597ece2f172d7
