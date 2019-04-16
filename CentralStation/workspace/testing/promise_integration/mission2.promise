@@ -12,20 +12,14 @@ mission{
 	robots r1 
 	locations l1, l2, l3, l4
 	operators{ parallel{ 
-<<<<<<< HEAD
 		r1(
 			combination(
 				delegate(Visit locations l1) &
 				delegate(Visit locations l2) &
 				delegate(Visit locations l3)  
 			)
-		),
-		r2 ( delegate ( SimpleAction actions raise_alarm ) ) }
+		)
+		}
 	}
 }   
-=======
-		// Your operators come here
-		r1 ( eventHandler ( default ( delegate ( OrderedPatrolling locations l1 , l2 , l3 ) ) except e0 ( delegate ( Visit locations l2 ) ) ) ) }
-	}
-}  
->>>>>>> b531b88a86b3922a25126eca59c597ece2f172d7
+

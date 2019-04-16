@@ -1255,6 +1255,93 @@ ruleConditionOp returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleTaskCombinationOp
+entryRuleTaskCombinationOp returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTaskCombinationOpRule()); }
+	iv_ruleTaskCombinationOp=ruleTaskCombinationOp
+	{ $current=$iv_ruleTaskCombinationOp.current; }
+	EOF;
+
+// Rule TaskCombinationOp
+ruleTaskCombinationOp returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='combination'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getTaskCombinationOpAccess().getCombinationKeyword_0());
+		}
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getTaskCombinationOpAccess().getLeftParenthesisKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_2_0());
+				}
+				lv_inputOperators_2_0=ruleOperator
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTaskCombinationOpRule());
+					}
+					add(
+						$current,
+						"inputOperators",
+						lv_inputOperators_2_0,
+						"se.gu.co4robots.xtext.promise.Promise.Operator");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				otherlv_3='&'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getTaskCombinationOpAccess().getAmpersandKeyword_3_0_0());
+				}
+				    |
+				otherlv_4='AND'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getTaskCombinationOpAccess().getANDKeyword_3_0_1());
+				}
+				    |
+				otherlv_5='and'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getTaskCombinationOpAccess().getAndKeyword_3_0_2());
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_3_1_0());
+					}
+					lv_inputOperators_6_0=ruleOperator
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTaskCombinationOpRule());
+						}
+						add(
+							$current,
+							"inputOperators",
+							lv_inputOperators_6_0,
+							"se.gu.co4robots.xtext.promise.Promise.Operator");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)+
+		otherlv_7=')'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getTaskCombinationOpAccess().getRightParenthesisKeyword_4());
+		}
+	)
+;
+
 // Entry rule entryRuleDelegateOp
 entryRuleDelegateOp returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getDelegateOpRule()); }
@@ -1433,93 +1520,6 @@ ruleDelegateOp returns [EObject current=null]
 		otherlv_15=')'
 		{
 			newLeafNode(otherlv_15, grammarAccess.getDelegateOpAccess().getRightParenthesisKeyword_6());
-		}
-	)
-;
-
-// Entry rule entryRuleTaskCombinationOp
-entryRuleTaskCombinationOp returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTaskCombinationOpRule()); }
-	iv_ruleTaskCombinationOp=ruleTaskCombinationOp
-	{ $current=$iv_ruleTaskCombinationOp.current; }
-	EOF;
-
-// Rule TaskCombinationOp
-ruleTaskCombinationOp returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='combination'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getTaskCombinationOpAccess().getCombinationKeyword_0());
-		}
-		otherlv_1='('
-		{
-			newLeafNode(otherlv_1, grammarAccess.getTaskCombinationOpAccess().getLeftParenthesisKeyword_1());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_2_0());
-				}
-				lv_inputOperators_2_0=ruleOperator
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTaskCombinationOpRule());
-					}
-					add(
-						$current,
-						"inputOperators",
-						lv_inputOperators_2_0,
-						"se.gu.co4robots.xtext.promise.Promise.Operator");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				otherlv_3='&'
-				{
-					newLeafNode(otherlv_3, grammarAccess.getTaskCombinationOpAccess().getAmpersandKeyword_3_0_0());
-				}
-				    |
-				otherlv_4='AND'
-				{
-					newLeafNode(otherlv_4, grammarAccess.getTaskCombinationOpAccess().getANDKeyword_3_0_1());
-				}
-				    |
-				otherlv_5='and'
-				{
-					newLeafNode(otherlv_5, grammarAccess.getTaskCombinationOpAccess().getAndKeyword_3_0_2());
-				}
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_3_1_0());
-					}
-					lv_inputOperators_6_0=ruleOperator
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTaskCombinationOpRule());
-						}
-						add(
-							$current,
-							"inputOperators",
-							lv_inputOperators_6_0,
-							"se.gu.co4robots.xtext.promise.Promise.Operator");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)+
-		otherlv_7=')'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getTaskCombinationOpAccess().getRightParenthesisKeyword_4());
 		}
 	)
 ;

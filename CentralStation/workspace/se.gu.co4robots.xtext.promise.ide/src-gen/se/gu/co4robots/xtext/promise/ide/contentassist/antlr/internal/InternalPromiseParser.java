@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPromiseParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'&'", "'AND'", "'and'", "'mission'", "'{'", "'robots'", "'operators'", "'}'", "'conditions'", "'events'", "','", "'actions'", "'locations'", "':'", "'fallback'", "'('", "')'", "'sequence'", "'parallel'", "'eventHandler'", "'default'", "'except'", "'condition'", "'if'", "'delegate'", "'stoppingEvents'", "'combination'", "'SimpleAction'", "'Visit'", "'SequencedVisit'", "'OrderedVisit'", "'StrictOrderedVisit'", "'FairVisit'", "'Patrolling'", "'SequencedPatrolling'", "'OrderedPatrolling'", "'StrictOrderedPatrolling'", "'FairPatrolling'", "'UpperRestrictedAvoidance'", "'ExactRestrictedAvoidance'", "'LowerRestrictedAvoidance'", "'FutureAvoidance'", "'GlobalAvoidance'", "'PastAvoidance'", "'Wait'", "'DelayedReaction'", "'InstantReaction'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'&'", "'AND'", "'and'", "'mission'", "'{'", "'robots'", "'operators'", "'}'", "'conditions'", "'events'", "','", "'actions'", "'locations'", "':'", "'fallback'", "'('", "')'", "'sequence'", "'parallel'", "'eventHandler'", "'default'", "'except'", "'condition'", "'if'", "'combination'", "'delegate'", "'stoppingEvents'", "'SimpleAction'", "'Visit'", "'SequencedVisit'", "'OrderedVisit'", "'StrictOrderedVisit'", "'FairVisit'", "'Patrolling'", "'SequencedPatrolling'", "'OrderedPatrolling'", "'StrictOrderedPatrolling'", "'FairPatrolling'", "'UpperRestrictedAvoidance'", "'ExactRestrictedAvoidance'", "'LowerRestrictedAvoidance'", "'FutureAvoidance'", "'GlobalAvoidance'", "'PastAvoidance'", "'Wait'", "'DelayedReaction'", "'InstantReaction'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -1039,89 +1039,12 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleConditionOp"
 
 
-    // $ANTLR start "entryRuleDelegateOp"
-    // InternalPromise.g:353:1: entryRuleDelegateOp : ruleDelegateOp EOF ;
-    public final void entryRuleDelegateOp() throws RecognitionException {
-        try {
-            // InternalPromise.g:354:1: ( ruleDelegateOp EOF )
-            // InternalPromise.g:355:1: ruleDelegateOp EOF
-            {
-             before(grammarAccess.getDelegateOpRule()); 
-            pushFollow(FOLLOW_1);
-            ruleDelegateOp();
-
-            state._fsp--;
-
-             after(grammarAccess.getDelegateOpRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleDelegateOp"
-
-
-    // $ANTLR start "ruleDelegateOp"
-    // InternalPromise.g:362:1: ruleDelegateOp : ( ( rule__DelegateOp__Group__0 ) ) ;
-    public final void ruleDelegateOp() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:366:2: ( ( ( rule__DelegateOp__Group__0 ) ) )
-            // InternalPromise.g:367:2: ( ( rule__DelegateOp__Group__0 ) )
-            {
-            // InternalPromise.g:367:2: ( ( rule__DelegateOp__Group__0 ) )
-            // InternalPromise.g:368:3: ( rule__DelegateOp__Group__0 )
-            {
-             before(grammarAccess.getDelegateOpAccess().getGroup()); 
-            // InternalPromise.g:369:3: ( rule__DelegateOp__Group__0 )
-            // InternalPromise.g:369:4: rule__DelegateOp__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__DelegateOp__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getDelegateOpAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleDelegateOp"
-
-
     // $ANTLR start "entryRuleTaskCombinationOp"
-    // InternalPromise.g:378:1: entryRuleTaskCombinationOp : ruleTaskCombinationOp EOF ;
+    // InternalPromise.g:353:1: entryRuleTaskCombinationOp : ruleTaskCombinationOp EOF ;
     public final void entryRuleTaskCombinationOp() throws RecognitionException {
         try {
-            // InternalPromise.g:379:1: ( ruleTaskCombinationOp EOF )
-            // InternalPromise.g:380:1: ruleTaskCombinationOp EOF
+            // InternalPromise.g:354:1: ( ruleTaskCombinationOp EOF )
+            // InternalPromise.g:355:1: ruleTaskCombinationOp EOF
             {
              before(grammarAccess.getTaskCombinationOpRule()); 
             pushFollow(FOLLOW_1);
@@ -1147,21 +1070,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleTaskCombinationOp"
-    // InternalPromise.g:387:1: ruleTaskCombinationOp : ( ( rule__TaskCombinationOp__Group__0 ) ) ;
+    // InternalPromise.g:362:1: ruleTaskCombinationOp : ( ( rule__TaskCombinationOp__Group__0 ) ) ;
     public final void ruleTaskCombinationOp() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:391:2: ( ( ( rule__TaskCombinationOp__Group__0 ) ) )
-            // InternalPromise.g:392:2: ( ( rule__TaskCombinationOp__Group__0 ) )
+            // InternalPromise.g:366:2: ( ( ( rule__TaskCombinationOp__Group__0 ) ) )
+            // InternalPromise.g:367:2: ( ( rule__TaskCombinationOp__Group__0 ) )
             {
-            // InternalPromise.g:392:2: ( ( rule__TaskCombinationOp__Group__0 ) )
-            // InternalPromise.g:393:3: ( rule__TaskCombinationOp__Group__0 )
+            // InternalPromise.g:367:2: ( ( rule__TaskCombinationOp__Group__0 ) )
+            // InternalPromise.g:368:3: ( rule__TaskCombinationOp__Group__0 )
             {
              before(grammarAccess.getTaskCombinationOpAccess().getGroup()); 
-            // InternalPromise.g:394:3: ( rule__TaskCombinationOp__Group__0 )
-            // InternalPromise.g:394:4: rule__TaskCombinationOp__Group__0
+            // InternalPromise.g:369:3: ( rule__TaskCombinationOp__Group__0 )
+            // InternalPromise.g:369:4: rule__TaskCombinationOp__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__TaskCombinationOp__Group__0();
@@ -1191,6 +1114,83 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
         return ;
     }
     // $ANTLR end "ruleTaskCombinationOp"
+
+
+    // $ANTLR start "entryRuleDelegateOp"
+    // InternalPromise.g:378:1: entryRuleDelegateOp : ruleDelegateOp EOF ;
+    public final void entryRuleDelegateOp() throws RecognitionException {
+        try {
+            // InternalPromise.g:379:1: ( ruleDelegateOp EOF )
+            // InternalPromise.g:380:1: ruleDelegateOp EOF
+            {
+             before(grammarAccess.getDelegateOpRule()); 
+            pushFollow(FOLLOW_1);
+            ruleDelegateOp();
+
+            state._fsp--;
+
+             after(grammarAccess.getDelegateOpRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleDelegateOp"
+
+
+    // $ANTLR start "ruleDelegateOp"
+    // InternalPromise.g:387:1: ruleDelegateOp : ( ( rule__DelegateOp__Group__0 ) ) ;
+    public final void ruleDelegateOp() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:391:2: ( ( ( rule__DelegateOp__Group__0 ) ) )
+            // InternalPromise.g:392:2: ( ( rule__DelegateOp__Group__0 ) )
+            {
+            // InternalPromise.g:392:2: ( ( rule__DelegateOp__Group__0 ) )
+            // InternalPromise.g:393:3: ( rule__DelegateOp__Group__0 )
+            {
+             before(grammarAccess.getDelegateOpAccess().getGroup()); 
+            // InternalPromise.g:394:3: ( rule__DelegateOp__Group__0 )
+            // InternalPromise.g:394:4: rule__DelegateOp__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DelegateOp__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDelegateOpAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleDelegateOp"
 
 
     // $ANTLR start "entryRuleEventAssignment"
@@ -2922,12 +2922,12 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
                 alt1=5;
                 }
                 break;
-            case 35:
+            case 36:
                 {
                 alt1=6;
                 }
                 break;
-            case 37:
+            case 35:
                 {
                 alt1=7;
                 }
@@ -10941,15 +10941,613 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ConditionOp__Group_2__1__Impl"
 
 
+    // $ANTLR start "rule__TaskCombinationOp__Group__0"
+    // InternalPromise.g:3570:1: rule__TaskCombinationOp__Group__0 : rule__TaskCombinationOp__Group__0__Impl rule__TaskCombinationOp__Group__1 ;
+    public final void rule__TaskCombinationOp__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3574:1: ( rule__TaskCombinationOp__Group__0__Impl rule__TaskCombinationOp__Group__1 )
+            // InternalPromise.g:3575:2: rule__TaskCombinationOp__Group__0__Impl rule__TaskCombinationOp__Group__1
+            {
+            pushFollow(FOLLOW_15);
+            rule__TaskCombinationOp__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TaskCombinationOp__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group__0"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group__0__Impl"
+    // InternalPromise.g:3582:1: rule__TaskCombinationOp__Group__0__Impl : ( 'combination' ) ;
+    public final void rule__TaskCombinationOp__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3586:1: ( ( 'combination' ) )
+            // InternalPromise.g:3587:1: ( 'combination' )
+            {
+            // InternalPromise.g:3587:1: ( 'combination' )
+            // InternalPromise.g:3588:2: 'combination'
+            {
+             before(grammarAccess.getTaskCombinationOpAccess().getCombinationKeyword_0()); 
+            match(input,35,FOLLOW_2); 
+             after(grammarAccess.getTaskCombinationOpAccess().getCombinationKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group__0__Impl"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group__1"
+    // InternalPromise.g:3597:1: rule__TaskCombinationOp__Group__1 : rule__TaskCombinationOp__Group__1__Impl rule__TaskCombinationOp__Group__2 ;
+    public final void rule__TaskCombinationOp__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3601:1: ( rule__TaskCombinationOp__Group__1__Impl rule__TaskCombinationOp__Group__2 )
+            // InternalPromise.g:3602:2: rule__TaskCombinationOp__Group__1__Impl rule__TaskCombinationOp__Group__2
+            {
+            pushFollow(FOLLOW_8);
+            rule__TaskCombinationOp__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TaskCombinationOp__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group__1"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group__1__Impl"
+    // InternalPromise.g:3609:1: rule__TaskCombinationOp__Group__1__Impl : ( '(' ) ;
+    public final void rule__TaskCombinationOp__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3613:1: ( ( '(' ) )
+            // InternalPromise.g:3614:1: ( '(' )
+            {
+            // InternalPromise.g:3614:1: ( '(' )
+            // InternalPromise.g:3615:2: '('
+            {
+             before(grammarAccess.getTaskCombinationOpAccess().getLeftParenthesisKeyword_1()); 
+            match(input,26,FOLLOW_2); 
+             after(grammarAccess.getTaskCombinationOpAccess().getLeftParenthesisKeyword_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group__1__Impl"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group__2"
+    // InternalPromise.g:3624:1: rule__TaskCombinationOp__Group__2 : rule__TaskCombinationOp__Group__2__Impl rule__TaskCombinationOp__Group__3 ;
+    public final void rule__TaskCombinationOp__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3628:1: ( rule__TaskCombinationOp__Group__2__Impl rule__TaskCombinationOp__Group__3 )
+            // InternalPromise.g:3629:2: rule__TaskCombinationOp__Group__2__Impl rule__TaskCombinationOp__Group__3
+            {
+            pushFollow(FOLLOW_25);
+            rule__TaskCombinationOp__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TaskCombinationOp__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group__2"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group__2__Impl"
+    // InternalPromise.g:3636:1: rule__TaskCombinationOp__Group__2__Impl : ( ( rule__TaskCombinationOp__InputOperatorsAssignment_2 ) ) ;
+    public final void rule__TaskCombinationOp__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3640:1: ( ( ( rule__TaskCombinationOp__InputOperatorsAssignment_2 ) ) )
+            // InternalPromise.g:3641:1: ( ( rule__TaskCombinationOp__InputOperatorsAssignment_2 ) )
+            {
+            // InternalPromise.g:3641:1: ( ( rule__TaskCombinationOp__InputOperatorsAssignment_2 ) )
+            // InternalPromise.g:3642:2: ( rule__TaskCombinationOp__InputOperatorsAssignment_2 )
+            {
+             before(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_2()); 
+            // InternalPromise.g:3643:2: ( rule__TaskCombinationOp__InputOperatorsAssignment_2 )
+            // InternalPromise.g:3643:3: rule__TaskCombinationOp__InputOperatorsAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__TaskCombinationOp__InputOperatorsAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group__2__Impl"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group__3"
+    // InternalPromise.g:3651:1: rule__TaskCombinationOp__Group__3 : rule__TaskCombinationOp__Group__3__Impl rule__TaskCombinationOp__Group__4 ;
+    public final void rule__TaskCombinationOp__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3655:1: ( rule__TaskCombinationOp__Group__3__Impl rule__TaskCombinationOp__Group__4 )
+            // InternalPromise.g:3656:2: rule__TaskCombinationOp__Group__3__Impl rule__TaskCombinationOp__Group__4
+            {
+            pushFollow(FOLLOW_19);
+            rule__TaskCombinationOp__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TaskCombinationOp__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group__3"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group__3__Impl"
+    // InternalPromise.g:3663:1: rule__TaskCombinationOp__Group__3__Impl : ( ( ( rule__TaskCombinationOp__Group_3__0 ) ) ( ( rule__TaskCombinationOp__Group_3__0 )* ) ) ;
+    public final void rule__TaskCombinationOp__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3667:1: ( ( ( ( rule__TaskCombinationOp__Group_3__0 ) ) ( ( rule__TaskCombinationOp__Group_3__0 )* ) ) )
+            // InternalPromise.g:3668:1: ( ( ( rule__TaskCombinationOp__Group_3__0 ) ) ( ( rule__TaskCombinationOp__Group_3__0 )* ) )
+            {
+            // InternalPromise.g:3668:1: ( ( ( rule__TaskCombinationOp__Group_3__0 ) ) ( ( rule__TaskCombinationOp__Group_3__0 )* ) )
+            // InternalPromise.g:3669:2: ( ( rule__TaskCombinationOp__Group_3__0 ) ) ( ( rule__TaskCombinationOp__Group_3__0 )* )
+            {
+            // InternalPromise.g:3669:2: ( ( rule__TaskCombinationOp__Group_3__0 ) )
+            // InternalPromise.g:3670:3: ( rule__TaskCombinationOp__Group_3__0 )
+            {
+             before(grammarAccess.getTaskCombinationOpAccess().getGroup_3()); 
+            // InternalPromise.g:3671:3: ( rule__TaskCombinationOp__Group_3__0 )
+            // InternalPromise.g:3671:4: rule__TaskCombinationOp__Group_3__0
+            {
+            pushFollow(FOLLOW_26);
+            rule__TaskCombinationOp__Group_3__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTaskCombinationOpAccess().getGroup_3()); 
+
+            }
+
+            // InternalPromise.g:3674:2: ( ( rule__TaskCombinationOp__Group_3__0 )* )
+            // InternalPromise.g:3675:3: ( rule__TaskCombinationOp__Group_3__0 )*
+            {
+             before(grammarAccess.getTaskCombinationOpAccess().getGroup_3()); 
+            // InternalPromise.g:3676:3: ( rule__TaskCombinationOp__Group_3__0 )*
+            loop20:
+            do {
+                int alt20=2;
+                int LA20_0 = input.LA(1);
+
+                if ( ((LA20_0>=11 && LA20_0<=13)) ) {
+                    alt20=1;
+                }
+
+
+                switch (alt20) {
+            	case 1 :
+            	    // InternalPromise.g:3676:4: rule__TaskCombinationOp__Group_3__0
+            	    {
+            	    pushFollow(FOLLOW_26);
+            	    rule__TaskCombinationOp__Group_3__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop20;
+                }
+            } while (true);
+
+             after(grammarAccess.getTaskCombinationOpAccess().getGroup_3()); 
+
+            }
+
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group__3__Impl"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group__4"
+    // InternalPromise.g:3685:1: rule__TaskCombinationOp__Group__4 : rule__TaskCombinationOp__Group__4__Impl ;
+    public final void rule__TaskCombinationOp__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3689:1: ( rule__TaskCombinationOp__Group__4__Impl )
+            // InternalPromise.g:3690:2: rule__TaskCombinationOp__Group__4__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__TaskCombinationOp__Group__4__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group__4"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group__4__Impl"
+    // InternalPromise.g:3696:1: rule__TaskCombinationOp__Group__4__Impl : ( ')' ) ;
+    public final void rule__TaskCombinationOp__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3700:1: ( ( ')' ) )
+            // InternalPromise.g:3701:1: ( ')' )
+            {
+            // InternalPromise.g:3701:1: ( ')' )
+            // InternalPromise.g:3702:2: ')'
+            {
+             before(grammarAccess.getTaskCombinationOpAccess().getRightParenthesisKeyword_4()); 
+            match(input,27,FOLLOW_2); 
+             after(grammarAccess.getTaskCombinationOpAccess().getRightParenthesisKeyword_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group__4__Impl"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group_3__0"
+    // InternalPromise.g:3712:1: rule__TaskCombinationOp__Group_3__0 : rule__TaskCombinationOp__Group_3__0__Impl rule__TaskCombinationOp__Group_3__1 ;
+    public final void rule__TaskCombinationOp__Group_3__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3716:1: ( rule__TaskCombinationOp__Group_3__0__Impl rule__TaskCombinationOp__Group_3__1 )
+            // InternalPromise.g:3717:2: rule__TaskCombinationOp__Group_3__0__Impl rule__TaskCombinationOp__Group_3__1
+            {
+            pushFollow(FOLLOW_8);
+            rule__TaskCombinationOp__Group_3__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TaskCombinationOp__Group_3__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group_3__0"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group_3__0__Impl"
+    // InternalPromise.g:3724:1: rule__TaskCombinationOp__Group_3__0__Impl : ( ( rule__TaskCombinationOp__Alternatives_3_0 ) ) ;
+    public final void rule__TaskCombinationOp__Group_3__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3728:1: ( ( ( rule__TaskCombinationOp__Alternatives_3_0 ) ) )
+            // InternalPromise.g:3729:1: ( ( rule__TaskCombinationOp__Alternatives_3_0 ) )
+            {
+            // InternalPromise.g:3729:1: ( ( rule__TaskCombinationOp__Alternatives_3_0 ) )
+            // InternalPromise.g:3730:2: ( rule__TaskCombinationOp__Alternatives_3_0 )
+            {
+             before(grammarAccess.getTaskCombinationOpAccess().getAlternatives_3_0()); 
+            // InternalPromise.g:3731:2: ( rule__TaskCombinationOp__Alternatives_3_0 )
+            // InternalPromise.g:3731:3: rule__TaskCombinationOp__Alternatives_3_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__TaskCombinationOp__Alternatives_3_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTaskCombinationOpAccess().getAlternatives_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group_3__0__Impl"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group_3__1"
+    // InternalPromise.g:3739:1: rule__TaskCombinationOp__Group_3__1 : rule__TaskCombinationOp__Group_3__1__Impl ;
+    public final void rule__TaskCombinationOp__Group_3__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3743:1: ( rule__TaskCombinationOp__Group_3__1__Impl )
+            // InternalPromise.g:3744:2: rule__TaskCombinationOp__Group_3__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__TaskCombinationOp__Group_3__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group_3__1"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__Group_3__1__Impl"
+    // InternalPromise.g:3750:1: rule__TaskCombinationOp__Group_3__1__Impl : ( ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 ) ) ;
+    public final void rule__TaskCombinationOp__Group_3__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:3754:1: ( ( ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 ) ) )
+            // InternalPromise.g:3755:1: ( ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 ) )
+            {
+            // InternalPromise.g:3755:1: ( ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 ) )
+            // InternalPromise.g:3756:2: ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 )
+            {
+             before(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_3_1()); 
+            // InternalPromise.g:3757:2: ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 )
+            // InternalPromise.g:3757:3: rule__TaskCombinationOp__InputOperatorsAssignment_3_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__TaskCombinationOp__InputOperatorsAssignment_3_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_3_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__Group_3__1__Impl"
+
+
     // $ANTLR start "rule__DelegateOp__Group__0"
-    // InternalPromise.g:3570:1: rule__DelegateOp__Group__0 : rule__DelegateOp__Group__0__Impl rule__DelegateOp__Group__1 ;
+    // InternalPromise.g:3766:1: rule__DelegateOp__Group__0 : rule__DelegateOp__Group__0__Impl rule__DelegateOp__Group__1 ;
     public final void rule__DelegateOp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3574:1: ( rule__DelegateOp__Group__0__Impl rule__DelegateOp__Group__1 )
-            // InternalPromise.g:3575:2: rule__DelegateOp__Group__0__Impl rule__DelegateOp__Group__1
+            // InternalPromise.g:3770:1: ( rule__DelegateOp__Group__0__Impl rule__DelegateOp__Group__1 )
+            // InternalPromise.g:3771:2: rule__DelegateOp__Group__0__Impl rule__DelegateOp__Group__1
             {
             pushFollow(FOLLOW_15);
             rule__DelegateOp__Group__0__Impl();
@@ -10980,20 +11578,20 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__0__Impl"
-    // InternalPromise.g:3582:1: rule__DelegateOp__Group__0__Impl : ( 'delegate' ) ;
+    // InternalPromise.g:3778:1: rule__DelegateOp__Group__0__Impl : ( 'delegate' ) ;
     public final void rule__DelegateOp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3586:1: ( ( 'delegate' ) )
-            // InternalPromise.g:3587:1: ( 'delegate' )
+            // InternalPromise.g:3782:1: ( ( 'delegate' ) )
+            // InternalPromise.g:3783:1: ( 'delegate' )
             {
-            // InternalPromise.g:3587:1: ( 'delegate' )
-            // InternalPromise.g:3588:2: 'delegate'
+            // InternalPromise.g:3783:1: ( 'delegate' )
+            // InternalPromise.g:3784:2: 'delegate'
             {
              before(grammarAccess.getDelegateOpAccess().getDelegateKeyword_0()); 
-            match(input,35,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getDelegateOpAccess().getDelegateKeyword_0()); 
 
             }
@@ -11017,16 +11615,16 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__1"
-    // InternalPromise.g:3597:1: rule__DelegateOp__Group__1 : rule__DelegateOp__Group__1__Impl rule__DelegateOp__Group__2 ;
+    // InternalPromise.g:3793:1: rule__DelegateOp__Group__1 : rule__DelegateOp__Group__1__Impl rule__DelegateOp__Group__2 ;
     public final void rule__DelegateOp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3601:1: ( rule__DelegateOp__Group__1__Impl rule__DelegateOp__Group__2 )
-            // InternalPromise.g:3602:2: rule__DelegateOp__Group__1__Impl rule__DelegateOp__Group__2
+            // InternalPromise.g:3797:1: ( rule__DelegateOp__Group__1__Impl rule__DelegateOp__Group__2 )
+            // InternalPromise.g:3798:2: rule__DelegateOp__Group__1__Impl rule__DelegateOp__Group__2
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_27);
             rule__DelegateOp__Group__1__Impl();
 
             state._fsp--;
@@ -11055,17 +11653,17 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__1__Impl"
-    // InternalPromise.g:3609:1: rule__DelegateOp__Group__1__Impl : ( '(' ) ;
+    // InternalPromise.g:3805:1: rule__DelegateOp__Group__1__Impl : ( '(' ) ;
     public final void rule__DelegateOp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3613:1: ( ( '(' ) )
-            // InternalPromise.g:3614:1: ( '(' )
+            // InternalPromise.g:3809:1: ( ( '(' ) )
+            // InternalPromise.g:3810:1: ( '(' )
             {
-            // InternalPromise.g:3614:1: ( '(' )
-            // InternalPromise.g:3615:2: '('
+            // InternalPromise.g:3810:1: ( '(' )
+            // InternalPromise.g:3811:2: '('
             {
              before(grammarAccess.getDelegateOpAccess().getLeftParenthesisKeyword_1()); 
             match(input,26,FOLLOW_2); 
@@ -11092,16 +11690,16 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__2"
-    // InternalPromise.g:3624:1: rule__DelegateOp__Group__2 : rule__DelegateOp__Group__2__Impl rule__DelegateOp__Group__3 ;
+    // InternalPromise.g:3820:1: rule__DelegateOp__Group__2 : rule__DelegateOp__Group__2__Impl rule__DelegateOp__Group__3 ;
     public final void rule__DelegateOp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3628:1: ( rule__DelegateOp__Group__2__Impl rule__DelegateOp__Group__3 )
-            // InternalPromise.g:3629:2: rule__DelegateOp__Group__2__Impl rule__DelegateOp__Group__3
+            // InternalPromise.g:3824:1: ( rule__DelegateOp__Group__2__Impl rule__DelegateOp__Group__3 )
+            // InternalPromise.g:3825:2: rule__DelegateOp__Group__2__Impl rule__DelegateOp__Group__3
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             rule__DelegateOp__Group__2__Impl();
 
             state._fsp--;
@@ -11130,21 +11728,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__2__Impl"
-    // InternalPromise.g:3636:1: rule__DelegateOp__Group__2__Impl : ( ( rule__DelegateOp__TaskAssignment_2 ) ) ;
+    // InternalPromise.g:3832:1: rule__DelegateOp__Group__2__Impl : ( ( rule__DelegateOp__TaskAssignment_2 ) ) ;
     public final void rule__DelegateOp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3640:1: ( ( ( rule__DelegateOp__TaskAssignment_2 ) ) )
-            // InternalPromise.g:3641:1: ( ( rule__DelegateOp__TaskAssignment_2 ) )
+            // InternalPromise.g:3836:1: ( ( ( rule__DelegateOp__TaskAssignment_2 ) ) )
+            // InternalPromise.g:3837:1: ( ( rule__DelegateOp__TaskAssignment_2 ) )
             {
-            // InternalPromise.g:3641:1: ( ( rule__DelegateOp__TaskAssignment_2 ) )
-            // InternalPromise.g:3642:2: ( rule__DelegateOp__TaskAssignment_2 )
+            // InternalPromise.g:3837:1: ( ( rule__DelegateOp__TaskAssignment_2 ) )
+            // InternalPromise.g:3838:2: ( rule__DelegateOp__TaskAssignment_2 )
             {
              before(grammarAccess.getDelegateOpAccess().getTaskAssignment_2()); 
-            // InternalPromise.g:3643:2: ( rule__DelegateOp__TaskAssignment_2 )
-            // InternalPromise.g:3643:3: rule__DelegateOp__TaskAssignment_2
+            // InternalPromise.g:3839:2: ( rule__DelegateOp__TaskAssignment_2 )
+            // InternalPromise.g:3839:3: rule__DelegateOp__TaskAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__TaskAssignment_2();
@@ -11177,16 +11775,16 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__3"
-    // InternalPromise.g:3651:1: rule__DelegateOp__Group__3 : rule__DelegateOp__Group__3__Impl rule__DelegateOp__Group__4 ;
+    // InternalPromise.g:3847:1: rule__DelegateOp__Group__3 : rule__DelegateOp__Group__3__Impl rule__DelegateOp__Group__4 ;
     public final void rule__DelegateOp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3655:1: ( rule__DelegateOp__Group__3__Impl rule__DelegateOp__Group__4 )
-            // InternalPromise.g:3656:2: rule__DelegateOp__Group__3__Impl rule__DelegateOp__Group__4
+            // InternalPromise.g:3851:1: ( rule__DelegateOp__Group__3__Impl rule__DelegateOp__Group__4 )
+            // InternalPromise.g:3852:2: rule__DelegateOp__Group__3__Impl rule__DelegateOp__Group__4
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             rule__DelegateOp__Group__3__Impl();
 
             state._fsp--;
@@ -11215,29 +11813,29 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__3__Impl"
-    // InternalPromise.g:3663:1: rule__DelegateOp__Group__3__Impl : ( ( rule__DelegateOp__Group_3__0 )? ) ;
+    // InternalPromise.g:3859:1: rule__DelegateOp__Group__3__Impl : ( ( rule__DelegateOp__Group_3__0 )? ) ;
     public final void rule__DelegateOp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3667:1: ( ( ( rule__DelegateOp__Group_3__0 )? ) )
-            // InternalPromise.g:3668:1: ( ( rule__DelegateOp__Group_3__0 )? )
+            // InternalPromise.g:3863:1: ( ( ( rule__DelegateOp__Group_3__0 )? ) )
+            // InternalPromise.g:3864:1: ( ( rule__DelegateOp__Group_3__0 )? )
             {
-            // InternalPromise.g:3668:1: ( ( rule__DelegateOp__Group_3__0 )? )
-            // InternalPromise.g:3669:2: ( rule__DelegateOp__Group_3__0 )?
+            // InternalPromise.g:3864:1: ( ( rule__DelegateOp__Group_3__0 )? )
+            // InternalPromise.g:3865:2: ( rule__DelegateOp__Group_3__0 )?
             {
              before(grammarAccess.getDelegateOpAccess().getGroup_3()); 
-            // InternalPromise.g:3670:2: ( rule__DelegateOp__Group_3__0 )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // InternalPromise.g:3866:2: ( rule__DelegateOp__Group_3__0 )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA20_0==23) ) {
-                alt20=1;
+            if ( (LA21_0==23) ) {
+                alt21=1;
             }
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // InternalPromise.g:3670:3: rule__DelegateOp__Group_3__0
+                    // InternalPromise.g:3866:3: rule__DelegateOp__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DelegateOp__Group_3__0();
@@ -11273,16 +11871,16 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__4"
-    // InternalPromise.g:3678:1: rule__DelegateOp__Group__4 : rule__DelegateOp__Group__4__Impl rule__DelegateOp__Group__5 ;
+    // InternalPromise.g:3874:1: rule__DelegateOp__Group__4 : rule__DelegateOp__Group__4__Impl rule__DelegateOp__Group__5 ;
     public final void rule__DelegateOp__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3682:1: ( rule__DelegateOp__Group__4__Impl rule__DelegateOp__Group__5 )
-            // InternalPromise.g:3683:2: rule__DelegateOp__Group__4__Impl rule__DelegateOp__Group__5
+            // InternalPromise.g:3878:1: ( rule__DelegateOp__Group__4__Impl rule__DelegateOp__Group__5 )
+            // InternalPromise.g:3879:2: rule__DelegateOp__Group__4__Impl rule__DelegateOp__Group__5
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             rule__DelegateOp__Group__4__Impl();
 
             state._fsp--;
@@ -11311,29 +11909,29 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__4__Impl"
-    // InternalPromise.g:3690:1: rule__DelegateOp__Group__4__Impl : ( ( rule__DelegateOp__Group_4__0 )? ) ;
+    // InternalPromise.g:3886:1: rule__DelegateOp__Group__4__Impl : ( ( rule__DelegateOp__Group_4__0 )? ) ;
     public final void rule__DelegateOp__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3694:1: ( ( ( rule__DelegateOp__Group_4__0 )? ) )
-            // InternalPromise.g:3695:1: ( ( rule__DelegateOp__Group_4__0 )? )
+            // InternalPromise.g:3890:1: ( ( ( rule__DelegateOp__Group_4__0 )? ) )
+            // InternalPromise.g:3891:1: ( ( rule__DelegateOp__Group_4__0 )? )
             {
-            // InternalPromise.g:3695:1: ( ( rule__DelegateOp__Group_4__0 )? )
-            // InternalPromise.g:3696:2: ( rule__DelegateOp__Group_4__0 )?
+            // InternalPromise.g:3891:1: ( ( rule__DelegateOp__Group_4__0 )? )
+            // InternalPromise.g:3892:2: ( rule__DelegateOp__Group_4__0 )?
             {
              before(grammarAccess.getDelegateOpAccess().getGroup_4()); 
-            // InternalPromise.g:3697:2: ( rule__DelegateOp__Group_4__0 )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // InternalPromise.g:3893:2: ( rule__DelegateOp__Group_4__0 )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA21_0==22) ) {
-                alt21=1;
+            if ( (LA22_0==22) ) {
+                alt22=1;
             }
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
-                    // InternalPromise.g:3697:3: rule__DelegateOp__Group_4__0
+                    // InternalPromise.g:3893:3: rule__DelegateOp__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DelegateOp__Group_4__0();
@@ -11369,16 +11967,16 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__5"
-    // InternalPromise.g:3705:1: rule__DelegateOp__Group__5 : rule__DelegateOp__Group__5__Impl rule__DelegateOp__Group__6 ;
+    // InternalPromise.g:3901:1: rule__DelegateOp__Group__5 : rule__DelegateOp__Group__5__Impl rule__DelegateOp__Group__6 ;
     public final void rule__DelegateOp__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3709:1: ( rule__DelegateOp__Group__5__Impl rule__DelegateOp__Group__6 )
-            // InternalPromise.g:3710:2: rule__DelegateOp__Group__5__Impl rule__DelegateOp__Group__6
+            // InternalPromise.g:3905:1: ( rule__DelegateOp__Group__5__Impl rule__DelegateOp__Group__6 )
+            // InternalPromise.g:3906:2: rule__DelegateOp__Group__5__Impl rule__DelegateOp__Group__6
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             rule__DelegateOp__Group__5__Impl();
 
             state._fsp--;
@@ -11407,29 +12005,29 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__5__Impl"
-    // InternalPromise.g:3717:1: rule__DelegateOp__Group__5__Impl : ( ( rule__DelegateOp__Group_5__0 )? ) ;
+    // InternalPromise.g:3913:1: rule__DelegateOp__Group__5__Impl : ( ( rule__DelegateOp__Group_5__0 )? ) ;
     public final void rule__DelegateOp__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3721:1: ( ( ( rule__DelegateOp__Group_5__0 )? ) )
-            // InternalPromise.g:3722:1: ( ( rule__DelegateOp__Group_5__0 )? )
+            // InternalPromise.g:3917:1: ( ( ( rule__DelegateOp__Group_5__0 )? ) )
+            // InternalPromise.g:3918:1: ( ( rule__DelegateOp__Group_5__0 )? )
             {
-            // InternalPromise.g:3722:1: ( ( rule__DelegateOp__Group_5__0 )? )
-            // InternalPromise.g:3723:2: ( rule__DelegateOp__Group_5__0 )?
+            // InternalPromise.g:3918:1: ( ( rule__DelegateOp__Group_5__0 )? )
+            // InternalPromise.g:3919:2: ( rule__DelegateOp__Group_5__0 )?
             {
              before(grammarAccess.getDelegateOpAccess().getGroup_5()); 
-            // InternalPromise.g:3724:2: ( rule__DelegateOp__Group_5__0 )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalPromise.g:3920:2: ( rule__DelegateOp__Group_5__0 )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==36) ) {
-                alt22=1;
+            if ( (LA23_0==37) ) {
+                alt23=1;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // InternalPromise.g:3724:3: rule__DelegateOp__Group_5__0
+                    // InternalPromise.g:3920:3: rule__DelegateOp__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DelegateOp__Group_5__0();
@@ -11465,14 +12063,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__6"
-    // InternalPromise.g:3732:1: rule__DelegateOp__Group__6 : rule__DelegateOp__Group__6__Impl ;
+    // InternalPromise.g:3928:1: rule__DelegateOp__Group__6 : rule__DelegateOp__Group__6__Impl ;
     public final void rule__DelegateOp__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3736:1: ( rule__DelegateOp__Group__6__Impl )
-            // InternalPromise.g:3737:2: rule__DelegateOp__Group__6__Impl
+            // InternalPromise.g:3932:1: ( rule__DelegateOp__Group__6__Impl )
+            // InternalPromise.g:3933:2: rule__DelegateOp__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__Group__6__Impl();
@@ -11498,17 +12096,17 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group__6__Impl"
-    // InternalPromise.g:3743:1: rule__DelegateOp__Group__6__Impl : ( ')' ) ;
+    // InternalPromise.g:3939:1: rule__DelegateOp__Group__6__Impl : ( ')' ) ;
     public final void rule__DelegateOp__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3747:1: ( ( ')' ) )
-            // InternalPromise.g:3748:1: ( ')' )
+            // InternalPromise.g:3943:1: ( ( ')' ) )
+            // InternalPromise.g:3944:1: ( ')' )
             {
-            // InternalPromise.g:3748:1: ( ')' )
-            // InternalPromise.g:3749:2: ')'
+            // InternalPromise.g:3944:1: ( ')' )
+            // InternalPromise.g:3945:2: ')'
             {
              before(grammarAccess.getDelegateOpAccess().getRightParenthesisKeyword_6()); 
             match(input,27,FOLLOW_2); 
@@ -11535,14 +12133,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_3__0"
-    // InternalPromise.g:3759:1: rule__DelegateOp__Group_3__0 : rule__DelegateOp__Group_3__0__Impl rule__DelegateOp__Group_3__1 ;
+    // InternalPromise.g:3955:1: rule__DelegateOp__Group_3__0 : rule__DelegateOp__Group_3__0__Impl rule__DelegateOp__Group_3__1 ;
     public final void rule__DelegateOp__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3763:1: ( rule__DelegateOp__Group_3__0__Impl rule__DelegateOp__Group_3__1 )
-            // InternalPromise.g:3764:2: rule__DelegateOp__Group_3__0__Impl rule__DelegateOp__Group_3__1
+            // InternalPromise.g:3959:1: ( rule__DelegateOp__Group_3__0__Impl rule__DelegateOp__Group_3__1 )
+            // InternalPromise.g:3960:2: rule__DelegateOp__Group_3__0__Impl rule__DelegateOp__Group_3__1
             {
             pushFollow(FOLLOW_5);
             rule__DelegateOp__Group_3__0__Impl();
@@ -11573,17 +12171,17 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_3__0__Impl"
-    // InternalPromise.g:3771:1: rule__DelegateOp__Group_3__0__Impl : ( 'locations' ) ;
+    // InternalPromise.g:3967:1: rule__DelegateOp__Group_3__0__Impl : ( 'locations' ) ;
     public final void rule__DelegateOp__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3775:1: ( ( 'locations' ) )
-            // InternalPromise.g:3776:1: ( 'locations' )
+            // InternalPromise.g:3971:1: ( ( 'locations' ) )
+            // InternalPromise.g:3972:1: ( 'locations' )
             {
-            // InternalPromise.g:3776:1: ( 'locations' )
-            // InternalPromise.g:3777:2: 'locations'
+            // InternalPromise.g:3972:1: ( 'locations' )
+            // InternalPromise.g:3973:2: 'locations'
             {
              before(grammarAccess.getDelegateOpAccess().getLocationsKeyword_3_0()); 
             match(input,23,FOLLOW_2); 
@@ -11610,14 +12208,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_3__1"
-    // InternalPromise.g:3786:1: rule__DelegateOp__Group_3__1 : rule__DelegateOp__Group_3__1__Impl rule__DelegateOp__Group_3__2 ;
+    // InternalPromise.g:3982:1: rule__DelegateOp__Group_3__1 : rule__DelegateOp__Group_3__1__Impl rule__DelegateOp__Group_3__2 ;
     public final void rule__DelegateOp__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3790:1: ( rule__DelegateOp__Group_3__1__Impl rule__DelegateOp__Group_3__2 )
-            // InternalPromise.g:3791:2: rule__DelegateOp__Group_3__1__Impl rule__DelegateOp__Group_3__2
+            // InternalPromise.g:3986:1: ( rule__DelegateOp__Group_3__1__Impl rule__DelegateOp__Group_3__2 )
+            // InternalPromise.g:3987:2: rule__DelegateOp__Group_3__1__Impl rule__DelegateOp__Group_3__2
             {
             pushFollow(FOLLOW_13);
             rule__DelegateOp__Group_3__1__Impl();
@@ -11648,21 +12246,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_3__1__Impl"
-    // InternalPromise.g:3798:1: rule__DelegateOp__Group_3__1__Impl : ( ( rule__DelegateOp__InputLocationsAssignment_3_1 ) ) ;
+    // InternalPromise.g:3994:1: rule__DelegateOp__Group_3__1__Impl : ( ( rule__DelegateOp__InputLocationsAssignment_3_1 ) ) ;
     public final void rule__DelegateOp__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3802:1: ( ( ( rule__DelegateOp__InputLocationsAssignment_3_1 ) ) )
-            // InternalPromise.g:3803:1: ( ( rule__DelegateOp__InputLocationsAssignment_3_1 ) )
+            // InternalPromise.g:3998:1: ( ( ( rule__DelegateOp__InputLocationsAssignment_3_1 ) ) )
+            // InternalPromise.g:3999:1: ( ( rule__DelegateOp__InputLocationsAssignment_3_1 ) )
             {
-            // InternalPromise.g:3803:1: ( ( rule__DelegateOp__InputLocationsAssignment_3_1 ) )
-            // InternalPromise.g:3804:2: ( rule__DelegateOp__InputLocationsAssignment_3_1 )
+            // InternalPromise.g:3999:1: ( ( rule__DelegateOp__InputLocationsAssignment_3_1 ) )
+            // InternalPromise.g:4000:2: ( rule__DelegateOp__InputLocationsAssignment_3_1 )
             {
              before(grammarAccess.getDelegateOpAccess().getInputLocationsAssignment_3_1()); 
-            // InternalPromise.g:3805:2: ( rule__DelegateOp__InputLocationsAssignment_3_1 )
-            // InternalPromise.g:3805:3: rule__DelegateOp__InputLocationsAssignment_3_1
+            // InternalPromise.g:4001:2: ( rule__DelegateOp__InputLocationsAssignment_3_1 )
+            // InternalPromise.g:4001:3: rule__DelegateOp__InputLocationsAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__InputLocationsAssignment_3_1();
@@ -11695,14 +12293,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_3__2"
-    // InternalPromise.g:3813:1: rule__DelegateOp__Group_3__2 : rule__DelegateOp__Group_3__2__Impl ;
+    // InternalPromise.g:4009:1: rule__DelegateOp__Group_3__2 : rule__DelegateOp__Group_3__2__Impl ;
     public final void rule__DelegateOp__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3817:1: ( rule__DelegateOp__Group_3__2__Impl )
-            // InternalPromise.g:3818:2: rule__DelegateOp__Group_3__2__Impl
+            // InternalPromise.g:4013:1: ( rule__DelegateOp__Group_3__2__Impl )
+            // InternalPromise.g:4014:2: rule__DelegateOp__Group_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__Group_3__2__Impl();
@@ -11728,33 +12326,33 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_3__2__Impl"
-    // InternalPromise.g:3824:1: rule__DelegateOp__Group_3__2__Impl : ( ( rule__DelegateOp__Group_3_2__0 )* ) ;
+    // InternalPromise.g:4020:1: rule__DelegateOp__Group_3__2__Impl : ( ( rule__DelegateOp__Group_3_2__0 )* ) ;
     public final void rule__DelegateOp__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3828:1: ( ( ( rule__DelegateOp__Group_3_2__0 )* ) )
-            // InternalPromise.g:3829:1: ( ( rule__DelegateOp__Group_3_2__0 )* )
+            // InternalPromise.g:4024:1: ( ( ( rule__DelegateOp__Group_3_2__0 )* ) )
+            // InternalPromise.g:4025:1: ( ( rule__DelegateOp__Group_3_2__0 )* )
             {
-            // InternalPromise.g:3829:1: ( ( rule__DelegateOp__Group_3_2__0 )* )
-            // InternalPromise.g:3830:2: ( rule__DelegateOp__Group_3_2__0 )*
+            // InternalPromise.g:4025:1: ( ( rule__DelegateOp__Group_3_2__0 )* )
+            // InternalPromise.g:4026:2: ( rule__DelegateOp__Group_3_2__0 )*
             {
              before(grammarAccess.getDelegateOpAccess().getGroup_3_2()); 
-            // InternalPromise.g:3831:2: ( rule__DelegateOp__Group_3_2__0 )*
-            loop23:
+            // InternalPromise.g:4027:2: ( rule__DelegateOp__Group_3_2__0 )*
+            loop24:
             do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-                if ( (LA23_0==21) ) {
-                    alt23=1;
+                if ( (LA24_0==21) ) {
+                    alt24=1;
                 }
 
 
-                switch (alt23) {
+                switch (alt24) {
             	case 1 :
-            	    // InternalPromise.g:3831:3: rule__DelegateOp__Group_3_2__0
+            	    // InternalPromise.g:4027:3: rule__DelegateOp__Group_3_2__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__DelegateOp__Group_3_2__0();
@@ -11766,7 +12364,7 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop23;
+            	    break loop24;
                 }
             } while (true);
 
@@ -11793,14 +12391,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_3_2__0"
-    // InternalPromise.g:3840:1: rule__DelegateOp__Group_3_2__0 : rule__DelegateOp__Group_3_2__0__Impl rule__DelegateOp__Group_3_2__1 ;
+    // InternalPromise.g:4036:1: rule__DelegateOp__Group_3_2__0 : rule__DelegateOp__Group_3_2__0__Impl rule__DelegateOp__Group_3_2__1 ;
     public final void rule__DelegateOp__Group_3_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3844:1: ( rule__DelegateOp__Group_3_2__0__Impl rule__DelegateOp__Group_3_2__1 )
-            // InternalPromise.g:3845:2: rule__DelegateOp__Group_3_2__0__Impl rule__DelegateOp__Group_3_2__1
+            // InternalPromise.g:4040:1: ( rule__DelegateOp__Group_3_2__0__Impl rule__DelegateOp__Group_3_2__1 )
+            // InternalPromise.g:4041:2: rule__DelegateOp__Group_3_2__0__Impl rule__DelegateOp__Group_3_2__1
             {
             pushFollow(FOLLOW_5);
             rule__DelegateOp__Group_3_2__0__Impl();
@@ -11831,17 +12429,17 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_3_2__0__Impl"
-    // InternalPromise.g:3852:1: rule__DelegateOp__Group_3_2__0__Impl : ( ',' ) ;
+    // InternalPromise.g:4048:1: rule__DelegateOp__Group_3_2__0__Impl : ( ',' ) ;
     public final void rule__DelegateOp__Group_3_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3856:1: ( ( ',' ) )
-            // InternalPromise.g:3857:1: ( ',' )
+            // InternalPromise.g:4052:1: ( ( ',' ) )
+            // InternalPromise.g:4053:1: ( ',' )
             {
-            // InternalPromise.g:3857:1: ( ',' )
-            // InternalPromise.g:3858:2: ','
+            // InternalPromise.g:4053:1: ( ',' )
+            // InternalPromise.g:4054:2: ','
             {
              before(grammarAccess.getDelegateOpAccess().getCommaKeyword_3_2_0()); 
             match(input,21,FOLLOW_2); 
@@ -11868,14 +12466,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_3_2__1"
-    // InternalPromise.g:3867:1: rule__DelegateOp__Group_3_2__1 : rule__DelegateOp__Group_3_2__1__Impl ;
+    // InternalPromise.g:4063:1: rule__DelegateOp__Group_3_2__1 : rule__DelegateOp__Group_3_2__1__Impl ;
     public final void rule__DelegateOp__Group_3_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3871:1: ( rule__DelegateOp__Group_3_2__1__Impl )
-            // InternalPromise.g:3872:2: rule__DelegateOp__Group_3_2__1__Impl
+            // InternalPromise.g:4067:1: ( rule__DelegateOp__Group_3_2__1__Impl )
+            // InternalPromise.g:4068:2: rule__DelegateOp__Group_3_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__Group_3_2__1__Impl();
@@ -11901,21 +12499,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_3_2__1__Impl"
-    // InternalPromise.g:3878:1: rule__DelegateOp__Group_3_2__1__Impl : ( ( rule__DelegateOp__InputLocationsAssignment_3_2_1 ) ) ;
+    // InternalPromise.g:4074:1: rule__DelegateOp__Group_3_2__1__Impl : ( ( rule__DelegateOp__InputLocationsAssignment_3_2_1 ) ) ;
     public final void rule__DelegateOp__Group_3_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3882:1: ( ( ( rule__DelegateOp__InputLocationsAssignment_3_2_1 ) ) )
-            // InternalPromise.g:3883:1: ( ( rule__DelegateOp__InputLocationsAssignment_3_2_1 ) )
+            // InternalPromise.g:4078:1: ( ( ( rule__DelegateOp__InputLocationsAssignment_3_2_1 ) ) )
+            // InternalPromise.g:4079:1: ( ( rule__DelegateOp__InputLocationsAssignment_3_2_1 ) )
             {
-            // InternalPromise.g:3883:1: ( ( rule__DelegateOp__InputLocationsAssignment_3_2_1 ) )
-            // InternalPromise.g:3884:2: ( rule__DelegateOp__InputLocationsAssignment_3_2_1 )
+            // InternalPromise.g:4079:1: ( ( rule__DelegateOp__InputLocationsAssignment_3_2_1 ) )
+            // InternalPromise.g:4080:2: ( rule__DelegateOp__InputLocationsAssignment_3_2_1 )
             {
              before(grammarAccess.getDelegateOpAccess().getInputLocationsAssignment_3_2_1()); 
-            // InternalPromise.g:3885:2: ( rule__DelegateOp__InputLocationsAssignment_3_2_1 )
-            // InternalPromise.g:3885:3: rule__DelegateOp__InputLocationsAssignment_3_2_1
+            // InternalPromise.g:4081:2: ( rule__DelegateOp__InputLocationsAssignment_3_2_1 )
+            // InternalPromise.g:4081:3: rule__DelegateOp__InputLocationsAssignment_3_2_1
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__InputLocationsAssignment_3_2_1();
@@ -11948,14 +12546,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_4__0"
-    // InternalPromise.g:3894:1: rule__DelegateOp__Group_4__0 : rule__DelegateOp__Group_4__0__Impl rule__DelegateOp__Group_4__1 ;
+    // InternalPromise.g:4090:1: rule__DelegateOp__Group_4__0 : rule__DelegateOp__Group_4__0__Impl rule__DelegateOp__Group_4__1 ;
     public final void rule__DelegateOp__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3898:1: ( rule__DelegateOp__Group_4__0__Impl rule__DelegateOp__Group_4__1 )
-            // InternalPromise.g:3899:2: rule__DelegateOp__Group_4__0__Impl rule__DelegateOp__Group_4__1
+            // InternalPromise.g:4094:1: ( rule__DelegateOp__Group_4__0__Impl rule__DelegateOp__Group_4__1 )
+            // InternalPromise.g:4095:2: rule__DelegateOp__Group_4__0__Impl rule__DelegateOp__Group_4__1
             {
             pushFollow(FOLLOW_5);
             rule__DelegateOp__Group_4__0__Impl();
@@ -11986,17 +12584,17 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_4__0__Impl"
-    // InternalPromise.g:3906:1: rule__DelegateOp__Group_4__0__Impl : ( 'actions' ) ;
+    // InternalPromise.g:4102:1: rule__DelegateOp__Group_4__0__Impl : ( 'actions' ) ;
     public final void rule__DelegateOp__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3910:1: ( ( 'actions' ) )
-            // InternalPromise.g:3911:1: ( 'actions' )
+            // InternalPromise.g:4106:1: ( ( 'actions' ) )
+            // InternalPromise.g:4107:1: ( 'actions' )
             {
-            // InternalPromise.g:3911:1: ( 'actions' )
-            // InternalPromise.g:3912:2: 'actions'
+            // InternalPromise.g:4107:1: ( 'actions' )
+            // InternalPromise.g:4108:2: 'actions'
             {
              before(grammarAccess.getDelegateOpAccess().getActionsKeyword_4_0()); 
             match(input,22,FOLLOW_2); 
@@ -12023,14 +12621,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_4__1"
-    // InternalPromise.g:3921:1: rule__DelegateOp__Group_4__1 : rule__DelegateOp__Group_4__1__Impl rule__DelegateOp__Group_4__2 ;
+    // InternalPromise.g:4117:1: rule__DelegateOp__Group_4__1 : rule__DelegateOp__Group_4__1__Impl rule__DelegateOp__Group_4__2 ;
     public final void rule__DelegateOp__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3925:1: ( rule__DelegateOp__Group_4__1__Impl rule__DelegateOp__Group_4__2 )
-            // InternalPromise.g:3926:2: rule__DelegateOp__Group_4__1__Impl rule__DelegateOp__Group_4__2
+            // InternalPromise.g:4121:1: ( rule__DelegateOp__Group_4__1__Impl rule__DelegateOp__Group_4__2 )
+            // InternalPromise.g:4122:2: rule__DelegateOp__Group_4__1__Impl rule__DelegateOp__Group_4__2
             {
             pushFollow(FOLLOW_13);
             rule__DelegateOp__Group_4__1__Impl();
@@ -12061,21 +12659,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_4__1__Impl"
-    // InternalPromise.g:3933:1: rule__DelegateOp__Group_4__1__Impl : ( ( rule__DelegateOp__InputActionAssignment_4_1 ) ) ;
+    // InternalPromise.g:4129:1: rule__DelegateOp__Group_4__1__Impl : ( ( rule__DelegateOp__InputActionAssignment_4_1 ) ) ;
     public final void rule__DelegateOp__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3937:1: ( ( ( rule__DelegateOp__InputActionAssignment_4_1 ) ) )
-            // InternalPromise.g:3938:1: ( ( rule__DelegateOp__InputActionAssignment_4_1 ) )
+            // InternalPromise.g:4133:1: ( ( ( rule__DelegateOp__InputActionAssignment_4_1 ) ) )
+            // InternalPromise.g:4134:1: ( ( rule__DelegateOp__InputActionAssignment_4_1 ) )
             {
-            // InternalPromise.g:3938:1: ( ( rule__DelegateOp__InputActionAssignment_4_1 ) )
-            // InternalPromise.g:3939:2: ( rule__DelegateOp__InputActionAssignment_4_1 )
+            // InternalPromise.g:4134:1: ( ( rule__DelegateOp__InputActionAssignment_4_1 ) )
+            // InternalPromise.g:4135:2: ( rule__DelegateOp__InputActionAssignment_4_1 )
             {
              before(grammarAccess.getDelegateOpAccess().getInputActionAssignment_4_1()); 
-            // InternalPromise.g:3940:2: ( rule__DelegateOp__InputActionAssignment_4_1 )
-            // InternalPromise.g:3940:3: rule__DelegateOp__InputActionAssignment_4_1
+            // InternalPromise.g:4136:2: ( rule__DelegateOp__InputActionAssignment_4_1 )
+            // InternalPromise.g:4136:3: rule__DelegateOp__InputActionAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__InputActionAssignment_4_1();
@@ -12108,14 +12706,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_4__2"
-    // InternalPromise.g:3948:1: rule__DelegateOp__Group_4__2 : rule__DelegateOp__Group_4__2__Impl ;
+    // InternalPromise.g:4144:1: rule__DelegateOp__Group_4__2 : rule__DelegateOp__Group_4__2__Impl ;
     public final void rule__DelegateOp__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3952:1: ( rule__DelegateOp__Group_4__2__Impl )
-            // InternalPromise.g:3953:2: rule__DelegateOp__Group_4__2__Impl
+            // InternalPromise.g:4148:1: ( rule__DelegateOp__Group_4__2__Impl )
+            // InternalPromise.g:4149:2: rule__DelegateOp__Group_4__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__Group_4__2__Impl();
@@ -12141,33 +12739,33 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_4__2__Impl"
-    // InternalPromise.g:3959:1: rule__DelegateOp__Group_4__2__Impl : ( ( rule__DelegateOp__Group_4_2__0 )* ) ;
+    // InternalPromise.g:4155:1: rule__DelegateOp__Group_4__2__Impl : ( ( rule__DelegateOp__Group_4_2__0 )* ) ;
     public final void rule__DelegateOp__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3963:1: ( ( ( rule__DelegateOp__Group_4_2__0 )* ) )
-            // InternalPromise.g:3964:1: ( ( rule__DelegateOp__Group_4_2__0 )* )
+            // InternalPromise.g:4159:1: ( ( ( rule__DelegateOp__Group_4_2__0 )* ) )
+            // InternalPromise.g:4160:1: ( ( rule__DelegateOp__Group_4_2__0 )* )
             {
-            // InternalPromise.g:3964:1: ( ( rule__DelegateOp__Group_4_2__0 )* )
-            // InternalPromise.g:3965:2: ( rule__DelegateOp__Group_4_2__0 )*
+            // InternalPromise.g:4160:1: ( ( rule__DelegateOp__Group_4_2__0 )* )
+            // InternalPromise.g:4161:2: ( rule__DelegateOp__Group_4_2__0 )*
             {
              before(grammarAccess.getDelegateOpAccess().getGroup_4_2()); 
-            // InternalPromise.g:3966:2: ( rule__DelegateOp__Group_4_2__0 )*
-            loop24:
+            // InternalPromise.g:4162:2: ( rule__DelegateOp__Group_4_2__0 )*
+            loop25:
             do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
+                int alt25=2;
+                int LA25_0 = input.LA(1);
 
-                if ( (LA24_0==21) ) {
-                    alt24=1;
+                if ( (LA25_0==21) ) {
+                    alt25=1;
                 }
 
 
-                switch (alt24) {
+                switch (alt25) {
             	case 1 :
-            	    // InternalPromise.g:3966:3: rule__DelegateOp__Group_4_2__0
+            	    // InternalPromise.g:4162:3: rule__DelegateOp__Group_4_2__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__DelegateOp__Group_4_2__0();
@@ -12179,7 +12777,7 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop25;
                 }
             } while (true);
 
@@ -12206,14 +12804,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_4_2__0"
-    // InternalPromise.g:3975:1: rule__DelegateOp__Group_4_2__0 : rule__DelegateOp__Group_4_2__0__Impl rule__DelegateOp__Group_4_2__1 ;
+    // InternalPromise.g:4171:1: rule__DelegateOp__Group_4_2__0 : rule__DelegateOp__Group_4_2__0__Impl rule__DelegateOp__Group_4_2__1 ;
     public final void rule__DelegateOp__Group_4_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3979:1: ( rule__DelegateOp__Group_4_2__0__Impl rule__DelegateOp__Group_4_2__1 )
-            // InternalPromise.g:3980:2: rule__DelegateOp__Group_4_2__0__Impl rule__DelegateOp__Group_4_2__1
+            // InternalPromise.g:4175:1: ( rule__DelegateOp__Group_4_2__0__Impl rule__DelegateOp__Group_4_2__1 )
+            // InternalPromise.g:4176:2: rule__DelegateOp__Group_4_2__0__Impl rule__DelegateOp__Group_4_2__1
             {
             pushFollow(FOLLOW_5);
             rule__DelegateOp__Group_4_2__0__Impl();
@@ -12244,17 +12842,17 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_4_2__0__Impl"
-    // InternalPromise.g:3987:1: rule__DelegateOp__Group_4_2__0__Impl : ( ',' ) ;
+    // InternalPromise.g:4183:1: rule__DelegateOp__Group_4_2__0__Impl : ( ',' ) ;
     public final void rule__DelegateOp__Group_4_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:3991:1: ( ( ',' ) )
-            // InternalPromise.g:3992:1: ( ',' )
+            // InternalPromise.g:4187:1: ( ( ',' ) )
+            // InternalPromise.g:4188:1: ( ',' )
             {
-            // InternalPromise.g:3992:1: ( ',' )
-            // InternalPromise.g:3993:2: ','
+            // InternalPromise.g:4188:1: ( ',' )
+            // InternalPromise.g:4189:2: ','
             {
              before(grammarAccess.getDelegateOpAccess().getCommaKeyword_4_2_0()); 
             match(input,21,FOLLOW_2); 
@@ -12281,14 +12879,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_4_2__1"
-    // InternalPromise.g:4002:1: rule__DelegateOp__Group_4_2__1 : rule__DelegateOp__Group_4_2__1__Impl ;
+    // InternalPromise.g:4198:1: rule__DelegateOp__Group_4_2__1 : rule__DelegateOp__Group_4_2__1__Impl ;
     public final void rule__DelegateOp__Group_4_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4006:1: ( rule__DelegateOp__Group_4_2__1__Impl )
-            // InternalPromise.g:4007:2: rule__DelegateOp__Group_4_2__1__Impl
+            // InternalPromise.g:4202:1: ( rule__DelegateOp__Group_4_2__1__Impl )
+            // InternalPromise.g:4203:2: rule__DelegateOp__Group_4_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__Group_4_2__1__Impl();
@@ -12314,21 +12912,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_4_2__1__Impl"
-    // InternalPromise.g:4013:1: rule__DelegateOp__Group_4_2__1__Impl : ( ( rule__DelegateOp__InputActionAssignment_4_2_1 ) ) ;
+    // InternalPromise.g:4209:1: rule__DelegateOp__Group_4_2__1__Impl : ( ( rule__DelegateOp__InputActionAssignment_4_2_1 ) ) ;
     public final void rule__DelegateOp__Group_4_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4017:1: ( ( ( rule__DelegateOp__InputActionAssignment_4_2_1 ) ) )
-            // InternalPromise.g:4018:1: ( ( rule__DelegateOp__InputActionAssignment_4_2_1 ) )
+            // InternalPromise.g:4213:1: ( ( ( rule__DelegateOp__InputActionAssignment_4_2_1 ) ) )
+            // InternalPromise.g:4214:1: ( ( rule__DelegateOp__InputActionAssignment_4_2_1 ) )
             {
-            // InternalPromise.g:4018:1: ( ( rule__DelegateOp__InputActionAssignment_4_2_1 ) )
-            // InternalPromise.g:4019:2: ( rule__DelegateOp__InputActionAssignment_4_2_1 )
+            // InternalPromise.g:4214:1: ( ( rule__DelegateOp__InputActionAssignment_4_2_1 ) )
+            // InternalPromise.g:4215:2: ( rule__DelegateOp__InputActionAssignment_4_2_1 )
             {
              before(grammarAccess.getDelegateOpAccess().getInputActionAssignment_4_2_1()); 
-            // InternalPromise.g:4020:2: ( rule__DelegateOp__InputActionAssignment_4_2_1 )
-            // InternalPromise.g:4020:3: rule__DelegateOp__InputActionAssignment_4_2_1
+            // InternalPromise.g:4216:2: ( rule__DelegateOp__InputActionAssignment_4_2_1 )
+            // InternalPromise.g:4216:3: rule__DelegateOp__InputActionAssignment_4_2_1
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__InputActionAssignment_4_2_1();
@@ -12361,14 +12959,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_5__0"
-    // InternalPromise.g:4029:1: rule__DelegateOp__Group_5__0 : rule__DelegateOp__Group_5__0__Impl rule__DelegateOp__Group_5__1 ;
+    // InternalPromise.g:4225:1: rule__DelegateOp__Group_5__0 : rule__DelegateOp__Group_5__0__Impl rule__DelegateOp__Group_5__1 ;
     public final void rule__DelegateOp__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4033:1: ( rule__DelegateOp__Group_5__0__Impl rule__DelegateOp__Group_5__1 )
-            // InternalPromise.g:4034:2: rule__DelegateOp__Group_5__0__Impl rule__DelegateOp__Group_5__1
+            // InternalPromise.g:4229:1: ( rule__DelegateOp__Group_5__0__Impl rule__DelegateOp__Group_5__1 )
+            // InternalPromise.g:4230:2: rule__DelegateOp__Group_5__0__Impl rule__DelegateOp__Group_5__1
             {
             pushFollow(FOLLOW_5);
             rule__DelegateOp__Group_5__0__Impl();
@@ -12399,20 +12997,20 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_5__0__Impl"
-    // InternalPromise.g:4041:1: rule__DelegateOp__Group_5__0__Impl : ( 'stoppingEvents' ) ;
+    // InternalPromise.g:4237:1: rule__DelegateOp__Group_5__0__Impl : ( 'stoppingEvents' ) ;
     public final void rule__DelegateOp__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4045:1: ( ( 'stoppingEvents' ) )
-            // InternalPromise.g:4046:1: ( 'stoppingEvents' )
+            // InternalPromise.g:4241:1: ( ( 'stoppingEvents' ) )
+            // InternalPromise.g:4242:1: ( 'stoppingEvents' )
             {
-            // InternalPromise.g:4046:1: ( 'stoppingEvents' )
-            // InternalPromise.g:4047:2: 'stoppingEvents'
+            // InternalPromise.g:4242:1: ( 'stoppingEvents' )
+            // InternalPromise.g:4243:2: 'stoppingEvents'
             {
              before(grammarAccess.getDelegateOpAccess().getStoppingEventsKeyword_5_0()); 
-            match(input,36,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getDelegateOpAccess().getStoppingEventsKeyword_5_0()); 
 
             }
@@ -12436,14 +13034,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_5__1"
-    // InternalPromise.g:4056:1: rule__DelegateOp__Group_5__1 : rule__DelegateOp__Group_5__1__Impl rule__DelegateOp__Group_5__2 ;
+    // InternalPromise.g:4252:1: rule__DelegateOp__Group_5__1 : rule__DelegateOp__Group_5__1__Impl rule__DelegateOp__Group_5__2 ;
     public final void rule__DelegateOp__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4060:1: ( rule__DelegateOp__Group_5__1__Impl rule__DelegateOp__Group_5__2 )
-            // InternalPromise.g:4061:2: rule__DelegateOp__Group_5__1__Impl rule__DelegateOp__Group_5__2
+            // InternalPromise.g:4256:1: ( rule__DelegateOp__Group_5__1__Impl rule__DelegateOp__Group_5__2 )
+            // InternalPromise.g:4257:2: rule__DelegateOp__Group_5__1__Impl rule__DelegateOp__Group_5__2
             {
             pushFollow(FOLLOW_13);
             rule__DelegateOp__Group_5__1__Impl();
@@ -12474,21 +13072,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_5__1__Impl"
-    // InternalPromise.g:4068:1: rule__DelegateOp__Group_5__1__Impl : ( ( rule__DelegateOp__StoppingEventAssignment_5_1 ) ) ;
+    // InternalPromise.g:4264:1: rule__DelegateOp__Group_5__1__Impl : ( ( rule__DelegateOp__StoppingEventAssignment_5_1 ) ) ;
     public final void rule__DelegateOp__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4072:1: ( ( ( rule__DelegateOp__StoppingEventAssignment_5_1 ) ) )
-            // InternalPromise.g:4073:1: ( ( rule__DelegateOp__StoppingEventAssignment_5_1 ) )
+            // InternalPromise.g:4268:1: ( ( ( rule__DelegateOp__StoppingEventAssignment_5_1 ) ) )
+            // InternalPromise.g:4269:1: ( ( rule__DelegateOp__StoppingEventAssignment_5_1 ) )
             {
-            // InternalPromise.g:4073:1: ( ( rule__DelegateOp__StoppingEventAssignment_5_1 ) )
-            // InternalPromise.g:4074:2: ( rule__DelegateOp__StoppingEventAssignment_5_1 )
+            // InternalPromise.g:4269:1: ( ( rule__DelegateOp__StoppingEventAssignment_5_1 ) )
+            // InternalPromise.g:4270:2: ( rule__DelegateOp__StoppingEventAssignment_5_1 )
             {
              before(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_5_1()); 
-            // InternalPromise.g:4075:2: ( rule__DelegateOp__StoppingEventAssignment_5_1 )
-            // InternalPromise.g:4075:3: rule__DelegateOp__StoppingEventAssignment_5_1
+            // InternalPromise.g:4271:2: ( rule__DelegateOp__StoppingEventAssignment_5_1 )
+            // InternalPromise.g:4271:3: rule__DelegateOp__StoppingEventAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__StoppingEventAssignment_5_1();
@@ -12521,14 +13119,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_5__2"
-    // InternalPromise.g:4083:1: rule__DelegateOp__Group_5__2 : rule__DelegateOp__Group_5__2__Impl ;
+    // InternalPromise.g:4279:1: rule__DelegateOp__Group_5__2 : rule__DelegateOp__Group_5__2__Impl ;
     public final void rule__DelegateOp__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4087:1: ( rule__DelegateOp__Group_5__2__Impl )
-            // InternalPromise.g:4088:2: rule__DelegateOp__Group_5__2__Impl
+            // InternalPromise.g:4283:1: ( rule__DelegateOp__Group_5__2__Impl )
+            // InternalPromise.g:4284:2: rule__DelegateOp__Group_5__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__Group_5__2__Impl();
@@ -12554,33 +13152,33 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_5__2__Impl"
-    // InternalPromise.g:4094:1: rule__DelegateOp__Group_5__2__Impl : ( ( rule__DelegateOp__Group_5_2__0 )* ) ;
+    // InternalPromise.g:4290:1: rule__DelegateOp__Group_5__2__Impl : ( ( rule__DelegateOp__Group_5_2__0 )* ) ;
     public final void rule__DelegateOp__Group_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4098:1: ( ( ( rule__DelegateOp__Group_5_2__0 )* ) )
-            // InternalPromise.g:4099:1: ( ( rule__DelegateOp__Group_5_2__0 )* )
+            // InternalPromise.g:4294:1: ( ( ( rule__DelegateOp__Group_5_2__0 )* ) )
+            // InternalPromise.g:4295:1: ( ( rule__DelegateOp__Group_5_2__0 )* )
             {
-            // InternalPromise.g:4099:1: ( ( rule__DelegateOp__Group_5_2__0 )* )
-            // InternalPromise.g:4100:2: ( rule__DelegateOp__Group_5_2__0 )*
+            // InternalPromise.g:4295:1: ( ( rule__DelegateOp__Group_5_2__0 )* )
+            // InternalPromise.g:4296:2: ( rule__DelegateOp__Group_5_2__0 )*
             {
              before(grammarAccess.getDelegateOpAccess().getGroup_5_2()); 
-            // InternalPromise.g:4101:2: ( rule__DelegateOp__Group_5_2__0 )*
-            loop25:
+            // InternalPromise.g:4297:2: ( rule__DelegateOp__Group_5_2__0 )*
+            loop26:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt26=2;
+                int LA26_0 = input.LA(1);
 
-                if ( (LA25_0==21) ) {
-                    alt25=1;
+                if ( (LA26_0==21) ) {
+                    alt26=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt26) {
             	case 1 :
-            	    // InternalPromise.g:4101:3: rule__DelegateOp__Group_5_2__0
+            	    // InternalPromise.g:4297:3: rule__DelegateOp__Group_5_2__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__DelegateOp__Group_5_2__0();
@@ -12592,7 +13190,7 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop26;
                 }
             } while (true);
 
@@ -12619,14 +13217,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_5_2__0"
-    // InternalPromise.g:4110:1: rule__DelegateOp__Group_5_2__0 : rule__DelegateOp__Group_5_2__0__Impl rule__DelegateOp__Group_5_2__1 ;
+    // InternalPromise.g:4306:1: rule__DelegateOp__Group_5_2__0 : rule__DelegateOp__Group_5_2__0__Impl rule__DelegateOp__Group_5_2__1 ;
     public final void rule__DelegateOp__Group_5_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4114:1: ( rule__DelegateOp__Group_5_2__0__Impl rule__DelegateOp__Group_5_2__1 )
-            // InternalPromise.g:4115:2: rule__DelegateOp__Group_5_2__0__Impl rule__DelegateOp__Group_5_2__1
+            // InternalPromise.g:4310:1: ( rule__DelegateOp__Group_5_2__0__Impl rule__DelegateOp__Group_5_2__1 )
+            // InternalPromise.g:4311:2: rule__DelegateOp__Group_5_2__0__Impl rule__DelegateOp__Group_5_2__1
             {
             pushFollow(FOLLOW_5);
             rule__DelegateOp__Group_5_2__0__Impl();
@@ -12657,17 +13255,17 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_5_2__0__Impl"
-    // InternalPromise.g:4122:1: rule__DelegateOp__Group_5_2__0__Impl : ( ',' ) ;
+    // InternalPromise.g:4318:1: rule__DelegateOp__Group_5_2__0__Impl : ( ',' ) ;
     public final void rule__DelegateOp__Group_5_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4126:1: ( ( ',' ) )
-            // InternalPromise.g:4127:1: ( ',' )
+            // InternalPromise.g:4322:1: ( ( ',' ) )
+            // InternalPromise.g:4323:1: ( ',' )
             {
-            // InternalPromise.g:4127:1: ( ',' )
-            // InternalPromise.g:4128:2: ','
+            // InternalPromise.g:4323:1: ( ',' )
+            // InternalPromise.g:4324:2: ','
             {
              before(grammarAccess.getDelegateOpAccess().getCommaKeyword_5_2_0()); 
             match(input,21,FOLLOW_2); 
@@ -12694,14 +13292,14 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_5_2__1"
-    // InternalPromise.g:4137:1: rule__DelegateOp__Group_5_2__1 : rule__DelegateOp__Group_5_2__1__Impl ;
+    // InternalPromise.g:4333:1: rule__DelegateOp__Group_5_2__1 : rule__DelegateOp__Group_5_2__1__Impl ;
     public final void rule__DelegateOp__Group_5_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4141:1: ( rule__DelegateOp__Group_5_2__1__Impl )
-            // InternalPromise.g:4142:2: rule__DelegateOp__Group_5_2__1__Impl
+            // InternalPromise.g:4337:1: ( rule__DelegateOp__Group_5_2__1__Impl )
+            // InternalPromise.g:4338:2: rule__DelegateOp__Group_5_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__Group_5_2__1__Impl();
@@ -12727,21 +13325,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__Group_5_2__1__Impl"
-    // InternalPromise.g:4148:1: rule__DelegateOp__Group_5_2__1__Impl : ( ( rule__DelegateOp__StoppingEventAssignment_5_2_1 ) ) ;
+    // InternalPromise.g:4344:1: rule__DelegateOp__Group_5_2__1__Impl : ( ( rule__DelegateOp__StoppingEventAssignment_5_2_1 ) ) ;
     public final void rule__DelegateOp__Group_5_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:4152:1: ( ( ( rule__DelegateOp__StoppingEventAssignment_5_2_1 ) ) )
-            // InternalPromise.g:4153:1: ( ( rule__DelegateOp__StoppingEventAssignment_5_2_1 ) )
+            // InternalPromise.g:4348:1: ( ( ( rule__DelegateOp__StoppingEventAssignment_5_2_1 ) ) )
+            // InternalPromise.g:4349:1: ( ( rule__DelegateOp__StoppingEventAssignment_5_2_1 ) )
             {
-            // InternalPromise.g:4153:1: ( ( rule__DelegateOp__StoppingEventAssignment_5_2_1 ) )
-            // InternalPromise.g:4154:2: ( rule__DelegateOp__StoppingEventAssignment_5_2_1 )
+            // InternalPromise.g:4349:1: ( ( rule__DelegateOp__StoppingEventAssignment_5_2_1 ) )
+            // InternalPromise.g:4350:2: ( rule__DelegateOp__StoppingEventAssignment_5_2_1 )
             {
              before(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_5_2_1()); 
-            // InternalPromise.g:4155:2: ( rule__DelegateOp__StoppingEventAssignment_5_2_1 )
-            // InternalPromise.g:4155:3: rule__DelegateOp__StoppingEventAssignment_5_2_1
+            // InternalPromise.g:4351:2: ( rule__DelegateOp__StoppingEventAssignment_5_2_1 )
+            // InternalPromise.g:4351:3: rule__DelegateOp__StoppingEventAssignment_5_2_1
             {
             pushFollow(FOLLOW_2);
             rule__DelegateOp__StoppingEventAssignment_5_2_1();
@@ -12771,604 +13369,6 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
         return ;
     }
     // $ANTLR end "rule__DelegateOp__Group_5_2__1__Impl"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group__0"
-    // InternalPromise.g:4164:1: rule__TaskCombinationOp__Group__0 : rule__TaskCombinationOp__Group__0__Impl rule__TaskCombinationOp__Group__1 ;
-    public final void rule__TaskCombinationOp__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4168:1: ( rule__TaskCombinationOp__Group__0__Impl rule__TaskCombinationOp__Group__1 )
-            // InternalPromise.g:4169:2: rule__TaskCombinationOp__Group__0__Impl rule__TaskCombinationOp__Group__1
-            {
-            pushFollow(FOLLOW_15);
-            rule__TaskCombinationOp__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__TaskCombinationOp__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group__0"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group__0__Impl"
-    // InternalPromise.g:4176:1: rule__TaskCombinationOp__Group__0__Impl : ( 'combination' ) ;
-    public final void rule__TaskCombinationOp__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4180:1: ( ( 'combination' ) )
-            // InternalPromise.g:4181:1: ( 'combination' )
-            {
-            // InternalPromise.g:4181:1: ( 'combination' )
-            // InternalPromise.g:4182:2: 'combination'
-            {
-             before(grammarAccess.getTaskCombinationOpAccess().getCombinationKeyword_0()); 
-            match(input,37,FOLLOW_2); 
-             after(grammarAccess.getTaskCombinationOpAccess().getCombinationKeyword_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group__0__Impl"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group__1"
-    // InternalPromise.g:4191:1: rule__TaskCombinationOp__Group__1 : rule__TaskCombinationOp__Group__1__Impl rule__TaskCombinationOp__Group__2 ;
-    public final void rule__TaskCombinationOp__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4195:1: ( rule__TaskCombinationOp__Group__1__Impl rule__TaskCombinationOp__Group__2 )
-            // InternalPromise.g:4196:2: rule__TaskCombinationOp__Group__1__Impl rule__TaskCombinationOp__Group__2
-            {
-            pushFollow(FOLLOW_8);
-            rule__TaskCombinationOp__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__TaskCombinationOp__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group__1"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group__1__Impl"
-    // InternalPromise.g:4203:1: rule__TaskCombinationOp__Group__1__Impl : ( '(' ) ;
-    public final void rule__TaskCombinationOp__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4207:1: ( ( '(' ) )
-            // InternalPromise.g:4208:1: ( '(' )
-            {
-            // InternalPromise.g:4208:1: ( '(' )
-            // InternalPromise.g:4209:2: '('
-            {
-             before(grammarAccess.getTaskCombinationOpAccess().getLeftParenthesisKeyword_1()); 
-            match(input,26,FOLLOW_2); 
-             after(grammarAccess.getTaskCombinationOpAccess().getLeftParenthesisKeyword_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group__1__Impl"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group__2"
-    // InternalPromise.g:4218:1: rule__TaskCombinationOp__Group__2 : rule__TaskCombinationOp__Group__2__Impl rule__TaskCombinationOp__Group__3 ;
-    public final void rule__TaskCombinationOp__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4222:1: ( rule__TaskCombinationOp__Group__2__Impl rule__TaskCombinationOp__Group__3 )
-            // InternalPromise.g:4223:2: rule__TaskCombinationOp__Group__2__Impl rule__TaskCombinationOp__Group__3
-            {
-            pushFollow(FOLLOW_27);
-            rule__TaskCombinationOp__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__TaskCombinationOp__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group__2"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group__2__Impl"
-    // InternalPromise.g:4230:1: rule__TaskCombinationOp__Group__2__Impl : ( ( rule__TaskCombinationOp__InputOperatorsAssignment_2 ) ) ;
-    public final void rule__TaskCombinationOp__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4234:1: ( ( ( rule__TaskCombinationOp__InputOperatorsAssignment_2 ) ) )
-            // InternalPromise.g:4235:1: ( ( rule__TaskCombinationOp__InputOperatorsAssignment_2 ) )
-            {
-            // InternalPromise.g:4235:1: ( ( rule__TaskCombinationOp__InputOperatorsAssignment_2 ) )
-            // InternalPromise.g:4236:2: ( rule__TaskCombinationOp__InputOperatorsAssignment_2 )
-            {
-             before(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_2()); 
-            // InternalPromise.g:4237:2: ( rule__TaskCombinationOp__InputOperatorsAssignment_2 )
-            // InternalPromise.g:4237:3: rule__TaskCombinationOp__InputOperatorsAssignment_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__TaskCombinationOp__InputOperatorsAssignment_2();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group__2__Impl"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group__3"
-    // InternalPromise.g:4245:1: rule__TaskCombinationOp__Group__3 : rule__TaskCombinationOp__Group__3__Impl rule__TaskCombinationOp__Group__4 ;
-    public final void rule__TaskCombinationOp__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4249:1: ( rule__TaskCombinationOp__Group__3__Impl rule__TaskCombinationOp__Group__4 )
-            // InternalPromise.g:4250:2: rule__TaskCombinationOp__Group__3__Impl rule__TaskCombinationOp__Group__4
-            {
-            pushFollow(FOLLOW_19);
-            rule__TaskCombinationOp__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__TaskCombinationOp__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group__3"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group__3__Impl"
-    // InternalPromise.g:4257:1: rule__TaskCombinationOp__Group__3__Impl : ( ( ( rule__TaskCombinationOp__Group_3__0 ) ) ( ( rule__TaskCombinationOp__Group_3__0 )* ) ) ;
-    public final void rule__TaskCombinationOp__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4261:1: ( ( ( ( rule__TaskCombinationOp__Group_3__0 ) ) ( ( rule__TaskCombinationOp__Group_3__0 )* ) ) )
-            // InternalPromise.g:4262:1: ( ( ( rule__TaskCombinationOp__Group_3__0 ) ) ( ( rule__TaskCombinationOp__Group_3__0 )* ) )
-            {
-            // InternalPromise.g:4262:1: ( ( ( rule__TaskCombinationOp__Group_3__0 ) ) ( ( rule__TaskCombinationOp__Group_3__0 )* ) )
-            // InternalPromise.g:4263:2: ( ( rule__TaskCombinationOp__Group_3__0 ) ) ( ( rule__TaskCombinationOp__Group_3__0 )* )
-            {
-            // InternalPromise.g:4263:2: ( ( rule__TaskCombinationOp__Group_3__0 ) )
-            // InternalPromise.g:4264:3: ( rule__TaskCombinationOp__Group_3__0 )
-            {
-             before(grammarAccess.getTaskCombinationOpAccess().getGroup_3()); 
-            // InternalPromise.g:4265:3: ( rule__TaskCombinationOp__Group_3__0 )
-            // InternalPromise.g:4265:4: rule__TaskCombinationOp__Group_3__0
-            {
-            pushFollow(FOLLOW_28);
-            rule__TaskCombinationOp__Group_3__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTaskCombinationOpAccess().getGroup_3()); 
-
-            }
-
-            // InternalPromise.g:4268:2: ( ( rule__TaskCombinationOp__Group_3__0 )* )
-            // InternalPromise.g:4269:3: ( rule__TaskCombinationOp__Group_3__0 )*
-            {
-             before(grammarAccess.getTaskCombinationOpAccess().getGroup_3()); 
-            // InternalPromise.g:4270:3: ( rule__TaskCombinationOp__Group_3__0 )*
-            loop26:
-            do {
-                int alt26=2;
-                int LA26_0 = input.LA(1);
-
-                if ( ((LA26_0>=11 && LA26_0<=13)) ) {
-                    alt26=1;
-                }
-
-
-                switch (alt26) {
-            	case 1 :
-            	    // InternalPromise.g:4270:4: rule__TaskCombinationOp__Group_3__0
-            	    {
-            	    pushFollow(FOLLOW_28);
-            	    rule__TaskCombinationOp__Group_3__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop26;
-                }
-            } while (true);
-
-             after(grammarAccess.getTaskCombinationOpAccess().getGroup_3()); 
-
-            }
-
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group__3__Impl"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group__4"
-    // InternalPromise.g:4279:1: rule__TaskCombinationOp__Group__4 : rule__TaskCombinationOp__Group__4__Impl ;
-    public final void rule__TaskCombinationOp__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4283:1: ( rule__TaskCombinationOp__Group__4__Impl )
-            // InternalPromise.g:4284:2: rule__TaskCombinationOp__Group__4__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__TaskCombinationOp__Group__4__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group__4"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group__4__Impl"
-    // InternalPromise.g:4290:1: rule__TaskCombinationOp__Group__4__Impl : ( ')' ) ;
-    public final void rule__TaskCombinationOp__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4294:1: ( ( ')' ) )
-            // InternalPromise.g:4295:1: ( ')' )
-            {
-            // InternalPromise.g:4295:1: ( ')' )
-            // InternalPromise.g:4296:2: ')'
-            {
-             before(grammarAccess.getTaskCombinationOpAccess().getRightParenthesisKeyword_4()); 
-            match(input,27,FOLLOW_2); 
-             after(grammarAccess.getTaskCombinationOpAccess().getRightParenthesisKeyword_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group__4__Impl"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group_3__0"
-    // InternalPromise.g:4306:1: rule__TaskCombinationOp__Group_3__0 : rule__TaskCombinationOp__Group_3__0__Impl rule__TaskCombinationOp__Group_3__1 ;
-    public final void rule__TaskCombinationOp__Group_3__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4310:1: ( rule__TaskCombinationOp__Group_3__0__Impl rule__TaskCombinationOp__Group_3__1 )
-            // InternalPromise.g:4311:2: rule__TaskCombinationOp__Group_3__0__Impl rule__TaskCombinationOp__Group_3__1
-            {
-            pushFollow(FOLLOW_8);
-            rule__TaskCombinationOp__Group_3__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__TaskCombinationOp__Group_3__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group_3__0"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group_3__0__Impl"
-    // InternalPromise.g:4318:1: rule__TaskCombinationOp__Group_3__0__Impl : ( ( rule__TaskCombinationOp__Alternatives_3_0 ) ) ;
-    public final void rule__TaskCombinationOp__Group_3__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4322:1: ( ( ( rule__TaskCombinationOp__Alternatives_3_0 ) ) )
-            // InternalPromise.g:4323:1: ( ( rule__TaskCombinationOp__Alternatives_3_0 ) )
-            {
-            // InternalPromise.g:4323:1: ( ( rule__TaskCombinationOp__Alternatives_3_0 ) )
-            // InternalPromise.g:4324:2: ( rule__TaskCombinationOp__Alternatives_3_0 )
-            {
-             before(grammarAccess.getTaskCombinationOpAccess().getAlternatives_3_0()); 
-            // InternalPromise.g:4325:2: ( rule__TaskCombinationOp__Alternatives_3_0 )
-            // InternalPromise.g:4325:3: rule__TaskCombinationOp__Alternatives_3_0
-            {
-            pushFollow(FOLLOW_2);
-            rule__TaskCombinationOp__Alternatives_3_0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTaskCombinationOpAccess().getAlternatives_3_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group_3__0__Impl"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group_3__1"
-    // InternalPromise.g:4333:1: rule__TaskCombinationOp__Group_3__1 : rule__TaskCombinationOp__Group_3__1__Impl ;
-    public final void rule__TaskCombinationOp__Group_3__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4337:1: ( rule__TaskCombinationOp__Group_3__1__Impl )
-            // InternalPromise.g:4338:2: rule__TaskCombinationOp__Group_3__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__TaskCombinationOp__Group_3__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group_3__1"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__Group_3__1__Impl"
-    // InternalPromise.g:4344:1: rule__TaskCombinationOp__Group_3__1__Impl : ( ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 ) ) ;
-    public final void rule__TaskCombinationOp__Group_3__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:4348:1: ( ( ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 ) ) )
-            // InternalPromise.g:4349:1: ( ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 ) )
-            {
-            // InternalPromise.g:4349:1: ( ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 ) )
-            // InternalPromise.g:4350:2: ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 )
-            {
-             before(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_3_1()); 
-            // InternalPromise.g:4351:2: ( rule__TaskCombinationOp__InputOperatorsAssignment_3_1 )
-            // InternalPromise.g:4351:3: rule__TaskCombinationOp__InputOperatorsAssignment_3_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__TaskCombinationOp__InputOperatorsAssignment_3_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_3_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__Group_3__1__Impl"
 
 
     // $ANTLR start "rule__EventAssignment__Group__0"
@@ -16451,7 +16451,7 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
             // InternalPromise.g:5498:1: ( rule__InstantReaction__Group__0__Impl rule__InstantReaction__Group__1 )
             // InternalPromise.g:5499:2: rule__InstantReaction__Group__0__Impl rule__InstantReaction__Group__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_27);
             rule__InstantReaction__Group__0__Impl();
 
             state._fsp--;
@@ -17701,18 +17701,100 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ConditionOp__InputEventsAssignment_2_1"
 
 
+    // $ANTLR start "rule__TaskCombinationOp__InputOperatorsAssignment_2"
+    // InternalPromise.g:5961:1: rule__TaskCombinationOp__InputOperatorsAssignment_2 : ( ruleOperator ) ;
+    public final void rule__TaskCombinationOp__InputOperatorsAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:5965:1: ( ( ruleOperator ) )
+            // InternalPromise.g:5966:2: ( ruleOperator )
+            {
+            // InternalPromise.g:5966:2: ( ruleOperator )
+            // InternalPromise.g:5967:3: ruleOperator
+            {
+             before(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_2_0()); 
+            pushFollow(FOLLOW_2);
+            ruleOperator();
+
+            state._fsp--;
+
+             after(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__InputOperatorsAssignment_2"
+
+
+    // $ANTLR start "rule__TaskCombinationOp__InputOperatorsAssignment_3_1"
+    // InternalPromise.g:5976:1: rule__TaskCombinationOp__InputOperatorsAssignment_3_1 : ( ruleOperator ) ;
+    public final void rule__TaskCombinationOp__InputOperatorsAssignment_3_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPromise.g:5980:1: ( ( ruleOperator ) )
+            // InternalPromise.g:5981:2: ( ruleOperator )
+            {
+            // InternalPromise.g:5981:2: ( ruleOperator )
+            // InternalPromise.g:5982:3: ruleOperator
+            {
+             before(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_3_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleOperator();
+
+            state._fsp--;
+
+             after(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_3_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TaskCombinationOp__InputOperatorsAssignment_3_1"
+
+
     // $ANTLR start "rule__DelegateOp__TaskAssignment_2"
-    // InternalPromise.g:5961:1: rule__DelegateOp__TaskAssignment_2 : ( ruleTasks ) ;
+    // InternalPromise.g:5991:1: rule__DelegateOp__TaskAssignment_2 : ( ruleTasks ) ;
     public final void rule__DelegateOp__TaskAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:5965:1: ( ( ruleTasks ) )
-            // InternalPromise.g:5966:2: ( ruleTasks )
+            // InternalPromise.g:5995:1: ( ( ruleTasks ) )
+            // InternalPromise.g:5996:2: ( ruleTasks )
             {
-            // InternalPromise.g:5966:2: ( ruleTasks )
-            // InternalPromise.g:5967:3: ruleTasks
+            // InternalPromise.g:5996:2: ( ruleTasks )
+            // InternalPromise.g:5997:3: ruleTasks
             {
              before(grammarAccess.getDelegateOpAccess().getTaskTasksParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -17743,21 +17825,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__InputLocationsAssignment_3_1"
-    // InternalPromise.g:5976:1: rule__DelegateOp__InputLocationsAssignment_3_1 : ( ( ruleEString ) ) ;
+    // InternalPromise.g:6006:1: rule__DelegateOp__InputLocationsAssignment_3_1 : ( ( ruleEString ) ) ;
     public final void rule__DelegateOp__InputLocationsAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:5980:1: ( ( ( ruleEString ) ) )
-            // InternalPromise.g:5981:2: ( ( ruleEString ) )
+            // InternalPromise.g:6010:1: ( ( ( ruleEString ) ) )
+            // InternalPromise.g:6011:2: ( ( ruleEString ) )
             {
-            // InternalPromise.g:5981:2: ( ( ruleEString ) )
-            // InternalPromise.g:5982:3: ( ruleEString )
+            // InternalPromise.g:6011:2: ( ( ruleEString ) )
+            // InternalPromise.g:6012:3: ( ruleEString )
             {
              before(grammarAccess.getDelegateOpAccess().getInputLocationsLocationCrossReference_3_1_0()); 
-            // InternalPromise.g:5983:3: ( ruleEString )
-            // InternalPromise.g:5984:4: ruleEString
+            // InternalPromise.g:6013:3: ( ruleEString )
+            // InternalPromise.g:6014:4: ruleEString
             {
              before(grammarAccess.getDelegateOpAccess().getInputLocationsLocationEStringParserRuleCall_3_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -17792,21 +17874,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__InputLocationsAssignment_3_2_1"
-    // InternalPromise.g:5995:1: rule__DelegateOp__InputLocationsAssignment_3_2_1 : ( ( ruleEString ) ) ;
+    // InternalPromise.g:6025:1: rule__DelegateOp__InputLocationsAssignment_3_2_1 : ( ( ruleEString ) ) ;
     public final void rule__DelegateOp__InputLocationsAssignment_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:5999:1: ( ( ( ruleEString ) ) )
-            // InternalPromise.g:6000:2: ( ( ruleEString ) )
+            // InternalPromise.g:6029:1: ( ( ( ruleEString ) ) )
+            // InternalPromise.g:6030:2: ( ( ruleEString ) )
             {
-            // InternalPromise.g:6000:2: ( ( ruleEString ) )
-            // InternalPromise.g:6001:3: ( ruleEString )
+            // InternalPromise.g:6030:2: ( ( ruleEString ) )
+            // InternalPromise.g:6031:3: ( ruleEString )
             {
              before(grammarAccess.getDelegateOpAccess().getInputLocationsLocationCrossReference_3_2_1_0()); 
-            // InternalPromise.g:6002:3: ( ruleEString )
-            // InternalPromise.g:6003:4: ruleEString
+            // InternalPromise.g:6032:3: ( ruleEString )
+            // InternalPromise.g:6033:4: ruleEString
             {
              before(grammarAccess.getDelegateOpAccess().getInputLocationsLocationEStringParserRuleCall_3_2_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -17841,21 +17923,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__InputActionAssignment_4_1"
-    // InternalPromise.g:6014:1: rule__DelegateOp__InputActionAssignment_4_1 : ( ( ruleEString ) ) ;
+    // InternalPromise.g:6044:1: rule__DelegateOp__InputActionAssignment_4_1 : ( ( ruleEString ) ) ;
     public final void rule__DelegateOp__InputActionAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:6018:1: ( ( ( ruleEString ) ) )
-            // InternalPromise.g:6019:2: ( ( ruleEString ) )
+            // InternalPromise.g:6048:1: ( ( ( ruleEString ) ) )
+            // InternalPromise.g:6049:2: ( ( ruleEString ) )
             {
-            // InternalPromise.g:6019:2: ( ( ruleEString ) )
-            // InternalPromise.g:6020:3: ( ruleEString )
+            // InternalPromise.g:6049:2: ( ( ruleEString ) )
+            // InternalPromise.g:6050:3: ( ruleEString )
             {
              before(grammarAccess.getDelegateOpAccess().getInputActionActionCrossReference_4_1_0()); 
-            // InternalPromise.g:6021:3: ( ruleEString )
-            // InternalPromise.g:6022:4: ruleEString
+            // InternalPromise.g:6051:3: ( ruleEString )
+            // InternalPromise.g:6052:4: ruleEString
             {
              before(grammarAccess.getDelegateOpAccess().getInputActionActionEStringParserRuleCall_4_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -17890,21 +17972,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__InputActionAssignment_4_2_1"
-    // InternalPromise.g:6033:1: rule__DelegateOp__InputActionAssignment_4_2_1 : ( ( ruleEString ) ) ;
+    // InternalPromise.g:6063:1: rule__DelegateOp__InputActionAssignment_4_2_1 : ( ( ruleEString ) ) ;
     public final void rule__DelegateOp__InputActionAssignment_4_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:6037:1: ( ( ( ruleEString ) ) )
-            // InternalPromise.g:6038:2: ( ( ruleEString ) )
+            // InternalPromise.g:6067:1: ( ( ( ruleEString ) ) )
+            // InternalPromise.g:6068:2: ( ( ruleEString ) )
             {
-            // InternalPromise.g:6038:2: ( ( ruleEString ) )
-            // InternalPromise.g:6039:3: ( ruleEString )
+            // InternalPromise.g:6068:2: ( ( ruleEString ) )
+            // InternalPromise.g:6069:3: ( ruleEString )
             {
              before(grammarAccess.getDelegateOpAccess().getInputActionActionCrossReference_4_2_1_0()); 
-            // InternalPromise.g:6040:3: ( ruleEString )
-            // InternalPromise.g:6041:4: ruleEString
+            // InternalPromise.g:6070:3: ( ruleEString )
+            // InternalPromise.g:6071:4: ruleEString
             {
              before(grammarAccess.getDelegateOpAccess().getInputActionActionEStringParserRuleCall_4_2_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -17939,21 +18021,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__StoppingEventAssignment_5_1"
-    // InternalPromise.g:6052:1: rule__DelegateOp__StoppingEventAssignment_5_1 : ( ( ruleEString ) ) ;
+    // InternalPromise.g:6082:1: rule__DelegateOp__StoppingEventAssignment_5_1 : ( ( ruleEString ) ) ;
     public final void rule__DelegateOp__StoppingEventAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:6056:1: ( ( ( ruleEString ) ) )
-            // InternalPromise.g:6057:2: ( ( ruleEString ) )
+            // InternalPromise.g:6086:1: ( ( ( ruleEString ) ) )
+            // InternalPromise.g:6087:2: ( ( ruleEString ) )
             {
-            // InternalPromise.g:6057:2: ( ( ruleEString ) )
-            // InternalPromise.g:6058:3: ( ruleEString )
+            // InternalPromise.g:6087:2: ( ( ruleEString ) )
+            // InternalPromise.g:6088:3: ( ruleEString )
             {
              before(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_5_1_0()); 
-            // InternalPromise.g:6059:3: ( ruleEString )
-            // InternalPromise.g:6060:4: ruleEString
+            // InternalPromise.g:6089:3: ( ruleEString )
+            // InternalPromise.g:6090:4: ruleEString
             {
              before(grammarAccess.getDelegateOpAccess().getStoppingEventEventEStringParserRuleCall_5_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -17988,21 +18070,21 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DelegateOp__StoppingEventAssignment_5_2_1"
-    // InternalPromise.g:6071:1: rule__DelegateOp__StoppingEventAssignment_5_2_1 : ( ( ruleEString ) ) ;
+    // InternalPromise.g:6101:1: rule__DelegateOp__StoppingEventAssignment_5_2_1 : ( ( ruleEString ) ) ;
     public final void rule__DelegateOp__StoppingEventAssignment_5_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPromise.g:6075:1: ( ( ( ruleEString ) ) )
-            // InternalPromise.g:6076:2: ( ( ruleEString ) )
+            // InternalPromise.g:6105:1: ( ( ( ruleEString ) ) )
+            // InternalPromise.g:6106:2: ( ( ruleEString ) )
             {
-            // InternalPromise.g:6076:2: ( ( ruleEString ) )
-            // InternalPromise.g:6077:3: ( ruleEString )
+            // InternalPromise.g:6106:2: ( ( ruleEString ) )
+            // InternalPromise.g:6107:3: ( ruleEString )
             {
              before(grammarAccess.getDelegateOpAccess().getStoppingEventEventCrossReference_5_2_1_0()); 
-            // InternalPromise.g:6078:3: ( ruleEString )
-            // InternalPromise.g:6079:4: ruleEString
+            // InternalPromise.g:6108:3: ( ruleEString )
+            // InternalPromise.g:6109:4: ruleEString
             {
              before(grammarAccess.getDelegateOpAccess().getStoppingEventEventEStringParserRuleCall_5_2_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -18034,88 +18116,6 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
         return ;
     }
     // $ANTLR end "rule__DelegateOp__StoppingEventAssignment_5_2_1"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__InputOperatorsAssignment_2"
-    // InternalPromise.g:6090:1: rule__TaskCombinationOp__InputOperatorsAssignment_2 : ( ruleOperator ) ;
-    public final void rule__TaskCombinationOp__InputOperatorsAssignment_2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:6094:1: ( ( ruleOperator ) )
-            // InternalPromise.g:6095:2: ( ruleOperator )
-            {
-            // InternalPromise.g:6095:2: ( ruleOperator )
-            // InternalPromise.g:6096:3: ruleOperator
-            {
-             before(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_2_0()); 
-            pushFollow(FOLLOW_2);
-            ruleOperator();
-
-            state._fsp--;
-
-             after(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_2_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__InputOperatorsAssignment_2"
-
-
-    // $ANTLR start "rule__TaskCombinationOp__InputOperatorsAssignment_3_1"
-    // InternalPromise.g:6105:1: rule__TaskCombinationOp__InputOperatorsAssignment_3_1 : ( ruleOperator ) ;
-    public final void rule__TaskCombinationOp__InputOperatorsAssignment_3_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPromise.g:6109:1: ( ( ruleOperator ) )
-            // InternalPromise.g:6110:2: ( ruleOperator )
-            {
-            // InternalPromise.g:6110:2: ( ruleOperator )
-            // InternalPromise.g:6111:3: ruleOperator
-            {
-             before(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_3_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleOperator();
-
-            state._fsp--;
-
-             after(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_3_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__TaskCombinationOp__InputOperatorsAssignment_3_1"
 
 
     // $ANTLR start "rule__EventAssignment__InputEventAssignment_0"
@@ -18219,7 +18219,7 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000A20000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000200002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000002A72000000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000001A72000000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000240000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000540000L});
@@ -18236,10 +18236,10 @@ public class InternalPromiseParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000100000002L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000400000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000400000002L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x03FFFFC000000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000001008C00000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000003800L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000003802L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000003800L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000003802L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x03FFFFC000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000002008C00000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000004000000000L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000010000000000L});

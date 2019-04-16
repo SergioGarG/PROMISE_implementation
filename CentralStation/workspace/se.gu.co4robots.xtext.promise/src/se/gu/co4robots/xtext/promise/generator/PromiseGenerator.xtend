@@ -461,7 +461,7 @@ class PromiseGenerator extends AbstractGenerator {
 				text=text+"wait in location "+in.inputLocations.get(0).name
 			}
 			else if(in.task.eClass.name == "SimpleAction"){
-				template="(X "+in.inputAction.get(0).name+")"
+				template="X ("+in.inputAction.get(0).name+")"
 				text=text+" perform action "+in.inputAction.get(0).name
 			} 
 		

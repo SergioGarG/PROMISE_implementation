@@ -26,11 +26,11 @@
 'Wait'=55
 'actions'=22
 'and'=13
-'combination'=37
+'combination'=35
 'condition'=33
 'conditions'=19
 'default'=31
-'delegate'=35
+'delegate'=36
 'eventHandler'=30
 'events'=20
 'except'=32
@@ -42,7 +42,7 @@
 'parallel'=29
 'robots'=16
 'sequence'=28
-'stoppingEvents'=36
+'stoppingEvents'=37
 '{'=15
 '}'=18
 RULE_ANY_OTHER=10

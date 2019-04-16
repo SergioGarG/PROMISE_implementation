@@ -58,6 +58,10 @@ EventHandlerOp:
 ConditionOp:
 	'condition' '(' 
 	('if' inputEvents+=EventAssignment )+')';
+	
+TaskCombinationOp:
+	'combination' '(' inputOperators+=Operator 
+	(('&' | 'AND' | 'and') inputOperators+=Operator)+ ')';
 
 DelegateOp:
 	'delegate' '(' task=Tasks
@@ -67,10 +71,6 @@ DelegateOp:
 		( "," inputAction+=[Action|EString])*)? 
 		('stoppingEvents' stoppingEvent+=[Event|EString] 
 		( "," stoppingEvent+=[Event|EString])*)? ')';
-
-TaskCombinationOp:
-	'combination' '(' inputOperators+=Operator 
-	(('&' | 'AND' | 'and') inputOperators+=Operator)+ ')';
 
 EventAssignment: 
 	inputEvent=[Event|EString] '(' inputOperators=Operator ')';

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPromiseParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'mission'", "'{'", "'conditions'", "'events'", "','", "'actions'", "'}'", "'robots'", "'locations'", "'operators'", "':'", "'fallback'", "'('", "')'", "'sequence'", "'parallel'", "'eventHandler'", "'default'", "'except'", "'condition'", "'if'", "'delegate'", "'stoppingEvents'", "'combination'", "'&'", "'AND'", "'and'", "'SimpleAction'", "'Visit'", "'SequencedVisit'", "'OrderedVisit'", "'StrictOrderedVisit'", "'FairVisit'", "'Patrolling'", "'SequencedPatrolling'", "'OrderedPatrolling'", "'StrictOrderedPatrolling'", "'FairPatrolling'", "'UpperRestrictedAvoidance'", "'ExactRestrictedAvoidance'", "'LowerRestrictedAvoidance'", "'FutureAvoidance'", "'GlobalAvoidance'", "'PastAvoidance'", "'Wait'", "'DelayedReaction'", "'InstantReaction'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'mission'", "'{'", "'conditions'", "'events'", "','", "'actions'", "'}'", "'robots'", "'locations'", "'operators'", "':'", "'fallback'", "'('", "')'", "'sequence'", "'parallel'", "'eventHandler'", "'default'", "'except'", "'condition'", "'if'", "'combination'", "'&'", "'AND'", "'and'", "'delegate'", "'stoppingEvents'", "'SimpleAction'", "'Visit'", "'SequencedVisit'", "'OrderedVisit'", "'StrictOrderedVisit'", "'FairVisit'", "'Patrolling'", "'SequencedPatrolling'", "'OrderedPatrolling'", "'StrictOrderedPatrolling'", "'FairPatrolling'", "'UpperRestrictedAvoidance'", "'ExactRestrictedAvoidance'", "'LowerRestrictedAvoidance'", "'FutureAvoidance'", "'GlobalAvoidance'", "'PastAvoidance'", "'Wait'", "'DelayedReaction'", "'InstantReaction'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -891,12 +891,12 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
                 alt10=5;
                 }
                 break;
-            case 32:
+            case 36:
                 {
                 alt10=6;
                 }
                 break;
-            case 34:
+            case 32:
                 {
                 alt10=7;
                 }
@@ -3135,8 +3135,254 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleConditionOp"
 
 
+    // $ANTLR start "entryRuleTaskCombinationOp"
+    // InternalPromise.g:1259:1: entryRuleTaskCombinationOp returns [EObject current=null] : iv_ruleTaskCombinationOp= ruleTaskCombinationOp EOF ;
+    public final EObject entryRuleTaskCombinationOp() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleTaskCombinationOp = null;
+
+
+        try {
+            // InternalPromise.g:1259:58: (iv_ruleTaskCombinationOp= ruleTaskCombinationOp EOF )
+            // InternalPromise.g:1260:2: iv_ruleTaskCombinationOp= ruleTaskCombinationOp EOF
+            {
+             newCompositeNode(grammarAccess.getTaskCombinationOpRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleTaskCombinationOp=ruleTaskCombinationOp();
+
+            state._fsp--;
+
+             current =iv_ruleTaskCombinationOp; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleTaskCombinationOp"
+
+
+    // $ANTLR start "ruleTaskCombinationOp"
+    // InternalPromise.g:1266:1: ruleTaskCombinationOp returns [EObject current=null] : (otherlv_0= 'combination' otherlv_1= '(' ( (lv_inputOperators_2_0= ruleOperator ) ) ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+ otherlv_7= ')' ) ;
+    public final EObject ruleTaskCombinationOp() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        Token otherlv_4=null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
+        EObject lv_inputOperators_2_0 = null;
+
+        EObject lv_inputOperators_6_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalPromise.g:1272:2: ( (otherlv_0= 'combination' otherlv_1= '(' ( (lv_inputOperators_2_0= ruleOperator ) ) ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+ otherlv_7= ')' ) )
+            // InternalPromise.g:1273:2: (otherlv_0= 'combination' otherlv_1= '(' ( (lv_inputOperators_2_0= ruleOperator ) ) ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+ otherlv_7= ')' )
+            {
+            // InternalPromise.g:1273:2: (otherlv_0= 'combination' otherlv_1= '(' ( (lv_inputOperators_2_0= ruleOperator ) ) ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+ otherlv_7= ')' )
+            // InternalPromise.g:1274:3: otherlv_0= 'combination' otherlv_1= '(' ( (lv_inputOperators_2_0= ruleOperator ) ) ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+ otherlv_7= ')'
+            {
+            otherlv_0=(Token)match(input,32,FOLLOW_16); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getTaskCombinationOpAccess().getCombinationKeyword_0());
+            		
+            otherlv_1=(Token)match(input,23,FOLLOW_13); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getTaskCombinationOpAccess().getLeftParenthesisKeyword_1());
+            		
+            // InternalPromise.g:1282:3: ( (lv_inputOperators_2_0= ruleOperator ) )
+            // InternalPromise.g:1283:4: (lv_inputOperators_2_0= ruleOperator )
+            {
+            // InternalPromise.g:1283:4: (lv_inputOperators_2_0= ruleOperator )
+            // InternalPromise.g:1284:5: lv_inputOperators_2_0= ruleOperator
+            {
+
+            					newCompositeNode(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_25);
+            lv_inputOperators_2_0=ruleOperator();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getTaskCombinationOpRule());
+            					}
+            					add(
+            						current,
+            						"inputOperators",
+            						lv_inputOperators_2_0,
+            						"se.gu.co4robots.xtext.promise.Promise.Operator");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalPromise.g:1301:3: ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+
+            int cnt19=0;
+            loop19:
+            do {
+                int alt19=2;
+                int LA19_0 = input.LA(1);
+
+                if ( ((LA19_0>=33 && LA19_0<=35)) ) {
+                    alt19=1;
+                }
+
+
+                switch (alt19) {
+            	case 1 :
+            	    // InternalPromise.g:1302:4: (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) )
+            	    {
+            	    // InternalPromise.g:1302:4: (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' )
+            	    int alt18=3;
+            	    switch ( input.LA(1) ) {
+            	    case 33:
+            	        {
+            	        alt18=1;
+            	        }
+            	        break;
+            	    case 34:
+            	        {
+            	        alt18=2;
+            	        }
+            	        break;
+            	    case 35:
+            	        {
+            	        alt18=3;
+            	        }
+            	        break;
+            	    default:
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 18, 0, input);
+
+            	        throw nvae;
+            	    }
+
+            	    switch (alt18) {
+            	        case 1 :
+            	            // InternalPromise.g:1303:5: otherlv_3= '&'
+            	            {
+            	            otherlv_3=(Token)match(input,33,FOLLOW_13); 
+
+            	            					newLeafNode(otherlv_3, grammarAccess.getTaskCombinationOpAccess().getAmpersandKeyword_3_0_0());
+            	            				
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // InternalPromise.g:1308:5: otherlv_4= 'AND'
+            	            {
+            	            otherlv_4=(Token)match(input,34,FOLLOW_13); 
+
+            	            					newLeafNode(otherlv_4, grammarAccess.getTaskCombinationOpAccess().getANDKeyword_3_0_1());
+            	            				
+
+            	            }
+            	            break;
+            	        case 3 :
+            	            // InternalPromise.g:1313:5: otherlv_5= 'and'
+            	            {
+            	            otherlv_5=(Token)match(input,35,FOLLOW_13); 
+
+            	            					newLeafNode(otherlv_5, grammarAccess.getTaskCombinationOpAccess().getAndKeyword_3_0_2());
+            	            				
+
+            	            }
+            	            break;
+
+            	    }
+
+            	    // InternalPromise.g:1318:4: ( (lv_inputOperators_6_0= ruleOperator ) )
+            	    // InternalPromise.g:1319:5: (lv_inputOperators_6_0= ruleOperator )
+            	    {
+            	    // InternalPromise.g:1319:5: (lv_inputOperators_6_0= ruleOperator )
+            	    // InternalPromise.g:1320:6: lv_inputOperators_6_0= ruleOperator
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_3_1_0());
+            	    					
+            	    pushFollow(FOLLOW_26);
+            	    lv_inputOperators_6_0=ruleOperator();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getTaskCombinationOpRule());
+            	    						}
+            	    						add(
+            	    							current,
+            	    							"inputOperators",
+            	    							lv_inputOperators_6_0,
+            	    							"se.gu.co4robots.xtext.promise.Promise.Operator");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt19 >= 1 ) break loop19;
+                        EarlyExitException eee =
+                            new EarlyExitException(19, input);
+                        throw eee;
+                }
+                cnt19++;
+            } while (true);
+
+            otherlv_7=(Token)match(input,24,FOLLOW_2); 
+
+            			newLeafNode(otherlv_7, grammarAccess.getTaskCombinationOpAccess().getRightParenthesisKeyword_4());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleTaskCombinationOp"
+
+
     // $ANTLR start "entryRuleDelegateOp"
-    // InternalPromise.g:1259:1: entryRuleDelegateOp returns [EObject current=null] : iv_ruleDelegateOp= ruleDelegateOp EOF ;
+    // InternalPromise.g:1346:1: entryRuleDelegateOp returns [EObject current=null] : iv_ruleDelegateOp= ruleDelegateOp EOF ;
     public final EObject entryRuleDelegateOp() throws RecognitionException {
         EObject current = null;
 
@@ -3144,8 +3390,8 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPromise.g:1259:51: (iv_ruleDelegateOp= ruleDelegateOp EOF )
-            // InternalPromise.g:1260:2: iv_ruleDelegateOp= ruleDelegateOp EOF
+            // InternalPromise.g:1346:51: (iv_ruleDelegateOp= ruleDelegateOp EOF )
+            // InternalPromise.g:1347:2: iv_ruleDelegateOp= ruleDelegateOp EOF
             {
              newCompositeNode(grammarAccess.getDelegateOpRule()); 
             pushFollow(FOLLOW_1);
@@ -3172,7 +3418,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDelegateOp"
-    // InternalPromise.g:1266:1: ruleDelegateOp returns [EObject current=null] : (otherlv_0= 'delegate' otherlv_1= '(' ( (lv_task_2_0= ruleTasks ) ) (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )? (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )? (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )? otherlv_15= ')' ) ;
+    // InternalPromise.g:1353:1: ruleDelegateOp returns [EObject current=null] : (otherlv_0= 'delegate' otherlv_1= '(' ( (lv_task_2_0= ruleTasks ) ) (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )? (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )? (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )? otherlv_15= ')' ) ;
     public final EObject ruleDelegateOp() throws RecognitionException {
         EObject current = null;
 
@@ -3192,30 +3438,30 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPromise.g:1272:2: ( (otherlv_0= 'delegate' otherlv_1= '(' ( (lv_task_2_0= ruleTasks ) ) (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )? (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )? (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )? otherlv_15= ')' ) )
-            // InternalPromise.g:1273:2: (otherlv_0= 'delegate' otherlv_1= '(' ( (lv_task_2_0= ruleTasks ) ) (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )? (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )? (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )? otherlv_15= ')' )
+            // InternalPromise.g:1359:2: ( (otherlv_0= 'delegate' otherlv_1= '(' ( (lv_task_2_0= ruleTasks ) ) (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )? (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )? (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )? otherlv_15= ')' ) )
+            // InternalPromise.g:1360:2: (otherlv_0= 'delegate' otherlv_1= '(' ( (lv_task_2_0= ruleTasks ) ) (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )? (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )? (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )? otherlv_15= ')' )
             {
-            // InternalPromise.g:1273:2: (otherlv_0= 'delegate' otherlv_1= '(' ( (lv_task_2_0= ruleTasks ) ) (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )? (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )? (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )? otherlv_15= ')' )
-            // InternalPromise.g:1274:3: otherlv_0= 'delegate' otherlv_1= '(' ( (lv_task_2_0= ruleTasks ) ) (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )? (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )? (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )? otherlv_15= ')'
+            // InternalPromise.g:1360:2: (otherlv_0= 'delegate' otherlv_1= '(' ( (lv_task_2_0= ruleTasks ) ) (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )? (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )? (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )? otherlv_15= ')' )
+            // InternalPromise.g:1361:3: otherlv_0= 'delegate' otherlv_1= '(' ( (lv_task_2_0= ruleTasks ) ) (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )? (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )? (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )? otherlv_15= ')'
             {
-            otherlv_0=(Token)match(input,32,FOLLOW_16); 
+            otherlv_0=(Token)match(input,36,FOLLOW_16); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDelegateOpAccess().getDelegateKeyword_0());
             		
-            otherlv_1=(Token)match(input,23,FOLLOW_25); 
+            otherlv_1=(Token)match(input,23,FOLLOW_27); 
 
             			newLeafNode(otherlv_1, grammarAccess.getDelegateOpAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalPromise.g:1282:3: ( (lv_task_2_0= ruleTasks ) )
-            // InternalPromise.g:1283:4: (lv_task_2_0= ruleTasks )
+            // InternalPromise.g:1369:3: ( (lv_task_2_0= ruleTasks ) )
+            // InternalPromise.g:1370:4: (lv_task_2_0= ruleTasks )
             {
-            // InternalPromise.g:1283:4: (lv_task_2_0= ruleTasks )
-            // InternalPromise.g:1284:5: lv_task_2_0= ruleTasks
+            // InternalPromise.g:1370:4: (lv_task_2_0= ruleTasks )
+            // InternalPromise.g:1371:5: lv_task_2_0= ruleTasks
             {
 
             					newCompositeNode(grammarAccess.getDelegateOpAccess().getTaskTasksParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             lv_task_2_0=ruleTasks();
 
             state._fsp--;
@@ -3237,26 +3483,26 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPromise.g:1301:3: (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalPromise.g:1388:3: (otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )* )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA19_0==19) ) {
-                alt19=1;
+            if ( (LA21_0==19) ) {
+                alt21=1;
             }
-            switch (alt19) {
+            switch (alt21) {
                 case 1 :
-                    // InternalPromise.g:1302:4: otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )*
+                    // InternalPromise.g:1389:4: otherlv_3= 'locations' ( ( ruleEString ) ) (otherlv_5= ',' ( ( ruleEString ) ) )*
                     {
                     otherlv_3=(Token)match(input,19,FOLLOW_10); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getDelegateOpAccess().getLocationsKeyword_3_0());
                     			
-                    // InternalPromise.g:1306:4: ( ( ruleEString ) )
-                    // InternalPromise.g:1307:5: ( ruleEString )
+                    // InternalPromise.g:1393:4: ( ( ruleEString ) )
+                    // InternalPromise.g:1394:5: ( ruleEString )
                     {
-                    // InternalPromise.g:1307:5: ( ruleEString )
-                    // InternalPromise.g:1308:6: ruleEString
+                    // InternalPromise.g:1394:5: ( ruleEString )
+                    // InternalPromise.g:1395:6: ruleEString
                     {
 
                     						if (current==null) {
@@ -3266,7 +3512,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getDelegateOpAccess().getInputLocationsLocationCrossReference_3_1_0());
                     					
-                    pushFollow(FOLLOW_27);
+                    pushFollow(FOLLOW_29);
                     ruleEString();
 
                     state._fsp--;
@@ -3280,112 +3526,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPromise.g:1322:4: (otherlv_5= ',' ( ( ruleEString ) ) )*
-                    loop18:
-                    do {
-                        int alt18=2;
-                        int LA18_0 = input.LA(1);
-
-                        if ( (LA18_0==15) ) {
-                            alt18=1;
-                        }
-
-
-                        switch (alt18) {
-                    	case 1 :
-                    	    // InternalPromise.g:1323:5: otherlv_5= ',' ( ( ruleEString ) )
-                    	    {
-                    	    otherlv_5=(Token)match(input,15,FOLLOW_10); 
-
-                    	    					newLeafNode(otherlv_5, grammarAccess.getDelegateOpAccess().getCommaKeyword_3_2_0());
-                    	    				
-                    	    // InternalPromise.g:1327:5: ( ( ruleEString ) )
-                    	    // InternalPromise.g:1328:6: ( ruleEString )
-                    	    {
-                    	    // InternalPromise.g:1328:6: ( ruleEString )
-                    	    // InternalPromise.g:1329:7: ruleEString
-                    	    {
-
-                    	    							if (current==null) {
-                    	    								current = createModelElement(grammarAccess.getDelegateOpRule());
-                    	    							}
-                    	    						
-
-                    	    							newCompositeNode(grammarAccess.getDelegateOpAccess().getInputLocationsLocationCrossReference_3_2_1_0());
-                    	    						
-                    	    pushFollow(FOLLOW_27);
-                    	    ruleEString();
-
-                    	    state._fsp--;
-
-
-                    	    							afterParserOrEnumRuleCall();
-                    	    						
-
-                    	    }
-
-
-                    	    }
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop18;
-                        }
-                    } while (true);
-
-
-                    }
-                    break;
-
-            }
-
-            // InternalPromise.g:1345:3: (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
-
-            if ( (LA21_0==16) ) {
-                alt21=1;
-            }
-            switch (alt21) {
-                case 1 :
-                    // InternalPromise.g:1346:4: otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )*
-                    {
-                    otherlv_7=(Token)match(input,16,FOLLOW_10); 
-
-                    				newLeafNode(otherlv_7, grammarAccess.getDelegateOpAccess().getActionsKeyword_4_0());
-                    			
-                    // InternalPromise.g:1350:4: ( ( ruleEString ) )
-                    // InternalPromise.g:1351:5: ( ruleEString )
-                    {
-                    // InternalPromise.g:1351:5: ( ruleEString )
-                    // InternalPromise.g:1352:6: ruleEString
-                    {
-
-                    						if (current==null) {
-                    							current = createModelElement(grammarAccess.getDelegateOpRule());
-                    						}
-                    					
-
-                    						newCompositeNode(grammarAccess.getDelegateOpAccess().getInputActionActionCrossReference_4_1_0());
-                    					
-                    pushFollow(FOLLOW_28);
-                    ruleEString();
-
-                    state._fsp--;
-
-
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-                    // InternalPromise.g:1366:4: (otherlv_9= ',' ( ( ruleEString ) ) )*
+                    // InternalPromise.g:1409:4: (otherlv_5= ',' ( ( ruleEString ) ) )*
                     loop20:
                     do {
                         int alt20=2;
@@ -3398,17 +3539,17 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
                         switch (alt20) {
                     	case 1 :
-                    	    // InternalPromise.g:1367:5: otherlv_9= ',' ( ( ruleEString ) )
+                    	    // InternalPromise.g:1410:5: otherlv_5= ',' ( ( ruleEString ) )
                     	    {
-                    	    otherlv_9=(Token)match(input,15,FOLLOW_10); 
+                    	    otherlv_5=(Token)match(input,15,FOLLOW_10); 
 
-                    	    					newLeafNode(otherlv_9, grammarAccess.getDelegateOpAccess().getCommaKeyword_4_2_0());
+                    	    					newLeafNode(otherlv_5, grammarAccess.getDelegateOpAccess().getCommaKeyword_3_2_0());
                     	    				
-                    	    // InternalPromise.g:1371:5: ( ( ruleEString ) )
-                    	    // InternalPromise.g:1372:6: ( ruleEString )
+                    	    // InternalPromise.g:1414:5: ( ( ruleEString ) )
+                    	    // InternalPromise.g:1415:6: ( ruleEString )
                     	    {
-                    	    // InternalPromise.g:1372:6: ( ruleEString )
-                    	    // InternalPromise.g:1373:7: ruleEString
+                    	    // InternalPromise.g:1415:6: ( ruleEString )
+                    	    // InternalPromise.g:1416:7: ruleEString
                     	    {
 
                     	    							if (current==null) {
@@ -3416,9 +3557,9 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
                     	    							}
                     	    						
 
-                    	    							newCompositeNode(grammarAccess.getDelegateOpAccess().getInputActionActionCrossReference_4_2_1_0());
+                    	    							newCompositeNode(grammarAccess.getDelegateOpAccess().getInputLocationsLocationCrossReference_3_2_1_0());
                     	    						
-                    	    pushFollow(FOLLOW_28);
+                    	    pushFollow(FOLLOW_29);
                     	    ruleEString();
 
                     	    state._fsp--;
@@ -3447,26 +3588,131 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPromise.g:1389:3: (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )?
+            // InternalPromise.g:1432:3: (otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )* )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
-            if ( (LA23_0==33) ) {
+            if ( (LA23_0==16) ) {
                 alt23=1;
             }
             switch (alt23) {
                 case 1 :
-                    // InternalPromise.g:1390:4: otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )*
+                    // InternalPromise.g:1433:4: otherlv_7= 'actions' ( ( ruleEString ) ) (otherlv_9= ',' ( ( ruleEString ) ) )*
                     {
-                    otherlv_11=(Token)match(input,33,FOLLOW_10); 
+                    otherlv_7=(Token)match(input,16,FOLLOW_10); 
+
+                    				newLeafNode(otherlv_7, grammarAccess.getDelegateOpAccess().getActionsKeyword_4_0());
+                    			
+                    // InternalPromise.g:1437:4: ( ( ruleEString ) )
+                    // InternalPromise.g:1438:5: ( ruleEString )
+                    {
+                    // InternalPromise.g:1438:5: ( ruleEString )
+                    // InternalPromise.g:1439:6: ruleEString
+                    {
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getDelegateOpRule());
+                    						}
+                    					
+
+                    						newCompositeNode(grammarAccess.getDelegateOpAccess().getInputActionActionCrossReference_4_1_0());
+                    					
+                    pushFollow(FOLLOW_30);
+                    ruleEString();
+
+                    state._fsp--;
+
+
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+                    // InternalPromise.g:1453:4: (otherlv_9= ',' ( ( ruleEString ) ) )*
+                    loop22:
+                    do {
+                        int alt22=2;
+                        int LA22_0 = input.LA(1);
+
+                        if ( (LA22_0==15) ) {
+                            alt22=1;
+                        }
+
+
+                        switch (alt22) {
+                    	case 1 :
+                    	    // InternalPromise.g:1454:5: otherlv_9= ',' ( ( ruleEString ) )
+                    	    {
+                    	    otherlv_9=(Token)match(input,15,FOLLOW_10); 
+
+                    	    					newLeafNode(otherlv_9, grammarAccess.getDelegateOpAccess().getCommaKeyword_4_2_0());
+                    	    				
+                    	    // InternalPromise.g:1458:5: ( ( ruleEString ) )
+                    	    // InternalPromise.g:1459:6: ( ruleEString )
+                    	    {
+                    	    // InternalPromise.g:1459:6: ( ruleEString )
+                    	    // InternalPromise.g:1460:7: ruleEString
+                    	    {
+
+                    	    							if (current==null) {
+                    	    								current = createModelElement(grammarAccess.getDelegateOpRule());
+                    	    							}
+                    	    						
+
+                    	    							newCompositeNode(grammarAccess.getDelegateOpAccess().getInputActionActionCrossReference_4_2_1_0());
+                    	    						
+                    	    pushFollow(FOLLOW_30);
+                    	    ruleEString();
+
+                    	    state._fsp--;
+
+
+                    	    							afterParserOrEnumRuleCall();
+                    	    						
+
+                    	    }
+
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop22;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalPromise.g:1476:3: (otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )* )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
+
+            if ( (LA25_0==37) ) {
+                alt25=1;
+            }
+            switch (alt25) {
+                case 1 :
+                    // InternalPromise.g:1477:4: otherlv_11= 'stoppingEvents' ( ( ruleEString ) ) (otherlv_13= ',' ( ( ruleEString ) ) )*
+                    {
+                    otherlv_11=(Token)match(input,37,FOLLOW_10); 
 
                     				newLeafNode(otherlv_11, grammarAccess.getDelegateOpAccess().getStoppingEventsKeyword_5_0());
                     			
-                    // InternalPromise.g:1394:4: ( ( ruleEString ) )
-                    // InternalPromise.g:1395:5: ( ruleEString )
+                    // InternalPromise.g:1481:4: ( ( ruleEString ) )
+                    // InternalPromise.g:1482:5: ( ruleEString )
                     {
-                    // InternalPromise.g:1395:5: ( ruleEString )
-                    // InternalPromise.g:1396:6: ruleEString
+                    // InternalPromise.g:1482:5: ( ruleEString )
+                    // InternalPromise.g:1483:6: ruleEString
                     {
 
                     						if (current==null) {
@@ -3490,30 +3736,30 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPromise.g:1410:4: (otherlv_13= ',' ( ( ruleEString ) ) )*
-                    loop22:
+                    // InternalPromise.g:1497:4: (otherlv_13= ',' ( ( ruleEString ) ) )*
+                    loop24:
                     do {
-                        int alt22=2;
-                        int LA22_0 = input.LA(1);
+                        int alt24=2;
+                        int LA24_0 = input.LA(1);
 
-                        if ( (LA22_0==15) ) {
-                            alt22=1;
+                        if ( (LA24_0==15) ) {
+                            alt24=1;
                         }
 
 
-                        switch (alt22) {
+                        switch (alt24) {
                     	case 1 :
-                    	    // InternalPromise.g:1411:5: otherlv_13= ',' ( ( ruleEString ) )
+                    	    // InternalPromise.g:1498:5: otherlv_13= ',' ( ( ruleEString ) )
                     	    {
                     	    otherlv_13=(Token)match(input,15,FOLLOW_10); 
 
                     	    					newLeafNode(otherlv_13, grammarAccess.getDelegateOpAccess().getCommaKeyword_5_2_0());
                     	    				
-                    	    // InternalPromise.g:1415:5: ( ( ruleEString ) )
-                    	    // InternalPromise.g:1416:6: ( ruleEString )
+                    	    // InternalPromise.g:1502:5: ( ( ruleEString ) )
+                    	    // InternalPromise.g:1503:6: ( ruleEString )
                     	    {
-                    	    // InternalPromise.g:1416:6: ( ruleEString )
-                    	    // InternalPromise.g:1417:7: ruleEString
+                    	    // InternalPromise.g:1503:6: ( ruleEString )
+                    	    // InternalPromise.g:1504:7: ruleEString
                     	    {
 
                     	    							if (current==null) {
@@ -3542,7 +3788,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop22;
+                    	    break loop24;
                         }
                     } while (true);
 
@@ -3576,252 +3822,6 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
         return current;
     }
     // $ANTLR end "ruleDelegateOp"
-
-
-    // $ANTLR start "entryRuleTaskCombinationOp"
-    // InternalPromise.g:1441:1: entryRuleTaskCombinationOp returns [EObject current=null] : iv_ruleTaskCombinationOp= ruleTaskCombinationOp EOF ;
-    public final EObject entryRuleTaskCombinationOp() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleTaskCombinationOp = null;
-
-
-        try {
-            // InternalPromise.g:1441:58: (iv_ruleTaskCombinationOp= ruleTaskCombinationOp EOF )
-            // InternalPromise.g:1442:2: iv_ruleTaskCombinationOp= ruleTaskCombinationOp EOF
-            {
-             newCompositeNode(grammarAccess.getTaskCombinationOpRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleTaskCombinationOp=ruleTaskCombinationOp();
-
-            state._fsp--;
-
-             current =iv_ruleTaskCombinationOp; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleTaskCombinationOp"
-
-
-    // $ANTLR start "ruleTaskCombinationOp"
-    // InternalPromise.g:1448:1: ruleTaskCombinationOp returns [EObject current=null] : (otherlv_0= 'combination' otherlv_1= '(' ( (lv_inputOperators_2_0= ruleOperator ) ) ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+ otherlv_7= ')' ) ;
-    public final EObject ruleTaskCombinationOp() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_0=null;
-        Token otherlv_1=null;
-        Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        EObject lv_inputOperators_2_0 = null;
-
-        EObject lv_inputOperators_6_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalPromise.g:1454:2: ( (otherlv_0= 'combination' otherlv_1= '(' ( (lv_inputOperators_2_0= ruleOperator ) ) ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+ otherlv_7= ')' ) )
-            // InternalPromise.g:1455:2: (otherlv_0= 'combination' otherlv_1= '(' ( (lv_inputOperators_2_0= ruleOperator ) ) ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+ otherlv_7= ')' )
-            {
-            // InternalPromise.g:1455:2: (otherlv_0= 'combination' otherlv_1= '(' ( (lv_inputOperators_2_0= ruleOperator ) ) ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+ otherlv_7= ')' )
-            // InternalPromise.g:1456:3: otherlv_0= 'combination' otherlv_1= '(' ( (lv_inputOperators_2_0= ruleOperator ) ) ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+ otherlv_7= ')'
-            {
-            otherlv_0=(Token)match(input,34,FOLLOW_16); 
-
-            			newLeafNode(otherlv_0, grammarAccess.getTaskCombinationOpAccess().getCombinationKeyword_0());
-            		
-            otherlv_1=(Token)match(input,23,FOLLOW_13); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getTaskCombinationOpAccess().getLeftParenthesisKeyword_1());
-            		
-            // InternalPromise.g:1464:3: ( (lv_inputOperators_2_0= ruleOperator ) )
-            // InternalPromise.g:1465:4: (lv_inputOperators_2_0= ruleOperator )
-            {
-            // InternalPromise.g:1465:4: (lv_inputOperators_2_0= ruleOperator )
-            // InternalPromise.g:1466:5: lv_inputOperators_2_0= ruleOperator
-            {
-
-            					newCompositeNode(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_2_0());
-            				
-            pushFollow(FOLLOW_29);
-            lv_inputOperators_2_0=ruleOperator();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getTaskCombinationOpRule());
-            					}
-            					add(
-            						current,
-            						"inputOperators",
-            						lv_inputOperators_2_0,
-            						"se.gu.co4robots.xtext.promise.Promise.Operator");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            // InternalPromise.g:1483:3: ( (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) ) )+
-            int cnt25=0;
-            loop25:
-            do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
-
-                if ( ((LA25_0>=35 && LA25_0<=37)) ) {
-                    alt25=1;
-                }
-
-
-                switch (alt25) {
-            	case 1 :
-            	    // InternalPromise.g:1484:4: (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' ) ( (lv_inputOperators_6_0= ruleOperator ) )
-            	    {
-            	    // InternalPromise.g:1484:4: (otherlv_3= '&' | otherlv_4= 'AND' | otherlv_5= 'and' )
-            	    int alt24=3;
-            	    switch ( input.LA(1) ) {
-            	    case 35:
-            	        {
-            	        alt24=1;
-            	        }
-            	        break;
-            	    case 36:
-            	        {
-            	        alt24=2;
-            	        }
-            	        break;
-            	    case 37:
-            	        {
-            	        alt24=3;
-            	        }
-            	        break;
-            	    default:
-            	        NoViableAltException nvae =
-            	            new NoViableAltException("", 24, 0, input);
-
-            	        throw nvae;
-            	    }
-
-            	    switch (alt24) {
-            	        case 1 :
-            	            // InternalPromise.g:1485:5: otherlv_3= '&'
-            	            {
-            	            otherlv_3=(Token)match(input,35,FOLLOW_13); 
-
-            	            					newLeafNode(otherlv_3, grammarAccess.getTaskCombinationOpAccess().getAmpersandKeyword_3_0_0());
-            	            				
-
-            	            }
-            	            break;
-            	        case 2 :
-            	            // InternalPromise.g:1490:5: otherlv_4= 'AND'
-            	            {
-            	            otherlv_4=(Token)match(input,36,FOLLOW_13); 
-
-            	            					newLeafNode(otherlv_4, grammarAccess.getTaskCombinationOpAccess().getANDKeyword_3_0_1());
-            	            				
-
-            	            }
-            	            break;
-            	        case 3 :
-            	            // InternalPromise.g:1495:5: otherlv_5= 'and'
-            	            {
-            	            otherlv_5=(Token)match(input,37,FOLLOW_13); 
-
-            	            					newLeafNode(otherlv_5, grammarAccess.getTaskCombinationOpAccess().getAndKeyword_3_0_2());
-            	            				
-
-            	            }
-            	            break;
-
-            	    }
-
-            	    // InternalPromise.g:1500:4: ( (lv_inputOperators_6_0= ruleOperator ) )
-            	    // InternalPromise.g:1501:5: (lv_inputOperators_6_0= ruleOperator )
-            	    {
-            	    // InternalPromise.g:1501:5: (lv_inputOperators_6_0= ruleOperator )
-            	    // InternalPromise.g:1502:6: lv_inputOperators_6_0= ruleOperator
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsOperatorParserRuleCall_3_1_0());
-            	    					
-            	    pushFollow(FOLLOW_30);
-            	    lv_inputOperators_6_0=ruleOperator();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getTaskCombinationOpRule());
-            	    						}
-            	    						add(
-            	    							current,
-            	    							"inputOperators",
-            	    							lv_inputOperators_6_0,
-            	    							"se.gu.co4robots.xtext.promise.Promise.Operator");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt25 >= 1 ) break loop25;
-                        EarlyExitException eee =
-                            new EarlyExitException(25, input);
-                        throw eee;
-                }
-                cnt25++;
-            } while (true);
-
-            otherlv_7=(Token)match(input,24,FOLLOW_2); 
-
-            			newLeafNode(otherlv_7, grammarAccess.getTaskCombinationOpAccess().getRightParenthesisKeyword_4());
-            		
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleTaskCombinationOp"
 
 
     // $ANTLR start "entryRuleEventAssignment"
@@ -5901,7 +5901,7 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000188000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000108000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x000000054E400000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x000000114E400000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800000L});
@@ -5913,11 +5913,11 @@ public class InternalPromiseParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000021000000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000080000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000081000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x03FFFFC000000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000201090000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000201018000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000201008000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000003800000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000003801000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000E00000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000E01000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x03FFFFC000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000002001090000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000002001018000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000002001008000L});
 
 }

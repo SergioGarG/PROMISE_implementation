@@ -140,42 +140,42 @@
             </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="PastAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::PastAvoidance">
-            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="PastAvoidance" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="PastAvoidance" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="GlobalAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::GlobalAvoidance">
-            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="GlobalAvoidance" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="GlobalAvoidance" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="FutureAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::FutureAvoidance">
-            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="FutureAvoidance" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="FutureAvoidance" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="LowerRestrictedAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::LowerRestrictedAvoidance">
-            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="LowerRestrictedAvoidance" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="LowerRestrictedAvoidance" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="ExactRestrictedAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::ExactRestrictedAvoidance">
-            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="ExactRestrictedAvoidance" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="ExactRestrictedAvoidance" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="UpperRestrictedAvoidanceNode" semanticCandidatesExpression="feature:task" domainClass="promise::UpperRestrictedAvoidance">
-            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="UpperRestrictedAvoidance" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="UpperRestrictedAvoidance" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>

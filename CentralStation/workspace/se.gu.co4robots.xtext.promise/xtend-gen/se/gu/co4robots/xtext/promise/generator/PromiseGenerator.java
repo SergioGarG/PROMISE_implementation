@@ -1186,7 +1186,7 @@ public class PromiseGenerator extends AbstractGenerator {
                                             boolean _equals_19 = Objects.equal(_name_87, "SimpleAction");
                                             if (_equals_19) {
                                               String _name_88 = in.getInputAction().get(0).getName();
-                                              String _plus_161 = ("(X " + _name_88);
+                                              String _plus_161 = ("X (" + _name_88);
                                               String _plus_162 = (_plus_161 + ")");
                                               this.template = _plus_162;
                                               String _name_89 = in.getInputAction().get(0).getName();

@@ -1,9 +1,9 @@
-'&'=35
+'&'=33
 '('=23
 ')'=24
 ','=15
 ':'=21
-'AND'=36
+'AND'=34
 'DelayedReaction'=56
 'ExactRestrictedAvoidance'=50
 'FairPatrolling'=48
@@ -25,12 +25,12 @@
 'Visit'=39
 'Wait'=55
 'actions'=16
-'and'=37
-'combination'=34
+'and'=35
+'combination'=32
 'condition'=30
 'conditions'=13
 'default'=28
-'delegate'=32
+'delegate'=36
 'eventHandler'=27
 'events'=14
 'except'=29
@@ -42,7 +42,7 @@
 'parallel'=26
 'robots'=18
 'sequence'=25
-'stoppingEvents'=33
+'stoppingEvents'=37
 '{'=12
 '}'=17
 RULE_ANY_OTHER=10

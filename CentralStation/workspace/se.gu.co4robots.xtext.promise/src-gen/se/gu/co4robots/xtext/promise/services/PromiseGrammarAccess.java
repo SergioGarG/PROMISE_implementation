@@ -750,6 +750,65 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
+	public class TaskCombinationOpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.TaskCombinationOp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCombinationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cInputOperatorsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_2_0 = (RuleCall)cInputOperatorsAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
+		private final Keyword cAmpersandKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
+		private final Keyword cANDKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
+		private final Keyword cAndKeyword_3_0_2 = (Keyword)cAlternatives_3_0.eContents().get(2);
+		private final Assignment cInputOperatorsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_1_0 = (RuleCall)cInputOperatorsAssignment_3_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//TaskCombinationOp:
+		//	'combination' '(' inputOperators+=Operator (('&' | 'AND' | 'and') inputOperators+=Operator)+ ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'combination' '(' inputOperators+=Operator (('&' | 'AND' | 'and') inputOperators+=Operator)+ ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'combination'
+		public Keyword getCombinationKeyword_0() { return cCombinationKeyword_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//inputOperators+=Operator
+		public Assignment getInputOperatorsAssignment_2() { return cInputOperatorsAssignment_2; }
+		
+		//Operator
+		public RuleCall getInputOperatorsOperatorParserRuleCall_2_0() { return cInputOperatorsOperatorParserRuleCall_2_0; }
+		
+		//(('&' | 'AND' | 'and') inputOperators+=Operator)+
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'&' | 'AND' | 'and'
+		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
+		
+		//'&'
+		public Keyword getAmpersandKeyword_3_0_0() { return cAmpersandKeyword_3_0_0; }
+		
+		//'AND'
+		public Keyword getANDKeyword_3_0_1() { return cANDKeyword_3_0_1; }
+		
+		//'and'
+		public Keyword getAndKeyword_3_0_2() { return cAndKeyword_3_0_2; }
+		
+		//inputOperators+=Operator
+		public Assignment getInputOperatorsAssignment_3_1() { return cInputOperatorsAssignment_3_1; }
+		
+		//Operator
+		public RuleCall getInputOperatorsOperatorParserRuleCall_3_1_0() { return cInputOperatorsOperatorParserRuleCall_3_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+	}
 	public class DelegateOpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.DelegateOp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -904,65 +963,6 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
-	}
-	public class TaskCombinationOpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.TaskCombinationOp");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCombinationKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cInputOperatorsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cInputOperatorsOperatorParserRuleCall_2_0 = (RuleCall)cInputOperatorsAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
-		private final Keyword cAmpersandKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
-		private final Keyword cANDKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
-		private final Keyword cAndKeyword_3_0_2 = (Keyword)cAlternatives_3_0.eContents().get(2);
-		private final Assignment cInputOperatorsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cInputOperatorsOperatorParserRuleCall_3_1_0 = (RuleCall)cInputOperatorsAssignment_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//TaskCombinationOp:
-		//	'combination' '(' inputOperators+=Operator (('&' | 'AND' | 'and') inputOperators+=Operator)+ ')';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'combination' '(' inputOperators+=Operator (('&' | 'AND' | 'and') inputOperators+=Operator)+ ')'
-		public Group getGroup() { return cGroup; }
-		
-		//'combination'
-		public Keyword getCombinationKeyword_0() { return cCombinationKeyword_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-		
-		//inputOperators+=Operator
-		public Assignment getInputOperatorsAssignment_2() { return cInputOperatorsAssignment_2; }
-		
-		//Operator
-		public RuleCall getInputOperatorsOperatorParserRuleCall_2_0() { return cInputOperatorsOperatorParserRuleCall_2_0; }
-		
-		//(('&' | 'AND' | 'and') inputOperators+=Operator)+
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'&' | 'AND' | 'and'
-		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
-		
-		//'&'
-		public Keyword getAmpersandKeyword_3_0_0() { return cAmpersandKeyword_3_0_0; }
-		
-		//'AND'
-		public Keyword getANDKeyword_3_0_1() { return cANDKeyword_3_0_1; }
-		
-		//'and'
-		public Keyword getAndKeyword_3_0_2() { return cAndKeyword_3_0_2; }
-		
-		//inputOperators+=Operator
-		public Assignment getInputOperatorsAssignment_3_1() { return cInputOperatorsAssignment_3_1; }
-		
-		//Operator
-		public RuleCall getInputOperatorsOperatorParserRuleCall_3_1_0() { return cInputOperatorsOperatorParserRuleCall_3_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 	public class EventAssignmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.EventAssignment");
@@ -1440,8 +1440,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	private final ParallelOpElements pParallelOp;
 	private final EventHandlerOpElements pEventHandlerOp;
 	private final ConditionOpElements pConditionOp;
-	private final DelegateOpElements pDelegateOp;
 	private final TaskCombinationOpElements pTaskCombinationOp;
+	private final DelegateOpElements pDelegateOp;
 	private final EventAssignmentElements pEventAssignment;
 	private final SimpleActionElements pSimpleAction;
 	private final VisitElements pVisit;
@@ -1486,8 +1486,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pParallelOp = new ParallelOpElements();
 		this.pEventHandlerOp = new EventHandlerOpElements();
 		this.pConditionOp = new ConditionOpElements();
-		this.pDelegateOp = new DelegateOpElements();
 		this.pTaskCombinationOp = new TaskCombinationOpElements();
+		this.pDelegateOp = new DelegateOpElements();
 		this.pEventAssignment = new EventAssignmentElements();
 		this.pSimpleAction = new SimpleActionElements();
 		this.pVisit = new VisitElements();
@@ -1669,6 +1669,16 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		return getConditionOpAccess().getRule();
 	}
 	
+	//TaskCombinationOp:
+	//	'combination' '(' inputOperators+=Operator (('&' | 'AND' | 'and') inputOperators+=Operator)+ ')';
+	public TaskCombinationOpElements getTaskCombinationOpAccess() {
+		return pTaskCombinationOp;
+	}
+	
+	public ParserRule getTaskCombinationOpRule() {
+		return getTaskCombinationOpAccess().getRule();
+	}
+	
 	//DelegateOp:
 	//	'delegate' '(' task=Tasks ('locations' inputLocations+=[Location|EString] ("," inputLocations+=[Location|EString])*)?
 	//	('actions' inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('stoppingEvents'
@@ -1679,16 +1689,6 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDelegateOpRule() {
 		return getDelegateOpAccess().getRule();
-	}
-	
-	//TaskCombinationOp:
-	//	'combination' '(' inputOperators+=Operator (('&' | 'AND' | 'and') inputOperators+=Operator)+ ')';
-	public TaskCombinationOpElements getTaskCombinationOpAccess() {
-		return pTaskCombinationOp;
-	}
-	
-	public ParserRule getTaskCombinationOpRule() {
-		return getTaskCombinationOpAccess().getRule();
 	}
 	
 	//EventAssignment:

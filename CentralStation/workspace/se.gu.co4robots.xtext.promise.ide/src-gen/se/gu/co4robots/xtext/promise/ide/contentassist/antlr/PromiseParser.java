@@ -58,6 +58,8 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEventHandlerOpAccess().getGroup_6(), "rule__EventHandlerOp__Group_6__0");
 					put(grammarAccess.getConditionOpAccess().getGroup(), "rule__ConditionOp__Group__0");
 					put(grammarAccess.getConditionOpAccess().getGroup_2(), "rule__ConditionOp__Group_2__0");
+					put(grammarAccess.getTaskCombinationOpAccess().getGroup(), "rule__TaskCombinationOp__Group__0");
+					put(grammarAccess.getTaskCombinationOpAccess().getGroup_3(), "rule__TaskCombinationOp__Group_3__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup(), "rule__DelegateOp__Group__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup_3(), "rule__DelegateOp__Group_3__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup_3_2(), "rule__DelegateOp__Group_3_2__0");
@@ -65,8 +67,6 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDelegateOpAccess().getGroup_4_2(), "rule__DelegateOp__Group_4_2__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup_5(), "rule__DelegateOp__Group_5__0");
 					put(grammarAccess.getDelegateOpAccess().getGroup_5_2(), "rule__DelegateOp__Group_5_2__0");
-					put(grammarAccess.getTaskCombinationOpAccess().getGroup(), "rule__TaskCombinationOp__Group__0");
-					put(grammarAccess.getTaskCombinationOpAccess().getGroup_3(), "rule__TaskCombinationOp__Group_3__0");
 					put(grammarAccess.getEventAssignmentAccess().getGroup(), "rule__EventAssignment__Group__0");
 					put(grammarAccess.getSimpleActionAccess().getGroup(), "rule__SimpleAction__Group__0");
 					put(grammarAccess.getVisitAccess().getGroup(), "rule__Visit__Group__0");
@@ -115,6 +115,8 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEventHandlerOpAccess().getInputOperatorsAssignment_4(), "rule__EventHandlerOp__InputOperatorsAssignment_4");
 					put(grammarAccess.getEventHandlerOpAccess().getInputEventsAssignment_6_1(), "rule__EventHandlerOp__InputEventsAssignment_6_1");
 					put(grammarAccess.getConditionOpAccess().getInputEventsAssignment_2_1(), "rule__ConditionOp__InputEventsAssignment_2_1");
+					put(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_2(), "rule__TaskCombinationOp__InputOperatorsAssignment_2");
+					put(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_3_1(), "rule__TaskCombinationOp__InputOperatorsAssignment_3_1");
 					put(grammarAccess.getDelegateOpAccess().getTaskAssignment_2(), "rule__DelegateOp__TaskAssignment_2");
 					put(grammarAccess.getDelegateOpAccess().getInputLocationsAssignment_3_1(), "rule__DelegateOp__InputLocationsAssignment_3_1");
 					put(grammarAccess.getDelegateOpAccess().getInputLocationsAssignment_3_2_1(), "rule__DelegateOp__InputLocationsAssignment_3_2_1");
@@ -122,8 +124,6 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDelegateOpAccess().getInputActionAssignment_4_2_1(), "rule__DelegateOp__InputActionAssignment_4_2_1");
 					put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_5_1(), "rule__DelegateOp__StoppingEventAssignment_5_1");
 					put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_5_2_1(), "rule__DelegateOp__StoppingEventAssignment_5_2_1");
-					put(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_2(), "rule__TaskCombinationOp__InputOperatorsAssignment_2");
-					put(grammarAccess.getTaskCombinationOpAccess().getInputOperatorsAssignment_3_1(), "rule__TaskCombinationOp__InputOperatorsAssignment_3_1");
 					put(grammarAccess.getEventAssignmentAccess().getInputEventAssignment_0(), "rule__EventAssignment__InputEventAssignment_0");
 					put(grammarAccess.getEventAssignmentAccess().getInputOperatorsAssignment_2(), "rule__EventAssignment__InputOperatorsAssignment_2");
 				}
