@@ -16,6 +16,7 @@ mission{
 	}   
 	robots r1, r2 
 	locations l1, l2, l3, l4, office1, office2, chargingdock
+	
 	operators{ parallel{ 
 		r1(eventHandler(   
 			default(delegate ( SequencedPatrolling locations l1, l2, l3 
@@ -32,11 +33,15 @@ mission{
 				delegate(SimpleAction actions grasp_object), 
 				fallback ( 
 					delegate(Visit locations office1), 
-					delegate(Visit locations office2)))) 
+					delegate(Visit locations office2)), 
+					delegate ( SimpleAction actions release_object ) ) ) 
 			except r2_low_battery(sequence( 
 				delegate(Visit locations chargingdock), 
 				delegate (SimpleAction actions charge_battery))))) 
 			}
 		} 
+		
+		
+		
 }
 
