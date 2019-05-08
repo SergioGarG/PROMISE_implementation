@@ -1,13 +1,16 @@
-mission{ 
-	conditions{
-		resources
-			"2":"ad"
-	}
-	robots r1
-	locations "1", "2", "3"
-	operators{ parallel{ 
-		// Your operators come here
-			r1(delegate(Check locations "1"))
-		}
+mission { 
+	conditions { 
+		actions "2" : ad
 	} 
-} 
+	robots r1
+	locations "1" , "2" , "3" 
+	operators { 
+		parallel { 
+			r1 (combination(
+				delegate ( CheckAndDeliver locations "1" ) AND
+				delegate ( CheckAndDeliver locations "2" )) 
+			)		
+			}
+			}
+	
+}

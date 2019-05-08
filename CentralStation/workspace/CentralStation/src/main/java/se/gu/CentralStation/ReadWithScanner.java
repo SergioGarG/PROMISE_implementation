@@ -56,7 +56,9 @@ public class ReadWithScanner {
 				ip=IP;
 				//The port of the communication manager's server is the 13000
 				//We will run it in the local machine, so the IP is 127.0.0.1
-				port=port-1000;
+				if(i != 0) {
+					port=port-1000;
+				}
 			}
 			else {
 				//The port is static, but we send each mission to each robot (each robot has one assigned IP)

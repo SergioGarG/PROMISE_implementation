@@ -1,1 +1,1 @@
-Robot r1 does  visit assembly station 1 and checks whether it has finished its product.
+Robot r1 does  visit assembly station 1, checks whether it has finished its product, and if finished it delivers the product to the final location. and  visit assembly station 2, checks whether it has finished its product, and if finished it delivers the product to the final location.

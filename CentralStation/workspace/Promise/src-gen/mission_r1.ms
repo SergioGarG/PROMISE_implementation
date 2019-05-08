@@ -1,1 +1,1 @@
-r1[F (at_assembly_1 & ! as_unknown)]
+r1[F (at_assembly_1 & ! as_unknown & (as_ready -> F delivered_final_1)) & G (at_assembly_1 & ! as_unknown & as_ready -> G!(at_assembly_1 & !as_ready & !as_unknown)) & G (at_assembly_1 & ! as_unknown & ! as_ready -> G!(at_assembly_1 & as_ready)) && F (at_assembly_2 & ! as_unknown & (as_ready -> F delivered_final_2)) & G (at_assembly_2 & ! as_unknown & as_ready -> G!(at_assembly_2 & !as_ready & !as_unknown)) & G (at_assembly_2 & ! as_unknown & ! as_ready -> G!(at_assembly_2 & as_ready))]
