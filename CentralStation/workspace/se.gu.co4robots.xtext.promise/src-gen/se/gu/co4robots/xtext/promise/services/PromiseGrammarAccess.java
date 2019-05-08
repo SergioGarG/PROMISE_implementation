@@ -41,7 +41,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cEventsAssignment_2_2_2_1 = (Assignment)cGroup_2_2_2.eContents().get(1);
 		private final RuleCall cEventsEventParserRuleCall_2_2_2_1_0 = (RuleCall)cEventsAssignment_2_2_2_1.eContents().get(0);
 		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
-		private final Keyword cActionsKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Alternatives cAlternatives_2_3_0 = (Alternatives)cGroup_2_3.eContents().get(0);
+		private final Keyword cActionsKeyword_2_3_0_0 = (Keyword)cAlternatives_2_3_0.eContents().get(0);
+		private final Keyword cResourcesKeyword_2_3_0_1 = (Keyword)cAlternatives_2_3_0.eContents().get(1);
 		private final Assignment cActionsAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
 		private final RuleCall cActionsActionParserRuleCall_2_3_1_0 = (RuleCall)cActionsAssignment_2_3_1.eContents().get(0);
 		private final Group cGroup_2_3_2 = (Group)cGroup_2_3.eContents().get(2);
@@ -76,16 +78,16 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//Mission:
-		//	'mission' '{' ('conditions' '{' ('events' events+=Event ("," events+=Event)*)? ('actions' actions+=Action (","
-		//	actions+=Action)*)? '}')?
+		//	'mission' '{' ('conditions' '{' ('events' events+=Event ("," events+=Event)*)? (('actions' | 'resources')
+		//	actions+=Action ("," actions+=Action)*)? '}')?
 		//	'robots' robots+=Robot ("," robots+=Robot)* ('locations' locations+=Location ("," locations+=Location)*)?
 		//	'operators' '{' operator+=Operator ("," operator+=Operator)* '}'
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'mission' '{' ('conditions' '{' ('events' events+=Event ("," events+=Event)*)? ('actions' actions+=Action (","
-		//actions+=Action)*)? '}')? 'robots' robots+=Robot ("," robots+=Robot)* ('locations' locations+=Location (","
-		//locations+=Location)*)? 'operators' '{' operator+=Operator ("," operator+=Operator)* '}' '}'
+		//'mission' '{' ('conditions' '{' ('events' events+=Event ("," events+=Event)*)? (('actions' | 'resources')
+		//actions+=Action ("," actions+=Action)*)? '}')? 'robots' robots+=Robot ("," robots+=Robot)* ('locations'
+		//locations+=Location ("," locations+=Location)*)? 'operators' '{' operator+=Operator ("," operator+=Operator)* '}' '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'mission'
@@ -94,8 +96,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//('conditions' '{' ('events' events+=Event ("," events+=Event)*)? ('actions' actions+=Action ("," actions+=Action)*)?
-		//'}')?
+		//('conditions' '{' ('events' events+=Event ("," events+=Event)*)? (('actions' | 'resources') actions+=Action (","
+		//actions+=Action)*)? '}')?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'conditions'
@@ -128,11 +130,17 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//Event
 		public RuleCall getEventsEventParserRuleCall_2_2_2_1_0() { return cEventsEventParserRuleCall_2_2_2_1_0; }
 		
-		//('actions' actions+=Action ("," actions+=Action)*)?
+		//(('actions' | 'resources') actions+=Action ("," actions+=Action)*)?
 		public Group getGroup_2_3() { return cGroup_2_3; }
 		
+		//'actions' | 'resources'
+		public Alternatives getAlternatives_2_3_0() { return cAlternatives_2_3_0; }
+		
 		//'actions'
-		public Keyword getActionsKeyword_2_3_0() { return cActionsKeyword_2_3_0; }
+		public Keyword getActionsKeyword_2_3_0_0() { return cActionsKeyword_2_3_0_0; }
+		
+		//'resources'
+		public Keyword getResourcesKeyword_2_3_0_1() { return cResourcesKeyword_2_3_0_1; }
 		
 		//actions+=Action
 		public Assignment getActionsAssignment_2_3_1() { return cActionsAssignment_2_3_1; }
@@ -292,18 +300,24 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWaitParserRuleCall_17 = (RuleCall)cAlternatives.eContents().get(17);
 		private final RuleCall cDelayedReactionParserRuleCall_18 = (RuleCall)cAlternatives.eContents().get(18);
 		private final RuleCall cInstantReactionParserRuleCall_19 = (RuleCall)cAlternatives.eContents().get(19);
+		private final RuleCall cCheckParserRuleCall_20 = (RuleCall)cAlternatives.eContents().get(20);
+		private final RuleCall cCheckAndDeliverParserRuleCall_21 = (RuleCall)cAlternatives.eContents().get(21);
+		private final RuleCall cCheckSuppliesParserRuleCall_22 = (RuleCall)cAlternatives.eContents().get(22);
+		private final RuleCall cCheckAndDeliverQChParserRuleCall_23 = (RuleCall)cAlternatives.eContents().get(23);
+		private final RuleCall cTestITAAPAsParserRuleCall_24 = (RuleCall)cAlternatives.eContents().get(24);
 		
 		//Tasks:
 		//	SimpleAction | Visit | SequencedVisit | OrderderVisit | StrictOrderedVisit | FairVisit | Patrolling |
 		//	SequencedPatrolling | OrderedPatrolling | StrictOreredPatrolling | FairPatrolling | UpperRestrictedAvoidance |
 		//	ExactRestrictedAvoidance | LowerRestrictedAvoidance | FutureAvoidance | GlobalAvoidance | PastAvoidance | Wait |
-		//	DelayedReaction | InstantReaction;
+		//	DelayedReaction | InstantReaction | Check
+		//	| CheckAndDeliver | CheckSupplies | CheckAndDeliverQCh | TestITAAPAs;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//SimpleAction | Visit | SequencedVisit | OrderderVisit | StrictOrderedVisit | FairVisit | Patrolling |
 		//SequencedPatrolling | OrderedPatrolling | StrictOreredPatrolling | FairPatrolling | UpperRestrictedAvoidance |
 		//ExactRestrictedAvoidance | LowerRestrictedAvoidance | FutureAvoidance | GlobalAvoidance | PastAvoidance | Wait |
-		//DelayedReaction | InstantReaction
+		//DelayedReaction | InstantReaction | Check | CheckAndDeliver | CheckSupplies | CheckAndDeliverQCh | TestITAAPAs
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//SimpleAction
@@ -365,6 +379,21 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//InstantReaction
 		public RuleCall getInstantReactionParserRuleCall_19() { return cInstantReactionParserRuleCall_19; }
+		
+		//Check
+		public RuleCall getCheckParserRuleCall_20() { return cCheckParserRuleCall_20; }
+		
+		//CheckAndDeliver
+		public RuleCall getCheckAndDeliverParserRuleCall_21() { return cCheckAndDeliverParserRuleCall_21; }
+		
+		//CheckSupplies
+		public RuleCall getCheckSuppliesParserRuleCall_22() { return cCheckSuppliesParserRuleCall_22; }
+		
+		//CheckAndDeliverQCh
+		public RuleCall getCheckAndDeliverQChParserRuleCall_23() { return cCheckAndDeliverQChParserRuleCall_23; }
+		
+		//TestITAAPAs
+		public RuleCall getTestITAAPAsParserRuleCall_24() { return cTestITAAPAsParserRuleCall_24; }
 	}
 	public class RobotElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.Robot");
@@ -400,23 +429,23 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.Event");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionEStringParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		
 		//Event:
-		//	name=ID ':' description=EString;
+		//	name=EString ':' description=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' description=EString
+		//name=EString ':' description=EString
 		public Group getGroup() { return cGroup; }
 		
-		//name=ID
+		//name=EString
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		//EString
+		public RuleCall getNameEStringParserRuleCall_0_0() { return cNameEStringParserRuleCall_0_0; }
 		
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
@@ -431,23 +460,23 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.Action");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cDescriptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionEStringParserRuleCall_2_0 = (RuleCall)cDescriptionAssignment_2.eContents().get(0);
 		
 		//Action:
-		//	name=ID ':' description=EString;
+		//	name=EString ':' description=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' description=EString
+		//name=EString ':' description=EString
 		public Group getGroup() { return cGroup; }
 		
-		//name=ID
+		//name=EString
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		//EString
+		public RuleCall getNameEStringParserRuleCall_0_0() { return cNameEStringParserRuleCall_0_0; }
 		
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
@@ -827,7 +856,9 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cInputLocationsLocationCrossReference_3_2_1_0 = (CrossReference)cInputLocationsAssignment_3_2_1.eContents().get(0);
 		private final RuleCall cInputLocationsLocationEStringParserRuleCall_3_2_1_0_1 = (RuleCall)cInputLocationsLocationCrossReference_3_2_1_0.eContents().get(1);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cActionsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Alternatives cAlternatives_4_0 = (Alternatives)cGroup_4.eContents().get(0);
+		private final Keyword cActionsKeyword_4_0_0 = (Keyword)cAlternatives_4_0.eContents().get(0);
+		private final Keyword cResourcesKeyword_4_0_1 = (Keyword)cAlternatives_4_0.eContents().get(1);
 		private final Assignment cInputActionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final CrossReference cInputActionActionCrossReference_4_1_0 = (CrossReference)cInputActionAssignment_4_1.eContents().get(0);
 		private final RuleCall cInputActionActionEStringParserRuleCall_4_1_0_1 = (RuleCall)cInputActionActionCrossReference_4_1_0.eContents().get(1);
@@ -850,12 +881,12 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DelegateOp:
 		//	'delegate' '(' task=Tasks ('locations' inputLocations+=[Location|EString] ("," inputLocations+=[Location|EString])*)?
-		//	('actions' inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('stoppingEvents'
+		//	(('actions' | 'resources') inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('stoppingEvents'
 		//	stoppingEvent+=[Event|EString] ("," stoppingEvent+=[Event|EString])*)? ')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'delegate' '(' task=Tasks ('locations' inputLocations+=[Location|EString] ("," inputLocations+=[Location|EString])*)?
-		//('actions' inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('stoppingEvents'
+		//(('actions' | 'resources') inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('stoppingEvents'
 		//stoppingEvent+=[Event|EString] ("," stoppingEvent+=[Event|EString])*)? ')'
 		public Group getGroup() { return cGroup; }
 		
@@ -901,11 +932,17 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getInputLocationsLocationEStringParserRuleCall_3_2_1_0_1() { return cInputLocationsLocationEStringParserRuleCall_3_2_1_0_1; }
 		
-		//('actions' inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)?
+		//(('actions' | 'resources') inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)?
 		public Group getGroup_4() { return cGroup_4; }
 		
+		//'actions' | 'resources'
+		public Alternatives getAlternatives_4_0() { return cAlternatives_4_0; }
+		
 		//'actions'
-		public Keyword getActionsKeyword_4_0() { return cActionsKeyword_4_0; }
+		public Keyword getActionsKeyword_4_0_0() { return cActionsKeyword_4_0_0; }
+		
+		//'resources'
+		public Keyword getResourcesKeyword_4_0_1() { return cResourcesKeyword_4_0_1; }
 		
 		//inputAction+=[Action|EString]
 		public Assignment getInputActionAssignment_4_1() { return cInputActionAssignment_4_1; }
@@ -1225,6 +1262,107 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		//'FairPatrolling'
 		public Keyword getFairPatrollingKeyword_1() { return cFairPatrollingKeyword_1; }
 	}
+	public class CheckElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.Check");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cCheckAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cCheckKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		////////MS3
+		//Check:
+		//	{Check}
+		//	'Check';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Check} 'Check'
+		public Group getGroup() { return cGroup; }
+		
+		//{Check}
+		public Action getCheckAction_0() { return cCheckAction_0; }
+		
+		//'Check'
+		public Keyword getCheckKeyword_1() { return cCheckKeyword_1; }
+	}
+	public class CheckAndDeliverElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.CheckAndDeliver");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cCheckAndDeliverAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cCheckAndDeliverKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//CheckAndDeliver:
+		//	{CheckAndDeliver}
+		//	'CheckAndDeliver';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{CheckAndDeliver} 'CheckAndDeliver'
+		public Group getGroup() { return cGroup; }
+		
+		//{CheckAndDeliver}
+		public Action getCheckAndDeliverAction_0() { return cCheckAndDeliverAction_0; }
+		
+		//'CheckAndDeliver'
+		public Keyword getCheckAndDeliverKeyword_1() { return cCheckAndDeliverKeyword_1; }
+	}
+	public class CheckSuppliesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.CheckSupplies");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cCheckSuppliesAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cCheckSuppliesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//CheckSupplies:
+		//	{CheckSupplies}
+		//	'CheckSupplies';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{CheckSupplies} 'CheckSupplies'
+		public Group getGroup() { return cGroup; }
+		
+		//{CheckSupplies}
+		public Action getCheckSuppliesAction_0() { return cCheckSuppliesAction_0; }
+		
+		//'CheckSupplies'
+		public Keyword getCheckSuppliesKeyword_1() { return cCheckSuppliesKeyword_1; }
+	}
+	public class CheckAndDeliverQChElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.CheckAndDeliverQCh");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cCheckAndDeliverQChAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cCheckAndDeliverQChKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//CheckAndDeliverQCh:
+		//	{CheckAndDeliverQCh}
+		//	'CheckAndDeliverQCh';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{CheckAndDeliverQCh} 'CheckAndDeliverQCh'
+		public Group getGroup() { return cGroup; }
+		
+		//{CheckAndDeliverQCh}
+		public Action getCheckAndDeliverQChAction_0() { return cCheckAndDeliverQChAction_0; }
+		
+		//'CheckAndDeliverQCh'
+		public Keyword getCheckAndDeliverQChKeyword_1() { return cCheckAndDeliverQChKeyword_1; }
+	}
+	public class TestITAAPAsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.TestITAAPAs");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cTestITAAPAsAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cTestITAAPAsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//TestITAAPAs:
+		//	{TestITAAPAs}
+		//	'TestITAAPAs';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{TestITAAPAs} 'TestITAAPAs'
+		public Group getGroup() { return cGroup; }
+		
+		//{TestITAAPAs}
+		public Action getTestITAAPAsAction_0() { return cTestITAAPAsAction_0; }
+		
+		//'TestITAAPAs'
+		public Keyword getTestITAAPAsKeyword_1() { return cTestITAAPAsKeyword_1; }
+	}
 	public class UpperRestrictedAvoidanceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "se.gu.co4robots.xtext.promise.Promise.UpperRestrictedAvoidance");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1454,6 +1592,11 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	private final OrderedPatrollingElements pOrderedPatrolling;
 	private final StrictOreredPatrollingElements pStrictOreredPatrolling;
 	private final FairPatrollingElements pFairPatrolling;
+	private final CheckElements pCheck;
+	private final CheckAndDeliverElements pCheckAndDeliver;
+	private final CheckSuppliesElements pCheckSupplies;
+	private final CheckAndDeliverQChElements pCheckAndDeliverQCh;
+	private final TestITAAPAsElements pTestITAAPAs;
 	private final UpperRestrictedAvoidanceElements pUpperRestrictedAvoidance;
 	private final ExactRestrictedAvoidanceElements pExactRestrictedAvoidance;
 	private final LowerRestrictedAvoidanceElements pLowerRestrictedAvoidance;
@@ -1500,6 +1643,11 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pOrderedPatrolling = new OrderedPatrollingElements();
 		this.pStrictOreredPatrolling = new StrictOreredPatrollingElements();
 		this.pFairPatrolling = new FairPatrollingElements();
+		this.pCheck = new CheckElements();
+		this.pCheckAndDeliver = new CheckAndDeliverElements();
+		this.pCheckSupplies = new CheckSuppliesElements();
+		this.pCheckAndDeliverQCh = new CheckAndDeliverQChElements();
+		this.pTestITAAPAs = new TestITAAPAsElements();
 		this.pUpperRestrictedAvoidance = new UpperRestrictedAvoidanceElements();
 		this.pExactRestrictedAvoidance = new ExactRestrictedAvoidanceElements();
 		this.pLowerRestrictedAvoidance = new LowerRestrictedAvoidanceElements();
@@ -1540,8 +1688,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Mission:
-	//	'mission' '{' ('conditions' '{' ('events' events+=Event ("," events+=Event)*)? ('actions' actions+=Action (","
-	//	actions+=Action)*)? '}')?
+	//	'mission' '{' ('conditions' '{' ('events' events+=Event ("," events+=Event)*)? (('actions' | 'resources')
+	//	actions+=Action ("," actions+=Action)*)? '}')?
 	//	'robots' robots+=Robot ("," robots+=Robot)* ('locations' locations+=Location ("," locations+=Location)*)?
 	//	'operators' '{' operator+=Operator ("," operator+=Operator)* '}'
 	//	'}';
@@ -1567,7 +1715,8 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	//	SimpleAction | Visit | SequencedVisit | OrderderVisit | StrictOrderedVisit | FairVisit | Patrolling |
 	//	SequencedPatrolling | OrderedPatrolling | StrictOreredPatrolling | FairPatrolling | UpperRestrictedAvoidance |
 	//	ExactRestrictedAvoidance | LowerRestrictedAvoidance | FutureAvoidance | GlobalAvoidance | PastAvoidance | Wait |
-	//	DelayedReaction | InstantReaction;
+	//	DelayedReaction | InstantReaction | Check
+	//	| CheckAndDeliver | CheckSupplies | CheckAndDeliverQCh | TestITAAPAs;
 	public TasksElements getTasksAccess() {
 		return pTasks;
 	}
@@ -1597,7 +1746,7 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Event:
-	//	name=ID ':' description=EString;
+	//	name=EString ':' description=EString;
 	public EventElements getEventAccess() {
 		return pEvent;
 	}
@@ -1607,7 +1756,7 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Action:
-	//	name=ID ':' description=EString;
+	//	name=EString ':' description=EString;
 	public ActionElements getActionAccess() {
 		return pAction;
 	}
@@ -1681,7 +1830,7 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DelegateOp:
 	//	'delegate' '(' task=Tasks ('locations' inputLocations+=[Location|EString] ("," inputLocations+=[Location|EString])*)?
-	//	('actions' inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('stoppingEvents'
+	//	(('actions' | 'resources') inputAction+=[Action|EString] ("," inputAction+=[Action|EString])*)? ('stoppingEvents'
 	//	stoppingEvent+=[Event|EString] ("," stoppingEvent+=[Event|EString])*)? ')';
 	public DelegateOpElements getDelegateOpAccess() {
 		return pDelegateOp;
@@ -1822,6 +1971,62 @@ public class PromiseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getFairPatrollingRule() {
 		return getFairPatrollingAccess().getRule();
+	}
+	
+	////////MS3
+	//Check:
+	//	{Check}
+	//	'Check';
+	public CheckElements getCheckAccess() {
+		return pCheck;
+	}
+	
+	public ParserRule getCheckRule() {
+		return getCheckAccess().getRule();
+	}
+	
+	//CheckAndDeliver:
+	//	{CheckAndDeliver}
+	//	'CheckAndDeliver';
+	public CheckAndDeliverElements getCheckAndDeliverAccess() {
+		return pCheckAndDeliver;
+	}
+	
+	public ParserRule getCheckAndDeliverRule() {
+		return getCheckAndDeliverAccess().getRule();
+	}
+	
+	//CheckSupplies:
+	//	{CheckSupplies}
+	//	'CheckSupplies';
+	public CheckSuppliesElements getCheckSuppliesAccess() {
+		return pCheckSupplies;
+	}
+	
+	public ParserRule getCheckSuppliesRule() {
+		return getCheckSuppliesAccess().getRule();
+	}
+	
+	//CheckAndDeliverQCh:
+	//	{CheckAndDeliverQCh}
+	//	'CheckAndDeliverQCh';
+	public CheckAndDeliverQChElements getCheckAndDeliverQChAccess() {
+		return pCheckAndDeliverQCh;
+	}
+	
+	public ParserRule getCheckAndDeliverQChRule() {
+		return getCheckAndDeliverQChAccess().getRule();
+	}
+	
+	//TestITAAPAs:
+	//	{TestITAAPAs}
+	//	'TestITAAPAs';
+	public TestITAAPAsElements getTestITAAPAsAccess() {
+		return pTestITAAPAs;
+	}
+	
+	public ParserRule getTestITAAPAsRule() {
+		return getTestITAAPAsAccess().getRule();
 	}
 	
 	//////////////// Avoidance Patterns

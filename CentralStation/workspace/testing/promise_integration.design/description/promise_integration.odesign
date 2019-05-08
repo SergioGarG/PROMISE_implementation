@@ -202,6 +202,41 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             </style>
           </borderedNodeMappings>
+          <borderedNodeMappings name="CheckNode" semanticCandidatesExpression="feature:task" domainClass="promise::Check">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="Check" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="CheckAndDeliverNode" semanticCandidatesExpression="feature:task" domainClass="promise::CheckAndDeliver">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="Check and deliver" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="CheckSuppliesNode" semanticCandidatesExpression="feature:task" domainClass="promise::CheckSupplies">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="Check supplies" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="CheckAndDeliverQChNode" semanticCandidatesExpression="feature:task" domainClass="promise::CheckAndDeliverQCh">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="Check and deliver QCh" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="TestITAAPAsNode" semanticCandidatesExpression="feature:task" domainClass="promise::TestITAAPAs">
+            <style xsi:type="style:DotDescription" showIcon="false" labelExpression="Test ITA" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </borderedNodeMappings>
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="[if(self.parent->isEmpty()) then if(self.eventAssigned->isEmpty()) then 'This operator has no parent' else 'Event Op '+self.eventAssigned.parent_event.inputEvents->indexOf(self.eventAssigned) endif else if(self.parent.oclIsTypeOf(EventHandlerOp)) then 'Default' else 'Op '+self.parent.inputOperators->indexOf(self) endif endif +'\n'+ if(self.inputLocations->isEmpty()) then if(self.inputAction->isEmpty()) then 'Associate an action or a location!'+'\n' else self.inputAction.name endif else if(self.inputAction->isEmpty()) then self.inputLocations.name else self.inputLocations.name +  '\n' +self.inputAction.name endif endif + if(self.stoppingEvent->isEmpty()) then '' else '\n'+'Stop if: '+self.stoppingEvent.name endif/]" labelAlignment="LEFT" sizeComputationExpression="4" resizeKind="NSEW" workspacePath="/se.gu.co4robots.promise/icons/delegate.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -529,6 +564,53 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::UpperRestrictedAvoidance" referenceName="task"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="MS3 patterns">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCheck" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='CheckNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::Check" referenceName="task"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCheckAndDeliver" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='CheckAndDeliverNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::CheckAndDeliver" referenceName="task"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CheckSupplies" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='CheckSuppliesNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::CheckSupplies" referenceName="task"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCheckAndDeliverQCh" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='CheckAndDeliverQChNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::CheckAndDeliverQCh" referenceName="task"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createTestITAAPAsNode" nodeMappings="//@ownedViewpoints[name='missions']/@ownedRepresentations[name='Missions%20diagram']/@defaultLayer/@nodeMappings[name='DelegateOpNode']/@borderedNodeMappings[name='TestITAAPAsNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="promise::TestITAAPAsNode" referenceName="task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

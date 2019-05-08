@@ -319,6 +319,51 @@ public interface PromiseFactory extends EFactory {
 	EventAssignment createEventAssignment();
 
 	/**
+	 * Returns a new object of class '<em>Check</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Check</em>'.
+	 * @generated
+	 */
+	Check createCheck();
+
+	/**
+	 * Returns a new object of class '<em>Check And Deliver</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Check And Deliver</em>'.
+	 * @generated
+	 */
+	CheckAndDeliver createCheckAndDeliver();
+
+	/**
+	 * Returns a new object of class '<em>Check Supplies</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Check Supplies</em>'.
+	 * @generated
+	 */
+	CheckSupplies createCheckSupplies();
+
+	/**
+	 * Returns a new object of class '<em>Check And Deliver QCh</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Check And Deliver QCh</em>'.
+	 * @generated
+	 */
+	CheckAndDeliverQCh createCheckAndDeliverQCh();
+
+	/**
+	 * Returns a new object of class '<em>Test ITAAP As</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Test ITAAP As</em>'.
+	 * @generated
+	 */
+	TestITAAPAs createTestITAAPAs();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

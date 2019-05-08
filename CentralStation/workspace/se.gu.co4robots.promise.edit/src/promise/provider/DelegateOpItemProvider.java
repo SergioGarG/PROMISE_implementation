@@ -302,6 +302,31 @@ public class DelegateOpItemProvider extends OperatorItemProvider {
 			(createChildParameter
 				(PromisePackage.Literals.DELEGATE_OP__TASK,
 				 PromiseFactory.eINSTANCE.createSimpleAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
+				 PromiseFactory.eINSTANCE.createCheck()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
+				 PromiseFactory.eINSTANCE.createCheckAndDeliver()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
+				 PromiseFactory.eINSTANCE.createCheckSupplies()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
+				 PromiseFactory.eINSTANCE.createCheckAndDeliverQCh()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PromisePackage.Literals.DELEGATE_OP__TASK,
+				 PromiseFactory.eINSTANCE.createTestITAAPAs()));
 	}
 
 }

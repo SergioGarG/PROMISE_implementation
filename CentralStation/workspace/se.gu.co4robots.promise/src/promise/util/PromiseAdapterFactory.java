@@ -232,6 +232,26 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 				return createEventBasedOperatorAdapter();
 			}
 			@Override
+			public Adapter caseCheck(Check object) {
+				return createCheckAdapter();
+			}
+			@Override
+			public Adapter caseCheckAndDeliver(CheckAndDeliver object) {
+				return createCheckAndDeliverAdapter();
+			}
+			@Override
+			public Adapter caseCheckSupplies(CheckSupplies object) {
+				return createCheckSuppliesAdapter();
+			}
+			@Override
+			public Adapter caseCheckAndDeliverQCh(CheckAndDeliverQCh object) {
+				return createCheckAndDeliverQChAdapter();
+			}
+			@Override
+			public Adapter caseTestITAAPAs(TestITAAPAs object) {
+				return createTestITAAPAsAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -822,6 +842,76 @@ public class PromiseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEventBasedOperatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link promise.Check <em>Check</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see promise.Check
+	 * @generated
+	 */
+	public Adapter createCheckAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link promise.CheckAndDeliver <em>Check And Deliver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see promise.CheckAndDeliver
+	 * @generated
+	 */
+	public Adapter createCheckAndDeliverAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link promise.CheckSupplies <em>Check Supplies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see promise.CheckSupplies
+	 * @generated
+	 */
+	public Adapter createCheckSuppliesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link promise.CheckAndDeliverQCh <em>Check And Deliver QCh</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see promise.CheckAndDeliverQCh
+	 * @generated
+	 */
+	public Adapter createCheckAndDeliverQChAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link promise.TestITAAPAs <em>Test ITAAP As</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see promise.TestITAAPAs
+	 * @generated
+	 */
+	public Adapter createTestITAAPAsAdapter() {
 		return null;
 	}
 

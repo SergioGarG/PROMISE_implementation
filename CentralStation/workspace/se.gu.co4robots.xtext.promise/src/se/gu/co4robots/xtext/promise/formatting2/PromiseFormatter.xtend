@@ -45,5 +45,5 @@ class PromiseFormatter extends AbstractFormatter2 {
 		}
 	}
 	
-	// TODO: implement for SequenceOp, ParallelOp, EventHandlerOp, ConditionOp, DelegateOp
+	// TODO: implement for SequenceOp, ParallelOp, EventHandlerOp, ConditionOp, TaskCombinationOp, DelegateOp, EventAssignment
 }

@@ -27,6 +27,9 @@ public class MissionModel
 	// list of actions, spearated by commas
 	protected String actions;
 	
+	// list of resources, spearated by commas
+	protected String resources;
+	
 	//name of the selected .promise file
 	String fileName;
 	String path;
@@ -42,7 +45,8 @@ public class MissionModel
 		s="mission{ \n";
 		//conditional
 		if ((events != null && events != " " && events != "" && events.trim().length() != 0) || 
-				(actions != null && actions != " " && actions != "" && actions.trim().length() != 0)) {
+				(actions != null && actions != " " && actions != "" && actions.trim().length() != 0) ||
+				(resources != null && resources != " " && resources != "" && resources.trim().length() != 0)) {
 			s=s+"\tconditions{ \n";
 			if (events != null && events != " " && events != "" && events.trim().length() != 0) {
 				events.replaceAll("\\s+","");
@@ -64,6 +68,17 @@ public class MissionModel
 						s=s+"\t\t"+arrOfStr2[i]+": \"description of action "+arrOfStr2[i]+"\",\n";
 					else
 						s=s+"\t\t"+arrOfStr2[i]+": \"description of action "+arrOfStr2[i]+"\"\n";
+				}
+			}
+			if (resources != null && resources != " " && resources != "" && resources.trim().length() != 0) {
+				resources.replaceAll("\\s+","");
+				s=s+"\t\tresources\n "; //then set of resources
+				String [] arrOfStr3 = resources.split(","); 
+				for(int i=0; i<arrOfStr3.length; i++){
+					if(i!=arrOfStr3.length-1)
+						s=s+"\t\t"+arrOfStr3[i]+": \"description of resource "+arrOfStr3[i]+"\",\n";
+					else
+						s=s+"\t\t"+arrOfStr3[i]+": \"description of resource "+arrOfStr3[i]+"\"\n";
 				}
 			}
 			s=s+"\n\t} \n";

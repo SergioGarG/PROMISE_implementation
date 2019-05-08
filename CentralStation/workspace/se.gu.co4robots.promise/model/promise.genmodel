@@ -84,5 +84,10 @@
     <genClasses image="false" ecoreClass="promise.ecore#//EventBasedOperator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference promise.ecore#//EventBasedOperator/inputEvents"/>
     </genClasses>
+    <genClasses ecoreClass="promise.ecore#//Check"/>
+    <genClasses ecoreClass="promise.ecore#//CheckAndDeliver"/>
+    <genClasses ecoreClass="promise.ecore#//CheckSupplies"/>
+    <genClasses ecoreClass="promise.ecore#//CheckAndDeliverQCh"/>
+    <genClasses ecoreClass="promise.ecore#//TestITAAPAs"/>
   </genPackages>
 </genmodel:GenModel>

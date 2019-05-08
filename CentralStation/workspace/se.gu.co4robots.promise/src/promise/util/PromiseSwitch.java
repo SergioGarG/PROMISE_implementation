@@ -376,6 +376,46 @@ public class PromiseSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PromisePackage.CHECK: {
+				Check check = (Check)theEObject;
+				T result = caseCheck(check);
+				if (result == null) result = caseMovementPatterns(check);
+				if (result == null) result = caseTasks(check);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PromisePackage.CHECK_AND_DELIVER: {
+				CheckAndDeliver checkAndDeliver = (CheckAndDeliver)theEObject;
+				T result = caseCheckAndDeliver(checkAndDeliver);
+				if (result == null) result = caseMovementPatterns(checkAndDeliver);
+				if (result == null) result = caseTasks(checkAndDeliver);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PromisePackage.CHECK_SUPPLIES: {
+				CheckSupplies checkSupplies = (CheckSupplies)theEObject;
+				T result = caseCheckSupplies(checkSupplies);
+				if (result == null) result = caseMovementPatterns(checkSupplies);
+				if (result == null) result = caseTasks(checkSupplies);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PromisePackage.CHECK_AND_DELIVER_QCH: {
+				CheckAndDeliverQCh checkAndDeliverQCh = (CheckAndDeliverQCh)theEObject;
+				T result = caseCheckAndDeliverQCh(checkAndDeliverQCh);
+				if (result == null) result = caseMovementPatterns(checkAndDeliverQCh);
+				if (result == null) result = caseTasks(checkAndDeliverQCh);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PromisePackage.TEST_ITAAP_AS: {
+				TestITAAPAs testITAAPAs = (TestITAAPAs)theEObject;
+				T result = caseTestITAAPAs(testITAAPAs);
+				if (result == null) result = caseMovementPatterns(testITAAPAs);
+				if (result == null) result = caseTasks(testITAAPAs);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -992,6 +1032,81 @@ public class PromiseSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEventBasedOperator(EventBasedOperator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Check</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Check</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCheck(Check object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Check And Deliver</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Check And Deliver</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCheckAndDeliver(CheckAndDeliver object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Check Supplies</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Check Supplies</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCheckSupplies(CheckSupplies object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Check And Deliver QCh</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Check And Deliver QCh</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCheckAndDeliverQCh(CheckAndDeliverQCh object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Test ITAAP As</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Test ITAAP As</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTestITAAPAs(TestITAAPAs object) {
 		return null;
 	}
 

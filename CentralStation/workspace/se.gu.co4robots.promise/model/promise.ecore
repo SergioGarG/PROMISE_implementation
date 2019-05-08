@@ -98,4 +98,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputEvents" upperBound="-1"
         eType="#//EventAssignment" containment="true" eOpposite="#//EventAssignment/parent_event"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Check" eSuperTypes="#//MovementPatterns"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckAndDeliver" eSuperTypes="#//MovementPatterns"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckSupplies" eSuperTypes="#//MovementPatterns"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckAndDeliverQCh" eSuperTypes="#//MovementPatterns"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestITAAPAs" eSuperTypes="#//MovementPatterns"/>
 </ecore:EPackage>

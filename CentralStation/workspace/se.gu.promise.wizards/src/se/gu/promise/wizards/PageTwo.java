@@ -40,17 +40,19 @@ public class PageTwo extends WizardPage //implements Listener
 	// widgets on this page
 	Text events;
 	Text actions;
+	Text resources;
 	
 	IStatus eventStatus;
 	IStatus actionsStatus;
+	IStatus resourcesStatus;
 		
 	/**
 	 * Constructor for PageTwo.
 	 */
 	protected PageTwo(String arg0) {
 		super(arg0);
-		setTitle("Set conditions");
-		setDescription("Specify the events and actions of the mission");
+		setTitle("Set conditions and resources");
+		setDescription("Specify the events and actions or resources of the mission");
 	}
 
 	/**
@@ -108,6 +110,26 @@ public class PageTwo extends WizardPage //implements Listener
            	setPageComplete(isPageComplete());
            }
 		});
+		
+		// Resources				
+		new Label (composite, SWT.NONE).setText("Resources:");				
+		resources = new Text(composite, SWT.BORDER);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
+		gd.horizontalSpan = ncol - 1;
+		resources.setLayoutData(gd);
+		//actions.addListener(SWT.Selection, this);
+		resources.addKeyListener(new KeyListener() {
+			 @Override
+           public void keyPressed(KeyEvent e) {
+               // TODO Auto-generated method stub
+           }
+
+           @Override
+           public void keyReleased(KeyEvent e) {
+           	setPageComplete(isPageComplete());
+           }
+		});
+
 
 		
 	    // set the composite as the control for this page
@@ -156,6 +178,7 @@ public class PageTwo extends WizardPage //implements Listener
 		MissionWizard wizard = (MissionWizard)getWizard();
 		wizard.model.events = events.getText();
 		wizard.model.actions = actions.getText();
+		wizard.model.resources = resources.getText();
 		wizard.pageTwoCompleted=true;
 	}	
 	

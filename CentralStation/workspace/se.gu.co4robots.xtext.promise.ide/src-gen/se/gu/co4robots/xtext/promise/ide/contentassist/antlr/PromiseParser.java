@@ -31,9 +31,11 @@ public class PromiseParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getMissionAccess().getAlternatives_2_3_0(), "rule__Mission__Alternatives_2_3_0");
 					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
 					put(grammarAccess.getTasksAccess().getAlternatives(), "rule__Tasks__Alternatives");
 					put(grammarAccess.getTaskCombinationOpAccess().getAlternatives_3_0(), "rule__TaskCombinationOp__Alternatives_3_0");
+					put(grammarAccess.getDelegateOpAccess().getAlternatives_4_0(), "rule__DelegateOp__Alternatives_4_0");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getMissionAccess().getGroup(), "rule__Mission__Group__0");
 					put(grammarAccess.getMissionAccess().getGroup_2(), "rule__Mission__Group_2__0");
@@ -79,6 +81,11 @@ public class PromiseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOrderedPatrollingAccess().getGroup(), "rule__OrderedPatrolling__Group__0");
 					put(grammarAccess.getStrictOreredPatrollingAccess().getGroup(), "rule__StrictOreredPatrolling__Group__0");
 					put(grammarAccess.getFairPatrollingAccess().getGroup(), "rule__FairPatrolling__Group__0");
+					put(grammarAccess.getCheckAccess().getGroup(), "rule__Check__Group__0");
+					put(grammarAccess.getCheckAndDeliverAccess().getGroup(), "rule__CheckAndDeliver__Group__0");
+					put(grammarAccess.getCheckSuppliesAccess().getGroup(), "rule__CheckSupplies__Group__0");
+					put(grammarAccess.getCheckAndDeliverQChAccess().getGroup(), "rule__CheckAndDeliverQCh__Group__0");
+					put(grammarAccess.getTestITAAPAsAccess().getGroup(), "rule__TestITAAPAs__Group__0");
 					put(grammarAccess.getUpperRestrictedAvoidanceAccess().getGroup(), "rule__UpperRestrictedAvoidance__Group__0");
 					put(grammarAccess.getExactRestrictedAvoidanceAccess().getGroup(), "rule__ExactRestrictedAvoidance__Group__0");
 					put(grammarAccess.getLowerRestrictedAvoidanceAccess().getGroup(), "rule__LowerRestrictedAvoidance__Group__0");

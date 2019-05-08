@@ -89,6 +89,11 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 			case PromisePackage.SIMPLE_ACTION: return createSimpleAction();
 			case PromisePackage.TASK_COMBINATION_OP: return createTaskCombinationOp();
 			case PromisePackage.EVENT_ASSIGNMENT: return createEventAssignment();
+			case PromisePackage.CHECK: return createCheck();
+			case PromisePackage.CHECK_AND_DELIVER: return createCheckAndDeliver();
+			case PromisePackage.CHECK_SUPPLIES: return createCheckSupplies();
+			case PromisePackage.CHECK_AND_DELIVER_QCH: return createCheckAndDeliverQCh();
+			case PromisePackage.TEST_ITAAP_AS: return createTestITAAPAs();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -422,6 +427,56 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	public EventAssignment createEventAssignment() {
 		EventAssignmentImpl eventAssignment = new EventAssignmentImpl();
 		return eventAssignment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Check createCheck() {
+		CheckImpl check = new CheckImpl();
+		return check;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CheckAndDeliver createCheckAndDeliver() {
+		CheckAndDeliverImpl checkAndDeliver = new CheckAndDeliverImpl();
+		return checkAndDeliver;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CheckSupplies createCheckSupplies() {
+		CheckSuppliesImpl checkSupplies = new CheckSuppliesImpl();
+		return checkSupplies;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CheckAndDeliverQCh createCheckAndDeliverQCh() {
+		CheckAndDeliverQChImpl checkAndDeliverQCh = new CheckAndDeliverQChImpl();
+		return checkAndDeliverQCh;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TestITAAPAs createTestITAAPAs() {
+		TestITAAPAsImpl testITAAPAs = new TestITAAPAsImpl();
+		return testITAAPAs;
 	}
 
 	/**

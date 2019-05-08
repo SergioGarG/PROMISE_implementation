@@ -11,6 +11,10 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import promise.Action;
 import promise.AvoidancePatterns;
+import promise.Check;
+import promise.CheckAndDeliver;
+import promise.CheckAndDeliverQCh;
+import promise.CheckSupplies;
 import promise.CompositionOperator;
 import promise.ConditionOp;
 import promise.DelayedReaction;
@@ -48,6 +52,7 @@ import promise.StrictOrderedVisit;
 import promise.StrictOreredPatrolling;
 import promise.TaskCombinationOp;
 import promise.Tasks;
+import promise.TestITAAPAs;
 import promise.TriggerPatterns;
 import promise.UpperRestrictedAvoidance;
 import promise.Visit;
@@ -346,6 +351,41 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * @generated
 	 */
 	private EClass eventBasedOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass checkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass checkAndDeliverEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass checkSuppliesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass checkAndDeliverQChEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass testITAAPAsEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -998,6 +1038,51 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCheck() {
+		return checkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCheckAndDeliver() {
+		return checkAndDeliverEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCheckSupplies() {
+		return checkSuppliesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCheckAndDeliverQCh() {
+		return checkAndDeliverQChEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTestITAAPAs() {
+		return testITAAPAsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PromiseFactory getPromiseFactory() {
 		return (PromiseFactory)getEFactoryInstance();
 	}
@@ -1126,6 +1211,16 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 
 		eventBasedOperatorEClass = createEClass(EVENT_BASED_OPERATOR);
 		createEReference(eventBasedOperatorEClass, EVENT_BASED_OPERATOR__INPUT_EVENTS);
+
+		checkEClass = createEClass(CHECK);
+
+		checkAndDeliverEClass = createEClass(CHECK_AND_DELIVER);
+
+		checkSuppliesEClass = createEClass(CHECK_SUPPLIES);
+
+		checkAndDeliverQChEClass = createEClass(CHECK_AND_DELIVER_QCH);
+
+		testITAAPAsEClass = createEClass(TEST_ITAAP_AS);
 	}
 
 	/**
@@ -1192,6 +1287,11 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		simpleActionEClass.getESuperTypes().add(this.getTasks());
 		taskCombinationOpEClass.getESuperTypes().add(this.getCompositionOperator());
 		eventBasedOperatorEClass.getESuperTypes().add(this.getCompositionOperator());
+		checkEClass.getESuperTypes().add(this.getMovementPatterns());
+		checkAndDeliverEClass.getESuperTypes().add(this.getMovementPatterns());
+		checkSuppliesEClass.getESuperTypes().add(this.getMovementPatterns());
+		checkAndDeliverQChEClass.getESuperTypes().add(this.getMovementPatterns());
+		testITAAPAsEClass.getESuperTypes().add(this.getMovementPatterns());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1299,6 +1399,16 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 
 		initEClass(eventBasedOperatorEClass, EventBasedOperator.class, "EventBasedOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventBasedOperator_InputEvents(), this.getEventAssignment(), this.getEventAssignment_Parent_event(), "inputEvents", null, 0, -1, EventBasedOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(checkEClass, Check.class, "Check", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(checkAndDeliverEClass, CheckAndDeliver.class, "CheckAndDeliver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(checkSuppliesEClass, CheckSupplies.class, "CheckSupplies", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(checkAndDeliverQChEClass, CheckAndDeliverQCh.class, "CheckAndDeliverQCh", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(testITAAPAsEClass, TestITAAPAs.class, "TestITAAPAs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

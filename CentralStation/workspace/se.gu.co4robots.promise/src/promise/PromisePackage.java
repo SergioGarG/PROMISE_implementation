@@ -1701,6 +1701,147 @@ public interface PromisePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link promise.impl.CheckImpl <em>Check</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see promise.impl.CheckImpl
+	 * @see promise.impl.PromisePackageImpl#getCheck()
+	 * @generated
+	 */
+	int CHECK = 41;
+
+	/**
+	 * The number of structural features of the '<em>Check</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_FEATURE_COUNT = MOVEMENT_PATTERNS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Check</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_OPERATION_COUNT = MOVEMENT_PATTERNS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link promise.impl.CheckAndDeliverImpl <em>Check And Deliver</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see promise.impl.CheckAndDeliverImpl
+	 * @see promise.impl.PromisePackageImpl#getCheckAndDeliver()
+	 * @generated
+	 */
+	int CHECK_AND_DELIVER = 42;
+
+	/**
+	 * The number of structural features of the '<em>Check And Deliver</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_AND_DELIVER_FEATURE_COUNT = MOVEMENT_PATTERNS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Check And Deliver</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_AND_DELIVER_OPERATION_COUNT = MOVEMENT_PATTERNS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link promise.impl.CheckSuppliesImpl <em>Check Supplies</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see promise.impl.CheckSuppliesImpl
+	 * @see promise.impl.PromisePackageImpl#getCheckSupplies()
+	 * @generated
+	 */
+	int CHECK_SUPPLIES = 43;
+
+	/**
+	 * The number of structural features of the '<em>Check Supplies</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_SUPPLIES_FEATURE_COUNT = MOVEMENT_PATTERNS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Check Supplies</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_SUPPLIES_OPERATION_COUNT = MOVEMENT_PATTERNS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link promise.impl.CheckAndDeliverQChImpl <em>Check And Deliver QCh</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see promise.impl.CheckAndDeliverQChImpl
+	 * @see promise.impl.PromisePackageImpl#getCheckAndDeliverQCh()
+	 * @generated
+	 */
+	int CHECK_AND_DELIVER_QCH = 44;
+
+	/**
+	 * The number of structural features of the '<em>Check And Deliver QCh</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_AND_DELIVER_QCH_FEATURE_COUNT = MOVEMENT_PATTERNS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Check And Deliver QCh</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHECK_AND_DELIVER_QCH_OPERATION_COUNT = MOVEMENT_PATTERNS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link promise.impl.TestITAAPAsImpl <em>Test ITAAP As</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see promise.impl.TestITAAPAsImpl
+	 * @see promise.impl.PromisePackageImpl#getTestITAAPAs()
+	 * @generated
+	 */
+	int TEST_ITAAP_AS = 45;
+
+	/**
+	 * The number of structural features of the '<em>Test ITAAP As</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_ITAAP_AS_FEATURE_COUNT = MOVEMENT_PATTERNS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Test ITAAP As</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_ITAAP_AS_OPERATION_COUNT = MOVEMENT_PATTERNS_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link promise.Operator <em>Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2375,6 +2516,56 @@ public interface PromisePackage extends EPackage {
 	EReference getEventBasedOperator_InputEvents();
 
 	/**
+	 * Returns the meta object for class '{@link promise.Check <em>Check</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Check</em>'.
+	 * @see promise.Check
+	 * @generated
+	 */
+	EClass getCheck();
+
+	/**
+	 * Returns the meta object for class '{@link promise.CheckAndDeliver <em>Check And Deliver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Check And Deliver</em>'.
+	 * @see promise.CheckAndDeliver
+	 * @generated
+	 */
+	EClass getCheckAndDeliver();
+
+	/**
+	 * Returns the meta object for class '{@link promise.CheckSupplies <em>Check Supplies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Check Supplies</em>'.
+	 * @see promise.CheckSupplies
+	 * @generated
+	 */
+	EClass getCheckSupplies();
+
+	/**
+	 * Returns the meta object for class '{@link promise.CheckAndDeliverQCh <em>Check And Deliver QCh</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Check And Deliver QCh</em>'.
+	 * @see promise.CheckAndDeliverQCh
+	 * @generated
+	 */
+	EClass getCheckAndDeliverQCh();
+
+	/**
+	 * Returns the meta object for class '{@link promise.TestITAAPAs <em>Test ITAAP As</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Test ITAAP As</em>'.
+	 * @see promise.TestITAAPAs
+	 * @generated
+	 */
+	EClass getTestITAAPAs();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2998,6 +3189,56 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EReference EVENT_BASED_OPERATOR__INPUT_EVENTS = eINSTANCE.getEventBasedOperator_InputEvents();
+
+		/**
+		 * The meta object literal for the '{@link promise.impl.CheckImpl <em>Check</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see promise.impl.CheckImpl
+		 * @see promise.impl.PromisePackageImpl#getCheck()
+		 * @generated
+		 */
+		EClass CHECK = eINSTANCE.getCheck();
+
+		/**
+		 * The meta object literal for the '{@link promise.impl.CheckAndDeliverImpl <em>Check And Deliver</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see promise.impl.CheckAndDeliverImpl
+		 * @see promise.impl.PromisePackageImpl#getCheckAndDeliver()
+		 * @generated
+		 */
+		EClass CHECK_AND_DELIVER = eINSTANCE.getCheckAndDeliver();
+
+		/**
+		 * The meta object literal for the '{@link promise.impl.CheckSuppliesImpl <em>Check Supplies</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see promise.impl.CheckSuppliesImpl
+		 * @see promise.impl.PromisePackageImpl#getCheckSupplies()
+		 * @generated
+		 */
+		EClass CHECK_SUPPLIES = eINSTANCE.getCheckSupplies();
+
+		/**
+		 * The meta object literal for the '{@link promise.impl.CheckAndDeliverQChImpl <em>Check And Deliver QCh</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see promise.impl.CheckAndDeliverQChImpl
+		 * @see promise.impl.PromisePackageImpl#getCheckAndDeliverQCh()
+		 * @generated
+		 */
+		EClass CHECK_AND_DELIVER_QCH = eINSTANCE.getCheckAndDeliverQCh();
+
+		/**
+		 * The meta object literal for the '{@link promise.impl.TestITAAPAsImpl <em>Test ITAAP As</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see promise.impl.TestITAAPAsImpl
+		 * @see promise.impl.PromisePackageImpl#getTestITAAPAs()
+		 * @generated
+		 */
+		EClass TEST_ITAAP_AS = eINSTANCE.getTestITAAPAs();
 
 	}
 

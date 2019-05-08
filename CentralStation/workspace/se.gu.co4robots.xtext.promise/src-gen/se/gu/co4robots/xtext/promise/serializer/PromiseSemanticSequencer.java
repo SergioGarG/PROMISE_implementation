@@ -14,6 +14,10 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import promise.Check;
+import promise.CheckAndDeliver;
+import promise.CheckAndDeliverQCh;
+import promise.CheckSupplies;
 import promise.ConditionOp;
 import promise.DelayedReaction;
 import promise.DelegateOp;
@@ -44,6 +48,7 @@ import promise.SimpleAction;
 import promise.StrictOrderedVisit;
 import promise.StrictOreredPatrolling;
 import promise.TaskCombinationOp;
+import promise.TestITAAPAs;
 import promise.UpperRestrictedAvoidance;
 import promise.Visit;
 import promise.Wait;
@@ -65,6 +70,18 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			switch (semanticObject.eClass().getClassifierID()) {
 			case PromisePackage.ACTION:
 				sequence_Action(context, (promise.Action) semanticObject); 
+				return; 
+			case PromisePackage.CHECK:
+				sequence_Check(context, (Check) semanticObject); 
+				return; 
+			case PromisePackage.CHECK_AND_DELIVER:
+				sequence_CheckAndDeliver(context, (CheckAndDeliver) semanticObject); 
+				return; 
+			case PromisePackage.CHECK_AND_DELIVER_QCH:
+				sequence_CheckAndDeliverQCh(context, (CheckAndDeliverQCh) semanticObject); 
+				return; 
+			case PromisePackage.CHECK_SUPPLIES:
+				sequence_CheckSupplies(context, (CheckSupplies) semanticObject); 
 				return; 
 			case PromisePackage.CONDITION_OP:
 				sequence_ConditionOp(context, (ConditionOp) semanticObject); 
@@ -153,6 +170,9 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case PromisePackage.TASK_COMBINATION_OP:
 				sequence_TaskCombinationOp(context, (TaskCombinationOp) semanticObject); 
 				return; 
+			case PromisePackage.TEST_ITAAP_AS:
+				sequence_TestITAAPAs(context, (TestITAAPAs) semanticObject); 
+				return; 
 			case PromisePackage.UPPER_RESTRICTED_AVOIDANCE:
 				sequence_UpperRestrictedAvoidance(context, (UpperRestrictedAvoidance) semanticObject); 
 				return; 
@@ -172,7 +192,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Action returns Action
 	 *
 	 * Constraint:
-	 *     (name=ID description=EString)
+	 *     (name=EString description=EString)
 	 */
 	protected void sequence_Action(ISerializationContext context, promise.Action semanticObject) {
 		if (errorAcceptor != null) {
@@ -182,9 +202,61 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.ACTION__DESCRIPTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getActionAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getActionAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getActionAccess().getDescriptionEStringParserRuleCall_2_0(), semanticObject.getDescription());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tasks returns CheckAndDeliverQCh
+	 *     CheckAndDeliverQCh returns CheckAndDeliverQCh
+	 *
+	 * Constraint:
+	 *     {CheckAndDeliverQCh}
+	 */
+	protected void sequence_CheckAndDeliverQCh(ISerializationContext context, CheckAndDeliverQCh semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tasks returns CheckAndDeliver
+	 *     CheckAndDeliver returns CheckAndDeliver
+	 *
+	 * Constraint:
+	 *     {CheckAndDeliver}
+	 */
+	protected void sequence_CheckAndDeliver(ISerializationContext context, CheckAndDeliver semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tasks returns CheckSupplies
+	 *     CheckSupplies returns CheckSupplies
+	 *
+	 * Constraint:
+	 *     {CheckSupplies}
+	 */
+	protected void sequence_CheckSupplies(ISerializationContext context, CheckSupplies semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tasks returns Check
+	 *     Check returns Check
+	 *
+	 * Constraint:
+	 *     {Check}
+	 */
+	protected void sequence_Check(ISerializationContext context, Check semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -271,7 +343,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Event returns Event
 	 *
 	 * Constraint:
-	 *     (name=ID description=EString)
+	 *     (name=EString description=EString)
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
 		if (errorAcceptor != null) {
@@ -281,7 +353,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PromisePackage.Literals.EVENT__DESCRIPTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEventAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getEventAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getEventAccess().getDescriptionEStringParserRuleCall_2_0(), semanticObject.getDescription());
 		feeder.finish();
 	}
@@ -599,6 +671,19 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     (inputOperators+=Operator inputOperators+=Operator+)
 	 */
 	protected void sequence_TaskCombinationOp(ISerializationContext context, TaskCombinationOp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Tasks returns TestITAAPAs
+	 *     TestITAAPAs returns TestITAAPAs
+	 *
+	 * Constraint:
+	 *     {TestITAAPAs}
+	 */
+	protected void sequence_TestITAAPAs(ISerializationContext context, TestITAAPAs semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -79,7 +79,6 @@ class PromiseGenerator extends AbstractGenerator {
 			Events [ «FOR condition : resource.allContents.filter(Event).toIterable»«condition.name» «condition.description»,«ENDFOR» ]
 			Actions [ «FOR condition : resource.allContents.filter(Action).toIterable»«condition.name» «condition.description»,«ENDFOR» ]
 			StoppingEvents [ «FOR j:0..<stoppingEvents.length»{«stoppingEvents.get(j)»}«ENDFOR» ]
-
 			''')
 		
 		if (robotsList.size > 0){
@@ -218,16 +217,44 @@ class PromiseGenerator extends AbstractGenerator {
 		def dispatch doLogic(DelegateOp in, int index, int robot, int indentation, String parent, String hybrid){
 
 ////////////////Passing an LTL formula
-			
+			////MS3
+			if(in.task.eClass.name == "Check") {
+				template="F (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown)"
+				text= text+" visit assembly station "+in.inputLocations.get(0).name+" and checks whether it has finished its product."				
+			}
+			else if(in.task.eClass.name == "CheckAndDeliver") {
+				template="F (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & (as_ready -> F delivered_final_"+in.inputLocations.get(0).name+")) & "
+				template=template+"G (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & as_ready -> G!(at_assembly_"+in.inputLocations.get(0).name+" & !as_ready & !as_unknown)) & "
+				template=template+"G (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & ! as_ready -> G!(at_assembly_"+in.inputLocations.get(0).name+" & as_ready))"
+				text= text+" visit assembly station "+in.inputLocations.get(0).name+", checks whether it has finished its product, and if finished it delivers the product to the final location."
+			}
+			else if(in.task.eClass.name == "CheckSupplies") {
+				template="F (at_assembly_"+in.inputLocations.get(0).name+" & ! as_need_unknown & (as_need_"+in.inputAction.get(0).name+" -> F delivered_"+in.inputAction.get(0).name+")) & "
+				template=template+"G (at_assembly_"+in.inputLocations.get(0).name+" & ! as_need_unknown & as_need_"+in.inputAction.get(0).name+" -> G!(at_assembly_"+in.inputLocations.get(0).name+" & !as_need_"+in.inputAction.get(0).name+" & !as_need_unknown))"
+				text= text+" visit to assembly station "+in.inputLocations.get(0).name+" and check whether it needs supplies. "
+				text=text+"If it is the case, the robot provides resource "+in.inputAction.get(0).name+"."
+			}	
+			else if(in.task.eClass.name == "CheckAndDeliverQCh") {
+				template="F (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & (as_ready -> F delivered_final_"+in.inputLocations.get(0).name+" & "
+				template=template+"F (piece_checked & (piece_faulty -> F discarded_piece))) )) & "
+				template=template+"G (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & as_ready -> G!(at_assembly_"+in.inputLocations.get(0).name+" & !as_ready & !as_unknown)) & "
+				template=template+"G (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & ! as_ready -> G!(at_assembly_"+in.inputLocations.get(0).name+" & as_ready))"
+				text= text+" visit assembly station "+in.inputLocations.get(0).name+", checks whether it has finished its product, and if finished it delivers the product to the final location. "
+				text= text+"Upon delivery, performs a quality check of one piece and discards it if there is an issue"
+			}
+			else if(in.task.eClass.name == "TestITAAPAs") {
+				template="F (piece_checked & (piece_faulty -> F discarded_piece))"
+				text= text+" test the ITA-APAS integration."				
+			}
+
 			////Core Movement Patterns
-			if(in.task.eClass.name == "Visit") {
+			else if(in.task.eClass.name == "Visit") {
 				template="<> ("+in.inputLocations.get(0).name+")"
 				text= text+" visit (without any specific order) location(s) "+in.inputLocations.get(0).name
 				for(var i=1; i<in.inputLocations.length; i++){
 					template=template+" && <> ("+in.inputLocations.get(i).name+")"
 					text= text+", "+in.inputLocations.get(i).name
 				} 	
-				
 			}
 			else if(in.task.eClass.name == "FairVisit") {
 				template="<> ("+in.inputLocations.get(0).name+")"

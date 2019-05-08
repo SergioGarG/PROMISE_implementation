@@ -831,6 +831,121 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link promise.Check} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CheckItemProvider checkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link promise.Check}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCheckAdapter() {
+		if (checkItemProvider == null) {
+			checkItemProvider = new CheckItemProvider(this);
+		}
+
+		return checkItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link promise.CheckAndDeliver} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CheckAndDeliverItemProvider checkAndDeliverItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link promise.CheckAndDeliver}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCheckAndDeliverAdapter() {
+		if (checkAndDeliverItemProvider == null) {
+			checkAndDeliverItemProvider = new CheckAndDeliverItemProvider(this);
+		}
+
+		return checkAndDeliverItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link promise.CheckSupplies} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CheckSuppliesItemProvider checkSuppliesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link promise.CheckSupplies}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCheckSuppliesAdapter() {
+		if (checkSuppliesItemProvider == null) {
+			checkSuppliesItemProvider = new CheckSuppliesItemProvider(this);
+		}
+
+		return checkSuppliesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link promise.CheckAndDeliverQCh} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CheckAndDeliverQChItemProvider checkAndDeliverQChItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link promise.CheckAndDeliverQCh}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCheckAndDeliverQChAdapter() {
+		if (checkAndDeliverQChItemProvider == null) {
+			checkAndDeliverQChItemProvider = new CheckAndDeliverQChItemProvider(this);
+		}
+
+		return checkAndDeliverQChItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link promise.TestITAAPAs} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TestITAAPAsItemProvider testITAAPAsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link promise.TestITAAPAs}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTestITAAPAsAdapter() {
+		if (testITAAPAsItemProvider == null) {
+			testITAAPAsItemProvider = new TestITAAPAsItemProvider(this);
+		}
+
+		return testITAAPAsItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -962,6 +1077,11 @@ public class PromiseItemProviderAdapterFactory extends PromiseAdapterFactory imp
 		if (simpleActionItemProvider != null) simpleActionItemProvider.dispose();
 		if (taskCombinationOpItemProvider != null) taskCombinationOpItemProvider.dispose();
 		if (eventAssignmentItemProvider != null) eventAssignmentItemProvider.dispose();
+		if (checkItemProvider != null) checkItemProvider.dispose();
+		if (checkAndDeliverItemProvider != null) checkAndDeliverItemProvider.dispose();
+		if (checkSuppliesItemProvider != null) checkSuppliesItemProvider.dispose();
+		if (checkAndDeliverQChItemProvider != null) checkAndDeliverQChItemProvider.dispose();
+		if (testITAAPAsItemProvider != null) testITAAPAsItemProvider.dispose();
 	}
 
 }
