@@ -62,7 +62,7 @@ public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     'actions' | 'resources'
+	 *     'resources' | 'actions'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     inputLocations+=[Location|EString] (ambiguity) inputAction+=[Action|EString]
@@ -97,7 +97,7 @@ public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '&' | 'AND' | 'and'
+	 *     'and' | 'AND' | '&'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     inputOperators+=Operator (ambiguity) inputOperators+=Operator

@@ -35,8 +35,13 @@ public class ReadWithScanner {
 	public static void main(String... aArgs) throws IOException{
 		ReadWithScanner text = new ReadWithScanner();
 		int port = PORT;
+		String[] ip_ms3 = {"192.168.1.2", "192.168.1.4", "192.168.1.6"};
 		String mission = "";
 		String event = "";
+		String ip="";
+		
+		//if local true we send the missions to the local machine
+		boolean local=false;
 
 		String[] robots=text.readData(FILE_PATH+"mission_data.ms", "Robots");  
 		String[] events=text.readData(FILE_PATH+"mission_data.ms", "Events");
@@ -47,7 +52,20 @@ public class ReadWithScanner {
 		// for(int i=0; i<actions.length; i++) log(actions[i]);
 
 		for(int i=0; i<robots.length; i++){
+			if (local){
+				ip=IP;
+				//The port of the communication manager's server is the 13000
+				//We will run it in the local machine, so the IP is 127.0.0.1
+				port=port-1000;
+			}
+			else {
+				//The port is static, but we send each mission to each robot (each robot has one assigned IP)
+				ip=ip_ms3[i];
+			}
 			log(robots[i]);
+			log(ip);
+			log(port);
+			
 			if (robots[i] != null) {
 				text.send("starts", IP, Integer.toString(port), false);
 				text.send("starts", IP, Integer.toString(port), false);
@@ -69,8 +87,6 @@ public class ReadWithScanner {
 					}
 				}
 			}
-			//text.send("ends", IP, Integer.toString(port), true);
-
 			text.send("stoppingEvents", IP, Integer.toString(port), false);
 			for(int j=0; j<stoppingEvents.length; j++){
 				log(stoppingEvents[j]);
@@ -78,10 +94,6 @@ public class ReadWithScanner {
 				if (tokens[0].equals(robots[i])) text.send(stoppingEvents[j], IP, Integer.toString(port), false);
 			}
 			text.send("stoppingEvents_ends", IP, Integer.toString(port), true);
-			
-			//The port of the communication manager's server is the 13000
-			//We will run it in the local machine, so the IP is 127.0.0.1
-			port=port-1000;
 		}
 	}
 	

@@ -1,14 +1,14 @@
 mission{ 
 	conditions{
 		resources
-			"1":""
+			"2":"ad"
 	}
 	robots r1
 	locations "1", "2", "3"
 	operators{ parallel{ 
 		// Your operators come here
 			r1(
-				delegate(CheckSupplies locations "3" resources "2")
+				delegate(Check locations "3")
 			)
 		}
 	} 
