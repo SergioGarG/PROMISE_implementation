@@ -67,33 +67,33 @@ public class ReadWithScanner {
 			log(port);
 			
 			if (robots[i] != null) {
-				text.send("starts", IP, Integer.toString(port), false);
-				text.send("starts", IP, Integer.toString(port), false);
-				text.send("starts", IP, Integer.toString(port), false);
+				text.send("starts", ip, Integer.toString(port), false);
+				text.send("starts", ip, Integer.toString(port), false);
+				text.send("starts", ip, Integer.toString(port), false);
 				mission=text.readFile(FILE_PATH+"mission_"+robots[i]+".ms");
-				text.send(mission, IP, Integer.toString(port), false);
-				text.send("events_start", IP, Integer.toString(port), false);
+				text.send(mission, ip, Integer.toString(port), false);
+				text.send("events_start", ip, Integer.toString(port), false);
 				for(int j=0; j<events.length; j++){
 					if (events[j] != null && events[j] != "" && events[j] != "\\s+" && mission.contains(events[j].substring(0,2))){
 						log(events[j]);
-						text.send(events[j], IP, Integer.toString(port), false);
+						text.send(events[j], ip, Integer.toString(port), false);
 					}  	//&& mission.contains(events[j].substring(0,2)))
 				} 
-				text.send("events_end", IP, Integer.toString(port), false);
+				text.send("events_end", ip, Integer.toString(port), false);
 				for(int j=0; j<actions.length; j++){
 					if (actions[j] != null){// && mission.contains(actions[j])) {
 						log(actions[j]);
-						text.send(actions[j], IP, Integer.toString(port), false);
+						text.send(actions[j], ip, Integer.toString(port), false);
 					}
 				}
 			}
-			text.send("stoppingEvents", IP, Integer.toString(port), false);
+			text.send("stoppingEvents", ip, Integer.toString(port), false);
 			for(int j=0; j<stoppingEvents.length; j++){
 				log(stoppingEvents[j]);
 				String[] tokens=stoppingEvents[j].split(",");
-				if (tokens[0].equals(robots[i])) text.send(stoppingEvents[j], IP, Integer.toString(port), false);
+				if (tokens[0].equals(robots[i])) text.send(stoppingEvents[j], ip, Integer.toString(port), false);
 			}
-			text.send("stoppingEvents_ends", IP, Integer.toString(port), true);
+			text.send("stoppingEvents_ends", ip, Integer.toString(port), true);
 		}
 	}
 	
