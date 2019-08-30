@@ -35,13 +35,8 @@ public class ReadWithScanner {
 	public static void main(String... aArgs) throws IOException{
 		ReadWithScanner text = new ReadWithScanner();
 		int port = PORT;
-		String[] ip_ms3 = {"192.168.1.2", "192.168.1.4", "192.168.1.6"};
 		String mission = "";
 		String event = "";
-		String ip="";
-		
-		//if local true we send the missions to the local machine
-		boolean local=false;
 
 		String[] robots=text.readData(FILE_PATH+"mission_data.ms", "Robots");  
 		String[] events=text.readData(FILE_PATH+"mission_data.ms", "Events");
@@ -52,58 +47,44 @@ public class ReadWithScanner {
 		// for(int i=0; i<actions.length; i++) log(actions[i]);
 
 		for(int i=0; i<robots.length; i++){
-			if (local){
-				ip=IP;
-				//The port of the communication manager's server is the 13000
-				//We will run it in the local machine, so the IP is 127.0.0.1
-				if(i != 0) {
-					port=port-1000;
-				}
-			}
-			else {
-				//The port is static, but we send each mission to each robot (each robot has one assigned IP)
-				ip=ip_ms3[i];
-			}
 			log(robots[i]);
-			log(ip);
-			log(port);
-			
 			if (robots[i] != null) {
-				text.send("starts", ip, Integer.toString(port), false);
-				text.send("starts", ip, Integer.toString(port), false);
-				text.send("starts", ip, Integer.toString(port), false);
+				text.send("starts", IP, Integer.toString(port), false);
+				text.send("starts", IP, Integer.toString(port), false);
+				text.send("starts", IP, Integer.toString(port), false);
 				mission=text.readFile(FILE_PATH+"mission_"+robots[i]+".ms");
-				text.send(mission, ip, Integer.toString(port), false);
-				text.send("events_start", ip, Integer.toString(port), false);
+				text.send(mission, IP, Integer.toString(port), false);
+				text.send("events_start", IP, Integer.toString(port), false);
 				for(int j=0; j<events.length; j++){
 					if (events[j] != null && events[j] != "" && events[j] != "\\s+" && mission.contains(events[j].substring(0,2))){
 						log(events[j]);
-						text.send(events[j], ip, Integer.toString(port), false);
+						text.send(events[j], IP, Integer.toString(port), false);
 					}  	//&& mission.contains(events[j].substring(0,2)))
 				} 
-				text.send("events_end", ip, Integer.toString(port), false);
+				text.send("events_end", IP, Integer.toString(port), false);
 				for(int j=0; j<actions.length; j++){
-					if (actions[j] != null){// && mission.contains(actions[j])) {
+					if (actions[j] != null && actions[j] != "" && actions[j] != "\\s+"){// && mission.contains(actions[j])) {
 						log(actions[j]);
-						text.send(actions[j], ip, Integer.toString(port), false);
+						text.send(actions[j], IP, Integer.toString(port), false);
 					}
 				}
 			}
-			text.send("stoppingEvents", ip, Integer.toString(port), false);
+			//text.send("ends", IP, Integer.toString(port), true);
+
+			text.send("stoppingEvents", IP, Integer.toString(port), false);
 			for(int j=0; j<stoppingEvents.length; j++){
 				log(stoppingEvents[j]);
 				String[] tokens=stoppingEvents[j].split(",");
-				if (tokens[0].equals(robots[i])) text.send(stoppingEvents[j], ip, Integer.toString(port), false);
+				if (tokens[0].equals(robots[i])) text.send(stoppingEvents[j], IP, Integer.toString(port), false);
 			}
-			text.send("stoppingEvents_ends", ip, Integer.toString(port), true);
+			text.send("stoppingEvents_ends", IP, Integer.toString(port), true);
+			
+			//The port of the communication manager's server is the 13000
+			//We will run it in the local machine, so the IP is 127.0.0.1
+			port=port-1000;
 		}
 	}
 	
-	//final static String FILE_PATH = "../../Runtime_Promise_paper/promise_integration/src-gen/";
-	//final static String FILE_PATH = "/home/sergio/repos/ICRA_implementation/CentralStation/workspace/Runtime_Promise_paper/promise_integration/src-gen/";
-
-	//final static String FILE_PATH = "CentralStation/workspace/Runtime_Promise_paper/promise_integration/src-gen/";
-	//final static String FILE_PATH = "/home/sergio/repos/ICRA_implementation/CentralStation/workspace/Runtime_Promise_testing/promise_integration/src-gen/";
 	final static String FILE_PATH = "../../Promise/src-gen/";
 	//final static String FILE_PATH = "/home/sergio/repos/PROMISE_implementation/CentralStation/workspace/PromisePlugin/src-gen/";
 
@@ -128,6 +109,26 @@ public class ReadWithScanner {
 				if(tokens[0].matches(keyword) && keyword == "Robots") scannedtext = tokens[2].split(",");
 
 				//Scan actions
+//				if(tokens[0].matches(keyword) && (keyword == "Actions")){		
+//					String tokens1 = currentline.substring(currentline.indexOf("[") + 1); //, currentline.indexOf("]"));
+//					String [] tokens2 = tokens1.split(",");
+//					tokens2[0] = tokens2[0].substring(1); //removes the first anoying empty space
+//					String [] tokens3 = new String[tokens2.length-1];
+//					for (int i=0; i<tokens2.length-1; i++) tokens3[i]=tokens2[i]; //removes the last item (blank)
+//					String [] tokens4 = null;
+//					for (int i=0; i<tokens3.length; i++) tokens4=tokens3[i].split("\\s");
+//					List<String> cleaner=null;
+//					if (tokens4==null) cleaner = new ArrayList<String>(Arrays.asList(tokens3));
+//					else cleaner = new ArrayList<String>(Arrays.asList(tokens4[0])); 
+//					cleaner.removeAll(Arrays.asList("", null, "\\s+", "\t", " ")); //remove all the blank items of the list
+//					scannedtext=cleaner.toArray(new String[0]);
+//					for (int i=0; i<scannedtext.length;i++){
+//						log("scanned actions");
+//						log(scannedtext[i]);
+//					}
+//				}
+				
+				//Scan actions
 				if(tokens[0].matches(keyword) && (keyword == "Actions")){		
 					String tokens1 = currentline.substring(currentline.indexOf("[") + 1, currentline.indexOf("]"));
 					String [] tokens2 = tokens1.split(",");
@@ -138,7 +139,7 @@ public class ReadWithScanner {
 					String [] tokens5 = new String[tokens3.length]; 
 					for (int i=0; i<tokens3.length; i++) {
 						tokens4=tokens3[i].split("\\s");
-						tokens5[i]=tokens4[1];
+						tokens5[i]=tokens4[0];
 					}
 					List<String> cleaner = new ArrayList<String>(Arrays.asList(tokens5)); 
 					cleaner.removeAll(Arrays.asList("", null, "\\s+", "\t", " ")); //remove all the blank items of the list
@@ -147,13 +148,16 @@ public class ReadWithScanner {
 
 				//Scan events
 				if(tokens[0].matches(keyword) && (keyword == "Events")){
-
 					String tokens1 = currentline.substring(currentline.indexOf("[") + 1);//, currentline.indexOf("]"));
 					String [] tokens2 = tokens1.split(",");
 					tokens2[0] = tokens2[0].substring(1); //removes the first anoying empty space
+					for (int i=0; i<tokens2.length;i++){
+						log("tokens2 events");
+						log(tokens2[i]);
+					}
 					List<String> cleaner = new ArrayList<String>(Arrays.asList(tokens2)); 
 					cleaner.removeAll(Arrays.asList("", null, "\\s+", "\t", " ")); //remove all the blank items of the list
-					scannedtext=cleaner.toArray(new String[0]);
+					scannedtext=cleaner.toArray(new String[0]); 
 				} 
 
 				//Scan stoppingEvents
@@ -161,7 +165,6 @@ public class ReadWithScanner {
 					String [] tokens1 = currentline.split("}");
 					String [] tokens2 = null;
 					List<String> cleaner=new ArrayList<String>();// = new ArrayList<String>;
-					int j=0;
 					for (int i=0; i<tokens1.length;i++){
 						if(tokens1[i].contains("{")){
 							tokens2 = tokens1[i].split("\\{");
