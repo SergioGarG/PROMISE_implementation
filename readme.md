@@ -1,6 +1,7 @@
 # PROMISE: A Domain-Specific Language to specify high-level missions for multi-robots
 
-[![Alternate Text]({Image/screenshot.png)]({https://youtu.be/qhjwVKz80i0} "PROMISE in action")
+[![IMAGE ALT TEXT HERE](Image/screenshot.png)](https://youtu.be/qhjwVKz80i0})
+
 
 # Authors
 - Sergio García - sergio.garcia@gu.se
