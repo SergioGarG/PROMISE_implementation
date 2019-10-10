@@ -4,6 +4,7 @@
 package se.gu.co4robots.xtext.promise.generator
 
 import java.util.ArrayList
+import java.io.File
 
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
@@ -24,7 +25,8 @@ import promise.ConditionOp
 import promise.TaskCombinationOp
 
 import java.util.Iterator
-
+import java.nio.file.Path
+import java.nio.file.Paths
 ///////Robot class//////
 public class robotClass{
 	public var String name
@@ -40,7 +42,7 @@ public class robotClass{
  //////////////////////
  
 class PromiseGenerator extends AbstractGenerator {
-	
+		
 	var robotsList = new ArrayList<ArrayList<robotClass>> //list of named lists of actions 
 	var availableRobots= new ArrayList<String> //list with the available robots in a mission
 	
@@ -50,10 +52,16 @@ class PromiseGenerator extends AbstractGenerator {
 	var text = new String 
 	var template = new String 
 	
+
+	
 	public override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		
+		// Remove the previous generated files
+		for (File file : new java.io.File("/Users/gsergio/repos/PROMISE_implementation/CentralStation/workspace/Promise/src-gen").listFiles())
+    		if (!file.isDirectory())
+        		 file.delete();
+		//Remove all the items of the list to avoid overwritting
 		for (var i = robotsList.length-1 ; i >= 0; i--) {
-			for (var j = robotsList.get(i).length-1 ; j >= 0; j--) robotsList.get(i).remove(j) //Remove all the items of the list to avoid overwritting
+			for (var j = robotsList.get(i).length-1 ; j >= 0; j--) robotsList.get(i).remove(j) 
 		}
  		for (var i = availableRobots.length-1 ; i >= 0; i--) availableRobots.remove(i)
  		for (var i = textarray.length-1 ; i >= 0; i--)	textarray.remove(i)
@@ -218,28 +226,63 @@ class PromiseGenerator extends AbstractGenerator {
 
 ////////////////Passing an LTL formula
 			////MS3
+			template=''
+			text=''
 			if(in.task.eClass.name == "Check") {
-				template="F (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown)"
-				text= text+" visit assembly station "+in.inputLocations.get(0).name+" and checks whether it has finished its product."				
+				text= text+" visit assembly station(s) "
+				for(var i=0; i<(in.inputLocations.length); i++) {
+					if (i>0){
+							template=template+" & "
+							text= text+", "
+					}	
+					template=template+"F (at_assembly_"+in.inputLocations.get(i).name+" & ! as_unknown)"
+					text= text+in.inputLocations.get(i).name
+				}	
+				text= text+" and checks whether it has finished its product."
 			}
 			else if(in.task.eClass.name == "CheckAndDeliver") {
-				template="F (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & (as_ready -> F delivered_final_"+in.inputLocations.get(0).name+")) & "
-				template=template+"G (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & as_ready -> G!(at_assembly_"+in.inputLocations.get(0).name+" & !as_ready & !as_unknown)) & "
-				template=template+"G (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & ! as_ready -> G!(at_assembly_"+in.inputLocations.get(0).name+" & as_ready))"
-				text= text+" visit assembly station "+in.inputLocations.get(0).name+", checks whether it has finished its product, and if finished it delivers the product to the final location."
+				text= text+" visit assembly station(s) "
+				for(var i=0; i<(in.inputLocations.length); i++) {
+					if (i>0){
+							template=template+" & "
+							text= text+", "
+					}
+					template=template+"F (at_assembly_"+in.inputLocations.get(i).name+" & ! as_unknown & (as_ready -> F delivered_final_"+in.inputLocations.get(i).name+")) & "
+					template=template+"G (at_assembly_"+in.inputLocations.get(i).name+" & ! as_unknown & as_ready -> G!(at_assembly_"+in.inputLocations.get(i).name+" & !as_ready & !as_unknown)) & "
+					template=template+"G (at_assembly_"+in.inputLocations.get(i).name+" & ! as_unknown & ! as_ready -> G!(at_assembly_"+in.inputLocations.get(i).name+" & as_ready))"
+					text= text+in.inputLocations.get(i).name
+				}
+				text=text+", checks whether it has finished its product, and if finished it delivers the product to the final location."
+				
 			}
 			else if(in.task.eClass.name == "CheckSupplies") {
-				template="F (at_assembly_"+in.inputLocations.get(0).name+" & ! as_need_unknown & (as_need_"+in.inputAction.get(0).name+" -> F delivered_"+in.inputAction.get(0).name+")) & "
-				template=template+"G (at_assembly_"+in.inputLocations.get(0).name+" & ! as_need_unknown & as_need_"+in.inputAction.get(0).name+" -> G!(at_assembly_"+in.inputLocations.get(0).name+" & !as_need_"+in.inputAction.get(0).name+" & !as_need_unknown))"
-				text= text+" visit to assembly station "+in.inputLocations.get(0).name+" and check whether it needs supplies. "
+				text= text+" visit assembly station(s) "
+				for(var i=0; i<(in.inputLocations.length); i++) {
+					if (i>0){
+							template=template+" & "
+							text= text+", "
+					}
+					template=template+"F (at_assembly_"+in.inputLocations.get(i).name+" & ! as_need_unknown & (as_need_"+in.inputAction.get(0).name+" -> F delivered_"+in.inputAction.get(0).name+")) & "
+					template=template+"G (at_assembly_"+in.inputLocations.get(i).name+" & ! as_need_unknown & as_need_"+in.inputAction.get(0).name+" -> G!(at_assembly_"+in.inputLocations.get(i).name+" & !as_need_"+in.inputAction.get(0).name+" & !as_need_unknown))"
+					text= text+in.inputLocations.get(i).name
+					}
+				text= text+" and check whether it needs supplies. "
 				text=text+"If it is the case, the robot provides resource "+in.inputAction.get(0).name+"."
 			}	
 			else if(in.task.eClass.name == "CheckAndDeliverQCh") {
-				template="F (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & (as_ready -> F delivered_final_"+in.inputLocations.get(0).name+" & "
-				template=template+"F (piece_checked & (piece_faulty -> F discarded_piece))) )) & "
-				template=template+"G (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & as_ready -> G!(at_assembly_"+in.inputLocations.get(0).name+" & !as_ready & !as_unknown)) & "
-				template=template+"G (at_assembly_"+in.inputLocations.get(0).name+" & ! as_unknown & ! as_ready -> G!(at_assembly_"+in.inputLocations.get(0).name+" & as_ready))"
-				text= text+" visit assembly station "+in.inputLocations.get(0).name+", checks whether it has finished its product, and if finished it delivers the product to the final location. "
+				text= text+" visit assembly station(s) "
+				for(var i=0; i<(in.inputLocations.length); i++) {
+					if (i>0){
+							template=template+" & "
+							text= text+", "
+					}
+					template=template+"F (at_assembly_"+in.inputLocations.get(i).name+" & ! as_unknown & (as_ready -> F delivered_final_"+in.inputLocations.get(i).name+" & "
+					template=template+"F (piece_checked & (piece_faulty -> F discarded_piece))) )) & "
+					template=template+"G (at_assembly_"+in.inputLocations.get(i).name+" & ! as_unknown & as_ready -> G!(at_assembly_"+in.inputLocations.get(i).name+" & !as_ready & !as_unknown)) & "
+					template=template+"G (at_assembly_"+in.inputLocations.get(i).name+" & ! as_unknown & ! as_ready -> G!(at_assembly_"+in.inputLocations.get(i).name+" & as_ready))"
+					text= text+in.inputLocations.get(i).name
+				}
+				text= text+", checks whether it has finished its product, and if finished it delivers the product to the final location. "
 				text= text+"Upon delivery, performs a quality check of one piece and discards it if there is an issue"
 			}
 			else if(in.task.eClass.name == "TestITAAPAs") {

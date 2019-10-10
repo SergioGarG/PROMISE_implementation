@@ -1,16 +1,15 @@
-mission { 
-	conditions { 
-		actions "2" : ad
+mission{ 
+	conditions{ 
+		events
+		evento: "description"
+		actions
+ 		"1": "description of action 1"
+
 	} 
 	robots r1
-	locations "1" , "2" , "3" 
-	operators { 
-		parallel { 
-			r1 (combination(
-				delegate ( CheckAndDeliver locations "1" ) AND
-				delegate ( CheckAndDeliver locations "2" )) 
-			)		
-			}
-			}
-	
-}
+	locations "1", "2", "3" 
+	operators{ parallel{ 
+		// Your operators come here
+		r1 ( delegate ( CheckAndDeliver locations "1","2", "3" ) ) }
+	}
+}     

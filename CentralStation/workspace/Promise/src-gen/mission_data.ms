@@ -1,4 +1,4 @@
 Robots [ r1, ]
-Events [  ]
-Actions [ 2 ad, ]
+Events [ evento description, ]
+Actions [ 1 description of action 1, ]
 StoppingEvents [  ]

@@ -9,8 +9,7 @@ Require-Bundle: se.gu.co4robots.xtext.promise,
  se.gu.co4robots.promise,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide,
- org.antlr.runtime
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: se.gu.co4robots.xtext.promise.ide.contentassist.antlr.internal,
  se.gu.co4robots.xtext.promise.ide.contentassist.antlr
-

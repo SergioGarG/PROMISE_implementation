@@ -35,8 +35,13 @@ public class ReadWithScanner {
 	public static void main(String... aArgs) throws IOException{
 		ReadWithScanner text = new ReadWithScanner();
 		int port = PORT;
+		//String[] ip_ms3 = {"192.168.1.6"};
 		String mission = "";
 		String event = "";
+		String ip="192.168.1.6"; //variable with the external IP for MS3 it is 192.168.1.6
+		
+		//if local==true we send the missions to the local machine
+		boolean local=false;
 
 		String[] robots=text.readData(FILE_PATH+"mission_data.ms", "Robots");  
 		String[] events=text.readData(FILE_PATH+"mission_data.ms", "Events");
@@ -47,51 +52,58 @@ public class ReadWithScanner {
 		// for(int i=0; i<actions.length; i++) log(actions[i]);
 
 		for(int i=0; i<robots.length; i++){
+			if (local){
+				ip=IP;
+				//The port of the communication manager's server is the 13000
+				//We will run it in the local machine, so the IP is 127.0.0.1
+				if(i != 0) {
+					//The port of the communication manager's server is the 13000
+					//We will run it in the local machine, so the IP is 127.0.0.1
+					port=port-1000;
+				}
+			}
+			else {
+				//The port is static, but we send each mission to each robot (each robot has one assigned IP)
+				//ip=ip_ms3[i];
+			}
 			log(robots[i]);
+			log(ip);
+			log(port);
 			if (robots[i] != null) {
-				text.send("starts", IP, Integer.toString(port), false);
-				text.send("starts", IP, Integer.toString(port), false);
-				text.send("starts", IP, Integer.toString(port), false);
+				text.send("starts", ip, Integer.toString(port), false);
+				text.send("starts", ip, Integer.toString(port), false);
+				text.send("starts", ip, Integer.toString(port), false);
 				mission=text.readFile(FILE_PATH+"mission_"+robots[i]+".ms");
-				text.send(mission, IP, Integer.toString(port), false);
-				text.send("events_start", IP, Integer.toString(port), false);
+				text.send(mission, ip, Integer.toString(port), false);
+				text.send("events_start", ip, Integer.toString(port), false);
 				for(int j=0; j<events.length; j++){
-					if (events[j] != null && events[j] != "" && events[j] != "\\s+" && mission.contains(events[j].substring(0,2))){
-						log(events[j]);
-						text.send(events[j], IP, Integer.toString(port), false);
+					if (events[j] != null && events[j] != "" && events[j] != "\\s+" && mission.contains(events[j])){
+						text.send(events[j], ip, Integer.toString(port), false);
 					}  	//&& mission.contains(events[j].substring(0,2)))
 				} 
-				text.send("events_end", IP, Integer.toString(port), false);
+				text.send("events_end", ip, Integer.toString(port), false);
 				for(int j=0; j<actions.length; j++){
 					if (actions[j] != null && actions[j] != "" && actions[j] != "\\s+"){// && mission.contains(actions[j])) {
 						log(actions[j]);
-						text.send(actions[j], IP, Integer.toString(port), false);
+						text.send(actions[j], ip, Integer.toString(port), false);
 					}
 				}
 			}
 			//text.send("ends", IP, Integer.toString(port), true);
 
-			text.send("stoppingEvents", IP, Integer.toString(port), false);
+			text.send("stoppingEvents", ip, Integer.toString(port), false);
 			for(int j=0; j<stoppingEvents.length; j++){
-				log(stoppingEvents[j]);
 				String[] tokens=stoppingEvents[j].split(",");
 				if (tokens[0].equals(robots[i])) text.send(stoppingEvents[j], IP, Integer.toString(port), false);
 			}
-			text.send("stoppingEvents_ends", IP, Integer.toString(port), true);
+			text.send("stoppingEvents_ends", ip, Integer.toString(port), true);
 			
-			//The port of the communication manager's server is the 13000
-			//We will run it in the local machine, so the IP is 127.0.0.1
-			port=port-1000;
+
 		}
 	}
 	
 	final static String FILE_PATH = "../../Promise/src-gen/";
-	//final static String FILE_PATH = "/home/sergio/repos/PROMISE_implementation/CentralStation/workspace/PromisePlugin/src-gen/";
-
-	
 	final static String IP = "127.0.0.1";
-	//final static String IP = "147.102.51.99";
-	//final static String IP = "192.168.1.228";
 	final static int PORT = 13000;
 	final static Charset ENCODING = StandardCharsets.UTF_8;
 
@@ -151,10 +163,6 @@ public class ReadWithScanner {
 					String tokens1 = currentline.substring(currentline.indexOf("[") + 1);//, currentline.indexOf("]"));
 					String [] tokens2 = tokens1.split(",");
 					tokens2[0] = tokens2[0].substring(1); //removes the first anoying empty space
-					for (int i=0; i<tokens2.length;i++){
-						log("tokens2 events");
-						log(tokens2[i]);
-					}
 					List<String> cleaner = new ArrayList<String>(Arrays.asList(tokens2)); 
 					cleaner.removeAll(Arrays.asList("", null, "\\s+", "\t", " ")); //remove all the blank items of the list
 					scannedtext=cleaner.toArray(new String[0]); 

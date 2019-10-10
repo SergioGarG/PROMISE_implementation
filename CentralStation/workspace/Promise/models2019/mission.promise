@@ -11,7 +11,7 @@ mission{
  		raise_alarm: "raise the alarm!",
 		 request_help: "request help from r2",
 		 grasp_object: "grasp the object",
-		 release_object: "release the object",
+		 release_object: "release the object", 
 		 charge_battery: "charge the battery"
 	}   
 	robots r1, r2 

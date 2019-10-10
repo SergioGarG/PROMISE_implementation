@@ -2,10 +2,10 @@ mission{
 	conditions{
 		resources "1":""
 	}
-	robots r1, r2
+	robots r1 
 	locations "1", "2", "3"
 	operators{ parallel{ 
 		// Your operators come here
-		r1 ( delegate ( Check locations "1" resources "1") ) }
-	}
-}
+		r1 ( delegate ( CheckAndDeliverQCh locations "1", "2" resources "1") ) }
+	}   
+}                      
