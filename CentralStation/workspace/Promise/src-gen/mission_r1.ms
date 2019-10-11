@@ -1,1 +1,9 @@
-r1[F (at_assembly_1 & ! as_unknown & (as_ready -> F delivered_final_1)) & G (at_assembly_1 & ! as_unknown & as_ready -> G!(at_assembly_1 & !as_ready & !as_unknown)) & G (at_assembly_1 & ! as_unknown & ! as_ready -> G!(at_assembly_1 & as_ready)) & F (at_assembly_2 & ! as_unknown & (as_ready -> F delivered_final_2)) & G (at_assembly_2 & ! as_unknown & as_ready -> G!(at_assembly_2 & !as_ready & !as_unknown)) & G (at_assembly_2 & ! as_unknown & ! as_ready -> G!(at_assembly_2 & as_ready)) & F (at_assembly_3 & ! as_unknown & (as_ready -> F delivered_final_3)) & G (at_assembly_3 & ! as_unknown & as_ready -> G!(at_assembly_3 & !as_ready & !as_unknown)) & G (at_assembly_3 & ! as_unknown & ! as_ready -> G!(at_assembly_3 & as_ready))]
+r1[eh]
+
+	eh_default[[] (<> ((l1) && <> ((l2) && <> ((l3))))))]
+
+	eh_intruder[X (raise_alarm)]
+
+	eh_found_object[X (request_help)]
+
+	eh_r1_low_battery[<> (chargingdock), X (charge_battery)]

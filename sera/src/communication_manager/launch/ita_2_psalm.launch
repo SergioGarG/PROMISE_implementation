@@ -1,0 +1,27 @@
+<launch>
+	<node pkg="communication_manager" type="communication_manager_node" name="communication_manager_r1" output="screen">
+	
+		# The port in which the server is running
+        	<param name="port" value="13000" />
+        	# The port where the subscriber is running
+		<param name="pubsubport" value="13001" />
+	
+		# The list of the topics forwarded by the subscriber
+		<param name="forwardedtopics" value="/r1/mission_locations,/r1/mission_actions" />
+		# The ROS topic where the messages reveived by the server are forwarded
+		<param name="topicName" value="/r1/local_mission" />
+	</node>
+
+	<node pkg="communication_manager" type="communication_manager_node" name="communication_manager_r2" output="screen">
+	
+		# The port in which the server is running
+        	<param name="port" value="12000" />
+        	# The port where the subscriber is running
+		<param name="pubsubport" value="12001" />
+	
+		# The list of the topics forwarded by the subscriber
+		<param name="forwardedtopics" value="/r2/mission_locations,/r2/mission_actions" />
+		# The ROS topic where the messages reveived by the server are forwarded
+		<param name="topicName" value="/r2/local_mission" />
+	</node>
+</launch>

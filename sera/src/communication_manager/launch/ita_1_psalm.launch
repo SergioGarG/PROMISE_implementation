@@ -1,5 +1,5 @@
 <launch>
-	<node pkg="communication_manager" type="communication_manager_node" name="communication_manager_tiago" output="screen">
+	<node pkg="communication_manager" type="communication_manager_node" name="communication_manager_r1" output="screen">
 	
 		# The port in which the server is running
         	<param name="port" value="13000" />
@@ -7,8 +7,8 @@
 		<param name="pubsubport" value="13001" />
 	
 		# The list of the topics forwarded by the subscriber
-		<param name="forwardedtopics" value="/tiago/mission_locations,/tiago/mission_actions" />
+		<param name="forwardedtopics" value="/r1/mission_locations,/r1/mission_actions" />
 		# The ROS topic where the messages reveived by the server are forwarded
-		<param name="topicName" value="local_mission/ext" />
+		<param name="topicName" value="/r1/local_mission" />
 	</node>
 </launch>
