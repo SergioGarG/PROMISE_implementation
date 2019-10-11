@@ -1,4 +1,12 @@
-
+#-------------------------------------------------------------------------------
+# Copyright (C) 2019 gsergio
+# 
+# This program and the accompanying materials are made
+# available under the terms of the Eclipse Public License 2.0
+# which is available at https://www.eclipse.org/legal/epl-2.0/
+# 
+# SPDX-License-Identifier: EPL-2.0
+#-------------------------------------------------------------------------------
 This software is provided on an "AS IS" basis and to the maximum extent permitted by applicable law, 
 IBM provides the software as is and without faults, and hereby disclaims all other warranties and conditions, either express, 
 implied or statutory, including, but not limited to, any (if any) implied warranties, 
