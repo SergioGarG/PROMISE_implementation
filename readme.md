@@ -1,6 +1,6 @@
 # PROMISE: A Domain-Specific Language to specify high-level missions for multi-robots
 
-[![IMAGE ALT TEXT HERE](Image/screenshot.png)](https://www.youtube.com/watch?v=qhjwVKz80i0&feature=youtu.be})
+[![IMAGE ALT TEXT HERE](Image/screenshot.png)](https://www.youtube.com/watch?v=RMtqwY2GOlQ})
 
 
 # Authors
@@ -22,7 +22,7 @@ In this repository we provide the implementation of PROMISE, our tool for multi-
 
 	* An Xtend script (/PROMISE_implementation/CentralStation/workspace/org.xtext.missionrobots.Mission/src/org/xtext/missionrobots/generator/MissionGenerator.xtend), which automatically generates a mission tree in LTL. This mission tree is sent to each robot, where an appropriate choreographer manages it.
 
-    * We provide a set of plugins for all the previous bullets to simplify the installation (PROMISE_implementation/CentralStation/workspace/plugins).
+    * We provide a set of plugins for all the previous bullets to simplify the installation (PROMISE_implementation/CentralStation/workspace/plugins), see how to plugins from local archives: https://docs.oracle.com/javame/dev-tools/jme-sdk-3.4/ecl/html/setup_eclipseenv.htm
 
 	* A Java executable which sends a mission tree to each corresponding robot, previously defined by the DSL. Its maven package is allocated in (/PROMISE_implementation/CentralStation/CentralStation). When executed, it sends the mission to each correspinding robot. The IP and ports corresponding with your robots can be edit in the file (/PROMISE_implementation/CentralStation/CentralStation/src/main/java/se/gu/CentralStation/ReadWithScanner.java). After you saved your changes, you have to build the maven package again using Eclipse. We already proivide a .jar file for simulation. It assumes that the local machine will forward the missions to the robotic team, starting from the port 13000. The Eclipse environment can be configured to simplify the execution of the produced .jar file (e.g., https://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2FgettingStarted%2Fqs-97_standalone_ets.htm)
 
