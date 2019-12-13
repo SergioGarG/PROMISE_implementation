@@ -1,1 +1,1 @@
- visit assembly station(s) 1, 2, 3, checks whether it has finished its product, and if finished it delivers the product to the final location.
+Robot r1 does by default patrol in sequence location(s) l1, l2, l3, and if event intruder occurs, it will  perform action raise_alarm, and if event found_object occurs, it will  perform action request_help, and if event r1_low_battery occurs, it will  visit (without any specific order) location(s) chargingdock and then  perform action charge_battery

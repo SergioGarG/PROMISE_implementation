@@ -28,7 +28,7 @@ from cgi import parse_header, parse_multipart
 from urlparse import parse_qs
 from std_msgs.msg import String
 
-from ms2_kth.msg import * 
+#from ms2_kth.msg import * 
 
 import yaml
 

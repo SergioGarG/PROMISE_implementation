@@ -21,7 +21,10 @@ from std_msgs.msg import String
 from cgi import parse_header, parse_multipart
 from urlparse import parse_qs
 
-from roseus.msg import StringStamped
+# import ms2_kth
+# from ms2_kth.msg import LoadUnload, Mission
+
+
 
 class Request_Handler(BaseHTTPRequestHandler):
 
@@ -46,11 +49,18 @@ class Request_Handler(BaseHTTPRequestHandler):
 
 		print ('new local mission received %s' %(missions[0]))
 
+		#PROMISE
 		pub=rospy.Publisher(topicName, String, queue_size=100)
-		# mission=StringStamped()
 		mission=String()
-		# mission.header.stamp=rospy.get_rostime()
 		mission.data=missions[0]
+
+		#PSALM
+		# pub=rospy.Publisher(topicName, Mission, queue_size=100)
+		# mission=Mission()
+		# mission.mission.data=missions[0]
+		# mission.finite.data=True
+		# mission.events.data=''
+
 
 		pub.publish(mission)
 		print ('local mission sent in ROS with topic %s' %(topicName))

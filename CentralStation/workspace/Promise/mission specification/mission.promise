@@ -7,7 +7,7 @@ mission{
 		 r1_low_battery: "r1 low battery",
 		 r2_low_battery: "r2 low battery",
 		 finish: "the robot is requested to stop"
-		actions
+		actions 
  		raise_alarm: "raise the alarm!",
 		 request_help: "request help from r2",
 		 grasp_object: "grasp the object",

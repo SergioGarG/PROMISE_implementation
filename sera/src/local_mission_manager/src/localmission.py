@@ -24,12 +24,12 @@ from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal, MoveBaseActionGoal,
 
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
-from ms1_msgs.msg import PlanMsg, PosePlanArray, MovementPlan, ActionSeq, Humans, Human, Objects, Robots
+#from ms1_msgs.msg import PlanMsg, PosePlanArray, MovementPlan, ActionSeq, Humans, Human, Objects, Robots
 
-import ms2_kth
-from ltl_tools.ltl2ba import run_ltl2ba, parse_ltl
-from ltl_tools.promela import find_states, find_symbols
-from ms2_kth.msg import LoadUnload, Mission
+# import ms2_kth
+# from ltl_tools.ltl2ba import run_ltl2ba, parse_ltl
+# from ltl_tools.promela import find_states, find_symbols
+# from ms2_kth.msg import LoadUnload, Mission
 
 from sensor_msgs.msg import Image, CameraInfo, PointCloud, JointState
 
@@ -43,7 +43,7 @@ class Status(object):
 		self.timer = rospy.Time()
 		self.state = 0
 		self.resend_task = rospy.Time()
-		task_status_lock = False
+		self.task_status_lock = False
 		self.stoppingEvents = []
 		self.actions = []
 		self.end_globalmission = False
@@ -87,6 +87,13 @@ class StoppingEvent(object):
 	def __init__(self):
 		self.task = String()
 		self.event = String()
+
+class Mission(object):
+	def __init__(self):
+		self.finite = Bool()
+		self.mission = String()
+		self.events = String()
+
 		
 
 class MissionClass(object):
@@ -133,12 +140,12 @@ class ConditionClass(object):
 class LocalMission(object):
 	# Constructor of the class
 	def __init__(self):
+		self.simulation = False
+		self.ms3 = False
 		self.status=Status()
 		self.missions=None
-
 		self.result=MoveBaseActionResult()
 		self.robotName = None
-		self.simulation = False
 		self.starts = False
 		self.events_start = False
 		self.mission_ready = False
@@ -171,10 +178,11 @@ class LocalMission(object):
 		if self.status.prog_cond.match(self.missions[self.status.counter_mission].id):
 			for i in range(0, len(self.status.ongoing_events)):
 				if (self.status.ongoing_events[i] in self.missions[self.status.condition[self.status.counter_cond].index[self.status.condition[self.status.counter_cond].counter]].mission.events):
-					self.status.counter_mission=self.status.condition[self.status.counter_cond].index[self.status.condition[self.status.counter_cond].counter]
-					self.status.condition[self.status.counter_cond].condition_executed[self.status.condition[self.status.counter_cond].counter]=True			
-					# ongoing event", self.status.ongoing_events[i],"triggers the operator with id",self.status.counter_mission
-					break
+					self.status.condition[self.status.counter_cond].condition_executed[self.status.condition[self.status.counter_cond].counter]=True
+					if self.status.counter_mission != self.status.condition[self.status.counter_cond].index[self.status.condition[self.status.counter_cond].counter]:
+						self.status.counter_mission=self.status.condition[self.status.counter_cond].index[self.status.condition[self.status.counter_cond].counter]
+						self.status.resend = True
+						break
 			if self.status.condition[self.status.counter_cond].condition_executed[self.status.condition[self.status.counter_cond].counter] == False:
 				self.status.condition[self.status.counter_cond].success[self.status.condition[self.status.counter_cond].counter]=True
 				if self.status.condition[self.status.counter_cond].counter+1 < self.status.condition[self.status.counter_cond].length:
@@ -250,15 +258,16 @@ class LocalMission(object):
 			#Matches each event to its corresponding mission object
 			if self.missions != None:
 				for j in range(1, len(self.missions)):
-					helper = self.missions[j].id.split("eh_")
-					print "helper", helper
-					for i in range(0, len(self.status.events)):
-						helper1 = self.status.events[i].split(" ")
-						print "helper1", helper1
-						if helper1[0] == helper[1]:
-							#helper2=self.status.events[i].split(" ")
-							self.missions[j].mission.events = helper1[0]
-							print "self.missions[j].mission.events", self.missions[j].mission.events
+					if self.status.prog_eh.match(self.missions[j].id) or self.status.prog_cond.match(self.missions[j].id):
+						if self.status.prog_eh.match(self.missions[j].id):
+							helper = self.missions[j].id.split("eh_")
+						if self.status.prog_cond.match(self.missions[j].id):
+							helper = self.missions[j].id.split("cond_")
+						for i in range(0, len(self.status.events)):
+							helper1 = self.status.events[i].split(" ")
+							if helper1[0] == helper[1]:
+								#helper2=self.status.events[i].split(" ")
+								self.missions[j].mission.events = helper1[0]
 			self.status.state=3
 		elif localmission.data != "stoppingEvents" and self.status.state==3:
 			self.status.actions.append(localmission.data)
@@ -280,13 +289,13 @@ class LocalMission(object):
 				self.update_manager()
 			else:
 				print "Something happened during the mission reception. Please, send it again"
-			for i in range(0, len(self.missions)):
+			#for i in range(0, len(self.missions)):
 			# 	print "position", i
 			# 	print self.missions[i].mission
 			# 	print "id", self.missions[i].id
 			# 	print "child(s)", self.missions[i].children
 			# 	print "parent", self.missions[i].parent
-				print "events", self.missions[i].mission.events
+			#	print "events", self.missions[i].mission.events
 			# 	print "-------------"
 			
 
@@ -383,15 +392,18 @@ class LocalMission(object):
 		else:
 			helper3 = re.sub('[()]', '', helper[0])
 		helper2 = re.sub('[()]', '', mission.mission.data)
-		if (self.status.prog_action.match(helper2) and helper3 in self.status.actions) or not self.status.prog_action.match(helper2):
+		#if (self.status.prog_action.match(helper2) and helper3 in self.status.actions) or not self.status.prog_action.match(helper2):
+		if (self.status.prog_action.match(helper2)) or not self.status.prog_action.match(helper2):
 			print "------------------------------------------------"	
 			print "Current task", mission.mission.data, "(",mission.finite.data,") of mission", self.missions[self.status.counter_mission].mission.mission, "(branch",self.status.counter_mission,"task",self.missions[self.status.counter_mission].counter,")"
 			print "------------------------------------------------"
 			# Do not send the keywords as missions!
 			if not self.status.prog_eh_task.match(mission.mission.data) and not self.status.prog_cond_task.match(mission.mission.data) and not self.status.prog_fb_task.match(mission.mission.data):
-				self.LocalMissionPublisher.publish(mission)
+				if self.ms3==True:
+					self.LocalMissionPublisher.publish(localmission)
+				else:
+					self.LocalMissionPublisher.publish(mission)
 			else:
-				print "else"
 				self.update_manager()
 		else:
 			print "Not recognized action(",mission.mission.data,"), task will not be sent"
@@ -600,7 +612,10 @@ class LocalMission(object):
 	################Process callback
 	def process(self):
 		# performs the process of execution at run time
-		self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
+		if self.ms3:
+			self.missions[self.status.counter_mission].mission.finite=True
+		else:
+			self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
 		# print "------------------------------------------------"	
 		# print "Current task", self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], "(",self.missions[self.status.counter_mission].mission.finite,") of mission", self.missions[self.status.counter_mission].mission.mission
 		# print "------------------------------------------------"
@@ -617,7 +632,10 @@ class LocalMission(object):
 			(self.missions[self.status.counter_mission].mission.finite == True or self.status.stoppedMission == True):	
 				self.status.stoppedMission = False
 				self.missions[self.status.counter_mission].counter+=1 
-				self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
+				if self.ms3:
+					self.missions[self.status.counter_mission].mission.finite=True
+				else:
+					self.missions[self.status.counter_mission].mission.finite=self.checkFinite(self.missions[self.status.counter_mission].counter, self.status.counter_mission) 
 				self.SendLocalMission(self.missions[self.status.counter_mission].mission.mission[self.missions[self.status.counter_mission].counter], self.missions[self.status.counter_mission].mission.finite, self.status.events)	
 			elif((self.missions[self.status.counter_mission].counter + 1) >= len(self.missions[self.status.counter_mission].mission.mission)) \
 			and (self.missions[self.status.counter_mission].mission.finite == True or self.status.stoppedMission == True):
@@ -735,22 +753,24 @@ class LocalMission(object):
 			rospy.Subscriber(self.robotName+'/move_base/result', MoveBaseActionResult, self.GoalResultCallback)
 			rospy.Subscriber(self.robotName+"local_mission/ext", String, self.LocalMissionCallback)
 			self.LocalMissionPublisher = rospy.Publisher(self.robotName+'local_mission', Mission, queue_size = 100)
+		elif self.ms3==True:
+			self.LocalMissionPublisher = rospy.Publisher('/cpl_reactive/goal', String, queue_size = 100)
+			rospy.Subscriber('move_base/result', MoveBaseActionResult, self.GoalResultCallback)
+			rospy.Subscriber("local_mission/ext", String, self.LocalMissionCallback)
 		else:
 			if (self.robotName == 'tiago' or self.robotName == 'turtlebot'):
 				rospy.Subscriber('move_base/result', MoveBaseActionResult, self.GoalResultCallback)
-				rospy.Subscriber("local_mission/ext", String, self.LocalMissionCallback)
+				rospy.Subscriber("local_mission/ext", String, self.LocalMissionCallback)	
 				self.LocalMissionPublisher = rospy.Publisher('local_mission', Mission, queue_size = 100)
-				print self.robotName
 			elif self.robotName == 'summit':
 				rospy.Subscriber('/summit_xl/move_base/result', MoveBaseActionResult, self.GoalResultCallback)
-				rospy.Subscriber("/summit_xl/local_mission/ext", String, self.LocalMissionCallback)
+				rospy.Subscriber("/summit_xl/local_mission/ext", String, self.LocalMissionCallback)	
 				self.LocalMissionPublisher = rospy.Publisher('/summit_xl/local_mission', Mission, queue_size = 100)
-				print self.robotName
 			else: # self.robotName == 'ita':
 				rospy.Subscriber('/'+self.robotName+'/move_base/result', MoveBaseActionResult, self.GoalResultCallback)
 				rospy.Subscriber('/'+self.robotName+'/local_mission/ext', String, self.LocalMissionCallback)
 				self.LocalMissionPublisher = rospy.Publisher('/'+self.robotName+'/local_mission', Mission, queue_size = 100)
-				print self.robotName
+			print self.robotName
 
 		self.TriggerEventStatusPublisher = rospy.Publisher(self.robotName+'/triggered_event_status', String, queue_size = 100)
 		rospy.Subscriber(self.robotName+"/task_status", String, self.TaskStatusCallback)

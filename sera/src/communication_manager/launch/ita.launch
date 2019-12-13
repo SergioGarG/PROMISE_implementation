@@ -1,5 +1,5 @@
 <launch>
-	<node pkg="communication_manager" type="communication_manager_node" name="communication_manager_tiago" output="screen">
+	<node pkg="communication_manager" type="communication_manager_node" name="communication_manager_ita" output="screen">
 	
 		# The port in which the server is running
         	<param name="port" value="13000" />
@@ -7,7 +7,7 @@
 		<param name="pubsubport" value="13001" />
 	
 		# The list of the topics forwarded by the subscriber
-		<param name="forwardedtopics" value="/turtlebot/mission_locations,/turtlebot/mission_actions" />
+		<param name="forwardedtopics" value="/ita/mission_locations,/ita/mission_actions" />
 		# The ROS topic where the messages reveived by the server are forwarded
 		<param name="topicName" value="local_mission/ext" />
 	</node>
