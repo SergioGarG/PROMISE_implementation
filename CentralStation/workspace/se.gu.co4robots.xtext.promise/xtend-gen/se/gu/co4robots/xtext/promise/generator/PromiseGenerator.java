@@ -391,7 +391,6 @@ public class PromiseGenerator extends AbstractGenerator {
     Object _xblockexpression = null;
     {
       this.template = "";
-      this.text = "";
       String _name = in.getTask().eClass().getName();
       boolean _equals = Objects.equal(_name, "Check");
       if (_equals) {

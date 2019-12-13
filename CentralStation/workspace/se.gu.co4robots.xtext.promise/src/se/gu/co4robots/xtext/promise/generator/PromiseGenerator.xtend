@@ -236,7 +236,7 @@ class PromiseGenerator extends AbstractGenerator {
 ////////////////Passing an LTL formula
 			////MS3
 			template=''
-			text=''
+			//text=''
 			if(in.task.eClass.name == "Check") {
 				text= text+" visit assembly station(s) "
 				for(var i=0; i<(in.inputLocations.length); i++) {

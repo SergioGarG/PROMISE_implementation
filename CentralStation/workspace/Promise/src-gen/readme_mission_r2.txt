@@ -1,10 +1,1 @@
-#-------------------------------------------------------------------------------
-# Copyright (C) 2019 gsergio
-# 
-# This program and the accompanying materials are made
-# available under the terms of the Eclipse Public License 2.0
-# which is available at https://www.eclipse.org/legal/epl-2.0/
-# 
-# SPDX-License-Identifier: EPL-2.0
-#-------------------------------------------------------------------------------
- perform action charge_battery
+Robot r2 does by default wait in location l4, and if event help_requested occurs, it will  visit (without any specific order) location(s) l2 and then  perform action release_object

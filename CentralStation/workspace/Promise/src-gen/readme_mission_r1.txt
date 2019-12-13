@@ -1,10 +1,1 @@
-#-------------------------------------------------------------------------------
-# Copyright (C) 2019 gsergio
-# 
-# This program and the accompanying materials are made
-# available under the terms of the Eclipse Public License 2.0
-# which is available at https://www.eclipse.org/legal/epl-2.0/
-# 
-# SPDX-License-Identifier: EPL-2.0
-#-------------------------------------------------------------------------------
- perform action charge_battery
+Robot r1 does by default patrol in sequence location(s) l1, l2, l3, and if event found_object occurs, it will  perform action request_help
