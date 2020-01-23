@@ -47,7 +47,7 @@ public class ReadWithScanner {
 		//String[] ip_ms3 = {"192.168.1.6"};
 		String mission = "";
 		String event = "";
-		String ip="192.168.1.6"; //variable with the external IP for MS3 it is 192.168.1.6
+		String ip="192.168.1.159"; //variable with the external IP for MS3 it is 192.168.1.6
 		
 		//if local==true we send the missions to the local machine
 		boolean local=false;

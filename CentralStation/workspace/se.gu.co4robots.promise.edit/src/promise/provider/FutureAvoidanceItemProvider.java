@@ -76,7 +76,6 @@ public class FutureAvoidanceItemProvider extends AvoidancePatternsItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

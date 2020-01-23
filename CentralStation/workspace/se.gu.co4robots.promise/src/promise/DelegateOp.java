@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link promise.DelegateOp#getInputAction <em>Input Action</em>}</li>
  *   <li>{@link promise.DelegateOp#getStoppingEvent <em>Stopping Event</em>}</li>
  *   <li>{@link promise.DelegateOp#getInputLocations <em>Input Locations</em>}</li>
+ *   <li>{@link promise.DelegateOp#getInputResource <em>Input Resource</em>}</li>
  * </ul>
  *
  * @see promise.PromisePackage#getDelegateOp()
@@ -97,5 +98,17 @@ public interface DelegateOp extends Operator {
 	 * @generated
 	 */
 	EList<Location> getInputLocations();
+
+	/**
+	 * Returns the value of the '<em><b>Input Resource</b></em>' reference list.
+	 * The list contents are of type {@link promise.Action}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Input Resource</em>' reference list.
+	 * @see promise.PromisePackage#getDelegateOp_InputResource()
+	 * @model
+	 * @generated
+	 */
+	EList<Action> getInputResource();
 
 } // DelegateOp

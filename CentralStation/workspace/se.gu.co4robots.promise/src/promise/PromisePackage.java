@@ -818,13 +818,22 @@ public interface PromisePackage extends EPackage {
 	int DELEGATE_OP__INPUT_LOCATIONS = OPERATOR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Input Resource</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATE_OP__INPUT_RESOURCE = OPERATOR_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Delegate Op</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATE_OP_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 4;
+	int DELEGATE_OP_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Delegate Op</em>' class.
@@ -2148,6 +2157,17 @@ public interface PromisePackage extends EPackage {
 	EReference getDelegateOp_InputLocations();
 
 	/**
+	 * Returns the meta object for the reference list '{@link promise.DelegateOp#getInputResource <em>Input Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Input Resource</em>'.
+	 * @see promise.DelegateOp#getInputResource()
+	 * @see #getDelegateOp()
+	 * @generated
+	 */
+	EReference getDelegateOp_InputResource();
+
+	/**
 	 * Returns the meta object for class '{@link promise.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2845,6 +2865,14 @@ public interface PromisePackage extends EPackage {
 		 * @generated
 		 */
 		EReference DELEGATE_OP__INPUT_LOCATIONS = eINSTANCE.getDelegateOp_InputLocations();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Resource</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DELEGATE_OP__INPUT_RESOURCE = eINSTANCE.getDelegateOp_InputResource();
 
 		/**
 		 * The meta object literal for the '{@link promise.impl.ActionImpl <em>Action</em>}' class.

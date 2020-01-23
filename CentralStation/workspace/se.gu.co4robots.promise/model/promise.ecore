@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Copyright (C) 2019 gsergio
-  
-  This program and the accompanying materials are made
-  available under the terms of the Eclipse Public License 2.0
-  which is available at https://www.eclipse.org/legal/epl-2.0/
-  
-  SPDX-License-Identifier: EPL-2.0
--->
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="promise" nsURI="http://gu.se/co4robots.promise" nsPrefix="co4robots.promise">
   <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true">
@@ -60,6 +51,8 @@
         eType="#//Event"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputLocations" upperBound="-1"
         eType="#//Location"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputResource" upperBound="-1"
+        eType="#//Action"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

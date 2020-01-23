@@ -415,7 +415,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link PromisePackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -429,7 +429,8 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		if (isInited) return (PromisePackage)EPackage.Registry.INSTANCE.getEPackage(PromisePackage.eNS_URI);
 
 		// Obtain or create and register package
-		PromisePackageImpl thePromisePackage = (PromisePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof PromisePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new PromisePackageImpl());
+		Object registeredPromisePackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		PromisePackageImpl thePromisePackage = registeredPromisePackage instanceof PromisePackageImpl ? (PromisePackageImpl)registeredPromisePackage : new PromisePackageImpl();
 
 		isInited = true;
 
@@ -442,7 +443,6 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		// Mark meta-data to indicate it can't be changed
 		thePromisePackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(PromisePackage.eNS_URI, thePromisePackage);
 		return thePromisePackage;
@@ -453,6 +453,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOperator() {
 		return operatorEClass;
 	}
@@ -462,6 +463,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOperator_Parent() {
 		return (EReference)operatorEClass.getEStructuralFeatures().get(0);
 	}
@@ -471,6 +473,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getOperator_EventAssigned() {
 		return (EReference)operatorEClass.getEStructuralFeatures().get(1);
 	}
@@ -480,6 +483,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFallBackOp() {
 		return fallBackOpEClass;
 	}
@@ -489,6 +493,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSequenceOp() {
 		return sequenceOpEClass;
 	}
@@ -498,6 +503,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getParallelOp() {
 		return parallelOpEClass;
 	}
@@ -507,6 +513,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getParallelOp_InputRobots() {
 		return (EReference)parallelOpEClass.getEStructuralFeatures().get(0);
 	}
@@ -516,6 +523,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEventHandlerOp() {
 		return eventHandlerOpEClass;
 	}
@@ -525,6 +533,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConditionOp() {
 		return conditionOpEClass;
 	}
@@ -534,6 +543,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMission() {
 		return missionEClass;
 	}
@@ -543,6 +553,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMission_Operator() {
 		return (EReference)missionEClass.getEStructuralFeatures().get(0);
 	}
@@ -552,6 +563,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMission_Robots() {
 		return (EReference)missionEClass.getEStructuralFeatures().get(1);
 	}
@@ -561,6 +573,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMission_Actions() {
 		return (EReference)missionEClass.getEStructuralFeatures().get(2);
 	}
@@ -570,6 +583,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMission_Events() {
 		return (EReference)missionEClass.getEStructuralFeatures().get(3);
 	}
@@ -579,6 +593,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMission_Locations() {
 		return (EReference)missionEClass.getEStructuralFeatures().get(4);
 	}
@@ -588,6 +603,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMission_Eventassignment() {
 		return (EReference)missionEClass.getEStructuralFeatures().get(5);
 	}
@@ -597,6 +613,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTasks() {
 		return tasksEClass;
 	}
@@ -606,6 +623,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCompositionOperator() {
 		return compositionOperatorEClass;
 	}
@@ -615,6 +633,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCompositionOperator_InputOperators() {
 		return (EReference)compositionOperatorEClass.getEStructuralFeatures().get(0);
 	}
@@ -624,6 +643,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRobot() {
 		return robotEClass;
 	}
@@ -633,6 +653,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -642,6 +663,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNamedElement_Name() {
 		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -651,6 +673,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEvent() {
 		return eventEClass;
 	}
@@ -660,6 +683,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEvent_Description() {
 		return (EAttribute)eventEClass.getEStructuralFeatures().get(0);
 	}
@@ -669,6 +693,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDelegateOp() {
 		return delegateOpEClass;
 	}
@@ -678,6 +703,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDelegateOp_Task() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(0);
 	}
@@ -687,6 +713,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDelegateOp_InputAction() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(1);
 	}
@@ -696,6 +723,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDelegateOp_StoppingEvent() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(2);
 	}
@@ -705,6 +733,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDelegateOp_InputLocations() {
 		return (EReference)delegateOpEClass.getEStructuralFeatures().get(3);
 	}
@@ -714,6 +743,17 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getDelegateOp_InputResource() {
+		return (EReference)delegateOpEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getAction() {
 		return actionEClass;
 	}
@@ -723,6 +763,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAction_Description() {
 		return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
 	}
@@ -732,6 +773,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMovementPatterns() {
 		return movementPatternsEClass;
 	}
@@ -741,6 +783,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getVisit() {
 		return visitEClass;
 	}
@@ -750,6 +793,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSequencedVisit() {
 		return sequencedVisitEClass;
 	}
@@ -759,6 +803,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOrderderVisit() {
 		return orderderVisitEClass;
 	}
@@ -768,6 +813,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStrictOrderedVisit() {
 		return strictOrderedVisitEClass;
 	}
@@ -777,6 +823,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFairVisit() {
 		return fairVisitEClass;
 	}
@@ -786,6 +833,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPatrolling() {
 		return patrollingEClass;
 	}
@@ -795,6 +843,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSequencedPatrolling() {
 		return sequencedPatrollingEClass;
 	}
@@ -804,6 +853,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOrderedPatrolling() {
 		return orderedPatrollingEClass;
 	}
@@ -813,6 +863,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStrictOreredPatrolling() {
 		return strictOreredPatrollingEClass;
 	}
@@ -822,6 +873,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFairPatrolling() {
 		return fairPatrollingEClass;
 	}
@@ -831,6 +883,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAvoidancePatterns() {
 		return avoidancePatternsEClass;
 	}
@@ -840,6 +893,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getUpperRestrictedAvoidance() {
 		return upperRestrictedAvoidanceEClass;
 	}
@@ -849,6 +903,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExactRestrictedAvoidance() {
 		return exactRestrictedAvoidanceEClass;
 	}
@@ -858,6 +913,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLowerRestrictedAvoidance() {
 		return lowerRestrictedAvoidanceEClass;
 	}
@@ -867,6 +923,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFutureAvoidance() {
 		return futureAvoidanceEClass;
 	}
@@ -876,6 +933,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGlobalAvoidance() {
 		return globalAvoidanceEClass;
 	}
@@ -885,6 +943,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPastAvoidance() {
 		return pastAvoidanceEClass;
 	}
@@ -894,6 +953,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTriggerPatterns() {
 		return triggerPatternsEClass;
 	}
@@ -903,6 +963,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getWait() {
 		return waitEClass;
 	}
@@ -912,6 +973,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getWait_Description() {
 		return (EAttribute)waitEClass.getEStructuralFeatures().get(0);
 	}
@@ -921,6 +983,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDelayedReaction() {
 		return delayedReactionEClass;
 	}
@@ -930,6 +993,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDelayedReaction_Description() {
 		return (EAttribute)delayedReactionEClass.getEStructuralFeatures().get(0);
 	}
@@ -939,6 +1003,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInstantReaction() {
 		return instantReactionEClass;
 	}
@@ -948,6 +1013,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInstantReaction_Description() {
 		return (EAttribute)instantReactionEClass.getEStructuralFeatures().get(0);
 	}
@@ -957,6 +1023,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLocation() {
 		return locationEClass;
 	}
@@ -966,6 +1033,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSimpleAction() {
 		return simpleActionEClass;
 	}
@@ -975,6 +1043,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTaskCombinationOp() {
 		return taskCombinationOpEClass;
 	}
@@ -984,6 +1053,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEventAssignment() {
 		return eventAssignmentEClass;
 	}
@@ -993,6 +1063,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEventAssignment_InputEvent() {
 		return (EReference)eventAssignmentEClass.getEStructuralFeatures().get(0);
 	}
@@ -1002,6 +1073,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEventAssignment_InputOperators() {
 		return (EReference)eventAssignmentEClass.getEStructuralFeatures().get(1);
 	}
@@ -1011,6 +1083,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEventAssignment_Parent_event() {
 		return (EReference)eventAssignmentEClass.getEStructuralFeatures().get(2);
 	}
@@ -1020,6 +1093,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEventBasedOperator() {
 		return eventBasedOperatorEClass;
 	}
@@ -1029,6 +1103,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEventBasedOperator_InputEvents() {
 		return (EReference)eventBasedOperatorEClass.getEStructuralFeatures().get(0);
 	}
@@ -1038,6 +1113,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCheck() {
 		return checkEClass;
 	}
@@ -1047,6 +1123,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCheckAndDeliver() {
 		return checkAndDeliverEClass;
 	}
@@ -1056,6 +1133,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCheckSupplies() {
 		return checkSuppliesEClass;
 	}
@@ -1065,6 +1143,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCheckAndDeliverQCh() {
 		return checkAndDeliverQChEClass;
 	}
@@ -1074,6 +1153,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTestITAAPAs() {
 		return testITAAPAsEClass;
 	}
@@ -1083,6 +1163,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PromiseFactory getPromiseFactory() {
 		return (PromiseFactory)getEFactoryInstance();
 	}
@@ -1147,6 +1228,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_ACTION);
 		createEReference(delegateOpEClass, DELEGATE_OP__STOPPING_EVENT);
 		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_LOCATIONS);
+		createEReference(delegateOpEClass, DELEGATE_OP__INPUT_RESOURCE);
 
 		actionEClass = createEClass(ACTION);
 		createEAttribute(actionEClass, ACTION__DESCRIPTION);
@@ -1335,6 +1417,7 @@ public class PromisePackageImpl extends EPackageImpl implements PromisePackage {
 		initEReference(getDelegateOp_InputAction(), this.getAction(), null, "inputAction", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_StoppingEvent(), this.getEvent(), null, "stoppingEvent", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDelegateOp_InputLocations(), this.getLocation(), null, "inputLocations", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDelegateOp_InputResource(), this.getAction(), null, "inputResource", null, 0, -1, DelegateOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAction_Description(), ecorePackage.getEString(), "description", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

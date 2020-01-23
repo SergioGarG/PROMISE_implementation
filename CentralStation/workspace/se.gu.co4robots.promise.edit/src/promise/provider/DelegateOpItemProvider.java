@@ -50,6 +50,7 @@ public class DelegateOpItemProvider extends OperatorItemProvider {
 			addInputActionPropertyDescriptor(object);
 			addStoppingEventPropertyDescriptor(object);
 			addInputLocationsPropertyDescriptor(object);
+			addInputResourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +113,28 @@ public class DelegateOpItemProvider extends OperatorItemProvider {
 				 getString("_UI_DelegateOp_inputLocations_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DelegateOp_inputLocations_feature", "_UI_DelegateOp_type"),
 				 PromisePackage.Literals.DELEGATE_OP__INPUT_LOCATIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Input Resource feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInputResourcePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DelegateOp_inputResource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DelegateOp_inputResource_feature", "_UI_DelegateOp_type"),
+				 PromisePackage.Literals.DELEGATE_OP__INPUT_RESOURCE,
 				 true,
 				 false,
 				 true,

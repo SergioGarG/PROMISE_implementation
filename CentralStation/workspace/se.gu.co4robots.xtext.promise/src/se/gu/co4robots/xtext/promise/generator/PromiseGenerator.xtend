@@ -271,12 +271,12 @@ class PromiseGenerator extends AbstractGenerator {
 							template=template+" & "
 							text= text+", "
 					}
-					template=template+"F (at_assembly_"+in.inputLocations.get(i).name+" & ! as_need_unknown & (as_need_"+in.inputAction.get(0).name+" -> F delivered_"+in.inputAction.get(0).name+")) & "
-					template=template+"G (at_assembly_"+in.inputLocations.get(i).name+" & ! as_need_unknown & as_need_"+in.inputAction.get(0).name+" -> G!(at_assembly_"+in.inputLocations.get(i).name+" & !as_need_"+in.inputAction.get(0).name+" & !as_need_unknown))"
+					template=template+"F (at_assembly_"+in.inputLocations.get(i).name+" & ! as_need_unknown & (as_need_"+in.inputResource.get(0).name+" -> F delivered_"+in.inputResource.get(0).name+")) & "
+					template=template+"G (at_assembly_"+in.inputLocations.get(i).name+" & ! as_need_unknown & as_need_"+in.inputResource.get(0).name+" -> G!(at_assembly_"+in.inputLocations.get(i).name+" & !as_need_"+in.inputResource.get(0).name+" & !as_need_unknown))"
 					text= text+in.inputLocations.get(i).name
 					}
 				text= text+" and check whether it needs supplies. "
-				text=text+"If it is the case, the robot provides resource "+in.inputAction.get(0).name+"."
+				text=text+"If it is the case, the robot provides resource "+in.inputResource.get(0).name+"."
 			}	
 			else if(in.task.eClass.name == "CheckAndDeliverQCh") {
 				text= text+" visit assembly station(s) "

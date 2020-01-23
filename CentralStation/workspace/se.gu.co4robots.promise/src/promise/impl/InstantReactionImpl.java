@@ -69,6 +69,7 @@ public class InstantReactionImpl extends TriggerPatternsImpl implements InstantR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -78,6 +79,7 @@ public class InstantReactionImpl extends TriggerPatternsImpl implements InstantR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -152,7 +154,7 @@ public class InstantReactionImpl extends TriggerPatternsImpl implements InstantR
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (description: ");
 		result.append(description);
 		result.append(')');

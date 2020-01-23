@@ -62,6 +62,7 @@ public class ParallelOpImpl extends CompositionOperatorImpl implements ParallelO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Robot> getInputRobots() {
 		if (inputRobots == null) {
 			inputRobots = new EObjectResolvingEList<Robot>(Robot.class, this, PromisePackage.PARALLEL_OP__INPUT_ROBOTS);

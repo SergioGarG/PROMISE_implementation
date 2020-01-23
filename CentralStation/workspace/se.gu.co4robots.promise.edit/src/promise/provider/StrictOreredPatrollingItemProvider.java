@@ -76,7 +76,6 @@ public class StrictOreredPatrollingItemProvider extends MovementPatternsItemProv
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

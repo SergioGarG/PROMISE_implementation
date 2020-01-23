@@ -22,17 +22,13 @@ import se.gu.co4robots.xtext.promise.services.PromiseGrammarAccess;
 public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected PromiseGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_DelegateOp_ActionsKeyword_4_0_0_or_ResourcesKeyword_4_0_1;
-	protected AbstractElementAlias match_Mission_ActionsKeyword_2_3_0_0_or_ResourcesKeyword_2_3_0_1;
-	protected AbstractElementAlias match_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q;
+	protected AbstractElementAlias match_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_5__q;
 	protected AbstractElementAlias match_TaskCombinationOp_ANDKeyword_3_0_1_or_AmpersandKeyword_3_0_0_or_AndKeyword_3_0_2;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (PromiseGrammarAccess) access;
-		match_DelegateOp_ActionsKeyword_4_0_0_or_ResourcesKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDelegateOpAccess().getActionsKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getDelegateOpAccess().getResourcesKeyword_4_0_1()));
-		match_Mission_ActionsKeyword_2_3_0_0_or_ResourcesKeyword_2_3_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getMissionAccess().getActionsKeyword_2_3_0_0()), new TokenAlias(false, false, grammarAccess.getMissionAccess().getResourcesKeyword_2_3_0_1()));
-		match_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMissionAccess().getConditionsKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getMissionAccess().getLeftCurlyBracketKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getMissionAccess().getRightCurlyBracketKeyword_2_4()));
+		match_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_5__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMissionAccess().getConditionsKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getMissionAccess().getLeftCurlyBracketKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getMissionAccess().getRightCurlyBracketKeyword_2_5()));
 		match_TaskCombinationOp_ANDKeyword_3_0_1_or_AmpersandKeyword_3_0_0_or_AndKeyword_3_0_2 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTaskCombinationOpAccess().getANDKeyword_3_0_1()), new TokenAlias(false, false, grammarAccess.getTaskCombinationOpAccess().getAmpersandKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getTaskCombinationOpAccess().getAndKeyword_3_0_2()));
 	}
 	
@@ -48,12 +44,8 @@ public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_DelegateOp_ActionsKeyword_4_0_0_or_ResourcesKeyword_4_0_1.equals(syntax))
-				emit_DelegateOp_ActionsKeyword_4_0_0_or_ResourcesKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Mission_ActionsKeyword_2_3_0_0_or_ResourcesKeyword_2_3_0_1.equals(syntax))
-				emit_Mission_ActionsKeyword_2_3_0_0_or_ResourcesKeyword_2_3_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q.equals(syntax))
-				emit_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_5__q.equals(syntax))
+				emit_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_5__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_TaskCombinationOp_ANDKeyword_3_0_1_or_AmpersandKeyword_3_0_0_or_AndKeyword_3_0_2.equals(syntax))
 				emit_TaskCombinationOp_ANDKeyword_3_0_1_or_AmpersandKeyword_3_0_0_or_AndKeyword_3_0_2(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -62,36 +54,12 @@ public class PromiseSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     'actions' | 'resources'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     inputLocations+=[Location|EString] (ambiguity) inputAction+=[Action|EString]
-	 *     task=Tasks (ambiguity) inputAction+=[Action|EString]
-	 */
-	protected void emit_DelegateOp_ActionsKeyword_4_0_0_or_ResourcesKeyword_4_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'actions' | 'resources'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) 'mission' '{' 'conditions' '{' (ambiguity) actions+=Action
-	 *     events+=Event (ambiguity) actions+=Action
-	 */
-	protected void emit_Mission_ActionsKeyword_2_3_0_0_or_ResourcesKeyword_2_3_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
 	 *     ('conditions' '{' '}')?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) 'mission' '{' (ambiguity) 'robots' robots+=Robot
 	 */
-	protected void emit_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Mission___ConditionsKeyword_2_0_LeftCurlyBracketKeyword_2_1_RightCurlyBracketKeyword_2_5__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

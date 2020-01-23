@@ -76,7 +76,6 @@ public class EventHandlerOpItemProvider extends EventBasedOperatorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

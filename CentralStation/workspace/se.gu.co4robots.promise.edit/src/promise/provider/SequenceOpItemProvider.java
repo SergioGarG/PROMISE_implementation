@@ -76,7 +76,6 @@ public class SequenceOpItemProvider extends CompositionOperatorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

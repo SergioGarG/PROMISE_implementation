@@ -57,6 +57,7 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CompositionOperator getParent() {
 		if (eContainerFeatureID() != PromisePackage.OPERATOR__PARENT) return null;
 		return (CompositionOperator)eInternalContainer();
@@ -77,6 +78,7 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParent(CompositionOperator newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != PromisePackage.OPERATOR__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
@@ -98,6 +100,7 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EventAssignment getEventAssigned() {
 		if (eContainerFeatureID() != PromisePackage.OPERATOR__EVENT_ASSIGNED) return null;
 		return (EventAssignment)eInternalContainer();
@@ -118,6 +121,7 @@ public abstract class OperatorImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEventAssigned(EventAssignment newEventAssigned) {
 		if (newEventAssigned != eInternalContainer() || (eContainerFeatureID() != PromisePackage.OPERATOR__EVENT_ASSIGNED && newEventAssigned != null)) {
 			if (EcoreUtil.isAncestor(this, newEventAssigned))

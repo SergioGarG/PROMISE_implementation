@@ -66,7 +66,7 @@ public class PageTwo extends WizardPage //implements Listener
 
 	    // create the desired layout for this wizard page
 		GridLayout gl = new GridLayout();
-		int ncol = 2;
+		int ncol = 3;
 		gl.numColumns = ncol;
 		composite.setLayout(gl);
 		

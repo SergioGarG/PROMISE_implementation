@@ -35,6 +35,7 @@ import promise.Tasks;
  *   <li>{@link promise.impl.DelegateOpImpl#getInputAction <em>Input Action</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getStoppingEvent <em>Stopping Event</em>}</li>
  *   <li>{@link promise.impl.DelegateOpImpl#getInputLocations <em>Input Locations</em>}</li>
+ *   <li>{@link promise.impl.DelegateOpImpl#getInputResource <em>Input Resource</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +82,16 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	protected EList<Location> inputLocations;
 
 	/**
+	 * The cached value of the '{@link #getInputResource() <em>Input Resource</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputResource()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Action> inputResource;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -104,6 +115,7 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Tasks getTask() {
 		return task;
 	}
@@ -128,6 +140,7 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTask(Tasks newTask) {
 		if (newTask != task) {
 			NotificationChain msgs = null;
@@ -147,6 +160,7 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Action> getInputAction() {
 		if (inputAction == null) {
 			inputAction = new EObjectResolvingEList<Action>(Action.class, this, PromisePackage.DELEGATE_OP__INPUT_ACTION);
@@ -159,6 +173,7 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Event> getStoppingEvent() {
 		if (stoppingEvent == null) {
 			stoppingEvent = new EObjectResolvingEList<Event>(Event.class, this, PromisePackage.DELEGATE_OP__STOPPING_EVENT);
@@ -171,11 +186,25 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Location> getInputLocations() {
 		if (inputLocations == null) {
 			inputLocations = new EObjectResolvingEList<Location>(Location.class, this, PromisePackage.DELEGATE_OP__INPUT_LOCATIONS);
 		}
 		return inputLocations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Action> getInputResource() {
+		if (inputResource == null) {
+			inputResource = new EObjectResolvingEList<Action>(Action.class, this, PromisePackage.DELEGATE_OP__INPUT_RESOURCE);
+		}
+		return inputResource;
 	}
 
 	/**
@@ -208,6 +237,8 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 				return getStoppingEvent();
 			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
 				return getInputLocations();
+			case PromisePackage.DELEGATE_OP__INPUT_RESOURCE:
+				return getInputResource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,6 +267,10 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 				getInputLocations().clear();
 				getInputLocations().addAll((Collection<? extends Location>)newValue);
 				return;
+			case PromisePackage.DELEGATE_OP__INPUT_RESOURCE:
+				getInputResource().clear();
+				getInputResource().addAll((Collection<? extends Action>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -260,6 +295,9 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
 				getInputLocations().clear();
 				return;
+			case PromisePackage.DELEGATE_OP__INPUT_RESOURCE:
+				getInputResource().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -280,6 +318,8 @@ public class DelegateOpImpl extends OperatorImpl implements DelegateOp {
 				return stoppingEvent != null && !stoppingEvent.isEmpty();
 			case PromisePackage.DELEGATE_OP__INPUT_LOCATIONS:
 				return inputLocations != null && !inputLocations.isEmpty();
+			case PromisePackage.DELEGATE_OP__INPUT_RESOURCE:
+				return inputResource != null && !inputResource.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

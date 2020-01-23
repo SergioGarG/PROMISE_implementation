@@ -79,6 +79,7 @@ public class EventAssignmentImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Event getInputEvent() {
 		if (inputEvent != null && inputEvent.eIsProxy()) {
 			InternalEObject oldInputEvent = (InternalEObject)inputEvent;
@@ -105,6 +106,7 @@ public class EventAssignmentImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInputEvent(Event newInputEvent) {
 		Event oldInputEvent = inputEvent;
 		inputEvent = newInputEvent;
@@ -117,6 +119,7 @@ public class EventAssignmentImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Operator getInputOperators() {
 		return inputOperators;
 	}
@@ -141,6 +144,7 @@ public class EventAssignmentImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInputOperators(Operator newInputOperators) {
 		if (newInputOperators != inputOperators) {
 			NotificationChain msgs = null;
@@ -160,6 +164,7 @@ public class EventAssignmentImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EventBasedOperator getParent_event() {
 		if (eContainerFeatureID() != PromisePackage.EVENT_ASSIGNMENT__PARENT_EVENT) return null;
 		return (EventBasedOperator)eInternalContainer();
@@ -180,6 +185,7 @@ public class EventAssignmentImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParent_event(EventBasedOperator newParent_event) {
 		if (newParent_event != eInternalContainer() || (eContainerFeatureID() != PromisePackage.EVENT_ASSIGNMENT__PARENT_EVENT && newParent_event != null)) {
 			if (EcoreUtil.isAncestor(this, newParent_event))

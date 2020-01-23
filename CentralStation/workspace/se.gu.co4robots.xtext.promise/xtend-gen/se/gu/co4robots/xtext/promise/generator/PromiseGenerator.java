@@ -463,23 +463,23 @@ public class PromiseGenerator extends AbstractGenerator {
                 String _name_3 = in.getInputLocations().get(i).getName();
                 String _plus = ((this.template + "F (at_assembly_") + _name_3);
                 String _plus_1 = (_plus + " & ! as_need_unknown & (as_need_");
-                String _name_4 = in.getInputAction().get(0).getName();
+                String _name_4 = in.getInputResource().get(0).getName();
                 String _plus_2 = (_plus_1 + _name_4);
                 String _plus_3 = (_plus_2 + " -> F delivered_");
-                String _name_5 = in.getInputAction().get(0).getName();
+                String _name_5 = in.getInputResource().get(0).getName();
                 String _plus_4 = (_plus_3 + _name_5);
                 String _plus_5 = (_plus_4 + ")) & ");
                 this.template = _plus_5;
                 String _name_6 = in.getInputLocations().get(i).getName();
                 String _plus_6 = ((this.template + "G (at_assembly_") + _name_6);
                 String _plus_7 = (_plus_6 + " & ! as_need_unknown & as_need_");
-                String _name_7 = in.getInputAction().get(0).getName();
+                String _name_7 = in.getInputResource().get(0).getName();
                 String _plus_8 = (_plus_7 + _name_7);
                 String _plus_9 = (_plus_8 + " -> G!(at_assembly_");
                 String _name_8 = in.getInputLocations().get(i).getName();
                 String _plus_10 = (_plus_9 + _name_8);
                 String _plus_11 = (_plus_10 + " & !as_need_");
-                String _name_9 = in.getInputAction().get(0).getName();
+                String _name_9 = in.getInputResource().get(0).getName();
                 String _plus_12 = (_plus_11 + _name_9);
                 String _plus_13 = (_plus_12 + " & !as_need_unknown))");
                 this.template = _plus_13;
@@ -489,7 +489,7 @@ public class PromiseGenerator extends AbstractGenerator {
               }
             }
             this.text = (this.text + " and check whether it needs supplies. ");
-            String _name_3 = in.getInputAction().get(0).getName();
+            String _name_3 = in.getInputResource().get(0).getName();
             String _plus = ((this.text + "If it is the case, the robot provides resource ") + _name_3);
             String _plus_1 = (_plus + ".");
             this.text = _plus_1;

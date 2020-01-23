@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: se.gu.co4robots.promise.edit;singleton:=true
+Automatic-Module-Name: se.gu.co4robots.promise.edit
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: promise.provider.PromiseEditPlugin$Implementation

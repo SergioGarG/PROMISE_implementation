@@ -31,11 +31,9 @@ public class PromiseParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, PromiseGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getMissionAccess().getAlternatives_2_3_0(), "rule__Mission__Alternatives_2_3_0");
 			builder.put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
 			builder.put(grammarAccess.getTasksAccess().getAlternatives(), "rule__Tasks__Alternatives");
 			builder.put(grammarAccess.getTaskCombinationOpAccess().getAlternatives_3_0(), "rule__TaskCombinationOp__Alternatives_3_0");
-			builder.put(grammarAccess.getDelegateOpAccess().getAlternatives_4_0(), "rule__DelegateOp__Alternatives_4_0");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getMissionAccess().getGroup(), "rule__Mission__Group__0");
 			builder.put(grammarAccess.getMissionAccess().getGroup_2(), "rule__Mission__Group_2__0");
@@ -43,6 +41,8 @@ public class PromiseParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMissionAccess().getGroup_2_2_2(), "rule__Mission__Group_2_2_2__0");
 			builder.put(grammarAccess.getMissionAccess().getGroup_2_3(), "rule__Mission__Group_2_3__0");
 			builder.put(grammarAccess.getMissionAccess().getGroup_2_3_2(), "rule__Mission__Group_2_3_2__0");
+			builder.put(grammarAccess.getMissionAccess().getGroup_2_4(), "rule__Mission__Group_2_4__0");
+			builder.put(grammarAccess.getMissionAccess().getGroup_2_4_2(), "rule__Mission__Group_2_4_2__0");
 			builder.put(grammarAccess.getMissionAccess().getGroup_5(), "rule__Mission__Group_5__0");
 			builder.put(grammarAccess.getMissionAccess().getGroup_6(), "rule__Mission__Group_6__0");
 			builder.put(grammarAccess.getMissionAccess().getGroup_6_2(), "rule__Mission__Group_6_2__0");
@@ -69,6 +69,8 @@ public class PromiseParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDelegateOpAccess().getGroup_4_2(), "rule__DelegateOp__Group_4_2__0");
 			builder.put(grammarAccess.getDelegateOpAccess().getGroup_5(), "rule__DelegateOp__Group_5__0");
 			builder.put(grammarAccess.getDelegateOpAccess().getGroup_5_2(), "rule__DelegateOp__Group_5_2__0");
+			builder.put(grammarAccess.getDelegateOpAccess().getGroup_6(), "rule__DelegateOp__Group_6__0");
+			builder.put(grammarAccess.getDelegateOpAccess().getGroup_6_2(), "rule__DelegateOp__Group_6_2__0");
 			builder.put(grammarAccess.getEventAssignmentAccess().getGroup(), "rule__EventAssignment__Group__0");
 			builder.put(grammarAccess.getSimpleActionAccess().getGroup(), "rule__SimpleAction__Group__0");
 			builder.put(grammarAccess.getVisitAccess().getGroup(), "rule__Visit__Group__0");
@@ -99,6 +101,8 @@ public class PromiseParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMissionAccess().getEventsAssignment_2_2_2_1(), "rule__Mission__EventsAssignment_2_2_2_1");
 			builder.put(grammarAccess.getMissionAccess().getActionsAssignment_2_3_1(), "rule__Mission__ActionsAssignment_2_3_1");
 			builder.put(grammarAccess.getMissionAccess().getActionsAssignment_2_3_2_1(), "rule__Mission__ActionsAssignment_2_3_2_1");
+			builder.put(grammarAccess.getMissionAccess().getActionsAssignment_2_4_1(), "rule__Mission__ActionsAssignment_2_4_1");
+			builder.put(grammarAccess.getMissionAccess().getActionsAssignment_2_4_2_1(), "rule__Mission__ActionsAssignment_2_4_2_1");
 			builder.put(grammarAccess.getMissionAccess().getRobotsAssignment_4(), "rule__Mission__RobotsAssignment_4");
 			builder.put(grammarAccess.getMissionAccess().getRobotsAssignment_5_1(), "rule__Mission__RobotsAssignment_5_1");
 			builder.put(grammarAccess.getMissionAccess().getLocationsAssignment_6_1(), "rule__Mission__LocationsAssignment_6_1");
@@ -129,8 +133,10 @@ public class PromiseParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDelegateOpAccess().getInputLocationsAssignment_3_2_1(), "rule__DelegateOp__InputLocationsAssignment_3_2_1");
 			builder.put(grammarAccess.getDelegateOpAccess().getInputActionAssignment_4_1(), "rule__DelegateOp__InputActionAssignment_4_1");
 			builder.put(grammarAccess.getDelegateOpAccess().getInputActionAssignment_4_2_1(), "rule__DelegateOp__InputActionAssignment_4_2_1");
-			builder.put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_5_1(), "rule__DelegateOp__StoppingEventAssignment_5_1");
-			builder.put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_5_2_1(), "rule__DelegateOp__StoppingEventAssignment_5_2_1");
+			builder.put(grammarAccess.getDelegateOpAccess().getInputResourceAssignment_5_1(), "rule__DelegateOp__InputResourceAssignment_5_1");
+			builder.put(grammarAccess.getDelegateOpAccess().getInputResourceAssignment_5_2_1(), "rule__DelegateOp__InputResourceAssignment_5_2_1");
+			builder.put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_6_1(), "rule__DelegateOp__StoppingEventAssignment_6_1");
+			builder.put(grammarAccess.getDelegateOpAccess().getStoppingEventAssignment_6_2_1(), "rule__DelegateOp__StoppingEventAssignment_6_2_1");
 			builder.put(grammarAccess.getEventAssignmentAccess().getInputEventAssignment_0(), "rule__EventAssignment__InputEventAssignment_0");
 			builder.put(grammarAccess.getEventAssignmentAccess().getInputOperatorsAssignment_2(), "rule__EventAssignment__InputOperatorsAssignment_2");
 		}

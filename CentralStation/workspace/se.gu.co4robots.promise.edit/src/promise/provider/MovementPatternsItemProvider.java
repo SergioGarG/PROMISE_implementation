@@ -65,7 +65,6 @@ public class MovementPatternsItemProvider extends TasksItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

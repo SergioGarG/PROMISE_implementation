@@ -104,6 +104,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FallBackOp createFallBackOp() {
 		FallBackOpImpl fallBackOp = new FallBackOpImpl();
 		return fallBackOp;
@@ -114,6 +115,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SequenceOp createSequenceOp() {
 		SequenceOpImpl sequenceOp = new SequenceOpImpl();
 		return sequenceOp;
@@ -124,6 +126,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ParallelOp createParallelOp() {
 		ParallelOpImpl parallelOp = new ParallelOpImpl();
 		return parallelOp;
@@ -134,6 +137,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EventHandlerOp createEventHandlerOp() {
 		EventHandlerOpImpl eventHandlerOp = new EventHandlerOpImpl();
 		return eventHandlerOp;
@@ -144,6 +148,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConditionOp createConditionOp() {
 		ConditionOpImpl conditionOp = new ConditionOpImpl();
 		return conditionOp;
@@ -154,6 +159,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Mission createMission() {
 		MissionImpl mission = new MissionImpl();
 		return mission;
@@ -164,6 +170,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Robot createRobot() {
 		RobotImpl robot = new RobotImpl();
 		return robot;
@@ -174,6 +181,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Event createEvent() {
 		EventImpl event = new EventImpl();
 		return event;
@@ -184,6 +192,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DelegateOp createDelegateOp() {
 		DelegateOpImpl delegateOp = new DelegateOpImpl();
 		return delegateOp;
@@ -194,6 +203,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Action createAction() {
 		ActionImpl action = new ActionImpl();
 		return action;
@@ -204,6 +214,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Visit createVisit() {
 		VisitImpl visit = new VisitImpl();
 		return visit;
@@ -214,6 +225,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SequencedVisit createSequencedVisit() {
 		SequencedVisitImpl sequencedVisit = new SequencedVisitImpl();
 		return sequencedVisit;
@@ -224,6 +236,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OrderderVisit createOrderderVisit() {
 		OrderderVisitImpl orderderVisit = new OrderderVisitImpl();
 		return orderderVisit;
@@ -234,6 +247,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StrictOrderedVisit createStrictOrderedVisit() {
 		StrictOrderedVisitImpl strictOrderedVisit = new StrictOrderedVisitImpl();
 		return strictOrderedVisit;
@@ -244,6 +258,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FairVisit createFairVisit() {
 		FairVisitImpl fairVisit = new FairVisitImpl();
 		return fairVisit;
@@ -254,6 +269,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Patrolling createPatrolling() {
 		PatrollingImpl patrolling = new PatrollingImpl();
 		return patrolling;
@@ -264,6 +280,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SequencedPatrolling createSequencedPatrolling() {
 		SequencedPatrollingImpl sequencedPatrolling = new SequencedPatrollingImpl();
 		return sequencedPatrolling;
@@ -274,6 +291,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OrderedPatrolling createOrderedPatrolling() {
 		OrderedPatrollingImpl orderedPatrolling = new OrderedPatrollingImpl();
 		return orderedPatrolling;
@@ -284,6 +302,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StrictOreredPatrolling createStrictOreredPatrolling() {
 		StrictOreredPatrollingImpl strictOreredPatrolling = new StrictOreredPatrollingImpl();
 		return strictOreredPatrolling;
@@ -294,6 +313,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FairPatrolling createFairPatrolling() {
 		FairPatrollingImpl fairPatrolling = new FairPatrollingImpl();
 		return fairPatrolling;
@@ -304,6 +324,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public UpperRestrictedAvoidance createUpperRestrictedAvoidance() {
 		UpperRestrictedAvoidanceImpl upperRestrictedAvoidance = new UpperRestrictedAvoidanceImpl();
 		return upperRestrictedAvoidance;
@@ -314,6 +335,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExactRestrictedAvoidance createExactRestrictedAvoidance() {
 		ExactRestrictedAvoidanceImpl exactRestrictedAvoidance = new ExactRestrictedAvoidanceImpl();
 		return exactRestrictedAvoidance;
@@ -324,6 +346,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LowerRestrictedAvoidance createLowerRestrictedAvoidance() {
 		LowerRestrictedAvoidanceImpl lowerRestrictedAvoidance = new LowerRestrictedAvoidanceImpl();
 		return lowerRestrictedAvoidance;
@@ -334,6 +357,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FutureAvoidance createFutureAvoidance() {
 		FutureAvoidanceImpl futureAvoidance = new FutureAvoidanceImpl();
 		return futureAvoidance;
@@ -344,6 +368,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GlobalAvoidance createGlobalAvoidance() {
 		GlobalAvoidanceImpl globalAvoidance = new GlobalAvoidanceImpl();
 		return globalAvoidance;
@@ -354,6 +379,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PastAvoidance createPastAvoidance() {
 		PastAvoidanceImpl pastAvoidance = new PastAvoidanceImpl();
 		return pastAvoidance;
@@ -364,6 +390,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Wait createWait() {
 		WaitImpl wait = new WaitImpl();
 		return wait;
@@ -374,6 +401,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DelayedReaction createDelayedReaction() {
 		DelayedReactionImpl delayedReaction = new DelayedReactionImpl();
 		return delayedReaction;
@@ -384,6 +412,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InstantReaction createInstantReaction() {
 		InstantReactionImpl instantReaction = new InstantReactionImpl();
 		return instantReaction;
@@ -394,6 +423,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Location createLocation() {
 		LocationImpl location = new LocationImpl();
 		return location;
@@ -404,6 +434,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SimpleAction createSimpleAction() {
 		SimpleActionImpl simpleAction = new SimpleActionImpl();
 		return simpleAction;
@@ -414,6 +445,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TaskCombinationOp createTaskCombinationOp() {
 		TaskCombinationOpImpl taskCombinationOp = new TaskCombinationOpImpl();
 		return taskCombinationOp;
@@ -424,6 +456,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EventAssignment createEventAssignment() {
 		EventAssignmentImpl eventAssignment = new EventAssignmentImpl();
 		return eventAssignment;
@@ -434,6 +467,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Check createCheck() {
 		CheckImpl check = new CheckImpl();
 		return check;
@@ -444,6 +478,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CheckAndDeliver createCheckAndDeliver() {
 		CheckAndDeliverImpl checkAndDeliver = new CheckAndDeliverImpl();
 		return checkAndDeliver;
@@ -454,6 +489,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CheckSupplies createCheckSupplies() {
 		CheckSuppliesImpl checkSupplies = new CheckSuppliesImpl();
 		return checkSupplies;
@@ -464,6 +500,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CheckAndDeliverQCh createCheckAndDeliverQCh() {
 		CheckAndDeliverQChImpl checkAndDeliverQCh = new CheckAndDeliverQChImpl();
 		return checkAndDeliverQCh;
@@ -474,6 +511,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TestITAAPAs createTestITAAPAs() {
 		TestITAAPAsImpl testITAAPAs = new TestITAAPAsImpl();
 		return testITAAPAs;
@@ -484,6 +522,7 @@ public class PromiseFactoryImpl extends EFactoryImpl implements PromiseFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PromisePackage getPromisePackage() {
 		return (PromisePackage)getEPackage();
 	}

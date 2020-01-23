@@ -66,6 +66,7 @@ public abstract class CompositionOperatorImpl extends OperatorImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Operator> getInputOperators() {
 		if (inputOperators == null) {
 			inputOperators = new EObjectContainmentWithInverseEList<Operator>(Operator.class, this, PromisePackage.COMPOSITION_OPERATOR__INPUT_OPERATORS, PromisePackage.OPERATOR__PARENT);

@@ -66,6 +66,7 @@ public abstract class EventBasedOperatorImpl extends CompositionOperatorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<EventAssignment> getInputEvents() {
 		if (inputEvents == null) {
 			inputEvents = new EObjectContainmentWithInverseEList<EventAssignment>(EventAssignment.class, this, PromisePackage.EVENT_BASED_OPERATOR__INPUT_EVENTS, PromisePackage.EVENT_ASSIGNMENT__PARENT_EVENT);

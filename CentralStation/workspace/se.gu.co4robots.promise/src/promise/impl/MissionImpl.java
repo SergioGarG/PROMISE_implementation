@@ -128,6 +128,7 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Operator> getOperator() {
 		if (operator == null) {
 			operator = new EObjectContainmentEList<Operator>(Operator.class, this, PromisePackage.MISSION__OPERATOR);
@@ -140,6 +141,7 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Robot> getRobots() {
 		if (robots == null) {
 			robots = new EObjectContainmentEList<Robot>(Robot.class, this, PromisePackage.MISSION__ROBOTS);
@@ -152,6 +154,7 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Action> getActions() {
 		if (actions == null) {
 			actions = new EObjectContainmentEList<Action>(Action.class, this, PromisePackage.MISSION__ACTIONS);
@@ -164,6 +167,7 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Event> getEvents() {
 		if (events == null) {
 			events = new EObjectContainmentEList<Event>(Event.class, this, PromisePackage.MISSION__EVENTS);
@@ -176,6 +180,7 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Location> getLocations() {
 		if (locations == null) {
 			locations = new EObjectContainmentEList<Location>(Location.class, this, PromisePackage.MISSION__LOCATIONS);
@@ -188,6 +193,7 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<EventAssignment> getEventassignment() {
 		if (eventassignment == null) {
 			eventassignment = new EObjectContainmentEList<EventAssignment>(EventAssignment.class, this, PromisePackage.MISSION__EVENTASSIGNMENT);

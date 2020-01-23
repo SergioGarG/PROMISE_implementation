@@ -296,6 +296,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         task=Tasks 
 	 *         (inputLocations+=[Location|EString] inputLocations+=[Location|EString]*)? 
 	 *         (inputAction+=[Action|EString] inputAction+=[Action|EString]*)? 
+	 *         (inputResource+=[Action|EString] inputResource+=[Action|EString]*)? 
 	 *         (stoppingEvent+=[Event|EString] stoppingEvent+=[Event|EString]*)?
 	 *     )
 	 */
@@ -488,6 +489,7 @@ public class PromiseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 * Constraint:
 	 *     (
 	 *         (events+=Event events+=Event*)? 
+	 *         (actions+=Action actions+=Action*)? 
 	 *         (actions+=Action actions+=Action*)? 
 	 *         robots+=Robot 
 	 *         robots+=Robot* 
